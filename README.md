@@ -10,27 +10,47 @@
 
 ###Association
 
-##creditcardテーブル
+##profilesテーブル
 |Column|Type|Option|
 |------|----|------|
-|token|text|
+|text|text|
+|last_name|string|null:false|
+|first_name|string|null:false|
+|last_name_kana|string|null:false|
+|first_name_kane|string|null:false|
+|birth_year|string|null:false|
+|birth_month|string|null:false|
+|birth_day|string|null:false|
+|zipcode|string|null:false|
+|prefecture|string|null:false|
+|city|string|null:false|
+|district|string|null:false|
+|building|string|null:false|
 |user_id|integer|null:false, foreign_key:true|
 
 ###Association
 
 
-##sns_credentialsテーブル
+##products
 |Column|Type|Option|
 |------|----|------|
-|token|text|
-|uid|string|
-|provider|integer|
+|name|string|null:false|
+|category|string|null:false|
+|brand|string|null:false|
+|state|string|null:false|
+|postage|string|null:false|
+|shipping_method|string|null:false|
+|region|string|null:false|
+|shipping_data|string|null:false|
+|user_id|integer|null:false, foreign_key:true|
+|seller_id|integer|null:false, foreign_key:true|
+|buyer_id|integer|null:false, foreign_key:true|
 
 ###Association
 
-
-##profile
+##comments
 |Column|Type|Option|
 |------|----|------|
-|content|text|
-|
+|contentext|
+|user_id|integer|null:false, foreign_key:true|
+|product_id|integer|null:false, foreign_key:true|
