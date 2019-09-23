@@ -15,6 +15,7 @@
 
 
 ##profilesテーブル
+
 |Column|Type|Option|
 |------|----|------|
 |text|text|
@@ -37,6 +38,7 @@
 
 
 ##products
+
 |Column|Type|Option|
 |------|----|------|
 |name|string|null:false|
@@ -51,11 +53,12 @@
 |seller_id|integer|null:false, foreign_key:true|
 |buyer_id|integer|null:false, foreign_key:true|
 
-###Association
+###
 - belongs_to :user
 - has_many :comments
 
 ##comments
+
 |Column|Type|Option|
 |------|----|------|
 |contentext|
