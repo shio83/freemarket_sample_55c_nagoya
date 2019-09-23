@@ -73,4 +73,4 @@
 |zipcode|string|null:false|
 
 ###Association
-- belongs_to :profiles
+- belongs_to :profile
