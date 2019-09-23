@@ -69,6 +69,7 @@ gem 'erb2haml'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn', '5.4.1'
