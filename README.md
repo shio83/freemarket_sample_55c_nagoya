@@ -9,6 +9,10 @@
 |password|string|null:false|
 
 ###Association
+- belongs_to :profile
+- has_many :comments
+
+
 
 ##profilesテーブル
 |Column|Type|Option|
@@ -17,7 +21,7 @@
 |last_name|string|null:false|
 |first_name|string|null:false|
 |last_name_kana|string|null:false|
-|first_name_kane|string|null:false|
+|first_name_kana|string|null:false|
 |birth_year|string|null:false|
 |birth_month|string|null:false|
 |birth_day|string|null:false|
@@ -29,6 +33,7 @@
 |user_id|integer|null:false, foreign_key:true|
 
 ###Association
+- belongs_to :user
 
 
 ##products
@@ -47,6 +52,8 @@
 |buyer_id|integer|null:false, foreign_key:true|
 
 ###Association
+- belongs_to :user
+- has_many :comments
 
 ##comments
 |Column|Type|Option|
@@ -54,3 +61,6 @@
 |contentext|
 |user_id|integer|null:false, foreign_key:true|
 |product_id|integer|null:false, foreign_key:true|
+
+###Association
+- belongs_to :user
