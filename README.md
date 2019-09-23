@@ -23,10 +23,6 @@
 |first_name|string|null:false|
 |last_name_kana|string|null:false|
 |first_name_kana|string|null:false|
-|birth_year|string|null:false|
-|birth_month|string|null:false|
-|birth_day|string|null:false|
-|zipcode|string|null:false|
 |prefecture|string|null:false|
 |city|string|null:false|
 |district|string|null:false|
@@ -35,9 +31,10 @@
 
 ###Association
 - belongs_to :user
+- belongs_to :addres
 
 
-##products
+##productsテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -57,7 +54,7 @@
 - belongs_to :user
 - has_many :comments
 
-##comments
+##commentsテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -67,3 +64,13 @@
 
 ###Association
 - belongs_to :user
+
+##addresテーブル
+
+|birth_year|string|null:false|
+|birth_month|string|null:false|
+|birth_day|string|null:false|
+|zipcode|string|null:false|
+
+###Association
+- belongs_to :profiles
