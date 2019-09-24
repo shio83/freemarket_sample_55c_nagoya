@@ -1,6 +1,6 @@
 # freemarket_sample_55c_nagoya
 
-##usersテーブル
+## usersテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -8,13 +8,15 @@
 |email|string|null:false, unique:true|
 |password|string|null:false|
 
-###Association
-- belongs_to :profile
+### Association
+
+- has_one  :profile
 - has_many :comments
+- has_one  :seller
+- has_one  :buyer
 
 
-
-##profilesテーブル
+## profilesテーブル
 
 |Column|Type|Option|
 |------|----|------|
@@ -28,49 +30,156 @@
 |district|string|null:false|
 |building|string|null:false|
 |user_id|integer|null:false, foreign_key:true|
+|addres_id|string|null:false, foreign_key:true|
 
-###Association
+### Association
+
 - belongs_to :user
 - belongs_to :addres
 
 
-##productsテーブル
+## productsテーブル
 
 |Column|Type|Option|
 |------|----|------|
 |name|string|null:false|
-|category|string|null:false|
-|brand|string|null:false|
-|state|string|null:false|
-|postage|string|null:false|
-|shipping_method|string|null:false|
-|region|string|null:false|
-|shipping_data|string|null:false|
+|category_id|integer|null:false, foreign_key:true|
+|brand_id|integer|null:false, foreign_key:true|
+|state_id|integer|null:false, foreign_key:true|
+|postage_id|integer|null:false, foreign_key:true|
+|shipping_id|integer|null:false, foreign_key:true|
+|region_id|integer|null:false, foreign_key:true|
 |user_id|integer|null:false, foreign_key:true|
 |seller_id|integer|null:false, foreign_key:true|
 |buyer_id|integer|null:false, foreign_key:true|
 
-###
+### Association
 - belongs_to :user
-- has_many :comments
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :state
+- belongs_to :postage
+- belongs_to :shipping
+- belongs_to :region
+- belongs_to :seller
+- belongs_to :buyer
+- has_many   :comments
 
-##commentsテーブル
+
+## commentsテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|contentext|
+|content|text|
 |user_id|integer|null:false, foreign_key:true|
 |product_id|integer|null:false, foreign_key:true|
 
-###Association
-- belongs_to :user
+### Association
 
-##addresテーブル
+- belongs_to :user
+- belongs_to :products
+
+
+## addresテーブル
 
 |birth_year|string|null:false|
 |birth_month|string|null:false|
 |birth_day|string|null:false|
 |zipcode|string|null:false|
 
-###Association
-- belongs_to :profile
+### Association
+
+- has_one :profile
+
+
+## sellersテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+|user_id|integer|null:false|
+
+### Association
+
+- belongs_to :user
+- has_one    :product
+
+
+## buyersテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+|user_id|integer|null:false|
+
+### Association
+
+- belongs_to :user
+- has_one    :product
+
+
+## categorysテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+
+### Association
+
+- has_one :product
+
+
+## brandsテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+
+### Association
+
+- has_one :product
+
+
+## statesテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+
+### Association
+
+- has_one :product
+
+
+## postagesテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+
+### Association
+
+- has_one :product
+
+
+## shippingsテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+|date|string|null:false|
+
+### Association
+
+- has_one :product
+
+
+## regionsテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false|
+
+### Association
+
+- has_one :product
