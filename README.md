@@ -30,12 +30,11 @@
 |district|string|null:false|
 |building|string|null:false|
 |user_id|integer|null:false, foreign_key:true|
-|addres_id|string|null:false, foreign_key:true|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :addres
+- has_one    :addres
 
 
 ## productsテーブル
@@ -43,26 +42,24 @@
 |Column|Type|Option|
 |------|----|------|
 |name|string|null:false|
-|category_id|integer|null:false, foreign_key:true|
-|brand_id|integer|null:false, foreign_key:true|
-|state_id|integer|null:false, foreign_key:true|
-|postage_id|integer|null:false, foreign_key:true|
-|shipping_id|integer|null:false, foreign_key:true|
-|region_id|integer|null:false, foreign_key:true|
+|description|text|null:false|
+|state|integer|null:false|
+|postage|integer|null:false|
+|region|integer|null:false|
+|shipping|integer|null:false|
+|brand|integer|null:false|
+|price|stirng|null:false|
 |user_id|integer|null:false, foreign_key:true|
 |seller_id|integer|null:false, foreign_key:true|
 |buyer_id|integer|null:false, foreign_key:true|
+|category_id|integer|null:false, foreign_key|
 
 ### Association
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
-- belongs_to :state
-- belongs_to :postage
-- belongs_to :shipping
-- belongs_to :region
+- belongs_tp :category
 - belongs_to :seller
 - belongs_to :buyer
+- has_many    :image
 - has_many   :comments
 
 
@@ -86,10 +83,11 @@
 |birth_month|string|null:false|
 |birth_day|string|null:false|
 |zipcode|string|null:false|
+|profile_id|integer|null:false, foreign_key:true|
 
 ### Association
 
-- has_one :profile
+- belongs_to :profile
 
 
 ## sellersテーブル
@@ -117,69 +115,26 @@
 - belongs_to :user
 - has_one    :product
 
-
-## categorysテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-
-### Association
-
-- has_one :product
-
-
-## brandsテーブル
+## categoriesテーブル
 
 |Column|Type|Option|
 |------|----|------|
+|id|integer|null:false|
 |name|string|null:false|
+|ancesty|integer|nullfalse|
 
 ### Association
 
-- has_one :product
+- has_many :products
 
 
-## statesテーブル
+## imagesテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|null:false|
+|url|string|null:false|
+|product_id|integer|null:false, foreing_key:ktrue|
 
 ### Association
 
-- has_one :product
-
-
-## postagesテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-
-### Association
-
-- has_one :product
-
-
-## shippingsテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-|date|string|null:false|
-
-### Association
-
-- has_one :product
-
-
-## regionsテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-
-### Association
-
-- has_one :product
+- has_many :products
