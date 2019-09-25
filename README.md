@@ -14,6 +14,7 @@
 - has_many :comments
 - has_one  :seller
 - has_one  :buyer
+- has_one  :addres
 
 
 ## profilesテーブル
@@ -59,7 +60,7 @@
 - belongs_tp :category
 - belongs_to :seller
 - belongs_to :buyer
-- has_many    :image
+- has_many    :images
 - has_many   :comments
 
 
@@ -83,11 +84,11 @@
 |birth_month|string|null:false|
 |birth_day|string|null:false|
 |zipcode|string|null:false|
-|profile_id|integer|null:false, foreign_key:true|
+|user_id|integer|null:false, foreign_key:true|
 
 ### Association
 
-- belongs_to :profile
+- belongs_to : user
 
 
 ## sellersテーブル
