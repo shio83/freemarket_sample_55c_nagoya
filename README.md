@@ -10,12 +10,12 @@
 
 ### Association
 
-- has_one  :profile
-- has_many :comments
-- has_one  :seller
-- has_one  :buyer
-- has_one  :addres
-
+- has_one     :profile, dependent: :destroy
+- has_many    :comments, dependent: :destroy
+- has_one     :seller
+- has_one     :buyer
+- has_one     :addres, dependent: :destroy
+- belongs_to  :like, dependent: :destroy
 
 ## profilesテーブル
 
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one    :addres
+- has_one    :addres, dependent: :destroy
 
 
 ## productsテーブル
@@ -57,12 +57,12 @@
 
 ### Association
 - belongs_to :user
-- belongs_tp :category
+- belongs_tp :category, dependent: :destroy
 - belongs_to :seller
 - belongs_to :buyer
-- has_many    :images
-- has_many   :comments
-
+- has_many   :images, dependent: :destroy
+- has_many   :comments, dependent: :destroy
+- belongs_to :like, dependent: :destroy
 
 ## commentsテーブル
 
@@ -138,4 +138,16 @@
 
 ### Association
 
+- has_many :products
+
+## likesテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null:false, foreign_key|
+|product_id|integer|null:false, foreign_key|
+
+### Association
+
+- has_many :users
 - has_many :products
