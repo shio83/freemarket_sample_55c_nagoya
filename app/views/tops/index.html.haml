@@ -2,6 +2,8 @@
   .body__next
     .body__next--top
       .body__next--top--header
+        = render partial: 'header'
       .body__next--top--heading
-      .body__next--top--category
-      .body__next--top--items
+        = render partial: 'heading'
+        .body__next--top--heading--category
+        .body__next--top--heading--items
