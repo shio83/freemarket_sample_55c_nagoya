@@ -1,5 +1,5 @@
 # freemarket_sample_55c_nagoya
- 
+
 ## usersテーブル
 
 |Column|Type|Option|
