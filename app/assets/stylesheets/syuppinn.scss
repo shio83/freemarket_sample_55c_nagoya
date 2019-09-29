@@ -1,0 +1,29 @@
+.camera {
+  color: red;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #ea352b;
+  position: fixed;
+  bottom: 30px;
+  right : 32px;
+  text-align: center;
+  z-index: 1;
+  & a {
+    text-decoration: none;
+  }
+  .btn {
+    &__div {
+      color: white;
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .icon {
+      padding-top: 10px;
+      font-size: 60px;
+      color: white;
+    }
+  }
+}
+
