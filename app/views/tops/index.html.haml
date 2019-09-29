@@ -2,15 +2,15 @@
   .body__next
     = render partial: 'layouts/syuppinn'
     .body__next--top
-      .body__next--top--header
-        = render partial: 'header'
+      .body__next--top--head
+        = render partial: 'tops/header/head'
       .body__next--top--heading
         = render partial: 'heading'
         .body__next--top--heading--ave
           = render partial: 'ave'
         .body__next--top--heading--category
-          = render partial: 'category'
+          = render partial: 'tops/items/category'
         .body__next--top--heading--items
-          = render partial: 'items'
+          = render partial: 'tops/items/items'
         .body__next--top--header--bottom
           = render partial: 'bottom'
