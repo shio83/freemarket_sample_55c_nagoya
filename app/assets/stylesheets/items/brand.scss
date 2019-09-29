@@ -1,7 +1,3 @@
-*{
-  box-sizing: border-box;
-}
-
 .brand{
   position: relative;
   height:171px;
@@ -34,7 +30,7 @@
 
     &--shane{
       height: 30px;
-      width: 102px;
+      width: 92px;
       background-color: #EEEEEE;
       border-radius: 20px;
       justify-content: center;
@@ -50,10 +46,11 @@
 
     &--rui{
       height: 30px;
-      width: 74px;
+      width: 122px;
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px 0 10px;
+
       &--text{
         font-weight: bold;
         text-align: center;
@@ -63,7 +60,7 @@
 
     &--sup{
       height: 30px;
-      width: 172px;
+      width: 122px;
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
@@ -76,7 +73,7 @@
 
     &--nike{
       height: 30px;
-      width: 200px;
+      width: 80px;
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
