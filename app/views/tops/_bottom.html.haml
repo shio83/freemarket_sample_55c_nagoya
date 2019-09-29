@@ -1,0 +1,94 @@
+.bottom
+  .bottom-head
+    .head-box
+      .head-box-left
+        %h2 スマホでかんたんフリマアプリ
+        %p#font  今すぐ無料ダウンロード !
+        .head-box-left__logo
+          = image_tag 'mercari_icon.png', size: "64x64"
+          %ul.head-box-left__logo__app
+            %li
+              = link_to image_tag("app-store.svg"), "#"
+            %li
+              = link_to image_tag("google-play.svg"), "#"
+      .head-box-right
+        = image_tag "download_content_pc.png"
+  .bottom-mid
+    .clearfix
+      .clearfix__sell#first-child
+        %h2.footer-header メルカリについて
+        %ul
+          %li.child
+            = link_to "会社概要（運営会社)","#"
+          %li.child
+            = link_to "採用情報", "#"
+          %li.child
+            = link_to "プレスリリース","#"
+          %li.child
+            = link_to "公式ブログ", "#"
+          %li.child
+            = link_to "メルカリロゴ利用ガイドライン"
+          %li.font-awesome
+            = link_to "#" do
+              =fa_icon 'twitter', class: "logo" 
+          %li.font-awesome
+            = link_to "#" do
+              = fa_icon 'facebook-square', class: "logo"
+      .clearfix__sell
+        %h2.footer-header ヘルプ＆ガイド
+        %ul
+          %li.child
+            = link_to "メルカリガイド","#"
+          %li.child
+            = link_to "らくらくメルカリ便", "#"
+          %li.child
+            = link_to "ゆうゆうメルカリ便","#"
+          %li.child
+            = link_to "大型メルカリ便", "#"
+          %li.child
+            = link_to "車体取引ガイド", "#"
+          %li.child
+            = link_to "メルカリあんしん・あんぜん宣言！", "#"
+          %li.child
+            = link_to "偽ブランドの品撲滅への取り組み", "#"
+          %li.child
+            = link_to "メルカリボックス", "#"
+      .clearfix__sell.double
+        %h2.footer-header#header プライバシーと利用規約
+        .inner-sell
+          %ul
+            %li.child
+              = link_to "プライバシーポリシー","#"
+            %li.child
+              = link_to "メルカリ利用規約", "#"
+            %li.child
+              = link_to "あんしんスマホサポート制度に関する利用特約","#"
+            %li.child
+              = link_to "コンプライアンスポリシー", "#"
+        .inner-sell
+          %ul
+            %li.child
+              = link_to "個人データの安全管理に係る基本方針","#"
+            %li.child
+              = link_to "特定商取引に関する表記", "#"
+            %li.child
+              = link_to "資金決済法に基づく表示","#"
+            %li.child
+              = link_to "法令順守と犯罪抑止のために"
+      .clearfix__sell.country
+        %h2.footer-header 国
+        %ul
+          %li.child
+            = link_to "日本","#"
+          %li.child
+            = link_to "Unaited States", "#"
+          %li.child
+    .bottom-mid__footer
+      .mercari-logo
+        = link_to "#" do
+          = image_tag"logo.svg", size: "136x36"
+      .message 
+        %small © 2019 mercari
+ 
+
+
