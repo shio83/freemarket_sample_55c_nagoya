@@ -2,9 +2,53 @@
   box-sizing: border-box;
 }
 
-.body__next--top--heading--ave{
+.ave{
   height: 390px;
-  // width:1101px;
+  position: relative;
   background-color: red;
   margin: 0 auto;
+  background-image: image-url("camp.png");
+  display: flex;
+  justify-content: space-between;
+  &--left{
+  position: absolute;
+  top: 50%;
+  height: 46px;
+  width: 31px;
+  font-size: 46px;
+  margin: 0 0 0 60px;
+  color: #ffffff;
+  filter: drop-shadow(0px 0px 2px gray);
+  }
+  &--right{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 46px;
+  width: 31px;
+  font-size: 46px;
+  margin: 0 60px 0 0;
+  color: #ffffff;
+  filter: drop-shadow(0px 0px 2px gray);
+  }
+  &--circle{
+    height: 8px;
+    width: 28px;
+    display: flex;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    &--left{
+      font-size: 8px;
+      color: #ffffff;
+      filter: drop-shadow(0px 0px 1px gray);
+    }
+    &--right{
+      font-size: 8px;
+      color: #f7f7f7;
+    }
+  }
 }

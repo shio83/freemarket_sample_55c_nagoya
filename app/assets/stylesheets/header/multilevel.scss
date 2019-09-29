@@ -4,11 +4,14 @@
 
 
 .multilevel{
+  position: absolute;
+	bottom: 0;
   height: 44px;
   width: 1020px;
   background-color: #ffffff;
-  margin: 8px 0px 0px 0px;
+  padding: px 0px 0px 0px;
   display: flex;
+  align-items: center;
   &--categolize{
     height: 44px;
     width: 308px;
@@ -19,7 +22,7 @@
       width: 149px;
       background-color: #ffffff;
       display: flex;
-        align-items: center;
+      align-items: center;
       &--list{
         height: 12px;
         width: 20px;
@@ -65,6 +68,7 @@
         background-color: #ffffff;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         &--heart{
           height: 18px;
           width: 19px;
@@ -72,6 +76,7 @@
           background-color: #ffffff;
           display: flex;
           align-items: center;
+          font-size: 19px;
         }
         &--text{
           color: #51c8f9;
@@ -79,6 +84,7 @@
       }
     }
     &--information{
+      padding-left: 10px;
       height: 44px;
       width: 111px;
       background-color: #ffffff;
@@ -88,6 +94,7 @@
         background-color:#ffffff;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         &--bell{
           color:#51c8f9;
           height: 19px;
@@ -95,6 +102,7 @@
           background-color:#ffffff;
           display: flex;
           align-items: center;
+          font-size: 19px;
         }
       &--text{
         color: #51c8f9;
@@ -102,6 +110,7 @@
       }
     }
     &--things{
+      padding-left: 10px;
       height: 44px;
       width: 157px;
       background-color: #ffffff;
@@ -111,6 +120,7 @@
         background-color:#ffffff;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         &--check{
           color:#51c8f9;
           background-color:#ffffff;
@@ -118,10 +128,38 @@
           width: 21px;
           display: flex;
           align-items: center;
+          font-size: 19px;
         }
         &--text{
           color: #51c8f9;
         }
+      }
+    }
+    &--my{
+      padding-left: 10px;
+      height: 44px;
+      width: 125px;
+      background-color: #ffffff;
+      &--my2{
+      height: 32px;
+      width: 111px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &--photo{
+      height: 32px;
+      width: 32px;
+      border-radius: 50px;
+      background-image: image-url("gorira.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      }
+      &--text{
+        color: #51c8f9;
+      }
       }
     }
   }
