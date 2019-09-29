@@ -1,0 +1,62 @@
+@mixin box-side{
+  height: 252px;
+  width: 188px;
+  background-color: white;
+  float: left;
+  // box-shadow: 4px 4px;
+}
+
+@mixin box-top{
+  height: 252px;
+  width: 188px;
+  margin-left:20px;
+  background-color: white;
+  float: left;
+  // box-shadow: 4px 4px;
+}
+
+@mixin box-bottom{
+  height: 252px;
+  width: 188px;
+  margin:20px 0 0 20px;
+  background-color: white;
+  float: left;
+  // box-shadow: 4px 4px;
+}
+.content{
+  margin-top: 8px;
+  height: 524px;
+  width:100%;
+  background-color:#EEEEEE;
+  &__box1{
+    @include box-side;
+  }
+  &__box2{
+   @include box-top;
+  }
+  &__box3{
+    @include box-top;
+  }
+  &__box4{
+    @include box-top;
+  }
+  &__box5{
+    @include box-top;
+  }
+  &__box6{
+    @include box-side;
+    margin-top: 20px;
+  }
+  &__box7{
+    @include box-bottom;
+  }
+  &__box8{
+    @include box-bottom;
+  }
+  &__box9{
+    @include box-bottom;
+  }
+  &__box10{
+    @include box-bottom;
+    }
+}

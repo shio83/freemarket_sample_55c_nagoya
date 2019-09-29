@@ -1,0 +1,83 @@
+.brand{
+  position: relative;
+  height:171px;
+  width: 1440px;
+  background-color: white;
+  
+  &--jr{
+    position: absolute;
+    height: 39px;
+    width: 100%;
+    top: 56px;
+    background-color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+   
+  }
+  &--sen{
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    top: 110px;
+    background-color: white;
+    display: flex;
+   
+
+    &--shane{
+      height: 30px;
+      width: 102px;
+      background-color: #EEEEEE;
+      border-radius: 20px;
+      margin-left:420px;
+      
+      
+      &--text{
+        font-weight: bold;
+        text-align: center;
+        line-height: 30px;
+      }
+
+      }
+
+    &--rui{
+      height: 30px;
+      width: 74px;
+      background-color: #EEEEEE;
+      border-radius: 20px;
+      margin: 0 5px 0 10px;
+      &--text{
+        font-weight: bold;
+        text-align: center;
+        line-height: 30px;
+      }
+
+    }
+
+    &--sup{
+      height: 30px;
+      width: 172px;
+      background-color: #EEEEEE;
+      border-radius: 20px;
+      margin: 0 5px;
+      &--text{
+        font-weight: bold;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+
+    &--nike{
+      height: 30px;
+      width: 200px;
+      background-color: #EEEEEE;
+      border-radius: 20px;
+      margin: 0 5px;
+      &--text{
+        font-weight: bold;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+    }
+  }
