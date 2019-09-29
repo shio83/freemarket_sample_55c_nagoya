@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin  font {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  
+}
+
+@mixin font-second {
+  opacity: 0.7;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.bottom-head {
+  background-color: red;
+  background-image: image-url("download_bg_pc.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+.bottom {
+  // position: relative;
+}
+.head-box {
+  overflow: hidden;
+  width: 750px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  &-left {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    float: left;
+    & h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    #font {
+      font-size: 35px;
+      margin: 10px 0 0;
+    }
+    &__logo {
+      margin: 20px 0 0;
+      display: flex;
+      &__app {
+        display: flex;
+        margin: 0 0 0 24px;
+        justify-content: center;
+        align-items: center;
+        & li {
+          margin-right: 20px;
+
+        }
+        & li:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+  .head-box-right {
+    float: right;
+    & img {
+    width: 300px;
+    height: 100%;
+    }
+  }
+}
+
+.bottom-mid {
+  background-color: #212121;
+  padding: 0 20px 10px 20px;
+  color: #fff;
+  .clearfix {
+    width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+    &__sell {
+     width: 23%;
+     float: left;
+     margin-top: 18px;
+     padding-right: 40px;
+     .footer-header {
+       @include font;
+       display: inline-block;
+     }
+     .logo {
+       display: inline-block;
+       color: #1e90ff;
+       font-size: 37px;
+       opacity: 1; 
+     }
+     .child {
+       padding: 18px 0 0;
+     }
+     .font-awesome {
+       float: left;
+       margin: 16px 20px 0 0;
+     }
+    }
+    &__sell a {
+      @include font-second;
+    }
+    &__sell a:hover {
+      text-decoration: underline;
+    }
+    &__sell.double {
+      width: 42%;
+      #header {
+        width: 100%;
+      }
+      .inner-sell {
+        float: left;
+        padding-right: 10px;
+        width: 50%;
+      }
+    }
+    &__sell.country {
+      width: auto;
+    }
+  }
+  #first-child {
+    padding-right: 20px;
+    width: 20%;
+  }
+  &__footer {
+    width: 1020px;
+    margin: 30px auto 20px;
+    overflow: auto;
+    .mercari-logo:hover {
+      opacity: 0.7;
+    }
+    img {
+      float: left;
+    }
+    .message {
+      width: 745px;
+      float: left;
+      text-align: center;
+      line-height: 36px;
+    }
+  }
+}
+ 
