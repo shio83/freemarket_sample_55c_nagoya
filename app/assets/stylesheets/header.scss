@@ -1,5 +1,13 @@
-.body__next--top--header{
-    background-color: aqua;
+.header{
+    background-color: #ffffff;
     height: 100px;
-
+    width: 100vw;
+  &--jr{
+    background-color: #ffffff;
+    width: 1020px;
+    height: 100px;
+    box-sizing: border-box;
+    margin: 0px 210.5px;
+    padding: 0px 0px 0px;
   }
+}

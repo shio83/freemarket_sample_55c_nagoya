@@ -1,0 +1,123 @@
+.multilevel{
+  height: 44px;
+  width: 1020px;
+  background-color: #ffffff;
+  margin: 8px 0px 0px 0px;
+  display: flex;
+  &--categolize{
+    height: 44px;
+    width: 308px;
+    background-color: #ffffff;
+    display: flex;
+    &--categolyseach{
+      height: 36px;
+      width: 149px;
+      background-color: #ffffff;
+      display: flex;
+        align-items: center;
+      &--list{
+        height: 12px;
+        width: 20px;
+        color: red;
+        background-color: #ffffff;
+        display: inline-block;
+      }
+      &--text{
+        font-weight: bold;
+      }
+    }
+    &--brand{
+      height: 36px;
+      width: 139px;
+      margin-left: 9px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      &--tag{
+        height: 12px;
+        width: 20px;
+        color: red;
+        background-color: #ffffff;
+      }
+      &--text{
+        font-weight: bold;
+      }
+    }
+  }
+  &--renkon{
+    margin-left: 200px;
+    height: 44px;
+    width: 520px;
+    background-color: royalblue;
+    display: flex;
+    &--good{
+      height: 44px;
+      width: 127px;
+      background-color: #ffffff;
+      &--good2{
+        height: 32px;
+        width: 113px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        &--heart{
+          height: 18px;
+          width: 19px;
+          color: #51c8f9;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+        }
+        &--text{
+          color: #51c8f9;
+        }
+      }
+    }
+    &--information{
+      height: 44px;
+      width: 111px;
+      background-color: #ffffff;
+      &--information2{
+        height: 32px;
+        width: 83px;
+        background-color:#ffffff;
+        display: flex;
+        align-items: center;
+        &--bell{
+          color:#51c8f9;
+          height: 19px;
+          width: 17px;
+          background-color:#ffffff;
+          display: flex;
+          align-items: center;
+        }
+      &--text{
+        color: #51c8f9;
+      }
+      }
+    }
+    &--things{
+      height: 44px;
+      width: 157px;
+      background-color: #ffffff;
+      &--things2{
+        height: 32px;
+        width: 129px;
+        background-color:#ffffff;
+        display: flex;
+        align-items: center;
+        &--check{
+          color:#51c8f9;
+          background-color:#ffffff;
+          height: 16px;
+          width: 21px;
+          display: flex;
+          align-items: center;
+        }
+        &--text{
+          color: #51c8f9;
+        }
+      }
+    }
+  }
+}

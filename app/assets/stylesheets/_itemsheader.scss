@@ -1,0 +1,25 @@
+.header{
+  height: 33px;
+  width: 1020px;
+  display: flex;
+  margin-top: 50px;
+  &__left{
+    height: 100%;
+    width: 929px;
+    &--text{
+      font-weight: bold;
+      font-size: 24px;
+    }
+  }
+  &__right{
+    margin: 0 0 0 auto;
+    height: 33px;
+    width: 91px;
+    &--text{
+      font-size: 14px;
+      font-weight: bold;
+      color: rgb(0, 149, 238);
+      line-height: 33px;
+    }
+  }
+}
