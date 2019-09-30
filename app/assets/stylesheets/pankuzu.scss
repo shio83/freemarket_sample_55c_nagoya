@@ -1,0 +1,28 @@
+.pankuzu {
+  width: 100vw;
+  border-top: solid 1px #eee;
+  background-color: #fff;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,16);
+  ul {
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+    li {
+      display: inline-block;
+      font-size: 14px;
+    }
+  }
+  ul a {
+    text-decoration: none;
+    color: black;
+  }
+  li a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+  .allow {
+    font-weight: lighter;
+    color: gray;
+  }
+
+}
