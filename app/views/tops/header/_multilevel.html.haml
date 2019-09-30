@@ -31,6 +31,7 @@
           やることリスト
     .multilevel--renkon--my
       .multilevel--renkon--my--my2
-        .multilevel--renkon--my--my2--photo
-        .multilevel--renkon--my--my2--text
-          マイページ
+        = link_to users_index_path, class: "my2" do
+          .multilevel--renkon--my--my2--photo
+          .multilevel--renkon--my--my2--text
+            マイページ
