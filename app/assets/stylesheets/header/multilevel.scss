@@ -56,7 +56,7 @@
     margin-left: 200px;
     height: 44px;
     width: 520px;
-    background-color: royalblue;
+    background-color: #ffffff;
     display: flex;
     &--good{
       height: 44px;
@@ -72,16 +72,19 @@
         &--heart{
           height: 18px;
           width: 19px;
-          color: #51c8f9;
+          color: black;
           background-color: #ffffff;
           display: flex;
           align-items: center;
           font-size: 19px;
         }
         &--text{
-          color: #51c8f9;
+          color: black;
         }
       }
+      &--good2 a:hover{
+        color:royalblue;
+        }
     }
     &--information{
       padding-left: 10px;
@@ -96,7 +99,7 @@
         align-items: center;
         justify-content: space-between;
         &--bell{
-          color:#51c8f9;
+          color: black;
           height: 19px;
           width: 17px;
           background-color:#ffffff;
@@ -104,9 +107,12 @@
           align-items: center;
           font-size: 19px;
         }
-      &--text{
-        color: #51c8f9;
+        &--text{
+          color: black;
+        }
       }
+      &--information2:hover{
+        color:royalblue;
       }
     }
     &--things{
@@ -118,11 +124,12 @@
         height: 32px;
         width: 129px;
         background-color:#ffffff;
+        color:black;
         display: flex;
         align-items: center;
         justify-content: space-between;
         &--check{
-          color:#51c8f9;
+          color: black;
           background-color:#ffffff;
           height: 16px;
           width: 21px;
@@ -131,7 +138,7 @@
           font-size: 19px;
         }
         &--text{
-          color: #51c8f9;
+          color: black;
         }
       }
     }
@@ -145,8 +152,6 @@
       width: 111px;
       background-color: #ffffff;
       display: flex;
-      // align-items: center;
-      //justify-content: space-between;
       position: relative;
       &--photo{
       height: 32px;
@@ -164,9 +169,45 @@
         position: absolute;
         top: 10px;
         right: 0;
-        color: #51c8f9;
+        color: black;
       }
       }
     }
   }
+}
+.multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--list{
+  color:red;
+}
+.multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--text{
+  color: aqua;
+}
+.multilevel--categolize--brand:hover .multilevel--categolize--brand--tag{
+  color: red;
+}
+.multilevel--categolize--brand:hover .multilevel--categolize--brand--text{
+  color: aqua;
+}
+.multilevel--renkon--good--good2:hover .multilevel--renkon--good--good2--heart{
+  color: aqua;
+}
+.multilevel--renkon--good--good2:hover .multilevel--renkon--good--good2--text{
+  color: aqua;
+}
+.multilevel--renkon--information--information2:hover .multilevel--renkon--information--information2--bell{
+  color: aqua;
+}
+.multilevel--renkon--information--information2:hover .multilevel--renkon--information--information2--text{
+  color: aqua;
+}
+.multilevel--renkon--things--things2:hover .multilevel--renkon--things--things2--check{
+  color: aqua;
+}
+.multilevel--renkon--things--things2:hover .multilevel--renkon--things--things2--text{
+  color: aqua;
+}
+.multilevel--renkon--my--my2:hover .multilevel--renkon--my--my2--photo {
+  color: aqua;
+}
+.multilevel--renkon--my--my2:hover .multilevel--renkon--my--my2--text {
+  color: aqua;
 }
