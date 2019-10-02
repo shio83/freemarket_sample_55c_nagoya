@@ -1,2 +1,13 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+.body
+  .body__next
+    = render partial: 'layouts/syuppinn'
+    .head
+      = render partial: 'tops/header/head'
+    .bread-crumbs
+      = render partial: 'layouts/pankuzu'
+    .mypage
+      .mypage__right
+      .mypage__left
+        = render partial: 'users/side-bar'
+    .bottom
+      = render partial: 'tops/bottoms/bottom'
