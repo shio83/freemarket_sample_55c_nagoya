@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'users/index' 
+  get 'users/index' => "users#index" 
 
   # 本人情報の登録
-  get 'users/identification'
+  get 'users/identification' => "users#identification"
   # ログアウト画面
-  get 'users/logout'
+  get 'users/logout' => "users#logout"
   # ユーザークレジットカード登録ページ
-  get 'users/card'
+  get 'users/card' => "users#card"
 
   root 'tops#index'
 
