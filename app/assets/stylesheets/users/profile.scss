@@ -1,0 +1,90 @@
+.profile{
+  width: 1020px;
+  overflow: auto;
+  margin: 40px auto;
+  &__left{
+    width: 280px;
+    height: 1252px;
+    background-color: black;
+    float: left;
+
+  }
+  &__right{
+    height: 568px;
+    width: 700px;
+    background-color: aquamarine;
+    position: relative;
+    float: right;
+    background-image: image-url("profile.png");
+    background-position: center;
+    &--chapterhead{
+      height: 50px;
+      width: 100%;
+      background-color: #ffffff;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      padding-top: 13px;
+      text-align: center;
+    }
+    &--setting{
+      height: 60px;
+      width: 100%;
+      position: absolute;
+      bottom: 386px;
+      display: flex;
+      &--imgimg{
+        height: 60px;
+        width: 60px;
+        margin-left: 207px;
+        border-radius: 50px;
+        background-image: image-url("gorira.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      &--formform{
+        padding: 6px;
+        & input{
+          padding-left: 10px;
+          border: 1px solid grey;
+          border-radius: 5px;
+          line-height: 48px;
+          width: 220px;
+          font-size: 14px;
+          color: black;
+        }
+      }
+    }
+    &--cont{
+      height: 362px;
+      width: 100%;
+      background-color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      &--textform{
+        padding: 40px 16px 0 16px;
+        & textarea{
+          height: 216px;
+          width: 668px;
+          font-size: 16px;
+          padding: 10px;
+        }
+      }
+      &--editbutton{
+        & button{
+          height: 50px;
+          width: 668px;
+          color: #ffffff;
+          font-size: 14px;
+          background-color: #ea352d;
+          margin: 16px;
+          cursor: pointer;
+        }
+        & button:active{
+          color: blue;
+          background-color: grey;
+        }
+      }
+    }
+  }
+}

@@ -23,6 +23,7 @@
       background-color: #ffffff;
       display: flex;
       align-items: center;
+      cursor: pointer;
       &--list{
         height: 12px;
         width: 20px;
@@ -41,6 +42,7 @@
       background-color: #ffffff;
       display: flex;
       align-items: center;
+      cursor: pointer;
       &--tag{
         height: 12px;
         width: 20px;
@@ -69,6 +71,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
         &--heart{
           height: 18px;
           width: 19px;
@@ -98,6 +101,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
         &--bell{
           color: black;
           height: 19px;
@@ -128,6 +132,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
         &--check{
           color: black;
           background-color:#ffffff;
@@ -153,6 +158,7 @@
       background-color: #ffffff;
       display: flex;
       position: relative;
+      cursor: pointer;
       &--photo{
       height: 32px;
       width: 32px;
