@@ -47,32 +47,49 @@
     %h3.mypage__left--list--head メルペイ
     %ul
       %li.mypage__left--list--item
-        = link_to "売上・振込申請","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p
+            売上・振込申請
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "ポイント","#"
-        = fa_icon "chevron-right" , class: "allow"
-
+        = link_to "#" do
+          %p
+            ポイント
+            = fa_icon "chevron-right" , class: "allow"
     %h3.mypage__left--list--head 設定
     %ul
       %li.mypage__left--list--item
-        = link_to "プロフィール","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p
+            プロフィール
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "発送元・お届け先変更","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p
+            発送元・お届け先変更
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "お支払い方法", '/users/card'
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to users_card_path do
+          %p
+            お支払い方法 
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "メール/パスワード","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p
+            メール/パスワード
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "本人情報",""
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 
+            本人情報
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "電話番号の確認","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p
+            電話番号の確認
+            = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "ログアウト","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to users_logout_path do
+          %p 
+            ログアウト
+            = fa_icon "chevron-right" , class: "allow"
