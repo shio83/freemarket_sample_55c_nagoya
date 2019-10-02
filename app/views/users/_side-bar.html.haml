@@ -2,47 +2,61 @@
   .mypage__left--list
     %ul
       %li.mypage__left--list--item
-        = link_to "マイページ","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p マイページ
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "お知らせ","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p お知らせ
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "やることリスト","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p やることリスト
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "いいね！一覧","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p いいね！一覧
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "出品する","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 出品する
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "出品した商品 - 出品中","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 出品した商品 - 出品中
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "出品した商品 - 取引中","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 出品した商品 - 取引中
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "出品した商品 - 売却済み","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 出品した商品 - 売却済み
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "購入した商品 - 取引中","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 購入した商品 - 取引中
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "購入した商品 - 過去の取引","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 購入した商品 - 過去の取引
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "ニュース一覧","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p ニュース一覧
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "評価一覧","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p 評価一覧
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "ガイド","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p ガイド
+          = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "お問い合わせ","#"
-        = fa_icon "chevron-right" , class: "allow"
+        = link_to "#" do
+          %p お問い合わせ
+          = fa_icon "chevron-right" , class: "allow"
 
     %h3.mypage__left--list--head メルペイ
     %ul
@@ -74,5 +88,5 @@
         = link_to "電話番号の確認","#"
         = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "ログアウト","#"
+        = link_to "ログアウト", users_logout_path
         = fa_icon "chevron-right" , class: "allow"
