@@ -1,0 +1,29 @@
+.body
+  = render partial: 'tops/header/head'
+  = render partial: 'layouts/pankuzu'
+  = render partial: 'layouts/syuppinn'
+  .mid
+    .side
+    .main
+      %h2.user
+        支払い方法
+      .main-content
+        %section
+          .single-content
+            %h3 クレジットカード一覧
+          %ul
+            %li
+              %form.single-content{action: "users/card/delete", method: "post"}
+                .card-logo
+                  = image_tag "jcb.svg", size: "26x20"
+                .number 
+                  **************0000
+                .number.deadline
+                  12 / 30
+                %button{type: "submit", class: "remove-btn"}
+                  削除する
+        .payment-method
+          = link_to  "#"  do
+            %p お支払い方法について
+            = fa_icon "chevron-right"  
+  = render partial: 'tops/bottoms/bottom'
