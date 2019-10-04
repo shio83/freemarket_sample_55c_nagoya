@@ -1,10 +1,11 @@
 .iconform
   .iconform--icon
-    = link_to "#" do
+    = link_to root_path do
       = image_tag "mercari_logo.svg", size: "134x36"
-  .iconform--form
-    何かお探しですか？
-    .iconform--form--button
-      .iconform--form--button--button2
-        = fa_icon"search"
+  %form{action: "#"}
+    %input{type:"text", placeholder: "何かお探しですか？" , name:"keyword" , value:""}
+    %button{type: "submit"}
+      %i.fa.fa-search
+
+       
       
