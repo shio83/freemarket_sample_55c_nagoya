@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/profile'
   get 'users/index' => "users#index" 
+  
 
   # 本人情報の登録
   get 'users/identification' => "users#identification"
