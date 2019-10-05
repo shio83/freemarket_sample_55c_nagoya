@@ -1,6 +1,6 @@
 .mypage {
   width: 1020px;
-  margin: 40px auto 0;
+  margin: 40px auto 40px;
   overflow: auto;
   &__left { 
     float: left;
@@ -24,6 +24,7 @@
       &--item i{
         float: right;
         color: #EEE;
+        transition: all .2s ease-out;
       }
       &--head {
         margin: 40px 0 10px;
@@ -45,6 +46,6 @@
   i {
     color: #343434;
     position: relative;
-    left: 5px;
+    left: 3px;
   }
 }

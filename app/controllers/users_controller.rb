@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def index
   end
 
+  def profile
+  end
+  
   def  identification
     @user = User.new
   end
@@ -10,5 +13,8 @@ class UsersController < ApplicationController
   end
 
   def card
+  end
+
+  def exhibit
   end
 end

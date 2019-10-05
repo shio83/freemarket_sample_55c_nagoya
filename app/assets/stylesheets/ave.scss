@@ -3,11 +3,13 @@
 }
 
 .ave{
+  background-image:image-url("top-banner-camp.jpg");
+  background-size: auto;
+  background-position: center;
   height: 390px;
   position: relative;
   background-color: red;
   margin: 0 auto;
-  background-image: image-url("camp.png");
   display: flex;
   justify-content: space-between;
   &--left{

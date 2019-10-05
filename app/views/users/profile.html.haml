@@ -1,0 +1,25 @@
+.body
+  .body--next
+    = render partial: 'layouts/syuppinn'
+    .body__next--top--head
+      = render partial: 'tops/header/head'
+    .pankuzu
+      = render partial: 'layouts/pankuzu'
+    .profile
+      .profile__left
+        = render partial: 'users/side-bar'
+      .profile__right
+        .profile__right--chapterhead
+          プロフィール
+        .profile__right--setting
+          .profile__right--setting--imgimg
+          .profile__right--setting--formform
+            %input{type: "text",value: "okaponさん",name: "nickname",placeholder: "例)AYA★セール中"}
+        .profile__right--cont
+          .profile__right--cont--textform
+            %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          .profile__right--cont--editbutton
+            = link_to "#" do
+              %button.profile__right--cont--editbutton{:type => "submit"}変更する
+  .body__next--top--header--bottom
+    = render partial: 'tops/bottoms/bottom'
