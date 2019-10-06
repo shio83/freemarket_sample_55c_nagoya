@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
-  def index
+  def details
+  end
+
+  def exhibit
   end
 end
