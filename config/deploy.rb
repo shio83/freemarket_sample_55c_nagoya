@@ -85,4 +85,3 @@ set :default_env, {
 
 # secrets.yml用のシンボリックリンクを追加
 set :linked_files, %w{ config/secrets.yml }
-set :linked_files, %w{ config/database.yml }
