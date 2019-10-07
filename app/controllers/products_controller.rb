@@ -1,3 +1,7 @@
 class ProductsController < ApplicationController
-  def 
+  def details
+  end
+
+  def exhibit
+  end
 end
