@@ -7,6 +7,31 @@
       = render partial: 'layouts/pankuzu'
     .mypage
       .mypage__right
+        %section.user-icon
+          = link_to "#" do
+            %figure
+            %h2.bold gorigori
+            .mypage-number
+              .mypage-numuber__hyoka
+                評価
+                %span 3
+              .mypage-number__syuppin
+                出品数
+                %span 0
+
+        %section.mypage-tag-notification-todo
+          %ul.mypage-tabs
+            %li.mypage-tabs__left
+              お知らせ
+            %li.mypage-tabs__right
+              やることリスト
+        %section.tab-content
+          %ul
+            %li
+
+
+
+
       .mypage__left
         = render partial: 'users/side-bar'
     .bottom

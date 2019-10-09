@@ -31,15 +31,94 @@
         font-size: 16px;
         font-weight: bold;
       }
-      
     }
   }
+
   &__right {
     width: 700px;
-    height: auto;
+    height: 1000px;
     float: right;
+    background-color: lightblue;
+    .user-icon {
+      background-image: image-url("profile.png");
+      background-size: cover;
+      height: 200px;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+    .user-icon a {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .user-icon figure { 
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background-image: image-url("gorira.jpg");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    h2.bold {
+      margin: 8px 0 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .mypage-number {
+      margin: 8px 0 0 0;
+      overflow: hidden;
+      display: flex;
+      position: absolute;
+      right: 40%;
+      &__hyoka{
+        display: inline-block;
+        font-size: 14px;
+        float: left;
+      }
+      &__syuppin { 
+        margin: 0 0 0 16px;
+        float: left;
+      }
+      span {
+        font-weight: bold;
+        margin: 0 0 0 8px;
+      }
+    }
+
+    .mypage-tag-notification-todo{
+      .mypage-tabs {
+        overflow: hidden;
+        &__left {
+          width: 50%;
+          height: 74px;
+          background-color: lightgreen;
+          text-align: center;
+          float: left;
+        }
+        &__right {
+          width: 50%;
+          height: 74px;
+          background-color: lemonchiffon;
+          text-align: center;
+          float: left;
+        }
+      }
+    }
   }
 }
+
 
 .mypage__left--list--item:hover {
   background-color: #FAFAFA;
