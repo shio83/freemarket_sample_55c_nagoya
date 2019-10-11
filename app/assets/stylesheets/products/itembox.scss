@@ -1,0 +1,63 @@
+.itembox{
+  height: 330px;
+  width: 220px;
+  margin: 0 0 15px 0;
+  cursor: pointer;
+  &__photobox{
+    height: 220px;
+    width: 220px;
+    background-image: image-url("gorira.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  &__itembody{
+    height: 110px;
+    width: 220px;
+    padding: 16px;
+    background-color: #ffffff;
+    &--productsname{
+      overflow: hidden;
+      position: relative;
+      font-weight: 400;
+      height: 3em;
+      line-height: 1.5;
+      word-break: break-word;
+      white-space: normal;
+      &--smoke{
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 1.5em;
+        background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+        background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+      }
+    }
+    &--pricebox{
+      height: 17px;
+      width: 188px;
+      margin: 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &--price{
+        font-size: 17px;
+        font-weight: 600;
+      }
+      &--fonts{
+        height: 16px;
+        width: 36.55px;
+        display: flex;
+        align-items: center;
+        &--hearts{
+          height: 16px;
+          width: 17.44px;
+          font-size: 16px;
+          font-weight: bold;
+          color:#d8d8d8
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,325 @@
+.body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__itembox{
+    height: 100%;
+    width: 700px;
+    margin: 40px 370px 0;
+    padding: 24px 40px 40px;
+    background-color: #ffffff;
+    position: relative;
+    &--productname{
+      height: 100%;
+      width: 620px;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      
+    }
+    &--conteiner{
+       display: flex;
+       justify-content: space-between;
+      &--pic{
+        width: 300px;
+        padding-top: 20px;
+      }
+      .slider-for img{
+        height: 300px;
+        width: 300px
+        
+      }
+      .slider-nav img{
+        height: 60px;
+        width: 60px;
+        
+      }
+      .li.slick-slide:focus{
+        outline:none;
+      }
+    
+      &--table{
+        padding-top: 20px;
+        tr{
+          th{
+            display: flex;
+            align-items: center;
+            padding: 8px;
+          }
+          td{
+            font-weight: 300;
+            padding: 8px;
+          }
+          
+        }
+        
+      }
+    }
+      &--price{
+        width: 100%;
+        height: 50px;
+        margin: 28px 0 16px 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+        &--price2{
+          width: 142px;
+          font-size: 50px;
+          font-weight: 800;
+        }
+        &--price3{
+          font-size: 10px;
+          padding: 0 0 7px 7px; 
+        }
+        &--price4{
+          padding: 0 0 7px 7px; 
+        }
+      }
+    &--buybtn{
+      width: 100%;
+      height: 60px;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #ea352d;
+      border: none;
+      outline: 0;
+    }
+    &--detail{
+      height: 100%;
+      width: 620px;
+      padding: 18px 0 0;
+      font-size: 18px;
+      line-height:28px;
+    }
+    &--btnconteiner{
+      height: 33px;
+      margin: 16px 0 0;
+      display: flex;
+      position: relative;
+      &--left{
+        height: 33px;
+        width: 314.23px;
+        display: flex;
+        &--likebtn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 33px;
+          width: 118.27px;
+          background-color: #f5f5f5;
+          border-radius: 50px;
+          cursor: pointer;
+          &--heart{
+            height: 14px;
+            width: 15.24px;
+            font-weight: bold;
+            color:#d8d8d8;
+          }
+          &--text{
+            height: 14px;
+            width: 46.05px;
+            font-size: 14px;
+            margin: 1px 0 0 8px;
+          }
+          &--count{
+            height: 14px;
+            width: 6.97px;
+            margin: 1px 0 0 8px;
+          }
+        }
+        &--report{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 31px;
+          width: 179.97px;
+          background-color: #f5f5f5;
+          border-radius: 50px;
+          cursor: pointer;
+          margin:  0 0 0 16px;
+          padding: 8px 16px;
+          &--flag{
+            height: 14px;
+            width: 13.97px;
+            color:#333333;
+          }
+          &--text{
+            height: 14px;
+            width: 126px;
+            color:#333333;
+            margin: 1px 0 0 8px;
+          }
+        }
+      }
+      &--compliance{
+          position: absolute;
+          right: 0;
+          top: 7px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &--lock{
+            height: 14px;
+            width: 10.66px;
+            color: #0099e8;
+          }
+          &--text{
+            height: 14px;
+            color: #0099e8;
+            font-size: 14px;
+            margin: 1px 0 0 8px;
+          }
+      }
+    }
+  }
+  &__comment{
+    width: 700px;
+    padding: 24px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    &--text{
+      height: 44px;
+      width: 652px;
+      color: #333333;
+      font-size: 14px;
+      background-color: #fff6de;
+      padding: 8px;
+    }
+    &--textform{
+      // padding: 40px 16px 0 16px;
+      textarea{
+        height: 104px;
+        width: 652px;
+        font-size: 16px;
+        margin: 8px 0 0;
+        padding: 10px;
+        &:focus {
+          border: 1px solid #0099e8;
+          outline: 0;
+        }
+      }
+    }
+    &--commentbtn{
+      width: 100%;
+      height: 40px;
+      margin: 8px 0 0;
+      font-size: 14px;
+      cursor: pointer;
+      color: #ffffff;
+      background-color: #AAAAAA;
+      border: none;
+      outline: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__prevnext{
+    height: 14px;
+    width: 700px;
+    margin: 24px 370px 0;
+    display: flex;
+    justify-content:  space-between;
+    &--prev{
+      height: 14px;
+      width: 190px;
+      display: flex;
+      cursor: pointer;
+      &--icon{
+        height: 14px;
+        width: 8.66px;
+        color: #0099e8;
+      }
+      &--text{
+        height: 18px;
+        width: 170px;
+        color: #0099e8;
+        padding: 0 0 0 5px;
+      }
+    }
+    &--next{
+      height: 14px;
+      width: 190px;
+      display: flex;
+      cursor: pointer;
+      &--text{
+        height: 18px;
+        width: 170px;
+        color: #0099e8;
+        padding: 0 5px 0 0;
+      }
+      &--icon{
+        height: 14px;
+        width: 8.66px;
+        color: #0099e8;
+      }
+    }
+  }
+  &__socialmedia{
+    height: 138px;
+    width: 700px;
+    background-color: #ffffff;
+    margin: 24px 370px;
+    padding: 32px 0 24px;
+    &--center{
+      height: 14px;
+      width: 700px;
+    }
+    &--socialmediabox{
+      width: 700px;
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: center;
+      &--facebook{
+        height: 44px;
+        width: 44px;
+        background-color: #385185;
+        cursor: pointer;
+        border-radius: 4px;
+        line-height: 44px;
+        display: flex;
+        justify-content: center;
+        &--facebook2{
+        font-size: 30px;
+        color: #ffffff;
+        }
+      }
+      &--twitter{
+        height: 44px;
+        width: 44px;
+        cursor: pointer;
+        background-color: #5d9dc9;
+        border-radius: 4px;
+        line-height: 44px;
+        display: flex;
+        justify-content: center;
+        margin: 0 10px;
+        &--twitter2{
+          font-size: 32px;
+          color:  #ffffff;
+        }
+      }
+      &--pinterest{
+        height: 44px;
+        width: 44px;
+        cursor: pointer;
+        background-color: #aa262a;
+        border-radius: 4px;
+        line-height: 44px;
+        display: flex;
+        justify-content: center;
+        &--pinterest2{
+          font-size: 20px;
+          color:#ffffff;
+        }
+      }
+    }
+  }
+
+}
