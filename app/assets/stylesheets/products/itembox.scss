@@ -3,6 +3,7 @@
   width: 220px;
   margin: 0 0 15px 0;
   cursor: pointer;
+  text-decoration: none;
   &__photobox{
     height: 220px;
     width: 220px;
@@ -60,4 +61,7 @@
       }
     }
   }
+}
+a{
+color: #333333;
 }
