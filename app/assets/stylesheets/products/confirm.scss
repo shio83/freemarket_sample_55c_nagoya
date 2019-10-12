@@ -1,0 +1,215 @@
+.body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__next{
+    height: 128px;
+  }
+  &__singlemain{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+    &--container{
+      height: 100%;
+      width: 700px;
+      background-color: #ffffff;
+      &--confirm{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px #f5f5f5;
+        height: 65px;
+        width: 700px;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 16px;
+        margin: 0 0 24px 0;
+      }
+      &--confirmbox{
+        height: 100%;
+        width: 320px;
+        margin: 0 auto;
+        &--products{
+          height: 64px;
+          width: 100%;
+          cursor: pointer;
+          display: flex;
+          &--photo{
+            height: 64px;
+            width: 64px;
+            background-image: image-url("gorira.jpg");
+            background-size: cover;
+            background-position: center;
+          }
+          &--itemname{
+            height: 64px;
+            width: 240px;
+            margin: 0 0 0 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: bold;
+          }
+        }
+        &--money{
+          height: 33px;
+          width: 320px;
+          margin: 8px 0 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &--moneybox{
+            font-size: 22px;
+            font-weight: 800;
+          }
+          &--postage{
+            height: 21px;
+            width: 56px;
+            margin: 0 0 0 8px;
+            padding: 5px 0 0;
+          }
+        }
+        &--point{
+          height: 48px;
+          width: 320px;
+          padding: 16px;
+          border: 1px solid #ccc;
+          background-color: #ccc;
+          display: flex;
+          justify-content: center;
+          margin: 16px 0 5px 0;
+        }
+        &--price{
+          height: 60px;
+          width: 320px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0 0 8px 0;
+          &--left{
+            font-size: 18px;
+            font-weight: 800;
+          }
+          &--right{
+            font-size: 28px;
+            font-weight: 800;
+          }
+        }
+        &--buybtn{
+          height: 50px;
+          width: 320px;
+          background-color: #ea352d;
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: 800;
+          border: none;
+          cursor: pointer;
+        }
+      }
+      &--userinfo{
+        height: 100%;
+        width: 700px;
+        margin: 40px 0 0;
+        padding: 24px 87.5px 0;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        &--inner{
+          height: 100%;
+          width: 320px;
+          &--shipping{
+            height: 14px;
+            width: 320px;
+            font-size: 14px;
+            font-weight: 800;
+          }
+          &--address{
+            height: 76px;
+            width: 320px;
+            font-size: 14px;
+            color: #333333;
+            margin: 8px 0 0;
+            line-height: 1.4;
+          }
+          &--fix{
+            height: 15.59px;
+            width: 320px;
+            display: flex;
+            justify-content: flex-end;
+            &--text{
+              color: #0099e8;
+              height: 18px;
+              width: 55.45px;
+              cursor: pointer;
+            }
+            &--icon{
+              height: 10px;
+              width: 6.14px;
+              color: #0099e8;
+              margin: 0 0 0 6px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      &--payment{
+        height: 100%;
+        width: 700px;
+        margin: 40px 0 0;
+        padding: 24px 87.5px 40px;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        &--inner{
+          height: 95.59px;
+          width: 320px;
+          &--method{
+            height: 14px;
+            width: 320px;
+            font-size: 14px;
+            font-weight: 800;
+          }
+          &--text{
+            height: 38px;
+            width: 320px;
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            line-height: 1.4;
+          }
+          &--credit{
+            height: 20px;
+            width: 320px;
+          }
+          &--fix{
+            height: 15.59px;
+            width: 320px;
+            display: flex;
+            justify-content: flex-end;
+            &--text{
+              color: #0099e8;
+              height: 18px;
+              width: 55.45px;
+              cursor: pointer;
+            }
+            &--icon{
+              height: 10px;
+              width: 6.14px;
+              color: #0099e8;
+              margin: 0 0 0 6px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__bottom{
+    height: 220px;
+    width: 456px;
+    padding: 30px 0 0 0;
+    
+  }
+}
