@@ -74,7 +74,8 @@
       .body__itembox--price--price4
         送料込み
     .body__itembox--buybtn
-      %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
+      = link_to products_confirm_path, class: "buybtn"  do
+        %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
     .body__itembox--detail
       %p.body__itembox--detail
         ゴリラットケース レザーゴリラケース 大容量 
