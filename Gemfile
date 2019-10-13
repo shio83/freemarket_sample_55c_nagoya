@@ -71,7 +71,10 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'ancestry'
+gem "gretel"
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+

@@ -3,10 +3,113 @@
     = render partial: 'layouts/syuppinn'
     .head
       = render partial: 'tops/header/head'
-    .bread-crumbs
-      = render partial: 'layouts/pankuzu'
+    .pankuzu
+      - breadcrumb :user
+      = breadcrumbs separator: " &rsaquo; "
     .mypage
       .mypage__right
+
+        %section.user-icon
+          = link_to "#" do
+            %figure
+            %h2.bold sio
+            .mypage-number
+              .mypage-numuber__hyoka
+                評価
+                %span 3
+              .mypage-number__syuppin
+                出品数
+                %span 0
+
+        %section.mypage-tag-notification-todo
+          %ul.mypage-tabs
+            %li.mypage-tabs__left
+              お知らせ
+            %li.mypage-tabs__right
+              やることリスト
+
+        %section.tab-content
+          .tab-content__list
+            .tab-content__list--icon
+            .tab-content__list--textfield
+              .tab-content__list--textfield--text
+                《速報》今なら販売手数料が実質無料！出品が超お得♪
+              .tab-content__list--textfield--time
+                .tab-content__list--ttextfield--time--icon
+                  🕛
+                .tab-content__list--textfield--time--text
+                  1日前
+            = fa_icon "chevron-right" , class: "allow"
+
+          .tab-content__list
+            .tab-content__list--icon
+            .tab-content__list--textfield
+              .tab-content__list--textfield--text
+                《速報》今なら販売手数料が実質無料！出品が超超お得♪
+              .tab-content__list--textfield--time
+                .tab-content__list--ttextfield--time--icon
+                  🕛
+                .tab-content__list--textfield--time--text
+                  1日前
+            = fa_icon "chevron-right" , class: "allow"
+
+          .tab-content__list
+            .tab-content__list--icon
+            .tab-content__list--textfield
+              .tab-content__list--textfield--text
+                《速報》今なら販売手数料が実質無料！出品が超超超お得♪
+              .tab-content__list--textfield--time
+                .tab-content__list--ttextfield--time--icon
+                  🕛
+                .tab-content__list--textfield--time--text
+                  1日前
+            = fa_icon "chevron-right" , class: "allow"
+
+          .tab-content__list
+            .tab-content__list--icon
+            .tab-content__list--textfield
+              .tab-content__list--textfield--text
+                《速報》今なら販売手数料が実質無料！出品が超超超超お得♪
+              .tab-content__list--textfield--time
+                .tab-content__list--ttextfield--time--icon
+                  🕛
+                .tab-content__list--textfield--time--text
+                  1日前
+            = fa_icon "chevron-right" , class: "allow"
+
+          .tab-content__list
+            .tab-content__list--icon
+            .tab-content__list--textfield
+              .tab-content__list--textfield--text
+                《速報》今なら販売手数料が実質無料！出品が超超超超超お得♪
+              .tab-content__list--textfield--time
+                .tab-content__list--ttextfield--time--icon
+                  🕛
+                .tab-content__list--textfield--time--text
+                  1日前
+            = fa_icon "chevron-right" , class: "allow"
+
+          .tab-content__go-list
+            %a 一覧を見る
+
+
+        %section.bought-list
+          %h2.bought-list__top 購入した商品
+          %ul.bought-list__tab-head
+            %li.bought-list__tab-head--left
+              取引中
+            %li.bought-list__tab-head--right
+              過去の取引
+          .bought-list__trade-content
+            %ul.bought-list__trade-content--contents
+              %li.bought-list__trade-content--information
+                取引中の商品がありません
+
+
+
+
+
+
       .mypage__left
         = render partial: 'users/side-bar'
     .bottom
