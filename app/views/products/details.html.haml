@@ -159,6 +159,8 @@
     .body__itemconteiner--inner2
       = render partial: 'products/itemconteiner'
 .pankuzu
-  = render partial: 'layouts/pankuzu'
+  .pankuzu
+    - breadcrumb :details
+    = breadcrumbs separator: " &rsaquo; "
 .bottoms
   = render partial: 'tops/bottoms/bottom'
