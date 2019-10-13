@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/profile'
   get 'users/index' => "users#index" 
   
-  get 'items/exhibit' =>"items#exhibit"
+  get 'products/exhibit' =>"products#exhibit"
 
   # 本人情報の登録
   get 'users/identification' => "users#identification"
