@@ -13,8 +13,8 @@
 - has_many :comments, dependent: :destroy
 - has_many :products, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_many :trading_partners, dependent: :destroy
-- has_one :credit, dependent: :destroy
+- has_many :seller_buyers, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
 - has_one :profile, dependent: :destroy
 
 ## profilesテーブル
@@ -73,12 +73,12 @@
 
 ### Association
 
-- belongs_to :brand, dependent: :destroy
+- belongs_to :brand
 - belongs_to :user
-- belongs_to :category, dependent: :destroy
-- has_many   :images, dependent: :destroy
-- has_many   :comments, dependent: :destroy
-- has_many   :likes, dependent: :destroy
+- belongs_to :category
+- has_many   :images
+- has_many   :comments
+- has_many   :likes
 
 ## commentsテーブル
 
