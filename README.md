@@ -45,7 +45,7 @@
 
 |Column|Type|Option|
 |------|----|------|
-|authorization_code|string|null:false, unique: true|
+|authorization_token|string|null:false, unique: true|
 |security_code|string|null: false|
 |month|integer|null: false|
 |year|integer|null: false
