@@ -91,7 +91,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :products
+- belongs_to :product
 
 
 ## categoriesテーブル
@@ -116,7 +116,7 @@
 
 ### Association
 
-- belongs_to :products
+- belongs_to :product
 
 ## likesテーブル
 
@@ -128,7 +128,7 @@
 ### Association
 
 - belongs_to :users
-- belongs_to :products
+- belongs_to :product
 
 ## brandsテーブル
 
