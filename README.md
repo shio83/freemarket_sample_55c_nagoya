@@ -10,12 +10,12 @@
 
 ### Association
 
-- has_one     :profile, dependent: :destroy
-- has_many    :comments, dependent: :destroy
-- has_one     :seller
-- has_one     :buyer
-- has_one     :addres, dependent: :destroy
-- belongs_to  :like, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :products, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :trading_partners, dependent: :destroy
+- has_one :credit, dependent: :destroy
+- has_one :profile, dependent: :destroy
 
 ## profilesテーブル
 
@@ -26,17 +26,34 @@
 |first_name|string|null:false|
 |last_name_kana|string|null:false|
 |first_name_kana|string|null:false|
+|birth_year|string|null:false|
+|birth_month|string|null:false|
+|birth_day|string|null:false|
+|zipcode|string|null:false|
 |prefecture|string|null:false|
 |city|string|null:false|
-|district|string|null:false|
+|district|string|null:false| 
 |building|string|null:false|
-|user_id|integer|null:false, foreign_key:true|
+|phone_number|string|unique:true|
+|user_id|integer|null:false, index:true,foreign_key:true|
 
 ### Association
 
 - belongs_to :user
-- has_one    :addres, dependent: :destroy
 
+## credit_cardsテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|authorization_code|string|null:false, unique: true|
+|security_code|string|null: false|
+|month|integer|null: false|
+|year|integer|null: false
+|user_id|integer|null:false, index: true, foreign_key: true
+
+### Association
+
+- belongs_to :user
 
 ## productsテーブル
 
@@ -45,76 +62,37 @@
 |name|string|null:false|
 |description|text|null:false|
 |state|integer|null:false|
-|postage|integer|null:false|
-|region|integer|null:false|
-|shipping|integer|null:false|
-|brand|integer|null:false|
+|shipping_fee|integer|null:false|
+|shipping_region|intger|null:false|
+|shipping_date|integer|null:false|
 |price|stirng|null:false|
+|size|integer|null:false|
 |user_id|integer|null:false, foreign_key:true|
-|seller_id|integer|null:false, foreign_key:true|
-|buyer_id|integer|null:false, foreign_key:true|
 |category_id|integer|null:false, foreign_key|
+|brand_id|integer|null:false, foreign_key|
 
 ### Association
+
+- belongs_to :brand, dependent: :destroy
 - belongs_to :user
-- belongs_tp :category, dependent: :destroy
-- belongs_to :seller
-- belongs_to :buyer
+- belongs_to :category, dependent: :destroy
 - has_many   :images, dependent: :destroy
 - has_many   :comments, dependent: :destroy
-- belongs_to :like, dependent: :destroy
+- has_many   :likes, dependent: :destroy
 
 ## commentsテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|content|text|
-|user_id|integer|null:false, foreign_key:true|
-|product_id|integer|null:false, foreign_key:true|
+|text|text|
+|user_id|integer|null:false, foreign_key:true, index: true|
+|product_id|integer|null:false, foreign_key:true, index: true|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :products
 
-
-## addresテーブル
-
-|birth_year|string|null:false|
-|birth_month|string|null:false|
-|birth_day|string|null:false|
-|zipcode|string|null:false|
-|user_id|integer|null:false, foreign_key:true|
-
-### Association
-
-- belongs_to : user
-
-
-## sellersテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-|user_id|integer|null:false|
-
-### Association
-
-- belongs_to :user
-- has_one    :product
-
-
-## buyersテーブル
-
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-|user_id|integer|null:false|
-
-### Association
-
-- belongs_to :user
-- has_one    :product
 
 ## categoriesテーブル
 
@@ -138,16 +116,38 @@
 
 ### Association
 
-- has_many :products
+- belongs_to :products
 
 ## likesテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|user_id|integer|null:false, foreign_key|
-|product_id|integer|null:false, foreign_key|
+|user_id|integer|null:false, foreign_key, index: true|
+|product_id|integer|null:false, foreign_key, index: true|
 
 ### Association
 
-- has_many :users
+- belongs_to :users
+- belongs_to :products
+
+## brandsテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|name|string|null:false, unique:true|
+
+### Association
+
 - has_many :products
+
+## seller_buyerテーブル
+
+|Column|Type|Option|
+|------|----|------|
+|buyer_id|integer|null: false, index: true, foreign_key: { to_table: :users }|
+|seller_id|integer|null: false, index: true, foreign_key: { to_table: :users }|
+
+### Association
+
+- belongs_to :buyer_id, class_name: "User"
+- belongs_to :seller_id, class_name: "User"
