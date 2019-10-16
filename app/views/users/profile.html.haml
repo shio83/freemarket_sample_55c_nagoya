@@ -4,7 +4,8 @@
     .body__next--top--head
       = render partial: 'tops/header/head'
     .pankuzu
-      = render partial: 'layouts/pankuzu'
+      - breadcrumb :profile
+      = breadcrumbs separator: " &rsaquo; "
     .profile
       .profile__left
         = render partial: 'users/side-bar'

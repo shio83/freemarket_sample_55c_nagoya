@@ -2,6 +2,7 @@
   width: 1020px;
   margin: 40px auto 40px;
   overflow: auto;
+
   &__left { 
     float: left;
     width: 280px;
@@ -36,11 +37,10 @@
 
   &__right {
     width: 700px;
-    height: 1000px;
     float: right;
-    background-color: lightblue;
+    background-color: #F5F5F5;
     .user-icon {
-      background-image: image-url("profile.png");
+      background-image: image-url("profile2.jpg");
       background-size: cover;
       height: 200px;
       position: relative;
@@ -49,10 +49,11 @@
       display: flex;
       align-items: center;
     }
+
     .user-icon a {
       display: block;
       position: absolute;
-      top: 50%;
+      top: 43%;
       left: 0;
       right: 0;
       -webkit-transform: translate(0, -50%);
@@ -61,6 +62,7 @@
       text-decoration: none;
       cursor: pointer;
     }
+
     .user-icon figure { 
       height: 60px;
       width: 60px;
@@ -71,17 +73,18 @@
       overflow: hidden;
       margin: 0 auto;
     }
+
     h2.bold {
-      margin: 8px 0 0;
-      font-size: 14px;
-      font-weight: 600;
+      margin: 12px 0 0;
+      font-size: 13px;
+      font-weight: 550;
     }
     .mypage-number {
-      margin: 8px 0 0 0;
+      margin: 14px 0 0;
       overflow: hidden;
       display: flex;
       position: absolute;
-      right: 40%;
+      right: 41%;
       &__hyoka{
         display: inline-block;
         font-size: 14px;
@@ -103,16 +106,176 @@
         &__left {
           width: 50%;
           height: 74px;
-          background-color: lightgreen;
+          background-color: #FFF;
           text-align: center;
           float: left;
+          border-top: 2px solid #ea352d;
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          text-decoration: none;
+          touch-action: manipulation;
+          font-weight: bold;
         }
         &__right {
           width: 50%;
           height: 74px;
-          background-color: lemonchiffon;
+          background-color: #EEE;
           text-align: center;
           float: left;
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .tab-content{
+      background-color: #F5F5F5;
+      &__list{
+        width: 700px;
+        height: auto;
+        display: block;
+        min-height: 80px;
+        padding: 16px;
+        color: #333;
+        margin-bottom: 1px;
+        background-color: #FFF;
+        cursor: pointer;
+        position: relative;
+        &--icon{
+          background-image: image-url("profile_mercari_icon.png");
+          background-size: cover;
+          background-position: center;
+          height: 48px;
+          width: 48px;
+          background-color: #ffffff;
+          position: absolute;
+          cursor: pointer;
+        }
+        &--textfield{
+          margin: 0 40px 0 68px;
+          width: 580px;
+          &--text{
+            position: relative;
+            overflow: hidden;
+            display: block;
+            display: -webkit-box;
+            max-height: 4.4em;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            line-height: 1.5;
+          }
+          &--time{
+            display: flex;
+            color: #888;
+            &--icon{
+              margin: 0 8px 0 0;
+              display: inline-block;
+              float: right;
+              background-color: black;
+              height:16px;
+              weight: 16px;
+            }
+            &--text{
+              display: inline-block;
+              float: right;
+            }
+          }
+        }
+      }
+      &__list i{
+        float: right;
+        color: #333;
+        position: absolute;
+        top: 45%;
+        right: 15px;
+      }
+      &__go-list{
+        width: 700px;
+        height: auto;
+        display: block;
+        min-height: 80px;
+        padding: 16px;
+        color: #333;
+        background-color: #FFF;
+        position: relative;
+        a {
+          display: block;
+          height: 56px;
+          margin: 0 auto;
+          background: #eee;
+          color: #333;
+          line-height: 56px;
+          text-align: center;
+        }
+      }
+    }
+    
+    .bought-list {
+      margin: 40px 0 0;
+      background: #fff;
+      &__top{
+        padding: 0 16px 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+        display: block;
+        font-weight: bold;
+      }
+      &__tab-head{
+        background: #eee;
+        font-size: 16px;
+        line-height: 72px;
+        font-weight: bold;
+        text-align: center;
+        &--left{
+          border-top: 2px solid #ea352d;
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;    
+          float: left;
+          width: 50%;
+          background-color: #FFF;
+        }
+        &--right{
+          position: relative;
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+          float: left;
+          width: 50%;
+          background-color: #EEE;
+        }
+      }
+      &__trade-content {
+        height: 236px;
+        margin-top: 72px;
+        &--contents {
+          background-image: image-url("logo-gray-icon.svg");
+          background-repeat: no-repeat;
+          background-position: center 40px;
+          background-size: 78px 85px;
+          margin: 0 auto;
+          }
+        &--information{
+          padding: 160px 0 60px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 78px 85px;
+          text-align: center;
+          font-size: 16px;
+          color: #ccc;
+          font-weight: bold;
         }
       }
     }
@@ -120,7 +283,7 @@
 }
 
 
-.mypage__left--list--item:hover {
+.mypage__left--list--item:hover{
   background-color: #FAFAFA;
   i {
     color: #343434;
@@ -128,3 +291,8 @@
     left: 3px;
   }
 }
+
+.tab-content__list:hover {
+  background-color: #FAFAFA;
+}
+
