@@ -9,6 +9,8 @@
         %ul.slider-for
           %li 
             = image_tag "gorira.jpg"
+          %li 
+            = image_tag "gorira.jpg"
           %li
             = image_tag "google.jpg"
           %li
@@ -17,9 +19,9 @@
           %li.slick-slide
             = image_tag "gorira.jpg"
           %li.slick-slide
-            = image_tag "google.jpg"
+            = image_tag "gorira.jpg"
           %li.slick-slide
-            = image_tag "mercari_icon.png"
+            = image_tag "google.jpg"
           %li.slick-slide
             = image_tag "mercari_icon.png"
       .body__itembox--conteiner--table
@@ -124,6 +126,8 @@
         .body__itembox--btnconteiner--compliance--text
           あんしん、あんぜんへの取り組み
   .body__comment
+    .body__comment--commentbox
+      = render partial: 'products/commentbox'
     .body__comment--text
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .body__comment--textform
