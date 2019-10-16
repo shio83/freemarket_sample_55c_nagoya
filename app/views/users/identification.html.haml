@@ -16,8 +16,9 @@
           %br
           登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
         %p.right
-          = link_to  "本人確認書類のアップロードについて" , "#"
-          = fa_icon "chevron-right" , class: "chevron"
+          = link_to "#" do
+            本人確認書類のアップロードについて
+            = fa_icon "chevron-right" , class: "chevron"
         .form-group
           %label お名前
           %p 亜蛇懇愚

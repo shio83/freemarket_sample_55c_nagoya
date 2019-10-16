@@ -6,6 +6,11 @@ crumb :user do
   link "マイページ", users_index_path
 end
 
+crumb :details do
+  link "ゴリラ", users_index_path
+end
+
+
 crumb :logout do
   link "お知らせ" , ＃
   parent :user

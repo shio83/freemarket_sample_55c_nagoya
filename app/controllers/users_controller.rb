@@ -5,8 +5,14 @@ class UsersController < ApplicationController
   def profile
   end
   
+  def registration
+  end
+
+  def detail_confirmation
+  end
+
   def  identification
-    @user = User.new
+    
   end
 
   def logout 
@@ -16,5 +22,8 @@ class UsersController < ApplicationController
   end
 
   def exhibit
+  end
+
+  def create
   end
 end
