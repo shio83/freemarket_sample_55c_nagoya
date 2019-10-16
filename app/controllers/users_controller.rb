@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
   
   def  identification
-    @user = User.new
+    
   end
 
   def logout 
