@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
-
+  
   # 本人情報の登録
   get 'users/identification' => "users#identification"
   # ログアウト画面
