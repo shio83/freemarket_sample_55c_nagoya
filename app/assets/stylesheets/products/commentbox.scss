@@ -1,0 +1,66 @@
+.commentbox{
+  width: 652px;
+  // height: 200px;
+  margin: 0 0 48px 0;
+  &__textbox{
+    width: 652px;
+    // height: 150px;
+    min-height: 150px;
+    position: relative;
+    &--photobox{
+      img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50px;
+      display: inline-block
+    }
+  }
+    &--user{
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      right: 60px;
+      color:#ea352d;
+    }
+    &--commebody{
+      position: absolute;
+      top:25px;
+      width: 600px;
+      padding: 16px;
+      border-radius: 15px;
+      background-color: #FBF0E6;
+      line-height: 1.5;
+      word-break: break-all;
+      &--text{
+        width: 100%;
+      }
+      &--messageicon{
+        height: 22.09px;
+        width: 100%;
+        margin: 8px 0 0;
+        display: flex;
+        align-items: center;
+        &--icon{
+          height: 16px;
+          width: 16px;
+          color:#AAAAAA;
+        }
+        &--text{
+          color:#AAAAAA;
+        }
+      }
+    }
+    &--triangle{
+      height: 10px;
+      width: 10px;
+      font-size: 30px;
+      color: #FBF0E6;
+      position: absolute;
+      top: 28px;
+      right:45px;
+    } 
+  }
+}

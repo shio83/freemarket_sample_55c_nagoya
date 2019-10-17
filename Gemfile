@@ -73,6 +73,8 @@ gem 'kaminari'
 gem 'ancestry'
 gem "gretel"
 gem 'active_hash'
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

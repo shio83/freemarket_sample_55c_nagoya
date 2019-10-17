@@ -8,13 +8,17 @@ Rails.application.routes.draw do
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
-
+  
   # 本人情報の登録
   get 'users/identification' => "users#identification"
   # ログアウト画面
   get 'users/logout' => "users#logout"
   # ユーザークレジットカード登録ページ
   get 'users/card' => "users#card"
+  # 本人情報の新規登録
+  get 'users/registration' => "users#registration"
+  # 本人情報の新規登録_メールアドレス
+  get 'users/detail_confirmation' => "users#detail_confirmation"
 
   root 'tops#index'
 
