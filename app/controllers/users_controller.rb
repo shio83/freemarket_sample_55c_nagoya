@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def  identification
-    
+    @user = Profile.new()
   end
 
   def logout 
