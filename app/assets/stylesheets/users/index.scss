@@ -1,9 +1,16 @@
+.mypages{
+  background-color: #F5F5F5;
+
+}
+
 .mypage {
   width: 1020px;
-  margin: 40px auto 40px;
+  // margin: 40px auto 40px;
+  margin: auto;
+  padding: 40px 0;
   overflow: auto;
-
-  &__left { 
+  background-color: #F5F5F5;
+  &__left {
     float: left;
     width: 280px;
     margin: 0 40px 0 0;
@@ -325,9 +332,6 @@
           color: #ccc;
           font-weight: bold;
         }
-      }
-      .active {
-        display: block;
       }
       &__purchased-content {
         height: 236px;
