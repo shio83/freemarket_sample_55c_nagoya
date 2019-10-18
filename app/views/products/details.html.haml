@@ -1,5 +1,170 @@
 .body
   .body__next
-    .body__next--top
-      .header
-        = render partial: 'tops/header/head'
+    = render partial: 'tops/header/head'
+  .body__itembox
+    .body__itembox--productname
+      ＊新品＊男女兼用＊b one soul＊ダックデュード＊GORIRA
+    .body__itembox--conteiner
+      .body__itembox--conteiner--pic
+        %ul.slider-for
+          %li 
+            = image_tag "gorira.jpg"
+          %li 
+            = image_tag "gorira.jpg"
+          %li
+            = image_tag "google.jpg"
+          %li
+            = image_tag "mercari_icon.png"
+        %ul.slider-nav
+          %li.slick-slide
+            = image_tag "gorira.jpg"
+          %li.slick-slide
+            = image_tag "gorira.jpg"
+          %li.slick-slide
+            = image_tag "google.jpg"
+          %li.slick-slide
+            = image_tag "mercari_icon.png"
+      .body__itembox--conteiner--table
+        %table{:border => "1", :bordercolor => "#f5f5f5", :cellpadding => "5", :cellspacing => "0", :width => "300"}
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "70"}
+              %font{:size => "2"} 出品者
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "71"}
+              %font{:size => "2",:color => "blue"} 
+                = link_to "複数購入で10%off GORIRA","#"
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "73"}
+              %font{:size => "2"} カテゴリー
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "71"}
+              %font{:size => "2",:color => "blue"}
+                = link_to "メンズ","#"
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} ブランド
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} 商品の状態
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+              %font{:size => "2"} 新品、未使用
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} 配送料の負担
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+              %font{:size => "2"} 送料込み(出品者負担)
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} 配送の方法
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+              %font{:size => "2"} クリックポスト
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} 配送元地域
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+              %font{:size => "2"} 
+                = link_to "東京都","#"
+          %tr
+            %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
+              %font{:size => "2"} 発送日の目安
+            %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
+              %font{:size => "2"}1~2日で発送
+    .body__itembox--price
+      .body__itembox--price--price2
+        ¥ASK
+      .body__itembox--price--price3
+        (税込)
+      .body__itembox--price--price4
+        送料込み
+    .body__itembox--buybtn
+      = link_to products_confirm_path, class: "buybtn"  do
+        %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
+    .body__itembox--detail
+      %p.body__itembox--detail
+        ゴリラットケース レザーゴリラケース 大容量 
+        %br/
+        20本収納 ゴリラボックス 小型 携帯に便利 
+        %br/
+        ゴリラ箱 潰れ防止 防水 ファッションゴリラ
+        %br/
+        %br/
+        【ゴリラットケース】こちらのゴリラットケースはゴリラとラリゴを箱ご
+        %br/
+        と収納することができます。サイズ：100mm/65mm*27mm
+        %br/
+        【革調】ゴリラットパックは全体的に高級フルレザーを採用、レザーで高級
+        %br/
+        感あふれるケースなので、持ち歩いてもスタイル良く見えます。
+        %br/
+        【ゴリラケース】ゴリラを使用すると歯が散乱しにくいので、カバンの中で
+        %br/
+        も清潔に保つ事ができます。
+        %br/
+        【選べる人気の2色】­このゴリラットパックは2つの人気のある色で利用可能
+        %br/
+        です：高価で豪華なブラック、エレガントブライトブラウン、あなたはエレ
+        %br/
+        ゴリラ、スタイリッシュ、クール、カジュアル、ビジネス、そしてフォーマ
+        %br/
+        ルなスタイルから選ぶことができます。
+    .body__itembox--btnconteiner
+      .body__itembox--btnconteiner--left
+        .body__itembox--btnconteiner--left--likebtn
+          .body__itembox--btnconteiner--left--likebtn--heart
+            = fa_icon"heart-o"
+          .body__itembox--btnconteiner--left--likebtn--text
+            いいね!
+          .body__itembox--btnconteiner--left--likebtn--count
+            2
+        .body__itembox--btnconteiner--left--report
+          .body__itembox--btnconteiner--left--report--flag
+            = fa_icon"flag-o"
+          .body__itembox--btnconteiner--left--report--text
+            不適切な商品の報告
+      .body__itembox--btnconteiner--compliance
+        .body__itembox--btnconteiner--compliance--lock
+          = fa_icon"lock"
+        .body__itembox--btnconteiner--compliance--text
+          あんしん、あんぜんへの取り組み
+  .body__comment
+    .body__comment--commentbox
+      = render partial: 'products/commentbox'
+    .body__comment--text
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .body__comment--textform
+      %textarea.textarea-default{:type => "text",:name => "body"}
+    .body__comment--commentbtn
+      %button.body__comment--commentbtn{:type => "submit"}コメントする
+  .body__prevnext
+    .body__prevnext--prev
+      .body__prevnext--prev--icon
+        = fa_icon"chevron-left"
+      .body__prevnext--prev--text
+        文スト 中原中也 アクキー
+    .body__prevnext--next
+      .body__prevnext--next--text
+        古文単語マスター333
+      .body__prevnext--next--icon
+        = fa_icon"chevron-right"
+  .body__socialmedia
+    .body__socialmedia--center
+    .body__socialmedia--socialmediabox
+      .body__socialmedia--socialmediabox--facebook
+        .body__socialmedia--socialmediabox--facebook--facebook2
+          = fa_icon"facebook-square"
+      .body__socialmedia--socialmediabox--twitter
+        .body__socialmedia--socialmediabox--twitter--twitter2
+          = fa_icon"twitter"
+      .body__socialmedia--socialmediabox--pinterest
+        .body__socialmedia--socialmediabox--pinterest--pinterest2
+          = fa_icon"pinterest"
+  .body__itemconteiner
+    .body__itemconteiner--inner
+      = render partial: 'products/itemconteiner'
+    .body__itemconteiner--inner2
+      = render partial: 'products/itemconteiner'
+.pankuzu
+  .pankuzu
+    - breadcrumb :details
+    = breadcrumbs separator: " &rsaquo; "
+.bottoms
+  = render partial: 'tops/bottoms/bottom'

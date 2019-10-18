@@ -3,8 +3,9 @@
     = render partial: 'layouts/syuppinn'
     .head
       = render partial: 'tops/header/head'
-    .bread-crumbs
-      = render partial: 'layouts/pankuzu'
+    .pankuzu
+      - breadcrumb :user
+      = breadcrumbs separator: " &rsaquo; "
     .mypage
       .mypage__right
         .mypage__right--head

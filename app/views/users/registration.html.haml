@@ -1,0 +1,107 @@
+.us-body
+  .us-body__header
+    = render partial: 'users/us-body__header'
+    .progress-bar
+      .progress
+        .progress__item
+          .progress__title.progress--done 会員情報
+          .progress__dot.progress--done
+            .fa.fa-circle
+            .progress__line.progress__user
+        .progress__item
+          .progress__title.progress__user 電話番号認証
+          .progress__dot.progress__user
+            .fa.fa-circle
+            .progress__line.progress__tel
+        .progress__item
+          .progress__title.progress__tel お届け先住所入力
+          .progress__dot.progress__tel
+            .fa.fa-circle
+            .progress__line.progress__address
+        .progress__item
+          .progress__title.progress__address 支払い方法
+          .progress__dot.progress__address
+            .fa.fa-circle
+            .progress__line.progress__peymethod
+        .progress__item
+          .progress__title.progress__peymethod 完了
+          .progress__dot.progress__peymethod
+            .fa.fa-circle
+  .us-body__main-registration
+    .us-body__main-registration__container
+      %h2.us-body__main-registration__container__head
+        会員情報入力
+      = form_for(resource, url: user_detail_confirmation_path,html: {class:'us-body__main-registration__container__form'}) do |f|
+        .us-body__main-registration__container__form__content
+          .form-group
+            %label.form-group__label ニックネーム
+            %span.form-group__require 必須
+            %input{type:"text", placeholder: "例) メルカリ太郎" , name:"nickname" , class:'input-default'}
+          .form-group
+            %label.form-group__label メールアドレス
+            %span.form-group__require 必須
+            %input{type:"text", placeholder: "PC・携帯どちらでも可" , name:"email" , class:'input-default'}
+          .form-group
+            %label.form-group__label パスワード
+            %span.form-group__require 必須
+            %input{type:"text", placeholder: "7文字以上" , name:"password" , class:'input-default'}
+          .form-group
+            %label.form-group__label パスワード (確認)
+            %span.form-group__require 必須
+            %input{type:"text", placeholder: "7文字以上" , name:"password2" , class:'input-default'}
+          .form-group
+            .form-group__sub-head 本人確認
+            .form-group__text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            %div
+              %label.form-group__label お名前(全角)
+              %span.form-group__require 必須
+            %input{type:"text", placeholder: "例) 山田" , name:"family_name_kanji" , class:'input-default-half'}
+            %input{type:"text", placeholder: "例) 彩" , name:"first_name_kanji" , class:'input-default-half'}
+          .form-group
+            %div
+              %label.form-group__label お名前カナ(全角)
+              %span.form-group__require 必須
+            %input{type:"text", placeholder: "例) ヤマダ" , name:"family_name_kana" , class:'input-default-half'}
+            %input{type:"text", placeholder: "例) アヤ" , name:"first_name_kana" , class:'input-default-half'}
+          .form-group
+            %label.form-group__label 生年月日
+            %span.form-group__require 必須
+            %br
+            .birthday-select-wrap
+              .select-wrap
+                = date_select :birth, :date, {start_year: 1900, end_year: Time.now.year, default: '1900-1-1'.to_date, include_blank: '--'}, {class: 'select-wrap__birth'}
+                = fa_icon"angle-down"
+                %select.select-default.year
+                  %option --
+              %span 年
+              .select-wrap
+                = fa_icon"angle-down"
+                %select.select-default.month
+                  %option --
+              %span 月
+              .select-wrap
+                = fa_icon"angle-down"
+                %select.select-default.day
+                  %option --
+              %span 日
+          .form-group__info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .us-body__main-registration__container__form__content
+          .form-group
+            = recaptcha_tags
+          .form-group
+            %p.form-group__text.text-center
+              「次へ進む」のボタンを押すことにより、
+              %a{href:"#", :target => "blank"}利用規約
+              に同意したものとみなします
+          %button{class: 'btn-default btn-red',type: "submit"}
+            次へ進む
+          .form-group.text-right
+            %p
+              = link_to '#' do
+                本人情報の登録について
+                = fa_icon"angle-right", class:'angle'
+  .us-body__footer
+    = render partial: 'users/us-body__footer'

@@ -1,0 +1,60 @@
+.body
+  .body__next
+    = render partial: 'users/us-body__header'
+  .body__singlemain
+    .body__singlemain--container
+      .body__singlemain--container--confirm
+        購入内容の確認
+      .body__singlemain--container--confirmbox
+        .body__singlemain--container--confirmbox--products
+          .body__singlemain--container--confirmbox--products--photo
+          .body__singlemain--container--confirmbox--products--itemname
+            ＊新品＊男女兼用＊b one soul＊ダックデュード＊GORIRA
+        .body__singlemain--container--confirmbox--money
+          .body__singlemain--container--confirmbox--money--moneybox
+            ￥ASK
+          .body__singlemain--container--confirmbox--money--postage
+            送料込み
+        .body__singlemain--container--confirmbox--point
+          ポイントはありません
+        .body__singlemain--container--confirmbox--price
+          .body__singlemain--container--confirmbox--price--left
+            支払い金額
+          .body__singlemain--container--confirmbox--price--right
+            ￥ASK
+        .body__singlemain--container--confirmbox--buybtn
+          %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
+      .body__singlemain--container--userinfo
+        .body__singlemain--container--userinfo--inner
+          .body__singlemain--container--userinfo--inner--shipping
+            配送先
+          .body__singlemain--container--userinfo--inner--address
+            〒4567-4567
+            %br/
+            北斗ノ県悟理羅市元旦区河村市町12-64 ジョイマンハイツ 8.6号室
+            %br/
+            イングリッシュとしお
+          .body__singlemain--container--userinfo--inner--fix
+            .body__singlemain--container--userinfo--inner--fix--text
+              変更する
+            .body__singlemain--container--userinfo--inner--fix--icon
+              = fa_icon"chevron-right"
+      .body__singlemain--container--payment
+        .body__singlemain--container--payment--inner
+          .body__singlemain--container--payment--inner--method
+            支払い方法
+          .body__singlemain--container--payment--inner--text
+            **************0000
+            %br/
+            09/38
+          .body__singlemain--container--payment--inner--credit
+            = image_tag "jcb.svg", size: "26x20"
+          .body__singlemain--container--payment--inner--fix
+            .body__singlemain--container--payment--inner--fix--text
+              変更する
+            .body__singlemain--container--payment--inner--fix--icon
+              = fa_icon"chevron-right"
+  .body__bottom
+    = render partial: 'users/us-body__footer'
+
+          
