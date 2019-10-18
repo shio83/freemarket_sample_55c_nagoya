@@ -6,15 +6,16 @@
     .pankuzu
       - breadcrumb :user
       = breadcrumbs separator: " &rsaquo; "
-    .mypage
-      .mypage__right
-        .mypage__right--head
-          = render partial: 'users/mypage__right--head'
-        .mypage__right--middle
-          = render partial: 'users/mypage__right--middle'
-        .mypage__right--foot
-          = render partial: 'users/mypage__right--foot'
-      .mypage__left
-        = render partial: 'users/side-bar'
+    .mypages
+      .mypage
+        .mypage__right
+          .mypage__right--head
+            = render partial: 'users/mypage__right--head'
+          .mypage__right--middle
+            = render partial: 'users/mypage__right--middle'
+          .mypage__right--foot
+            = render partial: 'users/mypage__right--foot'
+        .mypage__left
+          = render partial: 'users/side-bar'
     .bottom
       = render partial: 'tops/bottoms/bottom'
