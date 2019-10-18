@@ -5,39 +5,30 @@
 @mixin box-side{
   height: 252px;
   width: 188px;
+  position: relative;
   background-color: white;
   float: left;
-  // box-shadow: 4px 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
-  background-image: image-url("andousan.jpg");
-  background-position: center;
-  background-size: cover;
 }
 
 @mixin box-top{
   height: 252px;
   width: 188px;
+  position: relative;
   margin-left:20px;
   background-color: white;
   float: left;
-  // box-shadow: 4px 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
-  background-image: image-url("andousan.jpg");
-  background-position: center;
-  background-size: cover;
 }
 
 @mixin box-bottom{
   height: 252px;
   width: 188px;
+  position: relative;
   margin:20px 0 0 20px;
   background-color: white;
   float: left;
-  // box-shadow: 4px 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
-  background-image: image-url("andousan.jpg");
-  background-position: center;
-  background-size: cover;
 }
 .content{
   margin-top: 8px;

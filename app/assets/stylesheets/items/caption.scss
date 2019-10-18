@@ -1,0 +1,21 @@
+.caption{
+  height: 64px;
+  width: 188px;
+  color: #222;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  line-height: 1.4em;
+  padding: 0 12px;
+  white-space: normal;
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  span{
+    display: inline-block;
+    height: 2.8em;
+    overflow: hidden;
+    position: relative;
+  }
+}
