@@ -1,6 +1,7 @@
 %body
   %div.products-information
     %header
+      = render partial: 'users/us-body__header'
     %main.main
       %section.center
         %div.products-box
@@ -66,14 +67,16 @@
                     商品の状態
                     %span.span
                       必須
-                  %select.select-box
-                    %option ---
-                    %option 新品、未使用
-                    %option 未使用に近い
-                    %option 目立った傷や汚れなし
-                    %option やや傷や汚れあり
-                    %option 傷や汚れあり
-                    %option 全体的に状態が悪い
+                  %div.selebo
+                    %i.fa.fa-chevron-right.fa-rotate-90.selebo{"aria-hidden":"ture"}
+                    %select.select-box
+                      %option ---
+                      %option 新品、未使用
+                      %option 未使用に近い
+                      %option 目立った傷や汚れなし
+                      %option やや傷や汚れあり
+                      %option 傷や汚れあり
+                      %option 全体的に状態が悪い
                  
                 
             %div.products-delivery
@@ -87,6 +90,8 @@
                     配送料の負担
                     %span.span
                       必須
+                  %div.selebo
+                    %i.fa.fa-chevron-right.fa-rotate-90.selebo{"aria-hidden":"ture"}
                     %select.select-box
                       %option ---
                       %option 送料込み(出品者負担)
@@ -96,6 +101,8 @@
                     発送元の地域
                     %span.span
                       必須
+                  %div.selebo
+                    %i.fa.fa-chevron-right.fa-rotate-90.selebo{"aria-hidden":"ture"}
                     %select.select-box
                       %option  ---
                       %option 北海道
@@ -150,6 +157,8 @@
                     発送までの日数
                     %span.span
                       必須
+                  %div.selebo
+                    %i.fa.fa-chevron-right.fa-rotate-90.selebo{"aria-hidden":"ture"}
                     %select.select-box
                       %option ---
                       %option 1~2日で発送
@@ -191,6 +200,8 @@
                 出品する
               %a.btn-back
                 もどる
+    %footer
+      =render partial:'users/us-body__footer'
               
 
 
