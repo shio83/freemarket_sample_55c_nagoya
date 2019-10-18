@@ -7,12 +7,12 @@
             マイページ
             = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "#" do
+        = link_to users_notification_path do
           %p 
             お知らせ
             = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "#" do
+        = link_to users_todo_path do
           %p 
             やることリスト
             = fa_icon "chevron-right" , class: "allow"
@@ -42,12 +42,12 @@
             出品した商品 - 売却済み
             = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "#" do
+        = link_to users_purchase_path do
           %p 
             購入した商品 - 取引中
             = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
-        = link_to "#" do
+        = link_to users_purchased_path do
           %p 
             購入した商品 - 過去の取引
             = fa_icon "chevron-right" , class: "allow"
@@ -93,7 +93,7 @@
       %li.mypage__left--list--item
         = link_to "#" do
           %p
-            発送元・お届け先変更
+            発送元・お届け先住所変更
             = fa_icon "chevron-right" , class: "allow"
       %li.mypage__left--list--item
         = link_to users_card_path do
