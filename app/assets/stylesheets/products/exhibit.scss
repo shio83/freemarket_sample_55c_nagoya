@@ -507,22 +507,22 @@
   }
 }
 
-a{
+.btn-back{
   text-decoration:none;
   color: #0099e8;
 }
 
-a:hover{
+.btn-back:hover{
   text-decoration: underline;
   opacity: 0.6;
 }
 
-footer{
+.fo{
   background-color: #EEEEEE;
   padding: 20px 0;
   text-align: center;
 }
- i{
+ .fa{
    display: inline-block;
   position: absolute;
   color: #888;
