@@ -3,13 +3,15 @@
     = render partial: 'layouts/syuppinn'
     .head
       = render partial: 'tops/header/head'
-    .bread-crumbs
-      = render partial: 'layouts/pankuzu'
-    .mypage
-      .mypage__right
-        .mypage__right--middle
-          = render partial: 'users/mypage__right--middle'
-      .mypage__left
-        = render partial: 'users/side-bar'
+    .pankuzu
+      - breadcrumb :todo
+      = breadcrumbs separator: " &rsaquo; "
+    .rock
+      .mypage
+        .mypage__right
+          .mypage__right--middle
+            = render partial: 'users/mypage__right--middle'
+        .mypage__left
+          = render partial: 'users/side-bar'
     .bottom
       = render partial: 'tops/bottoms/bottom'
