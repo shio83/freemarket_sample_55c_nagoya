@@ -16,8 +16,8 @@ crumb :logout do
   parent :user
 end
 
-crumb :logout do
-  link "やることリスト" , ＃
+crumb :todo do
+  link "やることリスト", users_todo_path
   parent :user
 end
 

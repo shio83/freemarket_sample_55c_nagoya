@@ -1,4 +1,11 @@
-
+.mid{
+  display: flex;
+  justify-content: space-between;
+.side{
+  width: 280px;
+}
+.main{
+  height: 368.09px;
 .main-content {
   padding: 64px;
     .single-content {
@@ -61,4 +68,6 @@
         text-decoration: underline;
       }
     }
+}
+}
 }

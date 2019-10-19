@@ -4,17 +4,13 @@
     .head
       = render partial: 'tops/header/head'
     .pankuzu
-      - breadcrumb :user
+      - breadcrumb :todo
       = breadcrumbs separator: " &rsaquo; "
-    .mypages
+    .rock
       .mypage
         .mypage__right
-          .mypage__right--head
-            = render partial: 'users/mypage__right--head'
           .mypage__right--middle
             = render partial: 'users/mypage__right--middle'
-          .mypage__right--foot
-            = render partial: 'users/mypage__right--foot'
         .mypage__left
           = render partial: 'users/side-bar'
     .bottom

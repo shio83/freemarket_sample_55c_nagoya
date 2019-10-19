@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def  identification
-    
+    @user = Profile.new()
   end
 
   def logout 
@@ -24,6 +24,19 @@ class UsersController < ApplicationController
   def exhibit
   end
 
+  def notification
+  end
+
+  def todo
+  end
+
+  def purchase
+  end
+
+  def purchased
+  end
+
   def create
   end
+
 end
