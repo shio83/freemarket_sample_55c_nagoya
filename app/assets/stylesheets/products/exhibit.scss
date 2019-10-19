@@ -202,6 +202,7 @@
               height: 48px;
               background-color: white;
               padding-left: 15px;
+              border: 1px solid #cccccc;
               cursor: pointer;
               -webkit-appearance: none;
               -moz-appearance: none;
@@ -243,6 +244,7 @@
               cursor: pointer;
               font-weight: initial;
               position: relative;
+              border: 1px solid #cccccc;
               &:focus {
               border: 1px solid #0099e8;
               outline: 0;
@@ -303,6 +305,7 @@
               padding-left: 15px;
               cursor: pointer;
               font-weight: initial;
+              border: 1px solid #cccccc;
               &:focus {
               border: 1px solid #0099e8;
               outline: 0;
@@ -335,6 +338,7 @@
                   padding-left: 15px;
                   cursor: pointer;
                   font-weight: initial;
+                  border: 1px solid #cccccc;
                   &:focus {
                   border: 1px solid #0099e8;
                   outline: 0;
@@ -365,6 +369,7 @@
                   -moz-appearance: none;
                   appearance: none;
                   padding-left: 15px;
+                  border: 1px solid #cccccc;
                   cursor: pointer;
                   font-weight: initial;
                   &:focus {
@@ -522,7 +527,7 @@
   padding: 20px 0;
   text-align: center;
 }
-.fa-chevron-right{
+.allowselebo{
    display: inline-block;
   position: absolute;
   color: #888;

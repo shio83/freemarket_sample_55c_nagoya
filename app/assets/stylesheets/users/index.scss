@@ -11,7 +11,7 @@
   overflow: auto;
   background-color: #F5F5F5;
   &__left {
-    float: left;
+    // float: left;
     width: 280px;
     margin: 0 40px 0 0;
     &--list{
@@ -102,7 +102,7 @@
       &__hyoka{
         display: inline-block;
         font-size: 14px;
-        float: left;
+        // float: left;
       }
       &__syuppin { 
         margin: 0 0 0 16px;
@@ -195,18 +195,19 @@
             }
             &--time{
               display: flex;
+              // justify-content: space-between;
               color: #888;
               &--icon{
                 margin: 0 8px 0 0;
                 display: inline-block;
-                float: right;
+                // float: right;
                 background-color: black;
                 height:16px;
-                weight: 16px;
+                // weight: 16px;
               }
               &--text{
                 display: inline-block;
-                float: right;
+                // float: right;
               }
             }
           }
