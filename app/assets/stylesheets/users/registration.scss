@@ -91,6 +91,9 @@
                 line-height: 1.5;
                 font-size: 16px;
               }
+              .input-default:focus{
+                border: 1px solid #0099e8;
+              }
               .input-default-half{
                 width: calc(50% - 6px);
                 margin: 8px 0 0;
@@ -102,6 +105,9 @@
                 line-height: 1.5;
                 font-size: 16px;
               }
+              .input-default-half:focus{
+                border: 1px solid #0099e8;
+              }
               .input-default-half:first-of-type{
                 margin-right: 8px;
               }
@@ -112,36 +118,37 @@
                 color: #888;
               }
               .birthday-select-wrap{
+                height: 56px;
+                width: 343px;
+                display: flex;
                 .select-wrap{
-                  width: 76px;
-                  display: inline-block;
-                  margin: 8px 0 0;
                   position: relative;
-                  background: #fff;
-                  & i{
-                    color: #888;
-                    font-size: 24px;
-                    position: absolute;
-                    top: 50%;
-                    font-weight: bold;
-                    right: 12px;
-                    transform: translate(0, -50%);
-                  }
-                  .select-default{
-                    width: 100%;
-                    position: relative;
-                    height: 48px;
-                    padding: 0 16px;
-                    border-radius: 4px;
-                    border: 1px solid #ccc;
-                    background: 0;
+                  i{
                     font-size: 16px;
-                    line-height: 1.5;
-                    color: inherit;
-                    -webkit-appearance: none;
-                    cursor: pointer;
+                    color: #888888;
+                    position: absolute;
+                    top: 23px;
+                    right:40px;
+                    display: inline-block;
                   }
+                select{
+                  background-color: #ffffff;
+                  height: 48px;
+                  width: 76px;
+                  border: 1px solid #ccc;
+                  padding: 0 10px;
+                  margin: 8px 5px 0 0;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
                 }
+                select:focus {
+                  border: 1px solid #0099e8;
+                }
+                span{
+                  display: inline-block;
+                  margin: 0 auto;
+                }
+              }
               }
           }
           .text-right{
@@ -164,8 +171,8 @@
             }
           }
         }
-        .form-group:first-child{
-          margin: 0;
+        .form-group{
+          margin: 32px 0 0;
         }
       }
       .btn-default{
@@ -220,3 +227,4 @@
     color: #D84638;
   }
 }
+
