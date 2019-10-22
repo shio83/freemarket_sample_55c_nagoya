@@ -3,13 +3,35 @@
     = render partial: 'layouts/syuppinn'
     .head
       = render partial: 'tops/header/head'
-    .bread-crumbs
-      = render partial: 'layouts/pankuzu'
-    .mypage
-      .mypage__right
-        .mypage__right--middle
-          = render partial: 'users/mypage__right--middle'
-      .mypage__left
-        = render partial: 'users/side-bar'
+    .pankuzu
+      - breadcrumb :todo
+      = breadcrumbs separator: " &rsaquo; "
+    .rock
+      .mypage
+        .mypage__right
+
+          .mypage__right--middle
+            .mypage-tag-notification-todo
+              %ul.mypage-tabs
+                %li.mypage-tab.active{id: 'list'}
+                  お知らせ
+                %li.mypage-tab{id: 'todo'}
+                  やることリスト
+            %ul.tab-contents
+              %li.tab-content.show
+                .tab-content__list
+                  .tab-content__list--icon
+                  .tab-content__list--textfield
+                    .tab-content__list--textfield--text
+                      《速報》今なら販売手数料が実質無料！出品が超お得♪
+                    .tab-content__list--textfield--time
+                      .tab-content__list--ttextfield--time--icon
+                        🕛
+                      .tab-content__list--textfield--time--text
+                        1日前
+                  = fa_icon "chevron-right" , class: "allow"
+              
+        .mypage__left
+          = render partial: 'users/side-bar'
     .bottom
       = render partial: 'tops/bottoms/bottom'
