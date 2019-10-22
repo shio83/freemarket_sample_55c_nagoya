@@ -1,11 +1,11 @@
 .mypage-tag-notification-todo
-  .mypage-tabs
-    .mypage-tabs__left.index-btn
+  %ul.mypage-tabs
+    %li.mypage-tab.active{id: 'list'}
       お知らせ
-    .mypage-tabs__right.index-btn
+    %li.mypage-tab{id: 'todo'}
       やることリスト
 %ul.tab-contents
-  %li.tab-content.active
+  %li.tab-content.show
     .tab-content__list
       .tab-content__list--icon
       .tab-content__list--textfield
@@ -67,7 +67,9 @@
       = fa_icon "chevron-right" , class: "allow"
 
     .tab-content__go-list
-      %a 一覧を見る
+      = link_to users_notification_path do
+        %p 
+          一覧を見る
 
   %li.tab-content
     .tab-content__todo
