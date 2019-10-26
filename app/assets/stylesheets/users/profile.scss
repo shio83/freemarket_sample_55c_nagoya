@@ -3,20 +3,16 @@
   overflow: auto;
   margin: 40px auto;
   &__left{
-    // width: 280px;
-    // height: 1252px;
-    // background-color: black;
-    // float: left;
-
+    width: 280px;
+    float: left;
   }
   &__right{
     height: 568px;
     width: 700px;
-    background-color: aquamarine;
     position: relative;
     float: right;
-    background-image: image-url("profile.png");
-    background-position: center;
+    background-image: image-url("profile2.jpg");
+    background-position: top;
     &--chapterhead{
       height: 50px;
       width: 100%;
@@ -68,6 +64,7 @@
       &--textform{
         padding: 40px 16px 0 16px;
         textarea{
+          border: 1px solid grey;
           height: 216px;
           width: 668px;
           font-size: 16px;

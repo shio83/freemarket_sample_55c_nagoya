@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def registration
+    @user = User.new
   end
 
   def detail_confirmation
@@ -22,6 +23,19 @@ class UsersController < ApplicationController
   def exhibit
   end
 
+  def notification
+  end
+
+  def todo
+  end
+
+  def purchase
+  end
+
+  def purchased
+  end
+
   def create
   end
+
 end
