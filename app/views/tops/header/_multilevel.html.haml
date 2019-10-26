@@ -1,10 +1,17 @@
 .multilevel
   .multilevel--categolize
-    .multilevel--categolize--categolyseach
-      .multilevel--categolize--categolyseach--list
-        = fa_icon"list-ul"
-      .multilevel--categolize--categolyseach--text
-        カテゴリーから探す
+    .multilevel--categolize--categolyseachs
+      .multilevel--categolize--categolyseach
+        .multilevel--categolize--categolyseach--list
+          = fa_icon"list-ul"
+        .multilevel--categolize--categolyseach--text
+          カテゴリーから探す
+      .category_list
+        .parents_list
+          - @parents.each do |parent|
+            = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+        .children_list
+        .grand_children_list
     .multilevel--categolize--brand
       .multilevel--categolize--brand--tag
         %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}

@@ -1,5 +1,13 @@
 class TopsController < ApplicationController
-  def index
-    @parents = Category.all.order("id ASC").limit(13)
+  
+
+  def json
+    @children = Category.find(params[:parent_id]).children
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
+
+  
 end

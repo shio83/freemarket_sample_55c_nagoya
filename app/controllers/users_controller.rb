@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    
   end
 
   def profile
@@ -11,10 +12,7 @@ class UsersController < ApplicationController
   def detail_confirmation
   end
 
-  def  identification
-    @user = Profile.new()
-  end
-
+  
   def logout 
   end
 

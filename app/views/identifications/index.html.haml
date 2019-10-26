@@ -1,0 +1,60 @@
+.body
+  = render partial: 'tops/header/head'
+  .pankuzu
+    - breadcrumb :identification
+    = breadcrumbs separator: " &rsaquo; "
+  = render partial: 'layouts/syuppinn'
+  .mid
+    .side
+      = render partial: 'users/side-bar'
+    .main
+      %h2.user 
+        本人情報の登録
+      .main-content
+        %p#line
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.right
+          = link_to "#" do
+            本人確認書類のアップロードについて
+            = fa_icon "chevron-right" , class: "chevron"
+        .form-group
+          %label お名前
+          %p 亜蛇懇愚
+        .form-group
+          %label お名前カナ
+          %p アジャコング
+        .form-group
+          %label 生年月日
+          %p 3000/1/1
+        = form_for @user, url: identifications_create_path do |f|
+          .form-group
+            %label 郵便番号
+            %span.nin 任意
+            = f.text_field :zipcode, placeholder: "例）1234567"
+          .form-group
+            %label 都道府県
+            %span.nin 任意
+            .select-wrap
+              = fa_icon "angle-down"
+              = f.select :prefecture ,Profile.prefectures.keys.to_a
+          .form-group
+            %label 市区町村
+            %span.nin 任意
+            = f.text_field :city, placeholder:  "例）横浜市緑区"
+          .form-group
+            %label 番地
+            %span.nin 任意
+            = f.text_field :address , placeholder: "例）青山1−1−1"
+          .form-group
+            %label 建物名
+            %span.nin 任意
+            = f.text_field :building, placeholder: "例）柳ビル103"
+          = f.submit " 登録する", class: "btn-red"
+          .form-group  
+            %p.right
+              = link_to  "本人情報の登録について" , "#"
+              = fa_icon "chevron-right"
+= render partial: 'tops/bottoms/bottom'
+

@@ -25,7 +25,7 @@
       &--item i{
         float: right;
         color: #EEE;
-        transition: all .2s ease-out;
+        transition: all .5s ease-out;
       }
       &--head {
         margin: 40px 0 10px;
@@ -288,7 +288,7 @@
   i {
     color: #343434;
     position: relative;
-    left: 3px;
+    left: 5px;
   }
 }
 

@@ -107,7 +107,7 @@ crumb :logout do
 end
 
 crumb :identification do
-  link "本人情報" , users_identification_path
+  link "本人情報" ,   identifications_index_path
   parent :user
 end
 
