@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'products/exhibit' =>"products#exhibit"
   
   # 本人情報の登録
-  get 'users/identification' => "users#identification"
+  get 'identifications/index' => "identifications#index"
+  post 'identifications/create' => "identifications#create"
   # ログアウト画面
   get 'users/logout' => "users#logout"
   # ユーザークレジットカード登録ページ
@@ -31,5 +32,7 @@ Rails.application.routes.draw do
 
   root 'tops#index'
 
+  post "users/:parent_id/create" => "users#create"
+  get "tops/json" => "tops#json"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

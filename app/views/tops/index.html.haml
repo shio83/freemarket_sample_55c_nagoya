@@ -4,8 +4,6 @@
     .body__next--top
       .body__next--top--head
         = render partial: 'tops/header/head'
-        - @parents.roots.each do |parent|
-          = parent.name
       .body__next--top--heading
         = render partial: 'heading'
         .body__next--top--heading--ave

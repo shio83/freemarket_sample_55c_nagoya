@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action :set_parents
+
+
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
@@ -13,4 +16,11 @@ class ApplicationController < ActionController::Base
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
+  
+  
+  private
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
 end
