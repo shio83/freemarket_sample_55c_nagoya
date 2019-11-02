@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # get 'users/index'
-  resources :product 
+  resources :product
   get 'products/get_category_children' => "products#get_category_children"
   get 'products/get_category_grandchildren' => "products#get_category_grandchildren"
   get "products/get_size" => "products#get_size"
@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
-  # post 'products/create' => "products#create"
+  post 'products/create' => "products#create"
+
   # 本人情報の登録
   get 'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
@@ -39,7 +40,6 @@ Rails.application.routes.draw do
   # 本人情報の新規登録_メールアドレス_done
   get 'users/detail_done' => "users#detail_done"
   
-
   root 'tops#index'
   post "users/:parent_id/create" => "users#create"
   get "tops/json" => "tops#json"

@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     end
   end
 
+   
   def json
   end
 
