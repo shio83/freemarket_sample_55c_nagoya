@@ -10,30 +10,23 @@
 
 
 .products-information{
-  
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-
   header{
     height: 128px;
     background-color: #EEEEEE;
     text-align: center;
   } 
-
   .main{
     display: block;
     height: auto;
     background-color: #EEEEEE;
-
     .center{
-        margin: 0 auto;
-        background-color: white;
-        width: 700px;
-       
-
+      margin: 0 auto;
+      background-color: white;
+      width: 700px;
       .products-box{
         @extend .center;
       }
-        
       .sell-form__header{
           font-size: 22px;
           padding: 32px 16px;
@@ -128,97 +121,90 @@
           &-box{
 
             &-head{
+            font-weight: 600;
+            font-size: 14px;
+            .span{
+              @include required;
+            }
+            .input-box{
+              .in{
+                width: 100%;
+                margin: 8px 0 0;
+                padding:10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                font-weight: initial;
+                font-size: 16px;
+                &[type=text]:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
+              }
+            }
+          }
+          &-explain{
+            margin: 40px 0 0 ;
+            &-header{
+
               font-weight: 600;
               font-size: 14px;
-             
-
               .span{
-                @include required;
+                  @include required;
               }
               .input-box{
-                
-               .in{
-                 width: 100%;
-                 margin: 8px 0 0;
-                 padding:10px 16px 8px;
-                 border-radius: 4px;
-                 border: 1px solid #ccc;
-                 background: #fff;
-                 font-weight: initial;
-                 font-size: 16px;
-                 &[type=text]:focus {
+                .text{
+                  display: block;
+                  font-weight: initial;
+                  max-width: 100%;
+                  min-height: 104px;
+                  width: 100%;
+                  padding: 10px;
+                  margin: 8px 0 0;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  height: 150px;
+                  &[type=text]:focus {
                   border: 1px solid #0099e8;
                   outline: 0;
                   }
-                 
-                }
+                } 
               }
             }
-            &-explain{
-              margin: 40px 0 0 ;
-
-              &-header{
-                font-weight: 600;
-                font-size: 14px;
-
-                .span{
-                  @include required;
-              }
-                .input-box{
-
-                  .text{
-                    display: block;
-                    font-weight: initial;
-                    max-width: 100%;
-                    min-height: 104px;
-                    width: 100%;
-                    padding: 10px;
-                    margin: 8px 0 0;
-                    border: 1px solid #ccc;
-                    font-size: 16px;
-                    line-height: 1.5;
-                    height: 150px;
-                    &[type=text]:focus {
-                    border: 1px solid #0099e8;
-                    outline: 0;
-                    }
-              } 
-            }
-          }
+          }   
         }
       }
-    }
-        .products-to{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          overflow: auto;
-          &-details{
-            color: rgb(136, 136, 136);
-            font-size: 14px;
-            font-weight: bold;
-            float: left;
-          }
-            
-          &-box{
-            float: right;
-            width: 400px;
+      .products-to {
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        overflow: auto;
+        &-details {
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: bold;
+          float: left;
+        }
+        &-box {
+          float: right;
+          width: 400px;
+          margin: 0;
+          &-form1 {
             margin: 0;
-            &-form1{
-              margin: 0;
-              &-category{
-                display: block;
-                font-weight: 600;
-                font-size: 14px;
-
-                .span{
-                  @include required;
-                }
+            &-category {
+              display: block;
+              font-weight: 600;
+              font-size: 14px;
+              .span {
+                @include required;
               }
-              .selebo{
-                i{
+            }
+            .selebo {
+              position: relative;;
+              i {
                 color: #888;
-                }
               }
+            }
             .select-box{
               display: block;
               width: 100%;
@@ -234,9 +220,9 @@
               font-weight: initial;
               z-index: 1;
               &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
+                border: 1px solid #0099e8;
+                outline: 0;
+              }
             }
           }
           &-form2{
@@ -244,80 +230,16 @@
             &-condition{
               font-weight: 600;
               font-size: 14px;
-              
               .span{
                 @include required;
               }
             }
-          
-            .selebo{
-                i{
-                color: #888;
-                }
-            }
-            .select-box{
-              display: block;
-              width: 100%;
-              height: 48px;
-              background-color: white;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              padding-left: 15px;
-              cursor: pointer;
-              font-weight: initial;
-              position: relative;
-              border: 1px solid #cccccc;
-              &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
-            }
-          }
-          }
-        }
-        .products-delivery{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          overflow: auto;
-          &-todo{
-            display: inline;
-            color: rgb(136, 136, 136);
-            font-size: 14px;
-            font-weight: bold;
-          }
-          .form-question{
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #0099e8;
-            color: #fff;
-            line-height: 14px;
-            font-size: 12px;
-            text-align: center;
-          }
-          &-box{
-            float: right;
-            width: 400px;
-            margin: 0;
-            &-form3{
-
-              &-fee{
-                display: block;
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-
             .selebo{
               i{
-              color: #888;
+                color: #888;
               }
+            }
             .select-box{
-              position: relative;
               display: block;
               width: 100%;
               height: 48px;
@@ -328,178 +250,224 @@
               padding-left: 15px;
               cursor: pointer;
               font-weight: initial;
+              position: relative;
               border: 1px solid #cccccc;
               &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
+                border: 1px solid #0099e8;
+                outline: 0;
               }
             }
           }
-            &-form4{
-              margin: 40px 0 0;
-              &-area{
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-              .selebo{
-                i{
-                color: #888;
-                }
-                .select-box{
-                  position: relative;
-                  display: block;
-                  width: 100%;
-                  height: 48px;
-                  background-color: white;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  padding-left: 15px;
-                  cursor: pointer;
-                  font-weight: initial;
-                  border: 1px solid #cccccc;
-                  &:focus {
-                  border: 1px solid #0099e8;
-                  outline: 0;
-                    }
-                  }
-              }
-            }
-            &-form5{
-              margin: 40px 0 0;
-              &-day{
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-              .selebo{
-                i{
-                color: #888;
-                }
-                .select-box{
-                  position: relative;
-                  display: block;
-                  width: 100%;
-                  height: 48px;
-                  background-color: white;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  padding-left: 15px;
-                  border: 1px solid #cccccc;
-                  cursor: pointer;
-                  font-weight: initial;
-                  &:focus {
-                  border: 1px solid #0099e8;
-                  outline: 0;
-                    }
-                  }
-            }
-          
-          }
-        
+        }
       }
-    }
-        .sell-price{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          .sell-exp{
-            color: rgb(170, 170, 170);
-            font-size: 14px;
-            font-weight: bold;
-            display: inline;
-            
-          }
-          .inform{
-            width: 25%;
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            text-align: right;
-            float: right;
-            &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
-          }
-          .form-question{
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #0099e8;
-            color: #fff;
-            line-height: 14px;
-            font-size: 12px;
-            text-align: center;
-          }
-        
-          .clearfix{
-           text-align: center;
-           padding: 0 0 38px 220px;
-           
-            .left{
+      .products-delivery{
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        overflow: auto;
+        &-todo{
+          display: inline;
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .form-question{
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        &-box{
+          float: right;
+          width: 400px;
+          margin: 0;
+          &-form3{
+            &-fee{
+              display: block;
               font-weight: 600;
               font-size: 14px;
-              display: inline-block;
-              width: 50%;
-              text-align: left;
-             
-              
-            
               .span{
                 @include required;
               }
-        }
-            .right{
-              display: inline;
             }
-         
-            }
-            .hako{
-              width: 62%;
-              border-bottom: 1px solid #ccc;
-              float: right;
-
-            }
-            .sale{
-              padding: 24px 0 24px 235px;
-              display: block;
-              .rig{
-                float: right;
+            .selebo {
+              i {
+                color: #888;
+              }
+              .select-box {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                cursor: pointer;
+                font-weight: initial;
+                border: 1px solid #cccccc;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
               }
             }
-            .last{
-              padding: 24px 0 24px 235px;
-              display: block;
-              font-size: 16px;
-              font-weight: bold;
-              .rig{
-                float: right;
-              }
-
-            }
-          
           }
-          
-        
-        .warning{
-          padding: 40px;
+          &-form4 {
+            margin: 40px 0 0;
+            &-area{
+              font-weight: 600;
+              font-size: 14px;
+              .span{
+                @include required;
+              }
+            }
+            .selebo{
+              i{
+                color: #888;
+              }
+              .select-box{
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                cursor: pointer;
+                font-weight: initial;
+                border: 1px solid #cccccc;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
+              }
+            }
+          }
+          &-form5{
+            margin: 40px 0 0;
+            &-day{
+              font-weight: 600;
+              font-size: 14px;
+              .span{
+                @include required;
+              }
+            }
+            .selebo{
+              i{
+                color: #888;
+              }
+              .select-box{
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                border: 1px solid #cccccc;
+                cursor: pointer;
+                font-weight: initial;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
+              }
+            } 
+          }      
+        } 
+      }
+      .sell-price{
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        .sell-exp{
+          color: rgb(170, 170, 170);
           font-size: 14px;
-          p{
+          font-weight: bold;
+          display: inline;          
+        }
+        .inform{
+          width: 25%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: right;
+          float: right;
+          &:focus {
+            border: 1px solid #0099e8;
+            outline: 0;
+          }
+        }
+        .form-question{
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        .clearfix{
+          text-align: center;
+          padding: 0 0 38px 220px;
+          .left{
+            font-weight: 600;
             font-size: 14px;
+            display: inline-block;
+            width: 50%;
+            text-align: left;
+            .span{
+              @include required;
+            }
+          }
+          .right{
             display: inline;
           }
+        }
+        .hako{
+          width: 62%;
+          border-bottom: 1px solid #ccc;
+          float: right;
+        }
+        .sale{
+          padding: 24px 0 24px 235px;
+          display: block;
+          .rig{
+            float: right;
+          }
+        }
+        .last {
+          padding: 24px 0 24px 235px;
+          display: block;
+          font-size: 16px;
+          font-weight: bold;
+          .rig {
+            float: right;
+          }
+        }    
+      }   
+      .warning{
+        padding: 40px;
+        font-size: 14px;
+        p {
+          font-size: 14px;
+          display: inline;
+        }
         .btn-red{
           display: block;
           border: 1px solid #ea352d;
@@ -513,7 +481,7 @@
           &:focus {
             border: 1px solid #0099e8;
             outline: 0;
-            }
+          }
         }
         .btn-back{
           display: block;
@@ -526,12 +494,9 @@
           color: white;
           text-align: center;
           cursor: pointer;
-            
         }
       }
-    
-  
-}
+    }
   }
 }
 
@@ -551,11 +516,60 @@
   text-align: center;
 }
 .allowselebo{
-   display: inline-block;
+  display: inline-block;
   position: absolute;
   color: #888;
   z-index: 2;
   left:  1010px;
   padding-top: 30px;
   pointer-events: none;
+}
+
+.listing-default--require {
+  @include required;
+  font-weight: 600;
+}
+
+.products-to-box-form1 {
+  display: flex;
+}
+
+.selects {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  padding-left: 15px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  font-weight: initial;
+  z-index: 1;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  &:focus {
+  border: 1px solid #0099e8;
+  outline: 0;
+  }
+}
+
+.selebobo{
+  position: relative;
+}
+
+.kitui{
+  position: absolute;
+  color: #888;
+  top: 40%;
+  z-index: 1;
+  right: 25px;
+  pointer-events: none;
+}
+
+.free {
+  color: white;
+  background-color: #888;
 }

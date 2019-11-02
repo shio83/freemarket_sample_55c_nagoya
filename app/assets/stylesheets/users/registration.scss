@@ -19,7 +19,7 @@
     }
   }
   &__main-registration{
-    height: 1260px;
+    height: auto;
     display: block;
     &__container{
       display: block;
@@ -39,9 +39,17 @@
         &__content{
           max-width: 343px;
           margin: 0 auto;
+          p{
+            margin-top: 8px;
+            line-height: 1.5;
+          }
           .form-group{
             margin: 24px 0 0;
             display: block;
+            h2{
+              font-size:22px;
+              text-align: center;
+            }
             &__label{
               font-weight: 600;
               font-size: 14px;
@@ -80,6 +88,9 @@
                 font-size: 12px;
                 vertical-align: top;
               }
+              .option{
+                background: #918c8c;
+              }
               .input-default{
                 width: 100%;
                 margin: 8px 0 0;
@@ -94,22 +105,55 @@
               .input-default:focus{
                 border: 1px solid #0099e8;
               }
-              .input-default-half{
-                width: calc(50% - 6px);
-                margin: 8px 0 0;
-                height: 48px;
-                padding: 10px 16px 8px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: #fff;
-                line-height: 1.5;
-                font-size: 16px;
+              .expiration_date{
+                position: relative;
+                select{
+                  -webkit-appearance: none;
+                }
+                .input-default-half{
+                  width: calc(50% - 6px);
+                  margin: 8px 0 0;
+                  height: 48px;
+                  padding: 10px 16px 8px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  background: #fff;
+                  line-height: 1.5;
+                  font-size: 16px;
+                  cursor: pointer;
+                }
+                .fa-chevron-down {
+                  font-size: 16px;
+                  color: #888888;
+                  position: absolute;
+                  top: 23px;
+                  right:190px;
+                  display: inline-block;
+                  pointer-events: none;
+                }
               }
               .input-default-half:focus{
                 border: 1px solid #0099e8;
               }
               .input-default-half:first-of-type{
                 margin-right: 8px;
+              }
+              .signup-card-list{
+                margin: 8px 0 0;
+                font-size: 0;
+                li{
+                  display: inline-block;
+                  margin: 0 0 0 8px;
+                  vertical-align: middle;
+                  img{
+                    vertical-align: middle;
+                    width: auto;
+                    height: 20px;
+                  }
+                }
+                li:first-child{
+                  margin: 0;
+                }
               }
               &__info-text{
                 margin: 8px 0 0;
@@ -130,8 +174,16 @@
                     top: 23px;
                     right:40px;
                     display: inline-block;
+                    pointer-events: none;
                   }
-                select{
+                  &__date-separation{
+                    position: absolute;
+                    top: 0px;
+                    left: 40px;
+                    font-size: 14px;
+                    color: black;
+                  }
+                select,date_select{
                   background-color: #ffffff;
                   height: 48px;
                   width: 76px;
@@ -140,6 +192,7 @@
                   margin: 8px 5px 0 0;
                   -webkit-appearance: none;
                   -moz-appearance: none;
+                  cursor: pointer;
                 }
                 select:focus {
                   border: 1px solid #0099e8;
@@ -173,6 +226,59 @@
         }
         .form-group{
           margin: 32px 0 0;
+        }
+        .registration_logo {
+          margin-top: 50px;
+          background-color: red;
+          background-image: image-url("download_bg_pc.jpg");
+          background-position: center;
+          background-size: cover;
+          color: #fff;
+          &__head-box {
+            overflow: hidden;
+            margin: 0 auto;
+            display: block;
+            position: relative;
+            &-left {
+              position: absolute;
+              top: 50%;
+              transform: translate(0, -50%);
+              float: left;
+              margin-left:10px;
+              & h2 {
+                font-size: 22px;
+                font-weight: bold;
+              }
+              #font {
+                font-size: 30px;
+                margin: 10px 0 0;
+              }
+              &__logo {
+                margin: 20px 0 0;
+                display: flex;
+                &__app {
+                  display: flex;
+                  margin: 0 0 0 24px;
+                  justify-content: center;
+                  align-items: center;
+                  & li {
+                    margin-right: 20px;
+          
+                  }
+                  & li:hover {
+                    opacity: 0.7;
+                  }
+                }
+              }
+            }
+            .head-box-right {
+              float: right;
+              & img {
+              width: 300px;
+              height: 100%;
+              }
+            }
+          }
         }
       }
       .btn-default{

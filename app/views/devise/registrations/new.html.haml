@@ -8,8 +8,9 @@
       .us-body__main__container__registration-form
         .us-body__main__container__registration-form__content
           .us-btn-default.btn-mail
-            = fa_icon"envelope-o",class: "icon-mail"
-            メールアドレスで登録する
+            = link_to users_registration_path do
+              = fa_icon"envelope-o",class: "icon-mail"
+              メールアドレスで登録する
           .us-btn-default.btn-fb
             = fa_icon"facebook",class: "icon-facebook"
             Facebookで登録する
@@ -17,6 +18,25 @@
             = image_tag "google.jpg",class: "image-google"
             Googleで登録する
     .us-form-fb
+      #pageheader
+        .clearfix#header_container
+          .logo
+            %h2#homelink Facebook
+      .fb_content.clearfix#content
+        "Log in to use your Facebook account with "
+        %span.appli メルカリ
+        .login_form_container
+        -# = form_for(id:login_form)  do |f|
     .us-form-google
+      -# #pageheader
+      -#   .clearfix#header_container
+      -#     .logo
+      -#       %h2#homelink Facebook
+      -# .fb_content.clearfix#content
+      -#   "Log in to use your Facebook account with "
+      -#   %span.appli メルカリ
+      -#   .login_form_container
+        -# = form_for(id:login_form)  do |f|
+          
   .us-body__footer
     = render partial: 'users/us-body__footer'

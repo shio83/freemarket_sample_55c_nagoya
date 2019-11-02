@@ -110,6 +110,13 @@
   background: #ea352d;
   position: relative;
 }
+.btn-mail a{
+  display:block;
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
+}
+
 .icon-mail{
   position: absolute;
   top: 50%;
@@ -159,4 +166,25 @@
   left: 16px;
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
+}
+.us-form-fb,.us-form-google{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+}
+#booklet{
+  margin: 0;
+  padding: 0;
+  #pageheader{
+    background: #365899;
+    color: #fff;
+    .clearfix{
+      zoom: 1;
+    }
+  }
 }

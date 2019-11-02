@@ -10,7 +10,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def detail_confirmation
+  def detail_tel
+  end
+  
+  def detail_zip
+    @user = User.new
+  end
+  
+  def detail_payment
+  end
+  
+  def detail_done
   end
 
   
