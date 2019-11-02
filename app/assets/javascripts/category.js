@@ -36,22 +36,38 @@ $(function(){
 
   function appendSizeBox(insertHTML){
     var sizeSelectHtml = '';
-    sizeSelectHtml = `<div class="products-to-box-form2 id="size_wrapper">
-                      <label class="products-to-box-form2-condition" for="サイズ">
-                      サイズ
-                      <span class="span">
-                      必須
-                      </span>
-                      </label>
-                      <div class='selebobo' id= 'grandchildren_wrapper'>
-                      <select class= 'selects' id="size" name="size_id">
-                      <option value="---" data-category="---">---</option>
-                      ${insertHTML}
-                      <select>
-                      <i aria-hidden="ture" class="fa fa-chevron-right fa-rotate-90 kitui"></i>
+    sizeSelectHtml = `<div class="products-to-box-form2" id = 'size_wrapper'>
+                        <label class="products-to-box-form2-condition" for= "サイズ">
+                          サイズ
+                        <span class="span">
+                          必須
+                        </span>
+                        </label>
+                       <div class='selebobo'>
+                        <select class= 'selects' id="size" name="size_id">
+                        <option value="---">---</option>
+                        ${insertHTML}
+                       <select>
+                         <i aria-hidden="ture" class="fa fa-chevron-right fa-rotate-90 kitui"></i>
                       </div>
                       </div>`; 
-    $("#grandchild_category").append(sizeSelectHtml);
+    $(".selebobobo").append(sizeSelectHtml);
+  }
+
+  function appendBrandBox(){
+    var brandSizeHtml = '';
+    brandSizeHtml = `<div class="products-to-box-form2" id = 'brand_wrapper'>
+                    <label class="products-to-box-form2-condition">
+                    ブランド
+                    <span class="free">
+                    任意
+                    </span>
+                    </label>
+                    <div class='selebobo'>
+                    <input type="text" class="selects" placeholder="例) シャネル">
+                    </div>
+                    </div>`;
+    $(".selebobobo").append(brandSizeHtml);           
   }
 
   
@@ -128,7 +144,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(sizes){
-        console.log(sizes)
         $('#size_wrapper').remove(); 
         $('#brand_wrapper').remove();
         if (sizes.length != 0) {
@@ -137,6 +152,7 @@ $(function(){
             insertHTML += appendSizeOption(size);
           });
           appendSizeBox(insertHTML);
+          appendBrandBox();
         }
       })
       .fail(function(){

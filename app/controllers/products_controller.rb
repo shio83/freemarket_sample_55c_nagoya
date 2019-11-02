@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
           @sizes = related_size_parent.children 
        end
     end
-
  end
 
   def create

@@ -564,6 +564,7 @@
   font-weight: initial;
   z-index: 1;
   margin-bottom: 10px;
+  border-radius: 4px;
   &:focus {
   border: 1px solid #0099e8;
   outline: 0;
@@ -581,4 +582,10 @@
   z-index: 1;
   right: 25px;
   pointer-events: none;
+}
+
+.free {
+  color: white;
+  background-color: #888;
+  
 }
