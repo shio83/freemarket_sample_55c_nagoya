@@ -1,45 +1,71 @@
-.multilevel
-  .multilevel--categolize
-    .multilevel--categolize--categolyseachs
-      .multilevel--categolize--categolyseach
-        .multilevel--categolize--categolyseach--list
-          = fa_icon"list-ul"
-        .multilevel--categolize--categolyseach--text
-          カテゴリーから探す
-      .category_list
-        .parents_list
-          - @parents.each do |parent|
-            = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
-        .children_list
-        .grand_children_list
-    .multilevel--categolize--brand
-      .multilevel--categolize--brand--tag
-        %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
-      .multilevel--categolize--brand--text
-        ブランドから探す
-        
-  .multilevel--renkon
-    .multilevel--renkon--good
-      .multilevel--renkon--good--good2
-        .multilevel--renkon--good--good2--heart
-          = fa_icon"heart-o"
-        .multilevel--renkon--good--good2--text
-          いいね！一覧
-    .multilevel--renkon--information
-      .multilevel--renkon--information--information2
-        .multilevel--renkon--information--information2--bell
-          = fa_icon"bell-o"
-        .multilevel--renkon--information--information2--text
-          お知らせ
-    .multilevel--renkon--things
-      .multilevel--renkon--things--things2
-        .multilevel--renkon--things--things2--check
-          = fa_icon"check"
-        .multilevel--renkon--things--things2--text
-          やることリスト
-    .multilevel--renkon--my
-      .multilevel--renkon--my--my2
-        = link_to users_index_path, class: "my2" do
-          .multilevel--renkon--my--my2--photo
-          .multilevel--renkon--my--my2--text
-            マイページ
+- if user_signed_in?
+  .multilevel
+    .multilevel--categolize
+      .multilevel--categolize--categolyseachs
+        .multilevel--categolize--categolyseach
+          .multilevel--categolize--categolyseach--list
+            = fa_icon"list-ul"
+          .multilevel--categolize--categolyseach--text
+            カテゴリーから探す
+        .category_list
+          .parents_list
+            - @parents.each do |parent|
+              = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+          .children_list
+          .grand_children_list
+      .multilevel--categolize--brand
+        .multilevel--categolize--brand--tag
+          %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
+        .multilevel--categolize--brand--text
+          ブランドから探す
+          
+    .multilevel--renkon
+      .multilevel--renkon--good
+        .multilevel--renkon--good--good2
+          .multilevel--renkon--good--good2--heart
+            = fa_icon"heart-o"
+          .multilevel--renkon--good--good2--text
+            いいね！一覧
+      .multilevel--renkon--information
+        .multilevel--renkon--information--information2
+          .multilevel--renkon--information--information2--bell
+            = fa_icon"bell-o"
+          .multilevel--renkon--information--information2--text
+            お知らせ
+      .multilevel--renkon--things
+        .multilevel--renkon--things--things2
+          .multilevel--renkon--things--things2--check
+            = fa_icon"check"
+          .multilevel--renkon--things--things2--text
+            やることリスト
+      .multilevel--renkon--my
+        .multilevel--renkon--my--my2
+          = link_to users_index_path, class: "my2" do
+            .multilevel--renkon--my--my2--photo
+            .multilevel--renkon--my--my2--text
+              マイページ
+- else
+  .multilevel
+    .multilevel--categolize
+      .multilevel--categolize--categolyseachs
+        .multilevel--categolize--categolyseach
+          .multilevel--categolize--categolyseach--list
+            = fa_icon"list-ul"
+          .multilevel--categolize--categolyseach--text
+            カテゴリーから探す
+        .category_list
+          .parents_list
+            - @parents.each do |parent|
+              = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+          .children_list
+          .grand_children_list
+      .multilevel--categolize--brand
+        .multilevel--categolize--brand--tag
+          %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
+        .multilevel--categolize--brand--text
+          ブランドから探す
+    .two-btn
+      .new-btn
+        = link_to "新規会員登録",   new_user_registration_path
+      .login-btn
+        = link_to "ログイン",  new_user_session_path

@@ -1,0 +1,1 @@
+CategorySize.create(size_id: 1, category_id: 3)
