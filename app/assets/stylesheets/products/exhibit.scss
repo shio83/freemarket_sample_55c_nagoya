@@ -27,68 +27,100 @@
       .products-box{
         @extend .center;
       }
-      .title{
-        font-size: 22px;
-        padding: 32px 16px;
-        text-align: center;
-        background-color: #ffffff;
-        font-weight: bold;
-        border-bottom:1px solid #EEEEEE;
-      }
-      .products-details{
-        &-box{
-          width: 100%;
-          padding: 40px;
-          background-color: white;
+      .sell-form__header{
+          font-size: 22px;
+          padding: 32px 16px;
+          text-align: center;
+          background-color: #ffffff;
+          font-weight: bold;
           border-bottom:1px solid #EEEEEE;
-          pre{
-            position: absolute;
-            top: 40%;
-            left: 16px;
-            right: 16px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.5;    
-          }
-          &-head{
-            font-size: 16px;
-            font-weight: bold;            
-            .span{
-              @include required;
+        }
+        .sell-form-container2{
+          border: 1px solid #f5f5f5;
+          .sell-form-container{
+            padding: 40px;
+            .sell-form-container__label{
+              font-size: 16px;
+              font-weight: bold;
+              display: inline-block;
+            .sell-form-container__require{
+              height: 19px;
+              width: 32px;
+              color: #ffffff;
+              background-color: #ea352d;
+              font-size: 12px;
+              margin: 0 0 0 8px;
+              padding: 0 4px;
+              border-radius: 2px;
+              vertical-align: top;
+              font-weight: bold;
+              display: inline-block;
             }
           }
-          .sentence{
+          .sell-form-container__maisuu{
+            font-size: 14px;
             margin: 8px 0 0;
-            font-size: 14px;
-            line-height: 1.5;
+            color: #333333;
           }
-          .dropbox{
-            margin: 16px auto 0;
-            width:100%;
-            display:block;
-            input{
-              display: none;
+          input{
+            display: none;
+          }
+          .dropzone-container{
+            display: flex;
+            height: 162px;
+            .preview{
+             display: flex;
+             img{
+              display: block;
+              margin: 10px 5px 0 10px;
+             }
+              
             }
-            .inbox{
-              position: relative;
-              width: 100%;
-              display:block;
-              min-height: 162px;
-              background: #f5f5f5;
-              border: 1px dashed #ccc;
-              padding: 40px;
-              text-align: center;
-              cursor:pointer;
-              box-sizing: border-box;
-            }         
+          .dropzone-area{
+            position: relative;
+            min-height: 162px;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            text-align: center;
+            width: 100%;
+            margin-left: 0;
+            margin: 10px 0 0 0;
+            p{
+             font-size: 14px;
+             font-weight: 600; 
+             margin: 50px 0 0 0;
+             display: inline-block;
+            }
+          }
+        }
+        .dropzone-container2{
+            display: flex;
+          .dropzone-area2{
+            display: none;
+            position: relative;
+            min-height: 162px;
+            width: 100%;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            text-align: center;
+            padding: 40px;
+            margin: 10px 0 0 0;
+            p{
+             font-size: 14px;
+             font-weight: 600; 
+             margin: 20px;
+             display: inline-block;
+            }
           }
         }
       }
-      .products-name{
-        padding: 40px;
-        border-bottom:1px solid #EEEEEE;
-        &-box{
-          &-head{
+    }
+        .products-name{
+          padding: 40px;
+          border-bottom:1px solid #EEEEEE;
+          &-box{
+
+            &-head{
             font-weight: 600;
             font-size: 14px;
             .span{
@@ -114,6 +146,7 @@
           &-explain{
             margin: 40px 0 0 ;
             &-header{
+
               font-weight: 600;
               font-size: 14px;
               .span{

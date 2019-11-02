@@ -13,7 +13,10 @@ class ProductsController < ApplicationController
 
   def details
   end
-  
+ 
+  def create
+    
+  end
 
   def new
    @category_parent_array = ["---"]
