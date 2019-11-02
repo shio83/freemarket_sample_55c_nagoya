@@ -2,26 +2,37 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    %main.main
-      %section.center
-        %div.products-box
-          %h2.title
-            商品の情報を入力
-          %form.products-details
-            %div.products-details-box
-              %h3.products-details-box-head
-                出品画像
-                %span.span
-                  必須
-              %p.sentence
-                最大10枚までアップロードできます
-              %div.dropbox
-                %label
-                  %input{:type => "file",:class => "input"}
-                  %div.inbox
-                    %pre.pre
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード 
+    = form_for @product, url: products_create_path, method: :post do |f|
+      %main.main
+        %section.center
+          %div.products-box
+            %h2.sell-form__header
+              商品情報を入力
+            .sell-form-container2
+              .sell-form-container
+                .sell-form-container__label
+                  出品画像
+                  .sell-form-container__require
+                    必須
+                .sell-form-container__maisuu
+                  最大10枚までアップロードできます。
+                  %label
+                    = f.file_field :file_name, multiple:true
+                    .dropzone-container
+                      .preview
+                      .dropzone-area
+                        .input_area
+                        %p
+                          ドラッグアンドドロップ
+                          %br
+                            またはクリックしてファイルをアップロード
+                    .dropzone-container2
+                      .preview2
+                      .dropzone-area2
+                        %p
+                          ドラッグアンドドロップ
+                          %br
+                            またはクリックしてファイルをアップロード
             %div.products-name
               %div.products-name-box
                 %label.products-name-box-head

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
-  
+  post 'products/create' => "products#create"
   # 本人情報の登録
   get 'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   get 'users/detail_confirmation' => "users#detail_confirmation"
 
   root 'tops#index'
-
   post "users/:parent_id/create" => "users#create"
   get "tops/json" => "tops#json"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
