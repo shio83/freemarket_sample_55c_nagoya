@@ -1,0 +1,32 @@
+.us-body
+  .us-body__header
+    = render partial: 'users/us-body__header'
+    .progress-bar
+      = render partial: 'users/progress-bar'
+  .us-body__main-registration
+    .us-body__main-registration__container
+      %h2.us-body__main-registration__container__head
+        会員登録完了
+      .us-body__main-registration__container__form
+        .us-body__main-registration__container__form__content
+          .form-group
+            %h2　ありがとうございます。
+            %h2  会員登録が完了しました。
+          %button{class: 'btn-default btn-red',type: "submit"}
+            メルカリをはじめる
+        .registration_logo
+          .registration_logo__head-box
+            .registration_logo__head-box-left
+              %h2 スマホでかんたんフリマアプリ
+              %p#font  今すぐ無料ダウンロード !
+              .head-box-left__logo
+                = image_tag 'mercari_icon.png', size: "40x40"
+                %ul.head-box-left__logo__app
+                  %li
+                    = link_to image_tag("app-store.svg"), "#"
+                  %li
+                    = link_to image_tag("google-play.svg"), "#"
+            .head-box-right
+              = image_tag "download_content_pc.png"
+  .us-body__footer
+    = render partial: 'users/us-body__footer'
