@@ -2,205 +2,192 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    %main.main
-      %section.center
-        %div.products-box
-          %h2.title
-            商品の情報を入力
-          %form.products-details
-            %div.products-details-box
-              %h3.products-details-box-head
-                出品画像
-                %span.span
-                  必須
-              %p.sentence
-                最大10枚までアップロードできます
-              %div.dropbox
-                %label
-                  %input{:type => "file",:class => "input"}
-                  %div.inbox
-                    %pre.pre
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード 
-            %div.products-name
-              %div.products-name-box
-                %label.products-name-box-head
-                  商品名
+    = form_for @product, url: product_index_path, method: :post do |f|
+      %main.main
+        %section.center
+          %div.products-box
+            %h2.title
+              商品の情報を入力
+            %form.products-details
+              %div.products-details-box
+                %h3.products-details-box-head
+                  出品画像
                   %span.span
                     必須
-                  %div.input-box
-                    %input{:type => "text",:placeholder => "商品名（必須40文字まで）",:class => "in"}
-                %div.products-name-box-explain
-                  %label.products-name-box-explain-header
-                    商品の説明
+                %p.sentence
+                  最大10枚までアップロードできます
+                %div.dropbox
+                  %label
+                    %input{:type => "file",:class => "input"}
+                    %div.inbox
+                      %pre.pre
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード 
+              %div.products-name
+                %div.products-name-box
+                  %label.products-name-box-head
+                    商品名
                     %span.span
                       必須
                     %div.input-box
-                      %textarea{:type => "text",:placeholder => "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",:class => "text"}
-            %div.products-to 
-              %h3.products-to-details
-                商品の詳細
-              %div.products-to-box
-                %div.products-to-box-form1
-                  %label.products-to-box-form1-category
-                    カテゴリー
+                      %input{:type => "text",:placeholder => "商品名（必須40文字まで）",:class => "in"}
+                  %div.products-name-box-explain
+                    %label.products-name-box-explain-header
+                      商品の説明
+                      %span.span
+                        必須
+                      %div.input-box
+                        %textarea{:type => "text",:placeholder => "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",:class => "text"}
+              %div.products-to 
+                %h3.products-to-details
+                  商品の詳細
+                %div.products-to-box
+                  %div.products-to-box-form1
+                    = f.label 'カテゴリー', class: 'products-to-box-form1-category'
+                    %span.listing-default--require  必須 
+                  .selebobobo                    
+                    %div.selebobo
+                      = f.select :category, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
+                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden":"ture"}
+                     
+                  %div.products-to-box-form2
+                    %label.products-to-box-form2-condition
+                      商品の状態
+                      %span.span
+                        必須
+                    %div.selebo
+                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
+                      %select.select-box
+                        %option ---
+                        %option 新品、未使用
+                        %option 未使用に近い
+                        %option 目立った傷や汚れなし
+                        %option やや傷や汚れあり
+                        %option 傷や汚れあり
+                        %option 全体的に状態が悪い
+                  
+                  
+              %div.products-delivery
+                %h4.products-delivery-todo
+                  配送について
+                %a.form-question
+                  ?
+                %div.products-delivery-box
+                  %div.products-delivery-box-form3
+                    %label.products-delivery-box-form3-fee
+                      配送料の負担
+                      %span.span
+                        必須
+                    %div.selebo
+                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
+                      %select.select-box
+                        %option ---
+                        %option 送料込み(出品者負担)
+                        %option 着払い(購入者負担)
+                  %div.products-delivery-box-form4
+                    %label.products-delivery-box-form4-area
+                      発送元の地域
+                      %span.span
+                        必須
+                    %div.selebo
+                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
+                      %select.select-box
+                        %option  ---
+                        %option 北海道
+                        %option 青森県
+                        %option 岩手県
+                        %option 宮城県
+                        %option 秋田県
+                        %option 山形県
+                        %option 福島県
+                        %option 東京都
+                        %option 神奈川県
+                        %option 埼玉県
+                        %option 千県葉
+                        %option 茨城県
+                        %option 栃木県
+                        %option 群馬県
+                        %option 山梨県
+                        %option 新潟県
+                        %option 長野県
+                        %option 富山県
+                        %option 石川県
+                        %option 福井県
+                        %option 愛知県
+                        %option 岐阜県
+                        %option 静岡県
+                        %option 三重県
+                        %option 大阪府
+                        %option 兵庫県
+                        %option 京都府
+                        %option 滋賀県
+                        %option 奈良県
+                        %option 和歌山県
+                        %option 鳥取県
+                        %option 島根県
+                        %option 岡山県
+                        %option 広島県
+                        %option 山口県
+                        %option 徳島県
+                        %option 香川県
+                        %option 愛媛県
+                        %option 高知県
+                        %option 福岡県
+                        %option 佐賀県
+                        %option 長崎県
+                        %option 熊本県
+                        %option 大分県
+                        %option 宮崎県
+                        %option 鹿児島県
+                        %option 沖縄県
+                  %div.products-delivery-box-form5
+                    %label.products-delivery-box-form5-day
+                      発送までの日数
+                      %span.span
+                        必須
+                    %div.selebo
+                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
+                      %select.select-box
+                        %option ---
+                        %option 1~2日で発送
+                        %option 2~3日で発送
+                        %option 4~7日で発送
+              %div.sell-price
+                %h5.sell-exp
+                  販売価格
+                  %small
+                    (300~9,999,999)
+                %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
+                %a.form-question
+                  ?
+                %div.clearfix
+                  %label.left
+                    価格
                     %span.span
                       必須
-                  %div.selebo
-                    %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                    %select.select-box
-                      %option ---
-                      %option レディース
-                      %option メンズ
-                      %option ベビー・キッズ
-                      %option インテリア・住まい・小物
-                      %option 本・音楽・ゲーム
-                      %option おもちゃ・ホビー・グッズ
-                      %option コスメ・香水・美容
-                      %option 家電・スマホ・カメラ
-                      %option スポーツ・レジャー
-                      %option ハンドメイド
-                      %option チケット
-                      %option 自動車・オートバイ
-                      %option その他
-                %div.products-to-box-form2
-                  %label.products-to-box-form2-condition
-                    商品の状態
-                    %span.span
-                      必須
-                  %div.selebo
-                    %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                    %select.select-box
-                      %option ---
-                      %option 新品、未使用
-                      %option 未使用に近い
-                      %option 目立った傷や汚れなし
-                      %option やや傷や汚れあり
-                      %option 傷や汚れあり
-                      %option 全体的に状態が悪い
-                 
-                
-            %div.products-delivery
-              %h4.products-delivery-todo
-                配送について
-              %a.form-question
-                ?
-              %div.products-delivery-box
-                %div.products-delivery-box-form3
-                  %label.products-delivery-box-form3-fee
-                    配送料の負担
-                    %span.span
-                      必須
-                  %div.selebo
-                    %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                    %select.select-box
-                      %option ---
-                      %option 送料込み(出品者負担)
-                      %option 着払い(購入者負担)
-                %div.products-delivery-box-form4
-                  %label.products-delivery-box-form4-area
-                    発送元の地域
-                    %span.span
-                      必須
-                  %div.selebo
-                    %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                    %select.select-box
-                      %option  ---
-                      %option 北海道
-                      %option 青森県
-                      %option 岩手県
-                      %option 宮城県
-                      %option 秋田県
-                      %option 山形県
-                      %option 福島県
-                      %option 東京都
-                      %option 神奈川県
-                      %option 埼玉県
-                      %option 千県葉
-                      %option 茨城県
-                      %option 栃木県
-                      %option 群馬県
-                      %option 山梨県
-                      %option 新潟県
-                      %option 長野県
-                      %option 富山県
-                      %option 石川県
-                      %option 福井県
-                      %option 愛知県
-                      %option 岐阜県
-                      %option 静岡県
-                      %option 三重県
-                      %option 大阪府
-                      %option 兵庫県
-                      %option 京都府
-                      %option 滋賀県
-                      %option 奈良県
-                      %option 和歌山県
-                      %option 鳥取県
-                      %option 島根県
-                      %option 岡山県
-                      %option 広島県
-                      %option 山口県
-                      %option 徳島県
-                      %option 香川県
-                      %option 愛媛県
-                      %option 高知県
-                      %option 福岡県
-                      %option 佐賀県
-                      %option 長崎県
-                      %option 熊本県
-                      %option 大分県
-                      %option 宮崎県
-                      %option 鹿児島県
-                      %option 沖縄県
-                %div.products-delivery-box-form5
-                  %label.products-delivery-box-form5-day
-                    発送までの日数
-                    %span.span
-                      必須
-                  %div.selebo
-                    %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                    %select.select-box
-                      %option ---
-                      %option 1~2日で発送
-                      %option 2~3日で発送
-                      %option 4~7日で発送
-            %div.sell-price
-              %h5.sell-exp
-                販売価格
-                %small
-                  (300~9,999,999)
-              %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
-              %a.form-question
-                ?
-              %div.clearfix
-                %label.left
-                  価格
-                  %span.span
-                    必須
-                %small.right  
-                  ¥
-              %div.hako
-              %small.sale
-                販売手数料
-                %sample
-                  (10%)
-                %div.rig
-                  ー
-              %div.hako
-              %div.last
-                販売利益
-                %div.rig
-                  ー
-            %div.warning
-              %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
-              %p またブランド品でシリアルナンバー等がある場合はご記載ください。
-              %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
-              %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-              %button{:type => "submit",:class =>"btn-red"}
-                出品する
-              %a.btn-back
-                もどる
+                  %small.right  
+                    ¥
+                %div.hako
+                %small.sale
+                  販売手数料
+                  %sample
+                    (10%)
+                  %div.rig
+                    ー
+                %div.hako
+                %div.last
+                  販売利益
+                  %div.rig
+                    ー
+              %div.warning
+                %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
+                %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+                %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
+                %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
+                %button{:type => "submit",:class =>"btn-red"}
+                  出品する
+                %a.btn-back
+                  もどる
     %footer.fo
       =render partial:'users/us-body__footer'
               
