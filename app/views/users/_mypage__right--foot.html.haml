@@ -1,17 +1,18 @@
 %section.bought-list
   %h2.bought-list__top 購入した商品
-  %ul.bought-list__tab-head
-    %li.bought-list__tab-head--left
+
+  %ul.bought-list__tab-heads
+    %li.bought-list__tab-heads--head.okey{id: 'purchase'}
       取引中
-    %li.bought-list__tab-head--right
+    %li.bought-list__tab-heads--head{id: 'puschased'}
       過去の取引
 
-  .bought-list__purchase-content.active
-    %ul.bought-list__purchase-content--contents
-      %li.bought-list__purchase-content--information
-        取引中の商品がありません
-
-  .bought-list__purchased-content
-    %ul.bought-list__purchased-content--contents
-      %li.bought-list__purchased-content--information
-        過去に取引した商品がありません
+  %ul.bought-list__contents
+    %li.bought-list__contents--content.show
+      %ul.bought-list__contents--content--purchase--contents
+        %li.bought-list__contents--content--purchase--information
+          取引中の商品がありません
+    %li.bought-list__contents--content
+      %ul.bought-list__contents--content--purchased--contents
+        %li.bought-list__contents--content--purchased--information
+          過去に取引した商品がありません

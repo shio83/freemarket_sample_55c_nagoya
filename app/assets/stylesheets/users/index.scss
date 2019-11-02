@@ -1,6 +1,5 @@
 .mypages{
   background-color: #F5F5F5;
-
 }
 
 .mypage {
@@ -40,7 +39,7 @@
       &--item i{
         float: right;
         color: #EEE;
-        transition: all .2s ease-out;
+        transition: all .5s ease-out;
       }
       &--head {
         margin: 40px 0 10px;
@@ -117,24 +116,7 @@
     .mypage-tag-notification-todo{
       .mypage-tabs {
         overflow: hidden;
-        &__left {
-          background-color: #FFF;
-          border-top: 2px solid #ea352d;
-          width: 50%;
-          height: 74px; 
-          text-align: center;
-          float: left;
-          position: relative;
-          display: block;
-          color: #333;
-          font-size: 16px;
-          line-height: 72px;
-          text-decoration: none;
-          touch-action: manipulation;
-          font-weight: bold;
-          cursor: pointer;
-        }
-        &__right {
+        .mypage-tab {
           background-color: #EEE;
           width: 50%;
           height: 74px;
@@ -150,14 +132,22 @@
         }
         :hover {
           color: #717171;
+          
+        }
+        li.active {
+          background-color: #FFF;
+          border-top: 2px solid #ea352d;
         }
       }
     }
-    
+    ul.tab-contents li.tab-content.show {
+      display: block;
+    }
     .tab-contents {
+      margin-bottom: 40px;
       .tab-content {
         background-color: #F5F5F5;
-        // display: none;
+        display: none;
         &__list{
           width: 700px;
           height: auto;
@@ -237,7 +227,9 @@
             line-height: 56px;
             text-align: center;
             cursor: pointer;
+            text-decoration: none;
           }
+          
           :hover{
             background-color: #FAFAFA;
           }
@@ -246,7 +238,6 @@
         &__todo {
           height: 236px;
           background: #fff;
-          display: none;
           &--contents {
             background-image: image-url("logo-gray-icon.svg");
             background-repeat: no-repeat;
@@ -269,7 +260,6 @@
     }
     
     .bought-list {
-      margin: 40px 0 0;
       background: #fff;
       &__top{
         padding: 0 16px 0 16px;
@@ -279,82 +269,83 @@
         display: block;
         font-weight: bold;
       }
-      &__tab-head{
-        background: #eee;
-        font-size: 16px;
-        line-height: 72px;
-        font-weight: bold;
-        text-align: center;
-        &--left{
-          border-top: 2px solid #ea352d;
-          background-color: #FFF;
-          position: relative;
-          display: block;
-          color: #333;
-          font-size: 16px;
-          line-height: 72px;    
-          float: left;
-          width: 50%;
-          cursor: pointer;
-        }
-        &--right{
+      &__tab-heads{
+        overflow: hidden;
+        &--head {
           background-color: #EEE;
+          width: 50%;
+          height: 74px;
+          text-align: center;
+          float: left;
           position: relative;
           display: block;
           color: #333;
           font-size: 16px;
           line-height: 72px;
-          float: left;
-          width: 50%;
+          font-weight: bold;
           cursor: pointer;
         }
         :hover {
           color: #717171;
         }
-      }
-      &__purchase-content {
-        height: 236px;
-        margin-top: 72px;
-        background: #fff;
-        &--contents {
-          background-image: image-url("logo-gray-icon.svg");
-          background-repeat: no-repeat;
-          background-position: center 40px;
-          background-size: 78px 85px;
-          margin: 0 auto;
-          }
-        &--information{
-          padding: 160px 0 60px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 78px 85px;
-          text-align: center;
-          font-size: 16px;
-          color: #ccc;
-          font-weight: bold;
+        li.okey {
+          border-top: 2px solid #ea352d;
+          background-color: #FFF;
         }
       }
-      &__purchased-content {
-        height: 236px;
-        margin-top: 72px;
-        background: #fff;
-        display: none;
-        &--contents {
-          background-image: image-url("logo-gray-icon.svg");
-          background-repeat: no-repeat;
-          background-position: center 40px;
-          background-size: 78px 85px;
-          margin: 0 auto;
+
+      ul.bought-list__contents li.bought-list__contents--content.show {
+        display:block;
+      }
+
+      &__contents {
+        &--content {
+          margin-top: 72px;
+          display: none;
+          &--purchase {
+            height: 236px;
+            background: #fff;
+            &--contents {
+              background-image: image-url("logo-gray-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center 40px;
+              background-size: 78px 85px;
+              margin: 0 auto;
+              }
+            &--information{
+              padding: 160px 0 60px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 78px 85px;
+              text-align: center;
+              font-size: 16px;
+              color: #ccc;
+              font-weight: bold;
+            }
           }
-        &--information{
-          padding: 160px 0 60px;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 78px 85px;
-          text-align: center;
-          font-size: 16px;
-          color: #ccc;
-          font-weight: bold;
+          &--purchased {
+            height: 236px;
+            margin-top: 72px;
+            background: #fff;
+            display: none;
+            &--contents {
+              background-image: image-url("logo-gray-icon.svg");
+              background-repeat: no-repeat;
+              background-position: center 40px;
+              background-size: 78px 85px;
+              margin: 0 auto;
+              }
+            &--information{
+              padding: 160px 0 60px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 78px 85px;
+              text-align: center;
+              font-size: 16px;
+              color: #ccc;
+              font-weight: bold;
+            }
+          }
         }
       }
     }

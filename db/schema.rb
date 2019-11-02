@@ -10,8 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 20191016122515) do
+ActiveRecord::Schema.define(version: 20191031105309) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",            limit: 65535
+    t.string   "last_name",                     null: false
+    t.string   "first_name",                    null: false
+    t.string   "last_name_kana",                null: false
+    t.string   "first_name_kana",               null: false
+    t.string   "birth_year",                    null: false
+    t.string   "birth_month",                   null: false
+    t.string   "birth_day",                     null: false
+    t.integer  "user_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -25,6 +39,15 @@ ActiveRecord::Schema.define(version: 20191016122515) do
     t.datetime "updated_at", null: false
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
+
+  create_table "category_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "size_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_sizes_on_category_id", using: :btree
+    t.index ["size_id"], name: "index_category_sizes_on_size_id", using: :btree
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -85,23 +108,14 @@ ActiveRecord::Schema.define(version: 20191016122515) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "text",            limit: 65535
-    t.string   "last_name",                     null: false
-    t.string   "first_name",                    null: false
-    t.string   "last_name_kana",                null: false
-    t.string   "first_name_kana",               null: false
-    t.string   "birth_year",                    null: false
-    t.string   "birth_month",                   null: false
-    t.string   "birth_day",                     null: false
-    t.string   "zipcode",                       null: false
-    t.string   "prefecture",                    null: false
-    t.string   "city",                          null: false
-    t.string   "district",                      null: false
-    t.string   "building",                      null: false
-    t.string   "phone_number",                  null: false
+    t.string   "zipcode",    null: false
+    t.string   "prefecture", null: false
+    t.string   "city",       null: false
+    t.string   "address",    null: false
+    t.string   "building",   null: false
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
@@ -113,9 +127,14 @@ ActiveRecord::Schema.define(version: 20191016122515) do
     t.index ["buyer_id"], name: "index_seller_buyers_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_seller_buyers_on_seller_id", using: :btree
   end
-=======
-ActiveRecord::Schema.define(version: 20190929061324) do
->>>>>>> Stashed changes
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_sizes_on_ancestry", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
@@ -130,7 +149,9 @@ ActiveRecord::Schema.define(version: 20190929061324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-<<<<<<< Updated upstream
+  add_foreign_key "addresses", "users"
+  add_foreign_key "category_sizes", "categories"
+  add_foreign_key "category_sizes", "sizes"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "credit_cards", "users"
@@ -143,6 +164,4 @@ ActiveRecord::Schema.define(version: 20190929061324) do
   add_foreign_key "profiles", "users"
   add_foreign_key "seller_buyers", "users", column: "buyer_id"
   add_foreign_key "seller_buyers", "users", column: "seller_id"
-=======
->>>>>>> Stashed changes
 end
