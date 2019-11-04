@@ -47,6 +47,7 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+     
       &--tag{
         height: 12px;
         width: 20px;
@@ -56,6 +57,7 @@
       &--text{
         font-weight: bold;
       }
+
     }
   }
   &--renkon{
@@ -188,14 +190,14 @@
 .multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--list{
   color:red;
 }
-.multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--text{
-  color: aqua;
+.multilevel--categolize--categolyseachs:hover .multilevel--categolize--categolyseach--text{
+  color: #5db7f3;
 }
 .multilevel--categolize--brand:hover .multilevel--categolize--brand--tag{
   color: red;
 }
-.multilevel--categolize--brand:hover .multilevel--categolize--brand--text{
-  color: aqua;
+.category-boxs:hover .multilevel--categolize--brand--text{
+  color: #5db7f3;
 }
 .multilevel--renkon--good--good2:hover .multilevel--renkon--good--good2--heart{
   color: aqua;
@@ -335,4 +337,39 @@
       color: white;
     }
   }
+}
+.brand-box {
+  display: flex;
+}
+
+.brand-list {
+  position: absolute;
+  top: 44px;
+  cursor: pointer;
+  display: none;
+  .brand-sell {
+    background: #fff;
+    width: 224px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    .inner-list {
+      display: block;
+      height: 44px;
+      text-align: left;
+      line-height: 44px;
+      padding-left: 20px;
+      list-style: none;
+      font-weight: 400;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+}
+
+.category-boxs {
+  cursor: pointer;
+  position: relative;
+}
+
+.multilevel--categolize--categolyseachs{
+  cursor: pointer;
 }
