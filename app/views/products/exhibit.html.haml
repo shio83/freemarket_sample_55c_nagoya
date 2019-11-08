@@ -16,19 +16,22 @@
                     必須
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
-                  %label
-                    = f.file_field :file_name, multiple:true
-                    .dropzone-container
-                      .preview
+                  .dropzone-container
+                    %ul.preview
+                    %label
+                      = f.file_field :file_name, multiple:true,class:"onigiri"
                       .dropzone-area
                         .input_area
                         %p
                           ドラッグアンドドロップ
                           %br
                             またはクリックしてファイルをアップロード
-                    .dropzone-container2
-                      .preview2
+                  .dropzone-container2
+                    %ul.preview2
+                    %label
+                      = f.file_field :file_name, multiple:true,class:"senbei"
                       .dropzone-area2
+                        .input_area2
                         %p
                           ドラッグアンドドロップ
                           %br

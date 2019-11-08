@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
   post 'products/create' => "products#create"
-
+  get 'products/imgexhibit' =>"products#imgexhibit"
   # 本人情報の登録
   get 'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
