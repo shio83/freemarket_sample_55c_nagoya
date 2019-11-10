@@ -8,6 +8,28 @@
   border-radius: 2px;
 }
 
+@mixin okinawa {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  padding-left: 15px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  font-weight: initial;
+  z-index: 1;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  &:focus {
+    border: 1px solid #0099e8;
+    outline: 0;
+  }
+}
+
 
 .products-information{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -446,6 +468,7 @@
         .sale{
           padding: 24px 0 24px 235px;
           display: block;
+          font-size: 14px;
           .rig{
             float: right;
           }
@@ -455,7 +478,7 @@
           display: block;
           font-size: 16px;
           font-weight: bold;
-          .rig {
+          .rig_2 {
             float: right;
           }
         }    
@@ -574,24 +597,6 @@
   background-color: #888;
 }
 
-#product_state {
-  display: block;
-  width: 100%;
-  height: 48px;
-  background-color: white;
-  padding-left: 15px;
-  border: 1px solid #cccccc;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  position: relative;
-  font-weight: initial;
-  z-index: 1;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  &:focus {
-    border: 1px solid #0099e8;
-    outline: 0;
-  }
+#product_state,#product_shipping_fee, #product_shipping_region,#product_shipping_date {
+  @include okinawa;
 }
