@@ -51,30 +51,39 @@
               %div.products-to 
                 %h3.products-to-details
                   商品の詳細
+
                 %div.products-to-box
                   %div.products-to-box-form1
                     = f.label 'カテゴリー', class: 'products-to-box-form1-category'
                     %span.listing-default--require  必須 
+
                   .selebobobo                    
                     %div.selebobo
                       = f.select :category, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
-                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden":"ture"}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
                      
                   %div.products-to-box-form2
-                    %label.products-to-box-form2-condition
-                      商品の状態
-                      %span.span
-                        必須
-                    %div.selebo
-                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                      %select.select-box
-                        %option ---
-                        %option 新品、未使用
-                        %option 未使用に近い
-                        %option 目立った傷や汚れなし
-                        %option やや傷や汚れあり
-                        %option 傷や汚れあり
-                        %option 全体的に状態が悪い
+                    %div.products-to-box-form2
+                      = f.label '商品の状態', class: 'products-to-box-form-category'
+                      %span.listing-default--require  必須
+
+                    -# %label.products-to-box-form2-condition
+                    -#   商品の状態
+                    -#   %span.span
+                    -#     必須
+
+                  .selebobobo
+                    %div.selebobo
+                      = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                    -# %select.select-box
+                    -#   %option ---
+                    -#   %option 新品、未使用
+                    -#   %option 未使用に近い
+                    -#   %option 目立った傷や汚れなし
+                    -#   %option やや傷や汚れあり
+                    -#   %option 傷や汚れあり
+                    -#   %option 全体的に状態が悪い
                   
                   
               %div.products-delivery
