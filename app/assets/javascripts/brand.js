@@ -10,6 +10,6 @@ $(function(){
   function(){
     $(".brand-list").css("display", "none");
   });
-})
+});
 
 
