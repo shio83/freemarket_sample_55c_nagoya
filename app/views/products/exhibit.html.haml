@@ -16,19 +16,22 @@
                     必須
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
-                  %label
-                    = f.file_field :file_name, multiple:true
-                    .dropzone-container
-                      .preview
+                  .dropzone-container
+                    %ul.preview
+                    %label
+                      = f.file_field :file_name, multiple:true,class:"onigiri"
                       .dropzone-area
                         .input_area
                         %p
                           ドラッグアンドドロップ
                           %br
                             またはクリックしてファイルをアップロード
-                    .dropzone-container2
-                      .preview2
+                  .dropzone-container2
+                    %ul.preview2
+                    %label
+                      = f.file_field :file_name, multiple:true,class:"senbei"
                       .dropzone-area2
+                        .input_area2
                         %p
                           ドラッグアンドドロップ
                           %br
@@ -141,8 +144,7 @@
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。
                 %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
                 %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-                %button{:type => "submit",:class =>"btn-red"}
-                  出品する
+                = f.submit class: "btn-red", disable_with: "Save", value:"出品する"
                 %a.btn-back
                   もどる
     %footer.fo
