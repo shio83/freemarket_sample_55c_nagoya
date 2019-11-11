@@ -70,7 +70,7 @@
                       = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
                       %span.listing-default--require  必須
 
-                  .selebobobo
+                  .selebobobobo
                     %div.selebobo
                       = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
@@ -85,7 +85,7 @@
                     %label.products-delivery-box-form3-fee
                       配送料の負担
                       %span.listing-default--require  必須
-                    .selebobobo
+                    .selebobobobo
                       %div.selebobo
                         = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
@@ -95,7 +95,7 @@
                       発送元の地域
                       %span.span
                         必須
-                    .selobobobo
+                    .selobobobobo
                       %div.selebobo
                         = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
@@ -105,7 +105,7 @@
                       発送までの日数
                       %span.span
                         必須
-                    .selobobobo
+                    .selobobobobo
                       %div.selebobo
                         = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
