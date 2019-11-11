@@ -43,42 +43,37 @@
                   %span.span
                     必須
                     %div.input-box
-                      %input{:type => "text",:placeholder => "商品名（必須40文字まで）",:class => "in"}
+                      = f.text_field :name, {placeholder:"商品名（必須40文字まで）", class: "in" }
                   %div.products-name-box-explain
                     %label.products-name-box-explain-header
                       商品の説明
                       %span.span
                         必須
                       %div.input-box
-                        %textarea{:type => "text",:placeholder => "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",:class => "text"}
+                        = f.text_area :description, {placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "text"}
               %div.products-to 
                 %h3.products-to-details
                   商品の詳細
+
                 %div.products-to-box
                   %div.products-to-box-form1
                     = f.label 'カテゴリー', class: 'products-to-box-form1-category'
                     %span.listing-default--require  必須 
+
                   .selebobobo                    
                     %div.selebobo
                       = f.select :category, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
-                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden":"ture"}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
                      
                   %div.products-to-box-form2
-                    %label.products-to-box-form2-condition
-                      商品の状態
-                      %span.span
-                        必須
-                    %div.selebo
-                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                      %select.select-box
-                        %option ---
-                        %option 新品、未使用
-                        %option 未使用に近い
-                        %option 目立った傷や汚れなし
-                        %option やや傷や汚れあり
-                        %option 傷や汚れあり
-                        %option 全体的に状態が悪い
-                  
+                    %div.products-to-box-form2
+                      = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
+                      %span.listing-default--require  必須
+
+                  .selebobobo
+                    %div.selebobo
+                      = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
                   
               %div.products-delivery
                 %h4.products-delivery-todo
@@ -89,88 +84,39 @@
                   %div.products-delivery-box-form3
                     %label.products-delivery-box-form3-fee
                       配送料の負担
-                      %span.span
-                        必須
-                    %div.selebo
-                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                      %select.select-box
-                        %option ---
-                        %option 送料込み(出品者負担)
-                        %option 着払い(購入者負担)
+                      %span.listing-default--require  必須
+                    .selebobobo
+                      %div.selebobo
+                        = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+
                   %div.products-delivery-box-form4
                     %label.products-delivery-box-form4-area
                       発送元の地域
                       %span.span
                         必須
-                    %div.selebo
-                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                      %select.select-box
-                        %option  ---
-                        %option 北海道
-                        %option 青森県
-                        %option 岩手県
-                        %option 宮城県
-                        %option 秋田県
-                        %option 山形県
-                        %option 福島県
-                        %option 東京都
-                        %option 神奈川県
-                        %option 埼玉県
-                        %option 千県葉
-                        %option 茨城県
-                        %option 栃木県
-                        %option 群馬県
-                        %option 山梨県
-                        %option 新潟県
-                        %option 長野県
-                        %option 富山県
-                        %option 石川県
-                        %option 福井県
-                        %option 愛知県
-                        %option 岐阜県
-                        %option 静岡県
-                        %option 三重県
-                        %option 大阪府
-                        %option 兵庫県
-                        %option 京都府
-                        %option 滋賀県
-                        %option 奈良県
-                        %option 和歌山県
-                        %option 鳥取県
-                        %option 島根県
-                        %option 岡山県
-                        %option 広島県
-                        %option 山口県
-                        %option 徳島県
-                        %option 香川県
-                        %option 愛媛県
-                        %option 高知県
-                        %option 福岡県
-                        %option 佐賀県
-                        %option 長崎県
-                        %option 熊本県
-                        %option 大分県
-                        %option 宮崎県
-                        %option 鹿児島県
-                        %option 沖縄県
+                    .selobobobo
+                      %div.selebobo
+                        = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+
                   %div.products-delivery-box-form5
                     %label.products-delivery-box-form5-day
                       発送までの日数
                       %span.span
                         必須
-                    %div.selebo
-                      %i.fa.fa-chevron-right.fa-rotate-90.allowselebo{"aria-hidden":"ture"}
-                      %select.select-box
-                        %option ---
-                        %option 1~2日で発送
-                        %option 2~3日で発送
-                        %option 4~7日で発送
+                    .selobobobo
+                      %div.selebobo
+                        = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        
               %div.sell-price
                 %h5.sell-exp
                   販売価格
                   %small
                     (300~9,999,999)
-                %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
+                %input.inform{placeholder: "例) 300", type: "text"}/
+                -# %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
                 %a.form-question
                   ?
                 %div.clearfix
@@ -190,7 +136,8 @@
                 %div.hako
                 %div.last
                   販売利益
-                  %div.rig
+                  %div.rig_2
+                    = f.number_field :price, style: "display: none", id: "price"
                     ー
               %div.warning
                 %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
