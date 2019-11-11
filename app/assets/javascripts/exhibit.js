@@ -74,7 +74,6 @@ $(function(){
 $('.dropzone-area').on('drop',function(event){
   event.preventDefault();
   files = event.originalEvent.dataTransfer.files;
-  console.log(files);
   for (var i=0; i<files.length; i++) {
     files_array.push(files[i]);
     var fileReader = new FileReader();
@@ -157,6 +156,28 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
     })
   }
 });
-
+$('.btn-red').on('submit', function(e){
+  e.preventDefault();
+  // そのほかのform情報を以下の記述でformDataに追加
+  var formData = new FormData($(this).get(0));
+  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+  files_array.forEach(function(file){
+   formData.append("image[images][]" , file)
+  });
+  $.ajax({
+    url:         'products/items',
+    type:        "POST",
+    data:        formData,
+    contentType: false,
+    processData: false,
+    dataType:   'json',
+  })
+  .done(function(data){
+    alert('出品に成功しました！');
+  })
+  .fail(function(XMLHttpRequest, textStatus, errorThrown){
+    alert('出品に失敗しました！');
+  });
+});
 });
 

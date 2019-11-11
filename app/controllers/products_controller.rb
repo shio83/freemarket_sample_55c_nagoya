@@ -16,7 +16,10 @@ class ProductsController < ApplicationController
   end
  
   def create
-    # itemが保存できたかどうかで、画像の保存を分岐させたいために、newです。(create_params)
+    
+  end
+  
+  def items
     @product = Product.new
     if @product.save
   
@@ -61,10 +64,6 @@ class ProductsController < ApplicationController
     end
  end
 
-  # def create
-  #   @product = Product.new
-  #   @product.save
-  # end
 
   private
     def products_params
