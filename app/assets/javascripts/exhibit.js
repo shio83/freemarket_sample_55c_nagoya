@@ -165,7 +165,7 @@ $('.btn-red').on('submit', function(e){
    formData.append("image[images][]" , file)
   });
   $.ajax({
-    url:         'products/items',
+    url:         '/products/items',
     type:        "POST",
     data:        formData,
     contentType: false,
