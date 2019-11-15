@@ -145,6 +145,7 @@
                 %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
                 %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
                 = f.submit class: "btn-red", disable_with: "Save", value:"出品する"
+                = render partial: 'products/listingcompleted'
                 %a.btn-back
                   もどる
     %footer.fo

@@ -19,6 +19,9 @@ class ProductsController < ApplicationController
     
   end
   
+  def listingcompleted
+  end
+
   def items
     @product = Product.new
     if @product.save
