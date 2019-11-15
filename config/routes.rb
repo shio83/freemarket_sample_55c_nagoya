@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'products/exhibit' =>"products#exhibit"
   post 'products/create' => "products#create"
   get 'products/imgexhibit' =>"products#imgexhibit"
+  get 'products/listingcompleted' => 'products#listingcompleted'
   post 'products/items' => 'products#items'
   # 本人情報の登録
   get 'identifications/index' => "identifications#index"
