@@ -7,14 +7,13 @@
     .us-body__main-registration__container
       %h2.us-body__main-registration__container__head
         電話番号の確認
-      .us-body__main-registration__container__form
+      = form_for(@user, url: detail_zip_signup_index_path, method: :get, html: {class:'us-body__main-registration__container__form'}) do |f|
         .us-body__main-registration__container__form__content
           .form-group
             %label.form-group__label 携帯電話の番号
-            %input{type:"text", placeholder: "携帯電話の番号を入力" , name:"phone_number" , class:'input-default'}
+            = g.text_field :phone_number, placeholder: "携帯電話の番号を入力", class:'input-default'
           %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          %button{class: 'btn-default btn-red',type: "submit"}
-            SMSを送信する
+          = f.submit "SMSを送信する", class: 'btn-default btn-red',type: "submit"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .form-group.text-right
             %p

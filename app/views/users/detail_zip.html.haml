@@ -12,17 +12,23 @@
           .form-group
             %label.form-group__label お名前
             %span.form-group__require 必須
-            %input{type:"text", placeholder: "例) 山田" , name:"nickname" , class:'input-default'}
-            %input{type:"text", placeholder: "例) 彩" , name:"nickname" , class:'input-default'}
+            %input{type:"text", placeholder: "" , name:"last_name" , class:'input-default'}
+            %input{type:"text", placeholder: "例) 彩" , name:"first_name" , class:'input-default'}
           .form-group
             %label.form-group__label お名前カナ
             %span.form-group__require 必須
-            %input{type:"text", placeholder: "例) ヤマダ" , name:"nickname" , class:'input-default'}
-            %input{type:"text", placeholder: "例) アヤ" , name:"nickname" , class:'input-default'}
+            %input{type:"text", placeholder: "例) ヤマダ" , name:"last_name_kana" , class:'input-default'}
+            %input{type:"text", placeholder: "例) アヤ" , name:"first_name_kana" , class:'input-default'}
           .form-group
             %label.form-group__label 郵便番号
             %span.form-group__require 必須
-            %input{type:"text", placeholder: "例) 123−4567" , name:"nickname" , class:'input-default'}
+            %input{type:"text", placeholder: "例) 123−4567" , name:"zipcode" , class:'input-default'}
+          .form-group
+            %label.form-group__label 都道府県
+            %span.form-group__require.option 任意
+            .input-default
+              %i.fa.fa-chevron-down.select-wrap-wrap
+              %select#prefecture {Profile.prefectures.keys.to_a}
           .form-group
             %label.form-group__label 市区町村
             %span.form-group__require 必須
@@ -34,11 +40,11 @@
           .form-group
             %label.form-group__label 建物名
             %span.form-group__require.option 任意
-            %input{type:"text", placeholder: "例) 柳ビル103" , name:"nickname" , class:'input-default'}
+            %input{type:"text", placeholder: "例) 柳ビル103" , name:"building" , class:'input-default'}
           .form-group
             %label.form-group__label 電話
             %span.form-group__require.option 任意
-            %input{type:"text", placeholder: "例) 090−1234−5678" , name:"nickname" , class:'input-default'}
+            %input{type:"text", placeholder: "例) 090−1234−5678" , name:"phone_number" , class:'input-default'}
           %button{class: 'btn-default btn-red',type: "submit"}
             次へ進む
   .us-body__footer

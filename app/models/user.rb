@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_one :address, dependent: :destroy
-  has_one :credit_card, dependent: :destroy
+  accepts_nested_attributes_for :address
   has_many :comments, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :likes, dependent: :destroy
