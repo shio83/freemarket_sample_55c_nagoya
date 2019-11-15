@@ -108,23 +108,14 @@ ActiveRecord::Schema.define(version: 20191031105309) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "text",            limit: 65535
-    t.string   "last_name",                     null: false
-    t.string   "first_name",                    null: false
-    t.string   "last_name_kana",                null: false
-    t.string   "first_name_kana",               null: false
-    t.string   "birth_year",                    null: false
-    t.string   "birth_month",                   null: false
-    t.string   "birth_day",                     null: false
-    t.string   "zipcode",                       null: false
-    t.string   "prefecture",                    null: false
-    t.string   "city",                          null: false
-    t.string   "district",                      null: false
-    t.string   "building",                      null: false
-    t.string   "phone_number",                  null: false
+    t.string   "zipcode",    null: false
+    t.string   "prefecture", null: false
+    t.string   "city",       null: false
+    t.string   "address",    null: false
+    t.string   "building",   null: false
     t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

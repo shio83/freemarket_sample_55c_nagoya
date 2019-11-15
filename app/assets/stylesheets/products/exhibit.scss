@@ -1,204 +1,231 @@
-@mixin required{
+@mixin required {
   vertical-align: top;
   color: white;
   margin: 0 0 0 8px;
   font-size: 12px;
-  padding: 2px 4px;
+  padding: 2px 0 2px 4px;
   background-color: red;
   border-radius: 2px;
 }
 
+@mixin okinawa {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  padding-left: 15px;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  font-weight: initial;
+  z-index: 1;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  &:focus {
+    border: 1px solid #0099e8;
+    outline: 0;
+  }
+}
 
-.products-information{
-  
+
+.products-information {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-
   header{
     height: 128px;
     background-color: #EEEEEE;
     text-align: center;
   } 
-
-  .main{
+  .main {
     display: block;
     height: auto;
     background-color: #EEEEEE;
-
-    .center{
-        margin: 0 auto;
-        background-color: white;
-        width: 700px;
-       
-
-      .products-box{
+    .center {
+      margin: 0 auto;
+      background-color: white;
+      width: 700px;
+      .products-box {
         @extend .center;
       }
-        
-        .title{
-          font-size: 22px;
-          padding: 32px 16px;
-          text-align: center;
-          background-color: #ffffff;
-          font-weight: bold;
-          border-bottom:1px solid #EEEEEE;
-        }
-
-        .products-details{
-       
-          
-          &-box{
-            width: 100%;
-            padding: 40px;
-            background-color: white;
-            border-bottom:1px solid #EEEEEE;
-
-            pre{
-              position: absolute;
-              top: 40%;
-              left: 16px;
-              right: 16px;
-              text-align: center;
-              font-size: 14px;
-              line-height: 1.5;
-                   
-            }
-
-          &-head{
+      .sell-form__header {
+        font-size: 22px;
+        padding: 32px 16px;
+        text-align: center;
+        background-color: #ffffff;
+        font-weight: bold;
+        border-bottom:1px solid #EEEEEE;
+      }
+      .sell-form-container2 {
+        border: 1px solid #f5f5f5;
+        .sell-form-container {
+          padding: 40px;
+          .sell-form-container__label {
             font-size: 16px;
             font-weight: bold;
-            
-            .span{
+            display: inline-block;
+            .sell-form-container__require {
+              height: 19px;
+              width: 32px;
+              color: #ffffff;
+              background-color: #ea352d;
+              font-size: 12px;
+              margin: 0 0 0 8px;
+              padding: 0 4px;
+              border-radius: 2px;
+              vertical-align: top;
+              font-weight: bold;
+              display: inline-block;
+            }
+          }
+          .sell-form-container__maisuu {
+            font-size: 14px;
+            margin: 8px 0 0;
+            color: #333333;
+          }
+          input {
+            display: none;
+          }
+          .dropzone-container {
+            display: flex;
+            margin: 10px 0 0 0;
+            ul.preview {
+              display: flex;
+            }
+            label {
+              width: 100%;
+            }    
+          }
+          .dropzone-area {
+            position: relative;
+            min-height: 160px;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            text-align: center;
+            width: 100%;
+            p {
+              font-size: 14px;
+              font-weight: 600; 
+              margin: 50px 0 0 0;
+              display: inline-block;
+            }
+          }
+        }
+        .dropzone-container2 {
+          display: flex;
+          margin: 10px 0 0 0;
+          ul.preview2 {
+            display: flex;
+          }
+          label {
+            width: 100%;
+          }
+        }
+        .dropzone-area2 {
+          display: none;
+          position: relative;
+          min-height: 160px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          text-align: center;
+          width: 100%;
+          p {
+            font-size: 14px;
+            font-weight: 600; 
+            margin: 50px 0 0 0;
+            display: inline-block;
+          }
+        }
+      }
+      .products-name {
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        &-box {
+          &-head {
+            font-weight: 600;
+            font-size: 14px;
+            .span {
               @include required;
             }
-
-          }
-            .sentence{
-              margin: 8px 0 0;
-              font-size: 14px;
-              line-height: 1.5;
-            }
-
-            .dropbox{
-              margin: 16px auto 0;
-              width:100%;
-              display:block;
-              input{
-                display: none;
-              }
-                .inbox{
-                  position: relative;
-                  width: 100%;
-                  display:block;
-                  min-height: 162px;
-                  background: #f5f5f5;
-                  border: 1px dashed #ccc;
-                  padding: 40px;
-                  text-align: center;
-                  cursor:pointer;
-                  box-sizing: border-box;
-            }
-              
-          }
-        }
-      }
-        .products-name{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          &-box{
-
-            &-head{
-              font-weight: 600;
-              font-size: 14px;
-             
-
-              .span{
-                @include required;
-              }
-              .input-box{
-                
-               .in{
-                 width: 100%;
-                 margin: 8px 0 0;
-                 padding:10px 16px 8px;
-                 border-radius: 4px;
-                 border: 1px solid #ccc;
-                 background: #fff;
-                 font-weight: initial;
-                 font-size: 16px;
-                 &[type=text]:focus {
+            .input-box {
+              .in{
+                width: 100%;
+                margin: 8px 0 0;
+                padding:10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                font-weight: initial;
+                font-size: 16px;
+                &[type=text]:focus {
                   border: 1px solid #0099e8;
                   outline: 0;
-                  }
-                 
                 }
               }
             }
-            &-explain{
-              margin: 40px 0 0 ;
-
-              &-header{
-                font-weight: 600;
-                font-size: 14px;
-
-                .span{
-                  @include required;
+          }
+          &-explain {
+            margin: 40px 0 0 ;
+            &-header {
+              font-weight: 600;
+              font-size: 14px;
+              .span {
+                @include required;
               }
-                .input-box{
-
-                  .text{
-                    display: block;
-                    font-weight: initial;
-                    max-width: 100%;
-                    min-height: 104px;
-                    width: 100%;
-                    padding: 10px;
-                    margin: 8px 0 0;
-                    border: 1px solid #ccc;
-                    font-size: 16px;
-                    line-height: 1.5;
-                    height: 150px;
-                    &[type=text]:focus {
+              .input-box {
+                .text {
+                  display: block;
+                  font-weight: initial;
+                  max-width: 100%;
+                  min-height: 104px;
+                  width: 100%;
+                  padding: 10px;
+                  margin: 8px 0 0;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  height: 150px;
+                  &[type=text]:focus {
                     border: 1px solid #0099e8;
                     outline: 0;
-                    }
-              } 
+                  }
+                } 
+              }
             }
-          }
+          }   
         }
       }
-    }
-        .products-to{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          overflow: auto;
-          &-details{
-            color: rgb(136, 136, 136);
-            font-size: 14px;
-            font-weight: bold;
-            float: left;
-          }
-            
-          &-box{
-            float: right;
-            width: 400px;
+      .products-to {
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        overflow: auto;
+        &-details {
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: bold;
+          float: left;
+        }
+        &-box {
+          float: right;
+          width: 400px;
+          margin: 0;
+          &-form1 {
             margin: 0;
-            &-form1{
-              margin: 0;
-              &-category{
-                display: block;
-                font-weight: 600;
-                font-size: 14px;
-
-                .span{
-                  @include required;
-                }
+            &-category {
+              display: block;
+              font-weight: 600;
+              font-size: 14px;
+              .span {
+                @include required;
               }
-              .selebo{
-                position: relative;;
-                i{
+            }
+            .selebo {
+              position: relative;
+              i {
                 color: #888;
-                }
               }
+            }
             .select-box{
               display: block;
               width: 100%;
@@ -214,9 +241,9 @@
               font-weight: initial;
               z-index: 1;
               &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
+                border: 1px solid #0099e8;
+                outline: 0;
+              }
             }
           }
           &-form2{
@@ -224,80 +251,16 @@
             &-condition{
               font-weight: 600;
               font-size: 14px;
-              
               .span{
                 @include required;
               }
             }
-          
-            .selebo{
-                i{
-                color: #888;
-                }
-            }
-            .select-box{
-              display: block;
-              width: 100%;
-              height: 48px;
-              background-color: white;
-              -webkit-appearance: none;
-              -moz-appearance: none;
-              appearance: none;
-              padding-left: 15px;
-              cursor: pointer;
-              font-weight: initial;
-              position: relative;
-              border: 1px solid #cccccc;
-              &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
-            }
-          }
-          }
-        }
-        .products-delivery{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          overflow: auto;
-          &-todo{
-            display: inline;
-            color: rgb(136, 136, 136);
-            font-size: 14px;
-            font-weight: bold;
-          }
-          .form-question{
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #0099e8;
-            color: #fff;
-            line-height: 14px;
-            font-size: 12px;
-            text-align: center;
-          }
-          &-box{
-            float: right;
-            width: 400px;
-            margin: 0;
-            &-form3{
-
-              &-fee{
-                display: block;
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-
             .selebo{
               i{
-              color: #888;
+                color: #888;
               }
+            }
             .select-box{
-              position: relative;
               display: block;
               width: 100%;
               height: 48px;
@@ -308,179 +271,226 @@
               padding-left: 15px;
               cursor: pointer;
               font-weight: initial;
+              position: relative;
               border: 1px solid #cccccc;
               &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
+                border: 1px solid #0099e8;
+                outline: 0;
               }
             }
           }
-            &-form4{
-              margin: 40px 0 0;
-              &-area{
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-              .selebo{
-                i{
-                color: #888;
-                }
-                .select-box{
-                  position: relative;
-                  display: block;
-                  width: 100%;
-                  height: 48px;
-                  background-color: white;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  padding-left: 15px;
-                  cursor: pointer;
-                  font-weight: initial;
-                  border: 1px solid #cccccc;
-                  &:focus {
-                  border: 1px solid #0099e8;
-                  outline: 0;
-                    }
-                  }
-              }
-            }
-            &-form5{
-              margin: 40px 0 0;
-              &-day{
-                font-weight: 600;
-                font-size: 14px;
-                .span{
-                  @include required;
-                }
-              }
-              .selebo{
-                i{
-                color: #888;
-                }
-                .select-box{
-                  position: relative;
-                  display: block;
-                  width: 100%;
-                  height: 48px;
-                  background-color: white;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  padding-left: 15px;
-                  border: 1px solid #cccccc;
-                  cursor: pointer;
-                  font-weight: initial;
-                  &:focus {
-                  border: 1px solid #0099e8;
-                  outline: 0;
-                    }
-                  }
-            }
-          
-          }
-        
+        }
       }
-    }
-        .sell-price{
-          padding: 40px;
-          border-bottom:1px solid #EEEEEE;
-          .sell-exp{
-            color: rgb(170, 170, 170);
-            font-size: 14px;
-            font-weight: bold;
-            display: inline;
-            
-          }
-          .inform{
-            width: 25%;
-            height: 48px;
-            padding: 10px 16px 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            font-size: 16px;
-            text-align: right;
-            float: right;
-            &:focus {
-              border: 1px solid #0099e8;
-              outline: 0;
-                }
-          }
-          .form-question{
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #0099e8;
-            color: #fff;
-            line-height: 14px;
-            font-size: 12px;
-            text-align: center;
-          }
-        
-          .clearfix{
-           text-align: center;
-           padding: 0 0 38px 220px;
-           
-            .left{
+      .products-delivery {
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        overflow: auto;
+        &-todo {
+          display: inline;
+          color: rgb(136, 136, 136);
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .form-question {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        &-box {
+          float: right;
+          width: 400px;
+          margin: 0;
+          &-form3 {
+            &-fee {
+              display: block;
               font-weight: 600;
               font-size: 14px;
-              display: inline-block;
-              width: 50%;
-              text-align: left;
-             
-              
-            
               .span{
                 @include required;
               }
-        }
-            .right{
-              display: inline;
             }
-         
-            }
-            .hako{
-              width: 62%;
-              border-bottom: 1px solid #ccc;
-              float: right;
-
-            }
-            .sale{
-              padding: 24px 0 24px 235px;
-              display: block;
-              .rig{
-                float: right;
+            .selebo {
+              i {
+                color: #888;
+              }
+              .select-box {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                cursor: pointer;
+                font-weight: initial;
+                border: 1px solid #cccccc;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
               }
             }
-            .last{
-              padding: 24px 0 24px 235px;
-              display: block;
-              font-size: 16px;
-              font-weight: bold;
-              .rig{
-                float: right;
-              }
-
-            }
-          
           }
-          
-        
-        .warning{
-          padding: 40px;
+          &-form4 {
+            margin: 40px 0 0;
+            &-area {
+              font-weight: 600;
+              font-size: 14px;
+              .span {
+                @include required;
+              }
+            }
+            .selebo {
+              i{
+                color: #888;
+              }
+              .select-box {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                cursor: pointer;
+                font-weight: initial;
+                border: 1px solid #cccccc;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
+              }
+            }
+          }
+          &-form5 {
+            margin: 40px 0 0;
+            &-day {
+              font-weight: 600;
+              font-size: 14px;
+              .span {
+                @include required;
+              }
+            }
+            .selebo {
+              i{
+                color: #888;
+              }
+              .select-box {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 48px;
+                background-color: white;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-left: 15px;
+                border: 1px solid #cccccc;
+                cursor: pointer;
+                font-weight: initial;
+                &:focus {
+                  border: 1px solid #0099e8;
+                  outline: 0;
+                }
+              }
+            } 
+          }      
+        } 
+      }
+      .sell-price {
+        padding: 40px;
+        border-bottom:1px solid #EEEEEE;
+        .sell-exp {
+          color: rgb(170, 170, 170);
           font-size: 14px;
-          p{
+          font-weight: bold;
+          display: inline;          
+        }
+        .inform {
+          width: 25%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: right;
+          float: right;
+          &:focus {
+            border: 1px solid #0099e8;
+            outline: 0;
+          }
+        }
+        .form-question {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #0099e8;
+          color: #fff;
+          line-height: 14px;
+          font-size: 12px;
+          text-align: center;
+        }
+        .clearfix {
+          text-align: center;
+          padding: 0 0 38px 220px;
+          .left {
+            font-weight: 600;
             font-size: 14px;
+            display: inline-block;
+            width: 50%;
+            text-align: left;
+            .span {
+              @include required;
+            }
+          }
+          .right {
             display: inline;
           }
-        .btn-red{
+        }
+        .hako {
+          width: 62%;
+          border-bottom: 1px solid #ccc;
+          float: right;
+        }
+        .sale {
+          padding: 24px 0 24px 235px;
+          display: block;
+          font-size: 14px;
+          .rig {
+            float: right;
+          }
+        }
+        .last {
+          padding: 24px 0 24px 235px;
+          display: block;
+          font-size: 16px;
+          font-weight: bold;
+          .rig_2 {
+            float: right;
+          }
+        }    
+      }   
+      .warning {
+        padding: 40px;
+        font-size: 14px;
+        p {
+          font-size: 14px;
+          display: inline;
+        }
+        .btn-red {
           display: block;
           border: 1px solid #ea352d;
           margin: 40px 0 0;
@@ -493,9 +503,9 @@
           &:focus {
             border: 1px solid #0099e8;
             outline: 0;
-            }
+          }
         }
-        .btn-back{
+        .btn-back {
           display: block;
           border: 1px solid #aaa;
           margin: 24px auto 0;
@@ -506,31 +516,29 @@
           color: white;
           text-align: center;
           cursor: pointer;
-            
         }
       }
-    
-  
-}
+    }
   }
 }
 
-.btn-back{
+.btn-back {
   text-decoration:none;
   color: #0099e8;
 }
 
-.btn-back:hover{
+.btn-back:hover {
   text-decoration: underline;
   opacity: 0.6;
 }
 
-.fo{
+.fo {
   background-color: #EEEEEE;
   padding: 20px 0;
   text-align: center;
 }
-.allowselebo{
+
+.allowselebo {
   display: inline-block;
   position: absolute;
   color: #888;
@@ -542,7 +550,7 @@
 
 .listing-default--require {
   @include required;
-   font-weight: 600;
+  font-weight: 600;
 }
 
 .products-to-box-form1 {
@@ -566,9 +574,9 @@
   margin-bottom: 10px;
   border-radius: 4px;
   &:focus {
-  border: 1px solid #0099e8;
-  outline: 0;
-    }
+    border: 1px solid #0099e8;
+    outline: 0;
+  }
 }
 
 .selebobo{
@@ -587,5 +595,8 @@
 .free {
   color: white;
   background-color: #888;
-  
+}
+
+#product_state,#product_shipping_fee, #product_shipping_region,#product_shipping_date {
+  @include okinawa;
 }
