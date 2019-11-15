@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get 'products/exhibit' =>"products#exhibit"
   post 'products/create' => "products#create"
   get 'products/imgexhibit' =>"products#imgexhibit"
-  get 'products/listingcompleted' => 'products#listingcompleted'
   post 'products/items' => 'products#items'
   # 本人情報の登録
   get 'identifications/index' => "identifications#index"
@@ -31,8 +30,18 @@ Rails.application.routes.draw do
   # 購入した商品-過去の取引ページ
   get 'users/purchased' => "users#purchased"
 
+  resources :signup do
+    collection do
+      get 'registration'
+      get 'detail_tel'
+      get 'detail_zip'
+      get 'detail_payment'  #入力が全て完了
+      get 'detail_done'  #登録完了後
+    end
+  end
   # 本人情報の新規登録
   get 'users/registration' => "users#registration"
+  post 'users/registration' => "users#create" ,as: 'users_create'
   # 本人情報の新規登録_メールアドレス_tel
   get 'users/detail_tel' => "users#detail_tel"
   # 本人情報の新規登録_メールアドレス_zip
@@ -43,7 +52,7 @@ Rails.application.routes.draw do
   get 'users/detail_done' => "users#detail_done"
   
   root 'tops#index'
-  post "users/:parent_id/create" => "users#create"
+  # post "users/:parent_id/create" => "users#create"
   get "tops/json" => "tops#json"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

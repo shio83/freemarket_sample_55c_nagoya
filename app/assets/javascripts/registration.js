@@ -1,33 +1,36 @@
-$(function() {
-  var current = new Date();
-  var year_val = current.getFullYear();
-  var month_val = current.getMonth() + 1;
-  var day_val = current.getDate();
-  $('select[name=year] option[value=' + year_val + ']').prop('selected', true);
-  $('select[name=month] option[value=' + month_val + ']').prop('selected', true);
-  $('select[name=day] option[value=' + day_val + ']').prop('selected', true);
-  setDay();  
-  $('select[name=year], select[name=month]').change(function() {
-    setDay();
-  });
-  function setDay()
-  {
-    year_val = $('select[name=year]').val();
-    month_val = $('select[name=month]').val();
+(function(){
+  //日付範囲決定
+  function calcDays(){
+    $('#day').empty();
+    var current = new Date();
+    var y = $('#year').val();
+    var m = $('#month'). val();
 
-    var t = 31;
-    if (month_val == 2) {
-      if (Math.floor(year_val%4) == 0 && Math.floor(year_val%100) != 0 || Math.floor(year_val%400) == 0) {
-        t = 29;
-      }  else {
-        t = 28;
-      }
-    } else if (month_val == 4 || month_val == 6 || month_val == 9 || month_val == 11) {
-      t = 30;
+    if (m == "" || y == "") { //年か月が選択されていない時は31日まで表示
+      var last = 31;
+    } else if (m == 2 && ((y % 400 == 0) || ((y % 4 == 0) && (y % 100 != 0)))) {
+      var last = 29; //うるう年判定
+    } else {
+      var last = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)[m-1];
     }
-    $('select[name=day] option').remove();
-    for (var i = 1; i <= t; i++){
-      $('select[name=day]').append('<option value="' + i + '">' + i + '</option>');
+
+    $('#day');
+    for (var i = 1; i <= last; i++) {
+      if (d == i) { //日がすでに選択されている場合はその値が選択された状態で表示
+        $('#day').append('<option value="' + i + '" selected>' + i + '</option>');
+      } else {
+        $('#day').append('<option value="' + i + '">' + i + '</option>');
+      }
     }
   }
-});
+
+  var d = 0;
+  $(function(){
+    $('#day').change(function(){
+      d = $(this).val();
+    });
+    //年か月が変わるごとに日数を計算
+    $('#year').change(calcDays);
+    $('#month').change(calcDays);
+  });
+})();

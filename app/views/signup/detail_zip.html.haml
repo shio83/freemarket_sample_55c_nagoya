@@ -1,0 +1,52 @@
+.us-body
+  .us-body__header
+    = render partial: 'users/us-body__header'
+    .progress-bar
+      = render partial: 'users/progress-bar'
+  .us-body__main-registration
+    .us-body__main-registration__container
+      %h2.us-body__main-registration__container__head
+        住所入力
+      = form_for(@user, url: detail_payment_signup_index_path, method: :get, html: {class:'us-body__main-registration__container__form'}) do |f|
+        = hidden_field_tag :current_step, 'detail_zip'
+        = f.fields_for :address do |g|
+          .us-body__main-registration__container__form__content
+            -# .form-group
+            -#   %label.form-group__label お名前
+            -#   %span.form-group__require 必須
+            -#   = g.text_field :last_name, placeholder: "#{session[:user_params]["last_name"]}" , class:'input-default'
+            -#   = g.text_field :first_name, placeholder: "#{session[:user_params]["first_name"]}" , class:'input-default'
+            -# .form-group
+            -#   %label.form-group__label お名前カナ
+            -#   %span.form-group__require 必須
+            -#   = g.text_field :last_name_kana, placeholder: "#{session[:user_params]["last_name_kana"]}" , class:'input-default'
+            -#   = g.text_field :first_name_kana, placeholder: "#{session[:user_params]["first_name_kana"]}" , class:'input-default'
+            .form-group
+              %label.form-group__label 郵便番号
+              %span.form-group__require 必須
+              = g.text_field :zipcode, placeholder: "例) 123−4567" , class:'input-default'
+            .form-group
+              %label.form-group__label 都道府県
+              %span.form-group__require 必須
+              .input-default
+                %i.fa.fa-chevron-down.select-wrap-wrap
+                = g.select :prefecture ,Address.prefectures.keys.to_a
+            .form-group
+              %label.form-group__label 市区町村
+              %span.form-group__require 必須
+              = g.text_field :city, placeholder: "例) 横浜市緑区" , class:'input-default'
+            .form-group
+              %label.form-group__label 番地
+              %span.form-group__require 必須
+              = g.text_field :address, placeholder: "例) 青山1−1−1" , class:'input-default'
+            .form-group
+              %label.form-group__label 建物名
+              %span.form-group__require.option 任意
+              = g.text_field :building, placeholder: "例) 柳ビル103" , class:'input-default'
+            -# .form-group
+            -#   %label.form-group__label 電話
+            -#   %span.form-group__require.option 任意
+            -#   %input{type:"text", placeholder: "例) 090−1234−5678" , name:"phone_number2" , class:'input-default'}
+            = f.submit "次へ進む", class: 'btn-default btn-red',type: "submit"
+  .us-body__footer
+    = render partial: 'users/us-body__footer'
