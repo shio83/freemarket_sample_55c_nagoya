@@ -17,8 +17,6 @@
   height: 280px;
   border: 1px solid #eee;
   background-color: #FFFFFF;
-  // z-index: 1;
-  // display: none;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -45,29 +43,33 @@
     font-size: 13px;
     display: inline-block;
     color: #AAAAAA;
+    margin: 0 0 10px 0;
     
     }
     &--button{
-      
         height: 50px;
-        width: 100%;
+        width: 100;
         background-color: #ea352d;
-        color: #FFFFFF;
         cursor: pointer;
-        margin: 28px 0 0 0;
+        display: flex;
+        justify-content: center;
+          padding: 15px 0 0 0;
+        text-decoration: none;
+        color: #FFFFFF;
+        
     }
     &--text2{
-      a{
+      
      margin: 10px 0 0 140px;
      color:#0099e8;
      text-decoration: none;
      display: inline-block;
-      }
-      a:hover{
+    }
+      a.modal2__continue--text2:hover{
         text-decoration: underline;
         color: #84c7f1;
        }
-    }
+    
   }
 }
 }

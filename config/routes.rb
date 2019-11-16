@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "products/get_size" => "products#get_size"
   get 'users/profile'
   get 'users/index' => "users#index" 
-  
+
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
