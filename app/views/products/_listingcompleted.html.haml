@@ -7,7 +7,6 @@
     .modal2__continue
       .modal2__continue--text
         あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-      = link_to products_exhibit_path do
-        %button{class:'modal2__continue--button',type:"submit"}
-          続けて出品する
-      %p.modal2__continue--text2 <a href="#">商品ページへ行ってシェアする</a>
+      = link_to "続けて出品する", products_exhibit_path,class:'modal2__continue--button'
+      = link_to "商品ページへ行ってシェアする", root_path,class:'modal2__continue--text2'
+      

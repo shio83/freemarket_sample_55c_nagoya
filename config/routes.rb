@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "products/get_size" => "products#get_size"
   get 'users/profile'
   get 'users/index' => "users#index" 
-  
+
   get 'products/details' => "products#details"
   get 'products/confirm' => "products#confirm"
   get 'products/exhibit' =>"products#exhibit"
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'users/purchase' => "users#purchase"
   # 購入した商品-過去の取引ページ
   get 'users/purchased' => "users#purchased"
-
+  
   resources :signup do
     collection do
       get 'registration'
