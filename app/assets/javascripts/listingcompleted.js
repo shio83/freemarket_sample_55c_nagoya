@@ -1,10 +1,10 @@
 $(function(){
   $('.btn-red').on('click',function(){
     $('.modal').fadeIn();
-    return false;
+    // return false;
   });
   $('.modal__bg').on('click',function(){
     $('.modal').fadeOut();
-    return false;
+    // return false;
 });
 });
