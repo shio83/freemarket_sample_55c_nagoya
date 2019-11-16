@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'users/purchase' => "users#purchase"
   # 購入した商品-過去の取引ページ
   get 'users/purchased' => "users#purchased"
-
+  
   resources :signup do
     collection do
       get 'registration'
