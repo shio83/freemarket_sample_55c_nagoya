@@ -5,11 +5,11 @@
       = render partial: 'users/progress-bar'
   .us-body__main-registration
     .us-body__main-registration__container
-      %h2.us-body__main-registration__container__head
+      %h2.us-body__main-registration__container__hea
         支払い方法
       = form_for(@user, :url => { :controller => :signup, :action => :create }, html: {class:'us-body__main-registration__container__form'}) do |f|
         = hidden_field_tag :current_step, 'detail_payment'
-        = f.fields_for :address do |g|
+        = f.fields_for :address, @user.build_address do |g|
           .us-body__main-registration__container__form__content
             .form-group
               %label.form-group__label カード番号
