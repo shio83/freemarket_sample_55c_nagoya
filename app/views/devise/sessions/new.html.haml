@@ -1,22 +1,28 @@
 .us-body
   .us-body__header
     = render partial: 'users/us-body__header'
-  %h2 Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in"
-  = render "devise/shared/links"
+  .us-body__main-registration
+    .us-body__main-registration__container.log_in
+      .us-body__main-registration__container__head
+        .to_sign_up
+          %p アカウントをお持ちでない方はこちら
+          = link_to "新規会員登録",registration_signup_index_path, class: "btn-blue"
+      = form_for(resource, as: resource_name,url: session_path(resource_name), html: {class:'us-body__main-registration__container__form'}) do |f|
+        = hidden_field_tag :current_step, 'registration'
+        .us-body__main-registration__container__form__content
+          .us-btn-default.btn-fb
+            = fa_icon"facebook",class: "icon-facebook"
+            Facebookで登録する
+          .us-btn-default.btn-google
+            = image_tag "google.jpg",class: "image-google"
+            Googleで登録する
+          .form-group
+            = f.email_field :password, placeholder: "メールアドレス" , class:'input-default'
+          .form-group
+            = f.password_field :password, placeholder: "パスワード" , class:'input-default'
+          .form-group
+            = recaptcha_tags
+          = f.submit "ログイン", class: 'btn-default btn-red',type: "submit"
+          = link_to "パスワードをお忘れの方",new_password_path(resource_name), class: "forget"
   .us-body__footer
     = render partial: 'users/us-body__footer'
