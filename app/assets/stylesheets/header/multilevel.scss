@@ -13,6 +13,7 @@
   padding: px 0px 0px 0px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   &--categolize{
     z-index: 1;
     height: 44px;
@@ -46,6 +47,7 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+     
       &--tag{
         height: 12px;
         width: 20px;
@@ -55,6 +57,7 @@
       &--text{
         font-weight: bold;
       }
+
     }
   }
   &--renkon{
@@ -187,14 +190,14 @@
 .multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--list{
   color:red;
 }
-.multilevel--categolize--categolyseach:hover .multilevel--categolize--categolyseach--text{
-  color: aqua;
+.multilevel--categolize--categolyseachs:hover .multilevel--categolize--categolyseach--text{
+  color: #5db7f3;
 }
 .multilevel--categolize--brand:hover .multilevel--categolize--brand--tag{
   color: red;
 }
-.multilevel--categolize--brand:hover .multilevel--categolize--brand--text{
-  color: aqua;
+.category-boxs:hover .multilevel--categolize--brand--text{
+  color: #5db7f3;
 }
 .multilevel--renkon--good--good2:hover .multilevel--renkon--good--good2--heart{
   color: aqua;
@@ -240,6 +243,7 @@
       list-style: none;
       font-weight: 400;
       font-size: 14px;
+      text-decoration: none;
     }
   }
   .children_list{
@@ -257,6 +261,7 @@
       list-style: none;
       font-weight: 400;
       font-size: 14px;
+      text-decoration: none;
     }
   }
 
@@ -275,6 +280,7 @@
       list-style: none;
       font-weight: 400;
       font-size: 14px;
+      text-decoration: none;
     }
   }
 }
@@ -290,4 +296,80 @@
 
 .now-selected-gray-gray {
   background-color: #efefef;
+}
+
+.two-btn {
+  display: flex;
+  .new-btn {
+    a {
+      color: #fff;
+      text-decoration: none;
+      background-color: #ea352b;
+      font-size: 14px;
+      display: block;
+      padding: 8px 10px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      border-color: #ea352b;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+  }
+  .login-btn {
+    a {
+      color: #0095ee;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      padding: 8px 10px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      border-color: #0095ee;
+      margin-bottom: 5px;
+      margin-left: 11px;
+      cursor: pointer;
+    }
+    :hover{
+      transition: all .2s ease-out;
+      background-color: #0095ee;
+      color: white;
+    }
+  }
+}
+.brand-box {
+  display: flex;
+}
+
+.brand-list {
+  position: absolute;
+  top: 44px;
+  cursor: pointer;
+  display: none;
+  .brand-sell {
+    background: #fff;
+    width: 224px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    .inner-list {
+      display: block;
+      height: 44px;
+      text-align: left;
+      line-height: 44px;
+      padding-left: 20px;
+      list-style: none;
+      font-weight: 400;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+}
+
+.category-boxs {
+  cursor: pointer;
+  position: relative;
+}
+
+.multilevel--categolize--categolyseachs{
+  cursor: pointer;
 }

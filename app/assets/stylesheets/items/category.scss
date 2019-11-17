@@ -7,6 +7,9 @@
   height:171px;
   width: 1440px;
   background-color: white;
+  a {
+    text-decoration: none;
+  }
   &--jr{
     position: absolute;
     height: 39px;
@@ -33,7 +36,7 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin-left:420px;
-      
+      cursor: pointer;
       
       &--text{
         font-weight: bold;
@@ -49,6 +52,7 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px 0 10px;
+      cursor: pointer;
       &--text{
         font-weight: bold;
         text-align: center;
@@ -63,6 +67,7 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
+      cursor: pointer;
       &--text{
         font-weight: bold;
         text-align: center;
@@ -76,6 +81,7 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
+      cursor: pointer;
       &--text{
         font-weight: bold;
         text-align: center;

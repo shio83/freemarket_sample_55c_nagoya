@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:exhibit, :confirm]
 
   def exhibit
     @product = Product.new
