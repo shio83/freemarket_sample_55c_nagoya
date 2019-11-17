@@ -9,5 +9,5 @@ class TopsController < ApplicationController
     end
   end
 
-  
+ 
 end

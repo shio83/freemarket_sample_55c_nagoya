@@ -1,4 +1,5 @@
-.multilevel
+- if user_signed_in?
+  .multilevel
   .multilevel--categolize
     .multilevel--categolize--categolyseachs
       .multilevel--categolize--categolyseach
@@ -12,12 +13,28 @@
             = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
         .children_list
         .grand_children_list
-    .multilevel--categolize--brand
-      .multilevel--categolize--brand--tag
-        %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
-      .multilevel--categolize--brand--text
-        ブランドから探す
-        
+    .category-boxs
+      .multilevel--categolize--brand
+        .brand-box
+          .multilevel--categolize--brand--tag
+            %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
+          .multilevel--categolize--brand--text
+            ブランドから探す
+        .brand-list
+          %ul.brand-sell
+            %li.inner-list
+              シャネル
+            %li.inner-list
+              ナイキ
+            %li.inner-list
+              ルイヴィトン
+            %li.inner-list
+              シュプリーム
+            %li.inner-list
+              アディダス
+            %li.inner-list
+              ブランド一覧
+          
   .multilevel--renkon
     .multilevel--renkon--good
       .multilevel--renkon--good--good2
@@ -43,3 +60,44 @@
           .multilevel--renkon--my--my2--photo
           .multilevel--renkon--my--my2--text
             マイページ
+- else
+  .multilevel
+    .multilevel--categolize
+      .multilevel--categolize--categolyseachs
+        .multilevel--categolize--categolyseach
+          .multilevel--categolize--categolyseach--list
+            = fa_icon"list-ul"
+          .multilevel--categolize--categolyseach--text
+            カテゴリーから探す
+        .category_list
+          .parents_list
+            - @parents.each do |parent|
+              = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+          .children_list
+          .grand_children_list
+      .category-boxs
+        .multilevel--categolize--brand
+          .brand-box
+            .multilevel--categolize--brand--tag
+              %i.fa.fa-tag.fa-rotate-315.multilevel--categolize--brand--tag{"aria-hidden":"true"}
+            .multilevel--categolize--brand--text
+              ブランドから探す
+          .brand-list
+            %ul.brand-sell
+              %li.inner-list
+                シャネル
+              %li.inner-list
+                ナイキ
+              %li.inner-list
+                ルイヴィトン
+              %li.inner-list
+                シュプリーム
+              %li.inner-list
+                アディダス
+              %li.inner-list
+                ブランド一覧
+    .two-btn
+      .new-btn
+        = link_to "新規会員登録",   new_user_registration_path ,class: "yokoi"
+      .login-btn
+        = link_to "ログイン",  new_user_session_path, class: "masimasi"
