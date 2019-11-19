@@ -16,8 +16,9 @@
                     必須
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
+                %ul.preview
                   .dropzone-container
-                    %ul.preview
+                  %div
                     %label
                       = f.file_field :file_name, multiple:true,class:"onigiri"
                       .dropzone-area
@@ -27,7 +28,6 @@
                           %br
                             またはクリックしてファイルをアップロード
                   .dropzone-container2
-                    %ul.preview2
                     %label
                       = f.file_field :file_name, multiple:true,class:"senbei"
                       .dropzone-area2
@@ -144,7 +144,7 @@
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。
                 %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
                 %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-                = f.submit class: "btn-red", disable_with: "Save", value:"出品する"
+                = f.submit class: "btn-red", disable_with: "Save", value:"出品する",id:"peropero"
                 = render partial: 'products/listingcompleted'
                 %a.btn-back
                   もどる
