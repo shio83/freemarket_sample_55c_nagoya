@@ -55,18 +55,17 @@ $(function() {
       $(".now-selected-gray-gray").removeClass("now-selected-gray-gray");
       $('#' + id).addClass("now-selected-gray-gray");
     }) 
-    $(".multilevel--categolize--categolyseach").on("mouseover", function(){
+    $(".multilevel--categolize--categolyseachs").hover(function(){
       $(".parents_list").css("display", "block");
-      $(".category_list").on("mouseleave", function(){
+      },
+      function(){
         $(".now-selected-red").removeClass("now-selected-red")
         $(".parents_list").css("display", "none");
         $(".children_list").css("display", "none");
         $(".grand_children_list").css("display", "none");
-      })
     })
     $(".parents_list").on("mouseover",function(){
       $(".children_list").css("display", "block");
       $(".grand_children_list").css("display", "block");
-      
     });
   });

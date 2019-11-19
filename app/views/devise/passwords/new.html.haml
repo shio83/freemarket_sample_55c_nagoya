@@ -1,10 +1,32 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.us-body
+  .us-body__header
+    = render partial: 'users/us-body__header'
+  .us-body__main-registration
+    .us-body__main-registration__container
+      %h2.us-body__main-registration__container__head
+        パスワードをお忘れの方
+      = form_for(resource, as: resource_name,url: session_path(resource_name), html: {class:'us-body__main-registration__container__form'}) do |f|
+        = hidden_field_tag :current_step, 'registration'
+        .us-body__main-registration__container__form__content
+          .form-group
+            %label.form-group__label メールアドレス
+            = f.email_field :password, placeholder: "メールアドレス" , class:'input-default'
+          .form-group__info-text
+            ご登録されたメールアドレスにパスワード再設定のご案内が送信されます。
+          .form-group
+            = recaptcha_tags
+          = f.submit "送信する", class: 'btn-default btn-red',type: "submit"
+  .us-body__footer
+    = render partial: 'users/us-body__footer'
+
+
+-# %h2 Forgot your password?
+-# = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .actions
+-#     = f.submit "Send me reset password instructions"
+-# = render "devise/shared/links"

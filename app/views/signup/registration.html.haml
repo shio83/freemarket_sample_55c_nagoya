@@ -5,8 +5,8 @@
       = render partial: 'users/progress-bar'
   .us-body__main-registration
     .us-body__main-registration__container
-      %h2.us-body__main-registration__container__head
-        会員情報入力
+      .us-body__main-registration__container__head
+        .title 会員情報入力
       = form_for(@user, url: detail_tel_signup_index_path, method: :get, html: {class:'us-body__main-registration__container__form'}) do |f|
         = hidden_field_tag :current_step, 'registration'
         .us-body__main-registration__container__form__content

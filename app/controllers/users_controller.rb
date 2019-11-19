@@ -8,25 +8,6 @@ class UsersController < ApplicationController
   def profile
   end
   
-  def registration
-    @user = User.new
-    @user.build_address
-  end
-
-  def detail_tel
-  end
-  
-  def detail_zip
-    @user = User.new
-  end
-  
-  def detail_payment
-  end
-  
-  def detail_done
-  end
-
-  
   def logout 
     @user = User.new
   end
@@ -65,6 +46,7 @@ class UsersController < ApplicationController
       address_attributes:[:id, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day]
     )
   end
+
 
 
 end

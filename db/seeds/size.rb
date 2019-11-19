@@ -29,3 +29,33 @@ shose_13 = shose.children.create(size: "26cm")
 shose_14 = shose.children.create(size: "26.5cm")
 shose_15 = shose.children.create(size: "27cm")
 shose_16 = shose.children.create(size: "27.5cm以上")
+
+#子供服のサイズ〜95cm
+baby_clothes = Size.create(size: "子供服のサイズ")
+baby_clothes_1 = baby_clothes.children.create(size: "60cm")
+baby_clothes_2 = baby_clothes.children.create(size: "70cm")
+baby_clothes_3 = baby_clothes.children.create(size: "80cm")
+baby_clothes_4 = baby_clothes.children.create(size: "90cm")
+baby_clothes_5 = baby_clothes.children.create(size: "95cm")
+
+#子供服のサイズ100cm〜
+child_clothes = Size.create(size: "子供服のサイズ")
+child_clothes_1 = child_clothes.children.create(size: "100cm")
+child_clothes_2 = child_clothes.children.create(size: "110cm")
+child_clothes_3 = child_clothes.children.create(size: "120cm")
+child_clothes_4 = child_clothes.children.create(size: "130cm")
+child_clothes_5 = child_clothes.children.create(size: "140cm")
+child_clothes_6 = child_clothes.children.create(size: "150cm")
+child_clothes_7 = child_clothes.children.create(size: "160cm")
+
+#子供靴
+baby_shose = Size.create(size: "子供靴")
+baby_shose_1 = baby_shose.children.create(size: "10.5cm以下")
+baby_shose_2 = baby_shose.children.create(size: "11cm・11.5cm")
+baby_shose_3 = baby_shose.children.create(size: "12cm・12.5cm")
+baby_shose_4 = baby_shose.children.create(size: "13cm・13.5cm")
+baby_shose_5 = baby_shose.children.create(size: "14cm・14.5cm")
+baby_shose_6 = baby_shose.children.create(size: "15cm・15.5cm")
+baby_shose_7 = baby_shose.children.create(size: "16cm・16.5cm")
+baby_shose_8 = baby_shose.children.create(size: "17cm以上")
+

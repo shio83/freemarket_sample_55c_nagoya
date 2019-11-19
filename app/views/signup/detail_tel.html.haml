@@ -5,8 +5,8 @@
       = render partial: 'users/progress-bar'
   .us-body__main-registration
     .us-body__main-registration__container
-      %h2.us-body__main-registration__container__head
-        電話番号の確認
+      .us-body__main-registration__container__head
+        .title 電話番号の確認
       = form_for(@user, url: detail_zip_signup_index_path, method: :get, html: {class:'us-body__main-registration__container__form'}) do |f|
         .us-body__main-registration__container__form__content
           .form-group

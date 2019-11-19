@@ -34,12 +34,17 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       justify-content: center;
+      cursor: pointer;
       
       
       &--text{
         font-weight: bold;
         text-align: center;
         line-height: 30px;
+      }
+
+      a {
+        text-decoration: none;
       }
 
     }
@@ -50,12 +55,17 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px 0 10px;
+      cursor: pointer;
 
       &--text{
         font-weight: bold;
         text-align: center;
         line-height: 30px;
       }
+      a {
+        text-decoration: none;
+      }
+
     }
 
     &--sup{
@@ -64,11 +74,16 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
+      cursor: pointer;
       &--text{
         font-weight: bold;
         text-align: center;
         line-height: 30px;
       }
+      a {
+        text-decoration: none;
+      }
+
     }
 
     &--nike{
@@ -77,11 +92,16 @@
       background-color: #EEEEEE;
       border-radius: 20px;
       margin: 0 5px;
+      cursor: pointer;
       &--text{
         font-weight: bold;
         text-align: center;
         line-height: 30px;
       }
+      a {
+        text-decoration: none;
+      }
+
     }
   }
 }
