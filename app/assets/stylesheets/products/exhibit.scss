@@ -87,23 +87,29 @@
           input {
             display: none;
           }
+          ul.preview {
+            display: wrap;
+          }
           .dropzone-container {
             display: flex;
             margin: 10px 0 0 0;
-            ul.preview {
-              display: flex;
-            }
+            // ul.preview {
+            //   display: wrap;
+            //   max-width: 618px;
+            // }
             label {
               width: 100%;
             }    
           }
           .dropzone-area {
+            float: right;
             position: relative;
+            // right: 0;
             min-height: 160px;
             background: #f5f5f5;
             border: 1px dashed #ccc;
             text-align: center;
-            width: 100%;
+            width: 618px;
             p {
               font-size: 14px;
               font-weight: 600; 
@@ -115,9 +121,9 @@
         .dropzone-container2 {
           display: flex;
           margin: 10px 0 0 0;
-          ul.preview2 {
-            display: flex;
-          }
+          // ul.preview2 {
+          //   display: flex;
+          // }
           label {
             width: 100%;
           }
@@ -138,6 +144,7 @@
           }
         }
       }
+    
       .products-name {
         padding: 40px;
         border-bottom:1px solid #EEEEEE;
