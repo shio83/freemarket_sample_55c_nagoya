@@ -11,4 +11,19 @@ class Address < ApplicationRecord
     徳島県: 36,香川県: 37,愛媛県: 38,高知県: 39,
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
+
+  validates :last_name,               presence: true
+  validates :first_name,              presence: true
+  validates :last_name_kana,          presence: true
+  validates :first_name_kana,         presence: true
+  validates :phone_number,            presence: true, on:  :save_step2_to_session
+  # validates :zipcode,                 presence: true, on:  :save_step3_to_session
+  # validates :prefecture,              presence: true, on:  :save_step3_to_session
+  # validates :city,                    presence: true, on:  :save_step3_to_session
+  # validates :address,                 presence: true, on:  :save_step3_to_session
+  # validates :building,                presence: true, on:  :save_step3_to_session
+  # validates :authorization_token,     presence: true, on:  :save_step2_to_session
+  # validates :security_code,           presence: true, on:  :save_step2_to_session
+  # validates :expiration_date_month,   presence: true, on:  :save_step2_to_session
+  # validates :expiration_date_year,    presence: true, on:  :save_step2_to_session
 end

@@ -14,7 +14,7 @@
             .form-group
               %label.form-group__label お名前
               %span.form-group__require 必須
-              = g.text_field :last_name,   class:'input-default'
+              = g.text_field :last_name, placdholder: "#{session[:nickname]}" , class:'input-default'
               = g.text_field :first_name,  class:'input-default'
             .form-group
               %label.form-group__label お名前カナ

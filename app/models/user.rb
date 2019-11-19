@@ -13,4 +13,10 @@ class User < ApplicationRecord
   has_many :buyer_id, class_name: 'SellerBuyer', foreign_key: 'buyer_id'
   has_many :seller_id, class_name: 'SellerBuyer', foreign_key: 'seller_id'
 
+  # VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :nickname,                presence: true, length: {maximum: 20}
+  validates :email,                   presence: true, uniqueness: true
+  validates :password,                presence: true, length: {minimum: 7}
+
 end
