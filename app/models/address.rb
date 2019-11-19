@@ -12,16 +12,16 @@ class Address < ApplicationRecord
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
 
-  validates :last_name,               presence: true, on: :save_step1_to_session
-  validates :first_name,              presence: true, on: :save_step1_to_session
-  validates :last_name_kana,          presence: true, on: :save_step1_to_session
-  validates :first_name_kana,         presence: true, on: :save_step1_to_session
-  validates :phone_number,            presence: true, on: :save_step2_to_session
-  # validates :zipcode,                 presence: true, on:  :save_step3_to_session
-  # validates :prefecture,              presence: true, on:  :save_step3_to_session
-  # validates :city,                    presence: true, on:  :save_step3_to_session
-  # validates :address,                 presence: true, on:  :save_step3_to_session
-  # validates :building,                presence: true, on:  :save_step3_to_session
+  validates :last_name,               presence: true
+  validates :first_name,              presence: true
+  validates :last_name_kana,          presence: true
+  validates :first_name_kana,         presence: true
+  # validates :phone_number,            presence: true
+  # validates :zipcode,                 presence: true
+  # validates :prefecture,              presence: true
+  # validates :city,                    presence: true
+  # validates :address,                 presence: true
+  # validates :building,                presence: true
   # validates :authorization_token,     presence: true, on:  :save_step2_to_session
   # validates :security_code,           presence: true, on:  :save_step2_to_session
   # validates :expiration_date_month,   presence: true, on:  :save_step2_to_session

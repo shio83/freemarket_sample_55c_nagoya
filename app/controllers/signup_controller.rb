@@ -10,10 +10,27 @@ class SignupController < ApplicationController
   end
 
   def save_step1_to_session
-    session[:user_params] = user_params
-    session[:address_attributes_after_registration] = user_params[:address_attributes]
-    @user = User.new(session[:user_params])
-    @user.build_address(session[:address_attributes_after_registration])
+    # session[:user_params] = user_params
+    # session[:address_attributes_after_registration] = user_params[:address_attributes]
+    # @user = User.new(session[:user_params])
+    # @user.build_address(session[:address_attributes_after_registration])
+    # render '/signup/registration' unless @user.valid?(:account_setup)
+    session[:nickname] = user_params["nickname"]
+    session[:email] = user_params["email"]
+    session[:password] = user_params["password"]
+    session[:first_name] = user_params[:address_attributes]["first_name"]
+    session[:last_name] = user_params[:address_attributes]["last_name"]
+    session[:first_name_kana] = user_params[:address_attributes]["first_name_kana"]
+    session[:last_name_kana] = user_params[:address_attributes]["last_name_kana"]
+    @user = User.new(
+      nickname: session[:nickname], 
+      email: session[:email],
+      password: session[:password],
+    )
+    @user.build_address(first_name: session[:first_name],
+      last_name: session[:last_name],
+      first_name_kana: session[:first_name_kana],
+      last_name_kana: session[:last_name_kana])
     render '/signup/registration' unless @user.valid?
   end 
 
@@ -22,7 +39,7 @@ class SignupController < ApplicationController
     session[:address_attributes_after_step2].merge!(session[:address_attributes_after_registration])
     @user = User.new
     @user.build_address(session[:address_attributes_after_step2])
-    render '/signup/detail_tel' unless session[:address_attributes_after_step2][:phone_number].present?
+    render '/signup/detail_tel' unless session[:address_attributes_after_step2][:phone_number].present?(:account_setup)
   end
 
   def save_step3_to_session
@@ -34,7 +51,6 @@ class SignupController < ApplicationController
     render "/signup/detail_zip" unless session[:address_attributes_after_step3][:prefecture].present?
     render "/signup/detail_zip" unless session[:address_attributes_after_step3][:city].present?
     render "/signup/detail_zip" unless session[:address_attributes_after_step3][:address].present?
-
   end
   
 
