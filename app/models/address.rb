@@ -12,11 +12,11 @@ class Address < ApplicationRecord
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
 
-  validates :last_name,               presence: true
-  validates :first_name,              presence: true
-  validates :last_name_kana,          presence: true
-  validates :first_name_kana,         presence: true
-  validates :phone_number,            presence: true, on:  :save_step2_to_session
+  validates :last_name,               presence: true, on: :save_step1_to_session
+  validates :first_name,              presence: true, on: :save_step1_to_session
+  validates :last_name_kana,          presence: true, on: :save_step1_to_session
+  validates :first_name_kana,         presence: true, on: :save_step1_to_session
+  validates :phone_number,            presence: true, on: :save_step2_to_session
   # validates :zipcode,                 presence: true, on:  :save_step3_to_session
   # validates :prefecture,              presence: true, on:  :save_step3_to_session
   # validates :city,                    presence: true, on:  :save_step3_to_session

@@ -14,13 +14,13 @@
             .form-group
               %label.form-group__label お名前
               %span.form-group__require 必須
-              = g.text_field :last_name, placdholder: "#{session[:nickname]}" , class:'input-default'
-              = g.text_field :first_name,  class:'input-default'
+              = g.text_field :last_name, placeholder: "例) 山田" ,  class:'input-default'
+              = g.text_field :first_name,  placeholder: "例) 彩" , class:'input-default'
             .form-group
               %label.form-group__label お名前カナ
               %span.form-group__require 必須
-              = g.text_field :last_name_kana,  class:'input-default'
-              = g.text_field :first_name_kana,  class:'input-default'
+              = g.text_field :last_name_kana,  placeholder: "例) ヤマダ" , class:'input-default'
+              = g.text_field :first_name_kana, placeholder: "例) アヤ" , class:'input-default'
             .form-group
               %label.form-group__label 郵便番号
               %span.form-group__require 必須

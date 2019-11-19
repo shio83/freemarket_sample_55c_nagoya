@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+ 
   
   def index
     
@@ -46,7 +46,4 @@ class UsersController < ApplicationController
       address_attributes:[:id, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day]
     )
   end
-
-
-
 end

@@ -3,7 +3,7 @@ class SignupController < ApplicationController
   before_action :save_step1_to_session, only: :detail_tel
   before_action :save_step2_to_session, only: :detail_zip
   before_action :save_step3_to_session, only: :detail_payment
-  before_action :after_sign_in_path_for, only: :detail_payment
+  
   def registration
     @user = User.new
     @user.build_address
@@ -103,9 +103,7 @@ class SignupController < ApplicationController
     )
   end
 
-  def after_sign_in_path_for(resource)
-    root_path 
-  end
+ 
 
 
  

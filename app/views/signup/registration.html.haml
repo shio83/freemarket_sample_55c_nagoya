@@ -42,8 +42,8 @@
                 %span.form-group__require 必須
               = g.text_field :last_name, placeholder: "例) 山田" , class:'input-default-half'
               = g.text_field :first_name, placeholder: "例) 彩" , class:'input-default-half'
-            = render partial: 'layouts/error_messages', locals: {user: @user.address , column: "first_name"}
-            = render partial: 'layouts/error_messages', locals: {user:@user.address , column: "last_name"}
+              = render partial: 'layouts/error_messages', locals: {user: @user.address , column: "first_name"}
+              = render partial: 'layouts/error_messages', locals: {user:@user.address , column: "last_name"}
             .form-group
               %div
                 %label.form-group__label お名前カナ(全角)
