@@ -1,5 +1,5 @@
 $(function(){
-  $('.btn-red').on('click',function(){
+  $('#peropero').on('click',function(){
     $('.modal').fadeIn();
     return false;
   });
