@@ -7,42 +7,46 @@
     .us-body__main-registration__container
       .us-body__main-registration__container__head
         .title 支払い方法
-      = form_for(@user, :url => { :controller => :signup, :action => :create }, html: {class:'us-body__main-registration__container__form'}) do |f|
+      = form_for(@user, url: detail_done_signup_index_path ,method: :get,  html: {class:'us-body__main-registration__container__form'}) do |f|
         = hidden_field_tag :current_step, 'detail_payment'
-        = f.fields_for :address, @user.build_address do |g|
-          .us-body__main-registration__container__form__content
-            .form-group
-              %label.form-group__label カード番号
+        .us-body__main-registration__container__form__content
+          .form-group
+            %label.form-group__label カード番号
+            %span.form-group__require 必須
+            = f.text_field :authorization_token, placeholder: "半角数字のみ" , class:'input-default'
+            = render partial: 'layouts/error_messages', locals: {user: @user, column: "authorization_token"}
+
+            .signup-card-list
+              %li= image_tag "visa.svg"
+              %li= image_tag "master-card.svg"
+              %li= image_tag "saison-card.svg"
+              %li= image_tag "jcb.svg"
+              %li= image_tag "american_express.svg"
+              %li= image_tag "dinersclub.svg"
+              %li= image_tag "discover.svg"
+          .form-group
+            %div
+              %label.form-group__label 有効期限
               %span.form-group__require 必須
-              = g.text_field :authorization_token, placeholder: "半角数字のみ" , class:'input-default'
-              .signup-card-list
-                %li= image_tag "visa.svg"
-                %li= image_tag "master-card.svg"
-                %li= image_tag "saison-card.svg"
-                %li= image_tag "jcb.svg"
-                %li= image_tag "american_express.svg"
-                %li= image_tag "dinersclub.svg"
-                %li= image_tag "discover.svg"
-            .form-group
-              %div
-                %label.form-group__label 有効期限
-                %span.form-group__require 必須
-              .expiration_date
-                = g.select :expiration_date_month,[*1..12], {},{id:"expiration_date_month", class:'input-default-half'}
-                %i.fa.fa-chevron-down.select-wrap-wrap
-                %span 月
-              .expiration_date
-                = g.select :expiration_date_year,[*2019..2039], {},{id:"expiration_date_year", class:'input-default-half'}
-                %i.fa.fa-chevron-down.select-wrap-wrap
-                %span 年
-            .form-group
-              %label.form-group__label セキュリティコード
-              %span.form-group__require 必須
-              = g.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号" , class:'input-default'
-              .form-group.text-right
-                %p
-                  = link_to '#' do
-                    カード裏面の番号とは？
-            = f.submit "次へ進む", class: 'btn-default btn-red',type: "submit"
+            .expiration_date
+              = f.select :expiration_date_month,[*1..12], {},{id:"expiration_date_month", class:'input-default-half'}
+              = render partial: 'layouts/error_messages', locals: {user: @user, column: "expiration_date_month"}
+              %i.fa.fa-chevron-down.select-wrap-wrap
+              %span 月
+            .expiration_date
+              = f.select :expiration_date_year,[*2019..2039], {},{id:"expiration_date_year", class:'input-default-half'}
+              = render partial: 'layouts/error_messages', locals: {user: @user, column: "expiration_date_year"}
+              %i.fa.fa-chevron-down.select-wrap-wrap
+              %span 年
+          .form-group
+            %label.form-group__label セキュリティコード
+            %span.form-group__require 必須
+            = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号" , class:'input-default'
+            = render partial: 'layouts/error_messages', locals: {user: @user, column: "security_code"}
+            .form-group.text-right
+              %p
+                = link_to '#' do
+                  カード裏面の番号とは？
+          = f.submit "次へ進む", class: 'btn-default btn-red',type: "submit"
   .us-body__footer
     = render partial: 'users/us-body__footer'

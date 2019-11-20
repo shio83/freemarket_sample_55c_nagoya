@@ -11,9 +11,8 @@
         .us-body__main-registration__container__form__content
           .form-group
             %label.form-group__label 携帯電話の番号
-            = f.fields_for :address do |g|
-              = g.text_field :phone_number, placeholder: "携帯電話の番号を入力", class:'input-default'
-          = render partial: 'layouts/error_messages', locals: {user: @user.address, column: "nickname"}
+            = f.text_field :phone_number, placeholder: "携帯電話の番号を入力", class:'input-default'
+          = render partial: 'layouts/error_messages', locals: {user: @user, column: "phone_number"}
               
           %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           = f.submit "SMSを送信する", class: 'btn-default btn-red',type: "submit"

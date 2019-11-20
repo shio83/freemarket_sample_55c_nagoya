@@ -12,30 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20191118112447) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "last_name",             null: false
-    t.string   "first_name",            null: false
-    t.string   "last_name_kana",        null: false
-    t.string   "first_name_kana",       null: false
-    t.string   "birth_year",            null: false
-    t.string   "birth_month",           null: false
-    t.string   "birth_day",             null: false
-    t.integer  "user_id"
-    t.string   "phone_number",          null: false
-    t.string   "zipcode",               null: false
-    t.string   "prefecture",            null: false
-    t.string   "city",                  null: false
-    t.string   "address",               null: false
-    t.string   "building",              null: false
-    t.string   "authorization_token",   null: false
-    t.string   "security_code",         null: false
-    t.string   "expiration_date_month", null: false
-    t.string   "expiration_date_year",  null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
-  end
-
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -147,6 +123,23 @@ ActiveRecord::Schema.define(version: 20191118112447) do
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "last_name",                           null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name_kana",                      null: false
+    t.string   "first_name_kana",                     null: false
+    t.string   "birth_year",                          null: false
+    t.string   "birth_month",                         null: false
+    t.string   "birth_day",                           null: false
+    t.string   "phone_number",                        null: false
+    t.string   "zipcode",                             null: false
+    t.integer  "prefecture",             default: 0,  null: false
+    t.string   "city",                                null: false
+    t.string   "address",                             null: false
+    t.string   "building",                            null: false
+    t.string   "authorization_token",                 null: false
+    t.string   "security_code",                       null: false
+    t.string   "expiration_date_month",               null: false
+    t.string   "expiration_date_year",                null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -156,7 +149,6 @@ ActiveRecord::Schema.define(version: 20191118112447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "category_sizes", "categories"
   add_foreign_key "category_sizes", "sizes"
   add_foreign_key "comments", "products"

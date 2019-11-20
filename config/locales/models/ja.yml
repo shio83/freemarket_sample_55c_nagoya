@@ -7,7 +7,6 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         nickname: ニックネーム
-      address:
         last_name: 名
         first_name: 姓
         last_name_kana: 名カナ
@@ -16,3 +15,6 @@ ja:
         birth_month: 生年月日
         birth_day: 生年月日
         phone_number: 電話番号
+        city: 市区町村
+        zipcode: 郵便番号
+        address: 番地

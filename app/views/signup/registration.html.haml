@@ -29,29 +29,29 @@
           .form-group
             %label.form-group__label パスワード (確認)
             %span.form-group__require 必須
-            = f.password_field :password, placeholder: "7文字以上" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
+            = f.password_field :password_confirmation, placeholder: "7文字以上" , class:'input-default'
+            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password_confirmation"}
           .form-group
             .form-group__sub-head 本人確認
             .form-group__text
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          = f.fields_for :address do |g|
+
             .form-group
               %div
                 %label.form-group__label お名前(全角)
                 %span.form-group__require 必須
-              = g.text_field :last_name, placeholder: "例) 山田" , class:'input-default-half'
-              = g.text_field :first_name, placeholder: "例) 彩" , class:'input-default-half'
-              = render partial: 'layouts/error_messages', locals: {user: @user.address , column: "first_name"}
-              = render partial: 'layouts/error_messages', locals: {user:@user.address , column: "last_name"}
+              = f.text_field :last_name, placeholder: "例) 山田" , class:'input-default-half'
+              = f.text_field :first_name, placeholder: "例) 彩" , class:'input-default-half'
+              = render partial: 'layouts/error_messages', locals: {user: @user , column: "first_name"}
+              = render partial: 'layouts/error_messages', locals: {user:@user , column: "last_name"}
             .form-group
               %div
                 %label.form-group__label お名前カナ(全角)
                 %span.form-group__require 必須
-              = g.text_field :last_name_kana, placeholder: "例) ヤマダ" , class:'input-default-half'
-              = g.text_field :first_name_kana, placeholder: "例) アヤ" ,  class:'input-default-half'
-            = render partial: 'layouts/error_messages', locals: {user:@user.address , column: "last_name_kana"}
-            = render partial: 'layouts/error_messages', locals: {user:@user.address , column: "first_name_kana"}
+              = f.text_field :last_name_kana, placeholder: "例) ヤマダ" , class:'input-default-half'
+              = f.text_field :first_name_kana, placeholder: "例) アヤ" ,  class:'input-default-half'
+            = render partial: 'layouts/error_messages', locals: {user:@user , column: "last_name_kana"}
+            = render partial: 'layouts/error_messages', locals: {user:@user , column: "first_name_kana"}
             .form-group
               %label.form-group__label 生年月日
               %span.form-group__require 必須
@@ -59,19 +59,19 @@
                 .select-wrap
                   .select-wrap-wrap
                     %i.fa.fa-chevron-down.select-wrap-wrap
-                    =g.select :birth_year,[*1900..2019], {},{:id=>"year", :style => "width: 80px;"}
+                    =f.select :birth_year,[*1900..2019], {},{:id=>"year", :style => "width: 80px;"}
                     %span{:style => "margin-left: 3px; margin-right: 5px; display: inline-block;"} 年
                     
                 .select-wrap
                   .select-wrap-wrap
                     %i.fa.fa-chevron-down.select-wrap-wrap
-                    =g.select :birth_month, [*1..12], {}, {:id=>"month", :style => "width: 80px;"}
+                    =f.select :birth_month, [*1..12], {}, {:id=>"month", :style => "width: 80px;"}
                     %span{:style => "margin-left: 3px; margin-right: 5px; display: inline-block;"} 月
                     
                 .select-wrap
                   .select-wrap-wrap
                     %i.fa.fa-chevron-down.select-wrap-wrap
-                    =g.select :birth_day, [*1..31],{}, {:id=>"day", :style => "width: 80px;"}
+                    =f.select :birth_day, [*1..31],{}, {:id=>"day", :style => "width: 80px;"}
                     %span{:style => "margin-left: 3px; margin-right: 5px; display: inline-block;"} 日
               
             .form-group__info-text
