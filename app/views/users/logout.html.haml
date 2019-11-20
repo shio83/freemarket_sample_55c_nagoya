@@ -9,6 +9,6 @@
       = render partial: 'users/side-bar'
     .main
       .form
-        .form-content
-          ログアウト
+        = form_for(@user,url: destroy_user_session_path ,method: :delete) do |f|
+          = f.submit "ログアウト", class:"form-content"
   = render partial: 'tops/bottoms/bottom'

@@ -114,7 +114,7 @@
               }
               .input-default{
                 width: 100%;
-                margin: 8px 0 0;
+             
                 height: 48px;
                 padding: 10px 16px 8px;
                 border-radius: 4px;
@@ -259,6 +259,9 @@
         }
         .form-group{
           margin: 32px 0 0;
+          &__label {
+            padding-bottom: 8px;
+          }
         }
         .registration_logo {
           margin-top: 50px;
@@ -385,4 +388,9 @@
   line-height: 14px;
   font-size: 12px;
   text-align: center;
+}
+
+.field_with_errors {
+  border: 1px solid #ea353b;
+  border-radius: 5px;
 }
