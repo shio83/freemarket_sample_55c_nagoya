@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many   :likes
   has_many   :images
+  accepts_nested_attributes_for :images
   has_many   :comments
   belongs_to :brand
 
