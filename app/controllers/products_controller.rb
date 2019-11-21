@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
  
   def create
     @product = Product.new(create_params)
-    binding.pry
     @product.save
     
   end
