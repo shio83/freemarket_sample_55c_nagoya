@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20191118112447) do
 
-  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -69,14 +63,13 @@ ActiveRecord::Schema.define(version: 20191118112447) do
     t.integer  "shipping_fee",                  default: 0, null: false
     t.integer  "shipping_region",               default: 0, null: false
     t.integer  "shipping_date",                 default: 0, null: false
-    t.integer  "size",                          default: 0, null: false
+    t.string   "size",                                      null: false
     t.string   "price",                                     null: false
+    t.string   "brand"
     t.integer  "user_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "category_id"
-    t.integer  "brand_id"
-    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -156,7 +149,6 @@ ActiveRecord::Schema.define(version: 20191118112447) do
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
-  add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
