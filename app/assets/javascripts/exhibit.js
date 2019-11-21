@@ -30,6 +30,65 @@ $(function(){
     })(file);
 
     reader.readAsDataURL(file);
+    if(files_array.length == 10){
+      $(".dropzone-area2").css({
+        'display':'none'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 9){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'20%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 8){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'40%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 7){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'60%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 6){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'80%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
     if (files_array.length == 5){
       $(".dropzone-area2").css({
         'display':'block'
@@ -37,55 +96,36 @@ $(function(){
       $(".dropzone-area").css({
         'display':'none'
       })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
     }
     if(files_array.length == 4){
-      $(".dropzone-area2").css({
-        'display':'none'
-      })
       $(".dropzone-area").css({
         'display':'block',
-        
+        'width':'20%'
       })
-    }if(files_array.length == 2){
-      $(".dropzone-area2").css({
-        'display':'none'
-      })
+    }
+    if(files_array.length == 3){
       $(".dropzone-area").css({
         'display':'block',
-        'width':'363px'
+        'width':'40%'
+      })
+    }
+    if(files_array.length == 2){
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'60%'
       })
       
     }
     if(files_array.length == 1){
-      $(".dropzone-area2").css({
-        'display':'none'
-      })
       $(".dropzone-area").css({
         'display':'block',
-        'width':'491px'
+        'width':'80%'
       })
-      
     }
     
-  });
-  $('form').on('change', ".senbei", function(e) {
-    e.preventDefault();
-    var file = e.target.files[0];
-        reader = new FileReader();
-        files_array.push(file);
-    reader.onload = (function(file) {
-      
-      return function(e) {
-        $('ul.preview').append(buildImage(e.target.result))
-      };  
-    })(file);
-
-    reader.readAsDataURL(file);
-    if (files_array.length == 10){
-      $(".dropzone-area2").css({
-        'display':'none'
-      })
-    }
   });
   $('.dropzone-area').on('dragover',function(e){
     e.preventDefault();
@@ -103,7 +143,65 @@ $('.dropzone-area').on('drop',function(event){
     };
     fileReader.readAsDataURL(files[i]);
   }
-
+  if(files_array.length == 10){
+    $(".dropzone-area2").css({
+      'display':'none'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 9){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'20%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 8){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'40%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 7){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'60%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 6){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'80%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
   if (files_array.length == 5){
     $(".dropzone-area2").css({
       'display':'block'
@@ -111,16 +209,36 @@ $('.dropzone-area').on('drop',function(event){
     $(".dropzone-area").css({
       'display':'none'
     })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
   }
   if(files_array.length == 4){
-    $(".dropzone-area2").css({
-      'display':'none'
-    })
     $(".dropzone-area").css({
       'display':'block',
-      
+      'width':'20%'
     })
   }
+  if(files_array.length == 3){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'40%'
+    })
+  }
+  if(files_array.length == 2){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'60%'
+    })
+    
+  }
+  if(files_array.length == 1){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'80%'
+    })
+  }
+  
 });
 $('.dropzone-area2').on('dragover',function(e){
   e.preventDefault();
@@ -134,44 +252,216 @@ for (var i=0; i<files.length; i++) {
   var fileReader = new FileReader();
   fileReader.onload = function( event ) {
   var loadedImageUri = event.target.result;
-  $(buildImage(loadedImageUri,)).appendTo(".preview2").trigger("create");
+  $(buildImage(loadedImageUri,)).appendTo(".preview").trigger("create");
   
   };
   fileReader.readAsDataURL(files[i]);
 }
-
-if (files_array.length == 10){
+if(files_array.length == 10){
   $(".dropzone-area2").css({
     'display':'none'
   })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
 }
-
+if(files_array.length == 9){
+  $(".dropzone-area2").css({
+    'display':'block',
+    'width':'20%'
+  })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
+}
+if(files_array.length == 8){
+  $(".dropzone-area2").css({
+    'display':'block',
+    'width':'40%'
+  })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
+}
+if(files_array.length == 7){
+  $(".dropzone-area2").css({
+    'display':'block',
+    'width':'60%'
+  })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
+}
+if(files_array.length == 6){
+  $(".dropzone-area2").css({
+    'display':'block',
+    'width':'80%'
+  })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
+}
+if (files_array.length == 5){
+  $(".dropzone-area2").css({
+    'display':'block'
+  })
+  $(".dropzone-area").css({
+    'display':'none'
+  })
+  $(".sell-form-container").css({
+    'height':'490px'
+  })
+}
+if(files_array.length == 4){
+  $(".dropzone-area").css({
+    'display':'block',
+    'width':'20%'
+  })
+}
+if(files_array.length == 3){
+  $(".dropzone-area").css({
+    'display':'block',
+    'width':'40%'
+  })
+}
+if(files_array.length == 2){
+  $(".dropzone-area").css({
+    'display':'block',
+    'width':'60%'
+  })
+  
+}
+if(files_array.length == 1){
+  $(".dropzone-area").css({
+    'display':'block',
+    'width':'80%'
+  })
+}
 });
 $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
   var index = $(".imgexhibit__akumonbuttom--delete").index(this);
   $(".imgexhibit__catfish").eq(index).remove();
   files_array.splice(index - 1, 1);
-  if (files_array.length == 5){
+  if(files_array.length == 10){
     $(".dropzone-area2").css({
-      'display':'block'
+      'display':'none'
     })
     $(".dropzone-area").css({
       'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 9){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'20%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 8){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'40%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 7){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'60%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if(files_array.length == 6){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'80%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
+    })
+  }
+  if (files_array.length == 5){
+    $(".dropzone-area2").css({
+      'display':'block',
+      'width':'100%'
+    })
+    $(".dropzone-area").css({
+      'display':'none'
+    })
+    $(".sell-form-container").css({
+      'height':'490px'
     })
   }
   if(files_array.length == 4){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'20%'
+    })
     $(".dropzone-area2").css({
       'display':'none'
     })
-    $(".dropzone-area").css({
-      'display':'block',
-      
-      
+    $(".sell-form-container").css({
+      'height':'308px'
     })
   }
-  if (files_array.length == 9){
-    $(".dropzone-area2").css({
-      'display':'block'
+  if(files_array.length == 3){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'40%'
+    })
+  }
+  if(files_array.length == 2){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'60%'
+    })
+    
+  }
+  if(files_array.length == 1){
+    $(".dropzone-area").css({
+      'display':'block',
+      'width':'80%'
+    })
+  }
+  if(files_array.length == 0){
+    $(".dropzone-area").css({
+      'width':'100%'
     })
   }
 });
