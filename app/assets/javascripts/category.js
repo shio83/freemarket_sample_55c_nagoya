@@ -36,7 +36,8 @@ $(function(){
 
   function appendSizeBox(insertHTML){
     var sizeSelectHtml = '';
-    sizeSelectHtml = `<div class="products-to-box-form2" id = 'size_wrapper'>
+    sizeSelectHtml = `
+                        <div class="products-to-box-form2" id = 'size_wrapper'>
                         <label class="products-to-box-form2-condition" for= "サイズ">
                           サイズ
                         <span class="span">
@@ -44,7 +45,7 @@ $(function(){
                         </span>
                         </label>
                        <div class='selebobo'>
-                        <select class= 'selects' id="size" name="size_id">
+                       <select class="selects" name="product[size]" id="product_size">
                         <option value="---">---</option>
                         ${insertHTML}
                        <select>
@@ -56,17 +57,18 @@ $(function(){
 
   function appendBrandBox(){
     var brandSizeHtml = '';
-    brandSizeHtml = `<div class="products-to-box-form2" id = 'brand_wrapper'>
-                    <label class="products-to-box-form2-condition">
-                    ブランド
-                    <span class="free">
-                    任意
-                    </span>
-                    </label>
-                    <div class='selebobo'>
-                    <input type="text" class="selects" placeholder="例) シャネル">
-                    </div>
-                    </div>`;
+    brandSizeHtml = `
+                      <div class="products-to-box-form2" id = 'brand_wrapper'>
+                      <label class="products-to-box-form2-condition">
+                      ブランド
+                      <span class="free">
+                      任意
+                      </span>
+                      </label>
+                      <div class='selebobo'>
+                      <input class="select-box" name="product[brand]" type="text" placeholder="例) シャネル" id="product_brand">
+                      </div>
+                      </div>`;
     $(".selebobobo").append(brandSizeHtml);           
   }
 
@@ -164,3 +166,40 @@ $(function(){
     }
   })
 })
+
+
+// function appendSizeBox(insertHTML){
+//   var sizeSelectHtml = '';
+//   sizeSelectHtml = `<div class="products-to-box-form2" id = 'size_wrapper'>
+//                       <label class="products-to-box-form2-condition" for= "サイズ">
+//                         サイズ
+//                       <span class="span">
+//                         必須
+//                       </span>
+//                       </label>
+//                      <div class='selebobo'>
+//                       <select class= 'selects' id="size" name="size_id">
+//                       <option value="---">---</option>
+//                       ${insertHTML}
+//                      <select>
+//                        <i aria-hidden="ture" class="fa fa-chevron-right fa-rotate-90 kitui"></i>
+//                     </div>
+//                     </div>`; 
+//   $(".selebobobo").append(sizeSelectHtml);
+// }
+
+// function appendBrandBox(){
+//   var brandSizeHtml = '';
+//   brandSizeHtml = `<div class="products-to-box-form2" id = 'brand_wrapper'>
+//                   <label class="products-to-box-form2-condition">
+//                   ブランド
+//                   <span class="free">
+//                   任意
+//                   </span>
+//                   </label>
+//                   <div class='selebobo'>
+//                   <input type="text" class="selects" placeholder="例) シャネル">
+//                   </div>
+//                   </div>`;
+//   $(".selebobobo").append(brandSizeHtml);           
+// }
