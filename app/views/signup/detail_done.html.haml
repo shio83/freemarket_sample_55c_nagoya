@@ -12,8 +12,9 @@
           .form-group
             %h2  ありがとうございます。
             %h2  会員登録が完了しました。
-          %button{class: 'btn-default btn-red',type: "submit"}
-            メルカリをはじめる
+          = form_for(@user, url:  signup_index_path, method: :post) do |f|
+            = f.submit "メルカリをはじめる",class: 'btn-default btn-red'
+          
         .registration_logo
           .registration_logo__head-box
             .registration_logo__head-box-left

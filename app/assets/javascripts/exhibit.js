@@ -46,6 +46,25 @@ $(function(){
         'display':'block',
         
       })
+    }if(files_array.length == 2){
+      $(".dropzone-area2").css({
+        'display':'none'
+      })
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'363px'
+      })
+      
+    }
+    if(files_array.length == 1){
+      $(".dropzone-area2").css({
+        'display':'none'
+      })
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'491px'
+      })
+      
     }
     
   });
@@ -57,7 +76,7 @@ $(function(){
     reader.onload = (function(file) {
       
       return function(e) {
-        $('ul.preview2').append(buildImage(e.target.result))
+        $('ul.preview').append(buildImage(e.target.result))
       };  
     })(file);
 

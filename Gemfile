@@ -75,6 +75,8 @@ gem "gretel"
 gem 'active_hash'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'dotenv-rails'
+gem 'rails-i18n'
+gem 'activerecord-session_store'
 
 group :production do
   gem 'unicorn', '5.4.1'
