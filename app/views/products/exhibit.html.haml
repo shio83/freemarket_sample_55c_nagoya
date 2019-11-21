@@ -2,7 +2,7 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    = form_for @product, url: product_index_path, method: :post do |f|
+    = form_for @product, url: create_path, method: :post do |f|
       %main.main
         %section.center
           %div.products-box
@@ -16,26 +16,27 @@
                     必須
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
-                %ul.preview
-                  .dropzone-container
-                  %div
-                    %label
-                      = f.file_field :url, multiple:true,class:"onigiri"
-                      .dropzone-area
-                        .input_area
-                        %p
-                          ドラッグアンドドロップ
-                          %br
-                            またはクリックしてファイルをアップロード
-                  .dropzone-container2
-                    %label
-                      = f.file_field :url, multiple:true,class:"senbei"
-                      .dropzone-area2
-                        .input_area2
-                        %p
-                          ドラッグアンドドロップ
-                          %br
-                            またはクリックしてファイルをアップロード
+                = f.fields_for :images do |i|
+                  %ul.preview
+                    .dropzone-container
+                    %div
+                      %label
+                        = i.file_field :url, multiple:true,class:"onigiri"
+                        .dropzone-area
+                          .input_area
+                          %p
+                            ドラッグアンドドロップ
+                            %br
+                              またはクリックしてファイルをアップロード
+                    .dropzone-container2
+                      %label
+                        = i.file_field :url, multiple:true,class:"senbei"
+                        .dropzone-area2
+                          .input_area2
+                          %p
+                            ドラッグアンドドロップ
+                            %br
+                              またはクリックしてファイルをアップロード
             %div.products-name
               %div.products-name-box
                 %label.products-name-box-head
@@ -115,8 +116,8 @@
                   販売価格
                   %small
                     (300~9,999,999)
-                %input.inform{placeholder: "例) 300", type: "text"}/
-                -# %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
+                = f.text_field :price, placeholder: "例) 300", class: "inform"
+              
                 %a.form-question
                   ?
                 %div.clearfix
@@ -144,10 +145,9 @@
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。
                 %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
                 %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-                = f.submit class: "btn-red", disable_with: "Save", value:"出品する",id:"peropero"
+                = f.submit  "出品する",class: "btn-red-red",id:"peropero"
                 = render partial: 'products/listingcompleted'
-                %a.btn-back
-                  もどる
+                =link_to "もどる" ,root_path, class: "btn-back"
     %footer.fo
       =render partial:'users/us-body__footer'
               
