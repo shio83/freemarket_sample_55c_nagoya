@@ -494,18 +494,21 @@
           font-size: 14px;
           display: inline;
         }
-        .btn-red {
+        .btn-red-red {
           display: block;
-          border: 1px solid #ea352d;
-          margin: 40px 0 0;
+          margin: 40px 0 0 0;
           width: 100%;
-          background-color: #ea352d;
-          line-height: 48px;
-          font-size: 14px;
+          background-color: #ea352b;
+          border: 1px solid #ea352b;
           color: white;
+          font-size: 14px;
+          line-height: 48px;
           cursor: pointer;
-          &:focus {
-            border: 1px solid #0099e8;
+          outline: 0;
+          &:focus{
+            background-color: grey;
+            transition: all 1s ease-out;
+            border: none;
             outline: 0;
           }
         }

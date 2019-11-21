@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many   :likes
   has_many   :images
+  accepts_nested_attributes_for :images
   has_many   :comments
-  belongs_to :brand
 
   enum state: {
     "-": 0, 新品未使用: 1, 未使用に近い: 2,目立った傷や汚れなし: 3, やや傷や汚れあり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6
@@ -25,8 +25,5 @@ class Product < ApplicationRecord
     鳥取県: 31,島根県: 32,岡山県: 33,広島県: 34,山口県: 35,
     徳島県: 36,香川県: 37,愛媛県: 38,高知県: 39,
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
-  }
-  enum size: {
-    "-----":0, "XS":1, "S":2, "M":3, "L":4, "XL":5, "XXL":6
   }
 end

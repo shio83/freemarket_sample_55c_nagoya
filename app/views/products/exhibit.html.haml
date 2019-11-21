@@ -2,7 +2,7 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    = form_for @product, url: product_index_path, method: :post do |f|
+    = form_for @product, url: create_path, method: :post do |f|
       %main.main
         %section.center
           %div.products-box
@@ -16,11 +16,12 @@
                     必須
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
+                = f.fields_for :images do |i|
                   %ul.preview
                     .dropzone-container
                     %div
                       %label
-                        = f.file_field :file_name, multiple:true,class:"onigiri"
+                        = i.file_field :url, multiple:true,class:"onigiri"
                         .dropzone-area
                           .input_area
                           %p
@@ -100,58 +101,55 @@
                     %div.selebobo
                       = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
-
-                %div.products-delivery-box-form5
-                  %label.products-delivery-box-form5-day
-                    発送までの日数
+                  %div.products-delivery-box-form5
+                    %label.products-delivery-box-form5-day
+                      発送までの日数
+                      %span.span
+                        必須
+                    .selobobobobo
+                      %div.selebobo
+                        = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        
+              %div.sell-price
+                %h5.sell-exp
+                  販売価格
+                  %small
+                    (300~9,999,999)
+                = f.text_field :price, placeholder: "例) 300", class: "inform"
+              
+                %a.form-question
+                  ?
+                %div.clearfix
+                  %label.left
+                    価格
                     %span.span
                       必須
-                  .selobobobobo
-                    %div.selebobo
-                      = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
-                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
-                      
-            %div.sell-price
-              %h5.sell-exp
-                販売価格
-                %small
-                  (300~9,999,999)
-              %input.inform{placeholder: "例) 300", type: "text"}/
-              -# %input{:type => "text",:placeholder => " 例) 300",:class => "inform"}
-              %a.form-question
-                ?
-              %div.clearfix
-                %label.left
-                  価格
-                  %span.span
-                    必須
-                %small.right  
-                  ¥
-              %div.hako
-              %small.sale
-                販売手数料
-                %sample
-                  (10%)
-                %div.rig
-                  ー
-              %div.hako
-              %div.last
-                販売利益
-                %div.rig_2
-                  = f.number_field :price, style: "display: none", id: "price"
-                  ー
-            %div.warning
-              %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
-              %p またブランド品でシリアルナンバー等がある場合はご記載ください。
-              %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
-              %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-              = f.submit class: "btn-red", disable_with: "Save", value:"出品する",id:"peropero"
-              = render partial: 'products/listingcompleted'
-              %a.btn-back
-                もどる
-  %footer.fo
-    =render partial:'users/us-body__footer'
-            
+                  %small.right  
+                    ¥
+                %div.hako
+                %small.sale
+                  販売手数料
+                  %sample
+                    (10%)
+                  %div.rig
+                    ー
+                %div.hako
+                %div.last
+                  販売利益
+                  %div.rig_2
+                    = f.number_field :price, style: "display: none", id: "price"
+                    ー
+              %div.warning
+                %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
+                %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+                %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
+                %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
+                = f.submit  "出品する",class: "btn-red-red",id:"peropero"
+                = render partial: 'products/listingcompleted'
+                =link_to "もどる" ,root_path, class: "btn-back"
+    %footer.fo
+      =render partial:'users/us-body__footer'
 
 
           
