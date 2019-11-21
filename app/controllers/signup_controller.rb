@@ -4,6 +4,9 @@ class SignupController < ApplicationController
   before_action :validates_step2, only: :detail_zip
   before_action :validates_step3, only: :detail_payment
   before_action :validates_step4, only: :detail_done
+
+  protect_from_forgery :except => [:create]
+
   def registration
     @user = User.new
     
