@@ -28,77 +28,79 @@
                             ドラッグアンドドロップ
                             %br
                               またはクリックしてファイルをアップロード
-                        .dropzone-container2
-                        %div
-                          %label
-                            = f.file_field :file_name, multiple:true,class:"onigiri"
-                            .dropzone-area2
-                              .input_area2
-                              %p
-                                ドラッグアンドドロップ
-                                %br
-                                  またはクリックしてファイルをアップロード
-          %div.products-name
-            %div.products-name-box
-              %label.products-name-box-head
-                商品名
-                %span.span
-                  必須
-                  %div.input-box
-                    = f.text_field :name, {placeholder:"商品名（必須40文字まで）", class: "in" }
-                %div.products-name-box-explain
-                  %label.products-name-box-explain-header
-                    商品の説明
-                    %span.span
-                      必須
+                    .dropzone-container2
+                      %label
+                        = i.file_field :url, multiple:true,class:"senbei"
+                        .dropzone-area2
+                          .input_area2
+                          %p
+                            ドラッグアンドドロップ
+                            %br
+                              またはクリックしてファイルをアップロード
+            %div.products-name
+              %div.products-name-box
+                %label.products-name-box-head
+                  商品名
+                  %span.span
+                    必須
                     %div.input-box
-                      = f.text_area :description, {placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "text"}
-            %div.products-to 
-              %h3.products-to-details
-                商品の詳細
-              %div.products-to-box
-                %div.products-to-box-form1
-                  = f.label 'カテゴリー', class: 'products-to-box-form1-category'
-                  %span.listing-default--require  必須 
+                      = f.text_field :name, {placeholder:"商品名（必須40文字まで）", class: "in" }
+                  %div.products-name-box-explain
+                    %label.products-name-box-explain-header
+                      商品の説明
+                      %span.span
+                        必須
+                      %div.input-box
+                        = f.text_area :description, {placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "text"}
+              %div.products-to 
+                %h3.products-to-details
+                  商品の詳細
 
-                .selebobobo                    
-                  %div.selebobo
-                    = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
-                    %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
-                %div.products-to-box-form2
+                %div.products-to-box
+                  %div.products-to-box-form1
+                    = f.label 'カテゴリー', class: 'products-to-box-form1-category'
+                    %span.listing-default--require  必須 
+                  
+                  .selebobobo                    
+                    %div.selebobo
+                      = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
+                    
                   %div.products-to-box-form2
-                    = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
-                    %span.listing-default--require  必須
+                    %div.products-to-box-form2
+                      = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
+                      %span.listing-default--require  必須
 
-                .selebobobobo
-                  %div.selebobo
-                    = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
-                    %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
-                
-            %div.products-delivery
-              %h4.products-delivery-todo
-                配送について
-              %a.form-question
-                ?
-              %div.products-delivery-box
-                %div.products-delivery-box-form3
-                  %label.products-delivery-box-form3-fee
-                    配送料の負担
-                    %span.listing-default--require  必須
                   .selebobobobo
                     %div.selebobo
-                      = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
+                      = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                  
+              %div.products-delivery
+                %h4.products-delivery-todo
+                  配送について
+                %a.form-question
+                  ?
+                %div.products-delivery-box
+                  %div.products-delivery-box-form3
+                    %label.products-delivery-box-form3-fee
+                      配送料の負担
+                      %span.listing-default--require  必須
+                    .selebobobobo
+                      %div.selebobo
+                        = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
 
-                %div.products-delivery-box-form4
-                  %label.products-delivery-box-form4-area
-                    発送元の地域
-                    %span.span
-                      必須
-                  .selobobobobo
-                    %div.selebobo
-                      = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
-                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                  %div.products-delivery-box-form4
+                    %label.products-delivery-box-form4-area
+                      発送元の地域
+                      %span.span
+                        必須
+                    .selobobobobo
+                      %div.selebobo
+                        = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+
                   %div.products-delivery-box-form5
                     %label.products-delivery-box-form5-day
                       発送までの日数
@@ -148,6 +150,7 @@
                 =link_to "もどる" ,root_path, class: "btn-back"
     %footer.fo
       =render partial:'users/us-body__footer'
+              
 
 
-          
+            
