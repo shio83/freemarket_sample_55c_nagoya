@@ -56,7 +56,6 @@
             %div.products-to 
               %h3.products-to-details
                 商品の詳細
-
               %div.products-to-box
                 %div.products-to-box-form1
                   = f.label 'カテゴリー', class: 'products-to-box-form1-category'
@@ -64,9 +63,8 @@
 
                 .selebobobo                    
                   %div.selebobo
-                    = f.select :category, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
+                    = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
                     %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
-                    
                 %div.products-to-box-form2
                   %div.products-to-box-form2
                     = f.label '商品の状態', {class: 'products-to-box-form2-condition'}

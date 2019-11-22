@@ -1,3 +1,4 @@
+
 $(function(){
   $('#peropero').on('click',function(){
     $('.modal').fadeIn();
@@ -8,3 +9,4 @@ $(function(){
     // return false;
 // });
 });
+

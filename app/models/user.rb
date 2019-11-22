@@ -22,10 +22,10 @@ class User < ApplicationRecord
   has_many :buyer_id, class_name: 'SellerBuyer', foreign_key: 'buyer_id'
   has_many :seller_id, class_name: 'SellerBuyer', foreign_key: 'seller_id'
 
-  # VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nickname,                presence: true, length: {maximum: 20}, on: :validates_step1
-  validates :email,                   presence: true, uniqueness: true, on: :validates_step1
+  validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }, on: :validates_step1
   validates :password,                presence: true, length: {minimum: 7, maximum: 128}, on: :validates_step1
   validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 128}, on: :validates_step1
   validates :first_name,              presence: true, on: :validates_step1
