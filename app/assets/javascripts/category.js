@@ -1,6 +1,6 @@
 $(function(){
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
 
@@ -12,7 +12,7 @@ $(function(){
   function appendChildrenBox(insertHTML){
     var childSelectHTML= '';
     childSelectHTML = ` <div class='selebobo' id= 'children_wrapper'>
-                          <select class= 'selects' id="child_category" name="category_id">
+                          <select class= 'selects' id="child_category" name="product[category_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         <select>
@@ -24,7 +24,7 @@ $(function(){
   function appendGrandchidrenBox(insertHTML){
     var grandchildSelectHTML = '';
     grandchildSelectHTML = ` <div class='selebobo' id= 'grandchildren_wrapper'>
-                              <select class= 'selects' id="grandchild_category" name="category_id">
+                              <select class= 'selects' id="grandchild_category" name="product[category_id]">
                                 <option value="---" data-category="---">---</option>
                                 ${insertHTML}
                               <select>

@@ -10,6 +10,7 @@ class SignupController < ApplicationController
   end
   
   def detail_tel
+    @user = User.new
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -22,7 +23,6 @@ class SignupController < ApplicationController
     session[:birth_year] = user_params[:birth_year]
     session[:birth_month] = user_params[:birth_month]
     session[:birth_day] = user_params[:birth_day] 
-    @user = User.new 
   end
 
   def detail_zip
@@ -131,7 +131,6 @@ class SignupController < ApplicationController
       first_name_kana: session[:first_name_kana],
       last_name: session[:last_name]
     )
-   
     render '/signup/registration' unless @user.valid?(:validates_step1)
   end
 
@@ -149,7 +148,6 @@ class SignupController < ApplicationController
       last_name: session[:last_name],
       phone_number: session[:phone_number]
     )
-  
     render '/signup/detail_tel' unless @user.valid?(:validates_step2)
   end
 

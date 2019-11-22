@@ -14,7 +14,7 @@
             %label.form-group__label カード番号
             %span.form-group__require 必須
             = f.text_field :authorization_token, placeholder: "半角数字のみ" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "authorization_token"}
+            = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "authorization_token"}
 
             .signup-card-list
               %li= image_tag "visa.svg"
@@ -30,19 +30,19 @@
               %span.form-group__require 必須
             .expiration_date
               = f.select :expiration_date_month,[*1..12], {},{id:"expiration_date_month", class:'input-default-half'}
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "expiration_date_month"}
+              = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "expiration_date_month"}
               %i.fa.fa-chevron-down.select-wrap-wrap
               %span 月
             .expiration_date
               = f.select :expiration_date_year,[*2019..2039], {},{id:"expiration_date_year", class:'input-default-half'}
-              = render partial: 'layouts/error_messages', locals: {user: @user, column: "expiration_date_year"}
+              = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "expiration_date_year"}
               %i.fa.fa-chevron-down.select-wrap-wrap
               %span 年
           .form-group
             %label.form-group__label セキュリティコード
             %span.form-group__require 必須
             = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "security_code"}
+            = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "security_code"}
             .form-group.text-right
               %p
                 = link_to '#' do

@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
     end
+
   end
 
    
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     @product.save
-    
+   binding.pry
   end
   
   def listingcompleted
@@ -74,7 +75,8 @@ class ProductsController < ApplicationController
 
   private
     def create_params
-      product_params = params.require(:product).permit(
+      
+      params.require(:product).permit(
         :name, 
         :description,
         :size, 
@@ -84,7 +86,10 @@ class ProductsController < ApplicationController
         :shipping_region,
         :shipping_date, 
         :price,
-        images_attributes: {image: []}).merge(user_id: current_user.id)
+        :category_id,
+        images_attributes: {url: []}).merge(user_id: current_user.id)
+       
+        
     end
 
     # def products_params
