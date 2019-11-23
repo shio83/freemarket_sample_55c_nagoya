@@ -2,7 +2,55 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+          :recoverable, :rememberable, :validatable,
+          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+
+  def self.without_sns_data(auth)
+    user = User.where(email: auth.info.email).first
+
+      if user.present?
+        sns = SnsCredential.create(
+          uid: auth.uid,
+          provider: auth.provider,
+          user_id: user.id
+        )
+      else
+        user = User.new(
+          nickname: auth.info.name,
+          email: auth.info.email,
+        )
+        sns = SnsCredential.new(
+          uid: auth.uid,
+          provider: auth.provider
+        )
+      end
+      return { user: user ,sns: sns}
+    end
+
+    def self.with_sns_data(auth, snscredential)
+    user = User.where(id: snscredential.user_id).first
+    unless user.present?
+      user = User.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
+      )
+    end
+    return {user: user}
+    end
+
+    def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = with_sns_data(auth, snscredential)[:user]
+      sns = snscredential
+    else
+      user = without_sns_data(auth)[:user]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return { user: user ,sns: sns}
+  end
 
   enum prefecture: {
   "---------": 0,北海道: 1,青森県: 2,岩手県: 3,宮城県: 4,秋田県: 5,山形県: 6,福島県: 7,
@@ -21,11 +69,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :buyer_id, class_name: 'SellerBuyer', foreign_key: 'buyer_id'
   has_many :seller_id, class_name: 'SellerBuyer', foreign_key: 'seller_id'
+  has_many :sns_credentials, dependent: :destroy
 
-  VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  # VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nickname,                presence: true, length: {maximum: 20}, on: :validates_step1
-  validates :email,                   presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }, on: :validates_step1
+  validates :email,                   presence: true, uniqueness: true, on: :validates_step1
   validates :password,                presence: true, length: {minimum: 7, maximum: 128}, on: :validates_step1
   validates :password_confirmation,   presence: true, length: {minimum: 7, maximum: 128}, on: :validates_step1
   validates :first_name,              presence: true, on: :validates_step1
