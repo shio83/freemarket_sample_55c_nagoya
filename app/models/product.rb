@@ -26,4 +26,14 @@ class Product < ApplicationRecord
     徳島県: 36,香川県: 37,愛媛県: 38,高知県: 39,
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
+
+  validates      :name,            presence: true
+  validates      :description,     presence: true
+  validates      :size,            presence: true
+  validates      :brand,           presence: true
+  validates      :state,           presence: true
+  validates      :shipping_fee,    presence: true
+  validates      :shipping_region, presence: true
+  validates      :shipping_date,   presence: true
+  validates      :price,           presence: true 
 end

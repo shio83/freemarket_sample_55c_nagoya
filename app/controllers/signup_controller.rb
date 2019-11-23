@@ -135,6 +135,7 @@ class SignupController < ApplicationController
       last_name: session[:last_name]
     )
     render '/signup/registration' unless @user.valid?(:validates_step1)
+    
   end
 
 

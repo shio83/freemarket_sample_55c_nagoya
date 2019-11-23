@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:exhibit, :confirm]
-
+  before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
     @product.images.build
@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     @product.save
-   binding.pry
   end
   
   def listingcompleted
@@ -92,6 +91,29 @@ class ProductsController < ApplicationController
         
     end
 
+
+    def validates_product
+      @category_parent_array = ["---"]
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
+
+      @product = Product.new(
+        name: params[:product][:name],
+        description: params[:product][:description],
+        size: params[:product][:size],
+        brand: params[:product][:brand], 
+        state: params[:product][:state], 
+        shipping_fee: params[:product][:shipping_fee], 
+        shipping_region: params[:product][:shipping_region],
+        shipping_date: params[:product][:shipping_date], 
+        price: params[:product][:price],
+        category_id: params[:product][:category_id]
+      )
+      @product.images.build
+      # binding.pry
+      render '/products/exhibit' unless @product.valid?
+    end 
     # def products_params
     #   params.require(:category).permit(:url, :name, :description)
     # end
