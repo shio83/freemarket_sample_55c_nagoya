@@ -3,6 +3,10 @@
     %header
       = render partial: 'users/us-body__header'
     = form_for @product, url: create_path, method: :post do |f|
+      -# - if @product.errors.any?
+      -#   %ul
+      -#     - @product.errors.full_messages.each do |prodcut|
+      -#       %li= prodcut
       %main.main
         %section.center
           %div.products-box
@@ -45,6 +49,7 @@
                     必須
                     %div.input-box
                       = f.text_field :name, {placeholder:"商品名（必須40文字まで）", class: "in" }
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "name"}
                   %div.products-name-box-explain
                     %label.products-name-box-explain-header
                       商品の説明
@@ -52,6 +57,7 @@
                         必須
                       %div.input-box
                         = f.text_area :description, {placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "text"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "description"}
               %div.products-to 
                 %h3.products-to-details
                   商品の詳細
@@ -60,12 +66,12 @@
                   %div.products-to-box-form1
                     = f.label 'カテゴリー', class: 'products-to-box-form1-category'
                     %span.listing-default--require  必須 
-
+                  
                   .selebobobo                    
                     %div.selebobo
-                      = f.select :category, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
+                      = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
-                     
+                    
                   %div.products-to-box-form2
                     %div.products-to-box-form2
                       = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
@@ -117,7 +123,7 @@
                   %small
                     (300~9,999,999)
                 = f.text_field :price, placeholder: "例) 300", class: "inform"
-              
+                = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "price"}
                 %a.form-question
                   ?
                 %div.clearfix
