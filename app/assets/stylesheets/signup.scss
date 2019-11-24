@@ -139,7 +139,12 @@
   background: #385185;
   color: #fff;
   position: relative;
+  .font-facebook{
+    color:#eee;
+    text-decoration:none;
+  }
 }
+
 .icon-facebook{
   position: absolute;
   font-size: 26px;
@@ -157,6 +162,9 @@
   background: #fff  no-repeat 3px top;
   border: #979797 solid 1px;
   color: #333;
+  .font-google{
+    text-decoration:none;
+  }
 }
 .image-google{
   position: absolute;

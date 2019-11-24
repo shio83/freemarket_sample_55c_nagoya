@@ -18,3 +18,9 @@ ja:
         city: 市区町村
         zipcode: 郵便番号
         address: 番地
+        authorization_token: カード番号
+        security_code: セキュリティーコード
+      product:
+        name: 商品名
+        description: 説明
+        price: 金額

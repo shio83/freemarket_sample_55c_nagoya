@@ -1,4 +1,8 @@
 class Image < ApplicationRecord
-  has_many :products, inverse_of: :images
-  mount_uploaders :image, ImageUploader
+  belongs_to :product, inverse_of: :images
+  mount_uploaders :url, ImageUploader
+
+  # validates      :url,            presence: true, length: {maximum: 10}
 end
+
+

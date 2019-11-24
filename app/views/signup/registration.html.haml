@@ -14,23 +14,23 @@
             %label.form-group__label ニックネーム
             %span.form-group__require 必須
             = f.text_field :nickname, placeholder: "例) メルカリ太郎", class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "nickname"}
+            = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "nickname"}
 
           .form-group
             %label.form-group__label メールアドレス
             %span.form-group__require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "email"}
+            = render partial: 'devise/shared/error_messages', locals: {user: @user, column: "email"}
           .form-group
             %label.form-group__label パスワード
             %span.form-group__require 必須
             = f.password_field :password, placeholder: "7文字以上" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password"}
+            = render partial:  'devise/shared/error_messages', locals: {user: @user, column: "password"}
           .form-group
             %label.form-group__label パスワード (確認)
             %span.form-group__require 必須
             = f.password_field :password_confirmation, placeholder: "7文字以上" , class:'input-default'
-            = render partial: 'layouts/error_messages', locals: {user: @user, column: "password_confirmation"}
+            = render partial:  'devise/shared/error_messages', locals: {user: @user, column: "password_confirmation"}
           .form-group
             .form-group__sub-head 本人確認
             .form-group__text
@@ -42,16 +42,16 @@
                 %span.form-group__require 必須
               = f.text_field :last_name, placeholder: "例) 山田" , class:'input-default-half'
               = f.text_field :first_name, placeholder: "例) 彩" , class:'input-default-half'
-              = render partial: 'layouts/error_messages', locals: {user: @user , column: "first_name"}
-              = render partial: 'layouts/error_messages', locals: {user:@user , column: "last_name"}
+              = render partial:  'devise/shared/error_messages', locals: {user: @user , column: "first_name"}
+              = render partial:  'devise/shared/error_messages', locals: {user:@user , column: "last_name"}
             .form-group
               %div
                 %label.form-group__label お名前カナ(全角)
                 %span.form-group__require 必須
               = f.text_field :last_name_kana, placeholder: "例) ヤマダ" , class:'input-default-half'
               = f.text_field :first_name_kana, placeholder: "例) アヤ" ,  class:'input-default-half'
-            = render partial: 'layouts/error_messages', locals: {user:@user , column: "last_name_kana"}
-            = render partial: 'layouts/error_messages', locals: {user:@user , column: "first_name_kana"}
+            = render partial:  'devise/shared/error_messages', locals: {user:@user , column: "last_name_kana"}
+            = render partial:  'devise/shared/error_messages', locals: {user:@user , column: "first_name_kana"}
             .form-group
               %label.form-group__label 生年月日
               %span.form-group__require 必須
