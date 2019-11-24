@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     @product.save
-
   end
   
   def listingcompleted
@@ -88,9 +87,7 @@ class ProductsController < ApplicationController
         :shipping_date, 
         :price,
         :category_id,
-        images_attributes: {url: []}).merge(user_id: current_user.id)
-       
-        
+        images_attributes: [:url]).merge(user_id: current_user.id)
     end
 
 
@@ -113,7 +110,8 @@ class ProductsController < ApplicationController
         category_id: params[:product][:category_id],
         user_id: current_user.id
       )
-      @product.images.build
+     @product.images.build
+
       render '/products/exhibit' unless @product.valid?
     end 
     # def products_params
