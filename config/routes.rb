@@ -28,10 +28,11 @@ Rails.application.routes.draw do
    # 購入した商品-過去の取引ページ
    get 'users/purchased' => "users#purchased"
 
+
+  get  'products/:id/details' => "products#details" 
   get  'products/get_category_children' => "products#get_category_children"
   get  'products/get_category_grandchildren' => "products#get_category_grandchildren"
   get  "products/get_size" => "products#get_size"
-  get  'products/details' => "products#details"
   get  'products/confirm' => "products#confirm"
   get  'products/exhibit' =>"products#exhibit"
   post 'create' => "products#create"

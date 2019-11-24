@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    # binding.pry
     render action: :detail_tel
   end
 

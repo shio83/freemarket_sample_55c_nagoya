@@ -16,12 +16,12 @@ class ProductsController < ApplicationController
   end
 
   def details
+    @product = Product.find_by(id: params[:id])
   end
  
   def create
     @product = Product.new(create_params)
     @product.save
-    binding.pry
   end
   
   def listingcompleted
