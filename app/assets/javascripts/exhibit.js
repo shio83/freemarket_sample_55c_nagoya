@@ -465,16 +465,19 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
     })
   }
 });
-$('.btn-red').on('submit', function(e){
+$(".btn-red-red").click('submit', function(e){
   e.preventDefault();
   // そのほかのform情報を以下の記述でformDataに追加
-  var formData = new FormData($(this).get(0));
+  var formData = new FormData($(this).get(10));
   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
   files_array.forEach(function(file){
-   formData.append("image[images][]" , file)
+    
+   formData.append("image[images][]" , file);
+   console.log(file);
   });
+  
   $.ajax({
-    url:         'products/items',
+    url:         '/items',
     type:        "POST",
     data:        formData,
     contentType: false,
@@ -482,6 +485,7 @@ $('.btn-red').on('submit', function(e){
     dataType:   'json',
   })
   .done(function(data){
+    
     alert('出品に成功しました！');
   })
   .fail(function(XMLHttpRequest, textStatus, errorThrown){

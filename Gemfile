@@ -77,6 +77,10 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'activerecord-session_store'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+
 
 group :production do
   gem 'unicorn', '5.4.1'

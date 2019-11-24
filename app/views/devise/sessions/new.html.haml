@@ -12,10 +12,10 @@
         .us-body__main-registration__container__form__content
           .us-btn-default.btn-fb
             = fa_icon"facebook",class: "icon-facebook"
-            Facebookで登録する
+            = link_to "Facebookで登録する",user_facebook_omniauth_authorize_path, class: "font-facebook"
           .us-btn-default.btn-google
             = image_tag "google.jpg",class: "image-google"
-            Googleで登録する
+            = link_to "Googleで登録する",user_google_oauth2_omniauth_authorize_path, class: "font-google"
           .form-group
             = f.email_field :email, placeholder: "メールアドレス" , class:'input-default'
           .form-group

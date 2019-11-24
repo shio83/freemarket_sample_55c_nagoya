@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+  controllers: {
+    # sessions: 'users/sessions',
+    # registrations: "users/registrations",
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  # devise_for :admins, :class_name => 'User'
+  
   # get 'users/index'
   resources :product
 
@@ -29,12 +36,13 @@ Rails.application.routes.draw do
   get  'products/exhibit' =>"products#exhibit"
   post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
-  post 'products/items' => 'products#items'
-
+  post 'items' => 'products#items'
+  
   # 本人情報の登録
   get  'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
- 
+  
+
   resources :signup do
     collection do
       get 'registration'
