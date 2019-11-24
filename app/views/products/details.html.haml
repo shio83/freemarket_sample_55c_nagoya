@@ -37,7 +37,9 @@
               %font{:size => "2"} カテゴリー
             %td{:bgcolor => "#ffffff",:width => "182",:height => "71"}
               %font{:size => "2",:color => "blue"}
-                = link_to @product.category_id,"#"
+                = @product.category.parent.parent.name
+                = @product.category.parent.name
+                = @product.category.name
           %tr
             %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
               %font{:size => "2"} ブランド
@@ -60,7 +62,7 @@
             %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
               %font{:size => "2"} 配送の方法
             %td{:bgcolor => "#ffffff",:width => "182",:height => "46"}
-              %font{:size => "2"} クリックポスト
+              %font{:size => "2"} 未定
           %tr
             %th{:bgcolor => "#fafafa",:width => "117.5",:height => "46"}
               %font{:size => "2"} 配送元地域
