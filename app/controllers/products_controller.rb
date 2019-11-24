@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
     @product = Product.new(create_params)
     @product.save
     
+    
   end
   
   def listingcompleted
@@ -28,12 +29,13 @@ class ProductsController < ApplicationController
 
   def items
     @product = Product.new
+    binding.pry
     if @product.save
-  
       image_params[:images].each do |image|
         #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
         @product.images.build
         product_image = @product.images.new(url: image)
+        # binding.pry
         product_image.save
       end
         #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
@@ -91,15 +93,15 @@ class ProductsController < ApplicationController
     #   params.require(:category).permit(:url, :name, :description)
     # end
 
-    # # def create_params
-    # #   # images以外の値についてのストロングパラメータの設定
-    # #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
-    # #   return item_params
-    # # end
-
-    # def image_params
-    #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
-    #   params.require(:image).permit({:url => []})
+    # def create_params
+    #   # images以外の値についてのストロングパラメータの設定
+    #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
+    #   return item_params
     # end
+
+    def image_params
+      #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
+      params.require(:image).permit({:url => []})
+    end
    
 end
