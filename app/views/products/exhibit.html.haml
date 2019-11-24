@@ -3,10 +3,6 @@
     %header
       = render partial: 'users/us-body__header'
     = form_for @product, url: create_path, method: :post do |f|
-      -# - if @product.errors.any?
-      -#   %ul
-      -#     - @product.errors.full_messages.each do |prodcut|
-      -#       %li= prodcut
       %main.main
         %section.center
           %div.products-box
@@ -25,7 +21,7 @@
                     .dropzone-container
                     %div
                       %label
-                        = i.file_field :url, multiple:true,class:"onigiri"
+                        = i.file_field :url, class:"onigiri"
                         .dropzone-area
                           .input_area
                           %p
@@ -34,7 +30,7 @@
                               またはクリックしてファイルをアップロード
                     .dropzone-container2
                       %label
-                        = i.file_field :url, multiple:true,class:"senbei"
+                        = i.file_field :url, class:"senbei"
                         .dropzone-area2
                           .input_area2
                           %p
