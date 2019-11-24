@@ -108,10 +108,10 @@ class ProductsController < ApplicationController
         shipping_region: params[:product][:shipping_region],
         shipping_date: params[:product][:shipping_date], 
         price: params[:product][:price],
-        category_id: params[:product][:category_id]
+        category_id: params[:product][:category_id],
+        user_id: current_user.id
       )
       @product.images.build
-      # binding.pry
       render '/products/exhibit' unless @product.valid?
     end 
     # def products_params
