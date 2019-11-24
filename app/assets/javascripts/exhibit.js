@@ -465,32 +465,32 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
     })
   }
 });
-$(".btn-red-red").click('submit', function(e){
-  e.preventDefault();
-  // そのほかのform情報を以下の記述でformDataに追加
-  var formData = new FormData($(this).get(10));
-  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
-  files_array.forEach(function(file){
+// $(".btn-red-red").click('submit', function(e){
+//   e.preventDefault();
+//   // そのほかのform情報を以下の記述でformDataに追加
+//   var formData = new FormData($(this).get(10));
+//   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+//   files_array.forEach(function(file){
     
-   formData.append("image[images][]" , file);
-   console.log(file);
-  });
+//    formData.append("image[images][]" , file);
+//    console.log(file);
+//   });
   
-  $.ajax({
-    url:         '/items',
-    type:        "POST",
-    data:        formData,
-    contentType: false,
-    processData: false,
-    dataType:   'json',
-  })
-  .done(function(data){
+//   $.ajax({
+//     url:         '/items',
+//     type:        "POST",
+//     data:        formData,
+//     contentType: false,
+//     processData: false,
+//     dataType:   'json',
+//   })
+//   .done(function(data){
     
-    alert('出品に成功しました！');
-  })
-  .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    alert('出品に失敗しました！');
-  });
-});
+//     alert('出品に成功しました！');
+//   })
+//   .fail(function(XMLHttpRequest, textStatus, errorThrown){
+//     alert('出品に失敗しました！');
+//   });
+// });
 });
 
