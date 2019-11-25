@@ -16,6 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted? 
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    
     else 
       @sns = info[:sns]
       session[:nickname] = @user.nickname
@@ -24,6 +25,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # session[:provider] = @user.provider
       # session[:uid] = @user.uid
       redirect_to registration_signup_index_path
+  
     end
   end
 
