@@ -82,17 +82,20 @@
         (税込)
       .body__itembox--price--price4
         送料込み
-    .body__itembox--buybtn
-      - if user_signed_in? && @product.user.id == current_user.id
-        = link_to products_exhibit_path, class: "buybtn"  do
-          %button.body__itembox--buybtn{:type => "submit"}編集する
-        = form_for(@product, url:"products/#{@product.id}",method: :delete) do |f|
-          -# = link_to "products/#{@product.id}",method: :delete, class: "buybtn"  do
-          -# %button.body__itembox--buybtn{:type => "submit"}削除
-          = f.submit "削除", class: "body__itembox--buybtn"
-      - else
-        = link_to products_confirm_path, class: "buybtn"  do
-          %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
+        
+    - if user_signed_in? && @product.user.id == current_user.id
+    - else
+      .body__itembox--buybtn
+        %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
+      -# = link_to products_exhibit_path, class: "buybtn"  do
+      -#   %button.body__itembox--buybtn{:type => "submit"}編集する
+      -# = form_for(@product, url:"products/#{@product.id}",method: :delete) do |f|
+      -#   -# = link_to "products/#{@product.id}",method: :delete, class: "buybtn"  do
+      -#   -# %button.body__itembox--buybtn{:type => "submit"}削除
+      -#   = f.submit "削除", class: "body__itembox--buybtn"
+      -# - else
+      -#   = link_to products_confirm_path, class: "buybtn"  do
+      -#     %button.body__itembox--buybtn{:type => "submit"}購入画面に進む
     .body__itembox--detail
       %p.body__itembox--detail
         = @product.description
