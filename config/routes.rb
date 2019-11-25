@@ -28,20 +28,31 @@ Rails.application.routes.draw do
    # 購入した商品-過去の取引ページ
    get 'users/purchased' => "users#purchased"
 
+
+  get  'products/:id/details' => "products#details" 
   get  'products/get_category_children' => "products#get_category_children"
   get  'products/get_category_grandchildren' => "products#get_category_grandchildren"
   get  "products/get_size" => "products#get_size"
-  get  'products/details' => "products#details"
   get  'products/confirm' => "products#confirm"
   get  'products/exhibit' =>"products#exhibit"
   post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
   post 'items' => 'products#items'
-  
+  delete "products/:id" => "products#destroy"
   # 本人情報の登録
   get  'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
   
+  # resources :products do
+  #   collection do
+  #     get "get_category_children"
+  #     get "get_category_grandchildren"
+  #     get "get_size"
+  #     get "confirm"
+  #     get "exhibit"  
+  #     get "imgexhibit"
+  #   end
+  # end
 
   resources :signup do
     collection do

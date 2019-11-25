@@ -15,13 +15,20 @@ class ProductsController < ApplicationController
   def json
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.destroy
+    end
+  end
+
   def details
+    @product = Product.find_by(id: params[:id])
   end
  
   def create
     @product = Product.new(create_params)
     @product.save
-    binding.pry
   end
   
   def listingcompleted
