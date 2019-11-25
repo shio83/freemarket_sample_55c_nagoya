@@ -24,6 +24,15 @@ class UsersController < ApplicationController
   def todo
   end
 
+  def sell_will
+  end
+
+  def sell_now
+  end
+
+  def sell_was
+  end
+
   def purchase
   end
 
@@ -34,6 +43,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     render action: :detail_tel
+  end
+
+  def sell_detail
   end
 
   private

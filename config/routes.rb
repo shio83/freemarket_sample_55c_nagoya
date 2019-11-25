@@ -23,6 +23,13 @@ Rails.application.routes.draw do
    get 'users/notification' => "users#notification"
    # やることリストページ
    get 'users/todo' => "users#todo"
+   # 出品した商品
+   get 'users/sell_will' => "users#sell_will"
+   get 'users/sell_now' => "users#sell_now"
+   get 'users/sell_was' => "users#sell_was"
+   get 'users/sell_detail' => "users#sell_detail"
+
+
    # 購入した商品-取引中ページ
    get 'users/purchase' => "users#purchase"
    # 購入した商品-過去の取引ページ
