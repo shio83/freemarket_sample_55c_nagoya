@@ -38,11 +38,21 @@ Rails.application.routes.draw do
   post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
   post 'items' => 'products#items'
-  
+  delete "products/:id" => "products#destroy"
   # 本人情報の登録
   get  'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
   
+  # resources :products do
+  #   collection do
+  #     get "get_category_children"
+  #     get "get_category_grandchildren"
+  #     get "get_size"
+  #     get "confirm"
+  #     get "exhibit"  
+  #     get "imgexhibit"
+  #   end
+  # end
 
   resources :signup do
     collection do
