@@ -15,15 +15,45 @@ class ProductsController < ApplicationController
   def json
   end
 
-  def destroy
-    product = Product.find(params[:id])
-    if product.user_id == current_user.id
-      product.destroy
+  def edit
+    @product = Product.find_by(id: params[:id])
+    # @image =  @product.images
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+     @category_parent_array << parent.name
     end
+    # @parent_name = []
+    # Category.where(ancestry: nil).each do |parent|
+    #  @parent_name << parent.name
+    # end
+  #   @child_name = []
+  #   Category.where(ancestry: @product.category.parent.ancestry).each do |child|
+  #     @child_name << child.name
+  #   end
+  #   @grand_child_name = []
+  #   Category.where(ancestry:@product.category.ancestry).each do |children|
+  #     @grand_child_name << children.name
+  #   end
+  #   @size_name = []
+  #   Size.where(ancestry: @product.category.sizes).each do |size|
+  #     @size_name << size.size
+  #   end
   end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+    if @product.user_id == current_user.id
+      @product.update(create_params)
+      redirect_to root_path
+    end
+   
+  end
+
+  
 
   def details
     @product = Product.find_by(id: params[:id])
+
   end
  
   def create
@@ -32,6 +62,18 @@ class ProductsController < ApplicationController
   end
   
   def listingcompleted
+  end
+
+  def sell_detail
+    @product = Product.find(10)
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to root_path
+    end
   end
 
   # def items
