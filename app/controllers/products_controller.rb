@@ -36,7 +36,6 @@ class ProductsController < ApplicationController
       #   params[:product][:images_attributes].each do |image| 
       #     @product.images.create(url: image, product_id: @product.id)
       #   end
-      binding.pry
         @product.update(create_params)
         redirect_to root_path
       end
