@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    @product.images.build
+    10.times { @product.images.build }
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -22,22 +22,6 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
     end
-    # @parent_name = []
-    # Category.where(ancestry: nil).each do |parent|
-    #  @parent_name << parent.name
-    # end
-  #   @child_name = []
-  #   Category.where(ancestry: @product.category.parent.ancestry).each do |child|
-  #     @child_name << child.name
-  #   end
-  #   @grand_child_name = []
-  #   Category.where(ancestry:@product.category.ancestry).each do |children|
-  #     @grand_child_name << children.name
-  #   end
-  #   @size_name = []
-  #   Size.where(ancestry: @product.category.sizes).each do |size|
-  #     @size_name << size.size
-  #   end
   end
 
   def update
@@ -53,12 +37,15 @@ class ProductsController < ApplicationController
 
   def details
     @product = Product.find_by(id: params[:id])
-
   end
  
   def create
     @product = Product.new(create_params)
-    @product.save
+    # binding.pry
+    params[:products][:images_attributes].each do |image|
+      @product.images.create(url: image, product_id: @product.id)
+      @product.save
+    end
   end
   
   def listingcompleted
@@ -78,7 +65,7 @@ class ProductsController < ApplicationController
 
   # def items
   #   @product = Product.new
-   
+  #   # binding.pry
   #   if @product.save
   #     image_params[:images].each do |image|
   #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
@@ -125,7 +112,6 @@ class ProductsController < ApplicationController
 
   private
     def create_params
-      
       params.require(:product).permit(
         :name, 
         :description,
@@ -174,9 +160,9 @@ class ProductsController < ApplicationController
     #   return item_params
     # end
 
-    def image_params
-      #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
-      params.require(:image).permit({:url => []})
-    end
+    # def image_params
+    #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
+    #   params.require(:image).permit({:url => []})
+    # end
    
 end
