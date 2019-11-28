@@ -40,6 +40,35 @@
                                 またはクリックしてファイルをアップロード
                       %li.imgexhibit__catfish>
                         %figure.greenday
+                          %img{:src => "#{@product.images[0].url.url}"}
+                        .imgexhibit__akumonbuttom
+                          %a.imgexhibit__akumonbuttom--edit
+                            編集
+                          %a.imgexhibit__akumonbuttom--delete
+                            削除
+                  - if @product.images.length == 2
+                    %ul.preview
+                      .dropzone-container
+                      %div
+                        %label
+                          = i.file_field :url, class:"onigiri"
+                          .dropzone-area{style: "display: block; width: 60%"}
+                            .input_area
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      .dropzone-container2
+                        %label
+                          = i.file_field :url, class:"senbei"
+                          .dropzone-area2
+                            .input_area2
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      %li.imgexhibit__catfish>
+                        %figure.greenday
                           %img{:src => "#{@product.images[0].url.url}"}/
                         .imgexhibit__akumonbuttom
                           %a.imgexhibit__akumonbuttom--edit

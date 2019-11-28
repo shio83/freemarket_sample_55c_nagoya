@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find_by(id: params[:id])
-    # @image =  @product.images
+    @image =  @product.images
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -25,12 +25,21 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find_by(id: params[:id])
+    @product = Product.find(11)
     if @product.user_id == current_user.id
-      @product.update(create_params)
-      redirect_to root_path
-    end
-   
+      #  # 保存済みの画像のうちプレビューで削除されたものをDBからも削除
+      # params[:product][:images_attributes].each do |image|
+      #   images[image].destroy 
+      #   end
+      #   # 追加された画像を登録
+      # if params[:product][:images_attributes].present? && params[:product][:images_attributes] != [""]
+      #   params[:product][:images_attributes].each do |image| 
+      #     @product.images.create(url: image, product_id: @product.id)
+      #   end
+      binding.pry
+        @product.update(create_params)
+        redirect_to root_path
+      end
   end
 
   
@@ -41,18 +50,20 @@ class ProductsController < ApplicationController
  
   def create
     @product = Product.new(create_params)
+
     # binding.pry
     params[:products][:images_attributes].each do |image|
       @product.images.create(url: image, product_id: @product.id)
       @product.save
     end
+
   end
   
   def listingcompleted
   end
 
   def sell_detail
-    @product = Product.find(10)
+    @product = Product.find(11)
   end
 
   def destroy
@@ -123,7 +134,7 @@ class ProductsController < ApplicationController
         :shipping_date, 
         :price,
         :category_id,
-        images_attributes: [:url]).merge(user_id: current_user.id)
+        images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
     end
 
 
