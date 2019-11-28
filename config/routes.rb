@@ -27,7 +27,7 @@ Rails.application.routes.draw do
    get 'users/sell_will' => "users#sell_will"
    get 'users/sell_now' => "users#sell_now"
    get 'users/sell_was' => "users#sell_was"
-   get 'products/sell_detail' => "products#sell_detail"
+   get 'products/:id/sell_detail' => "products#sell_detail"
 
 
    # 購入した商品-取引中ページ
