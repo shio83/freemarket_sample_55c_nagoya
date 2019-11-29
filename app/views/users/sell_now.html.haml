@@ -1,1 +1,44 @@
-セルなう
+.body
+  .body__next
+    = render partial: 'layouts/syuppinn'
+    .head
+      = render partial: 'tops/header/head'
+    .pankuzu
+      - breadcrumb :user
+      = breadcrumbs separator: " &rsaquo; "
+    .mypages
+      .mypage
+        .mypage__right
+          #sell_now        
+            %section.bought-list
+              %h2.bought-list__top 出品した商品
+
+              %ul.bought-list__tab-heads
+                = link_to users_sell_will_path do
+                  %li.bought-list__tab-heads--head{id: 'sellwill'}
+                    出品中
+                = link_to users_sell_now_path do
+                  %li.bought-list__tab-heads--head{id: 'sellnow'}
+                    取引中
+                = link_to users_sell_was_path do
+                  %li.bought-list__tab-heads--head{id: 'sellwas'}
+                    売却済み
+
+              %ul.bought-list__contents.show
+                -# %li.bought-list__contents--content.show
+                -#   %ul.bought-list__contents--content--purchase--contents
+                -#     %li.bought-list__contents--content--purchase--information
+                -#       出品中の商品がありません
+                %li.bought-list__contents--content
+                  %ul.bought-list__contents--content--purchased--contents
+                    %li.bought-list__contents--content--purchased--information
+                      取引中の商品がありません
+                -# %li.bought-list__contents--content
+                -#   %ul.bought-list__contents--content--purchased--contents
+                -#     %li.bought-list__contents--content--purchased--information
+                -#       売却済みの商品がありません
+
+        .mypage__left
+          = render partial: 'users/side-bar'
+    .bottom
+      = render partial: 'tops/bottoms/bottom'

@@ -25,6 +25,10 @@ class UsersController < ApplicationController
   end
 
   def sell_will
+    @product = Product.where(user_id: current_user.id)
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
   end
 
   def sell_now
