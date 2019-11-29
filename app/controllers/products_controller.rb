@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    @product.images.build
+    10.times { @product.images.build }
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -43,6 +43,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     @product.save
+
   end
   
   def listingcompleted
@@ -62,7 +63,7 @@ class ProductsController < ApplicationController
 
   # def items
   #   @product = Product.new
-   
+  #   # binding.pry
   #   if @product.save
   #     image_params[:images].each do |image|
   #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
