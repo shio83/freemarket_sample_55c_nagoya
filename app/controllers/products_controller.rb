@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    @product.images.build
+    10.times { @product.images.build }
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -15,11 +15,25 @@ class ProductsController < ApplicationController
   def json
   end
 
-  def destroy
-    product = Product.find(params[:id])
-    if product.user_id == current_user.id
-      product.destroy
+  def edit
+    @product = Product.find_by(id: params[:id])
+    @image =  @product.images
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+     @category_parent_array << parent.name
     end
+  end
+
+  def update
+    @product = Product.find(11)
+    if @product.user_id == current_user.id
+        @product.update(create_params)
+        redirect_to root_path
+      end
+  end
+
+  def confirm
+    @product = Product.find_by(id: params[:id])
   end
 
   def details
@@ -29,14 +43,27 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     @product.save
+
   end
   
   def listingcompleted
   end
 
+  def sell_detail
+    @product = Product.find(11)
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to root_path
+    end
+  end
+
   # def items
   #   @product = Product.new
-   
+  #   # binding.pry
   #   if @product.save
   #     image_params[:images].each do |image|
   #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
@@ -83,7 +110,6 @@ class ProductsController < ApplicationController
 
   private
     def create_params
-      
       params.require(:product).permit(
         :name, 
         :description,
@@ -95,7 +121,7 @@ class ProductsController < ApplicationController
         :shipping_date, 
         :price,
         :category_id,
-        images_attributes: [:url]).merge(user_id: current_user.id)
+        images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
     end
 
 
@@ -132,9 +158,9 @@ class ProductsController < ApplicationController
     #   return item_params
     # end
 
-    def image_params
-      #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
-      params.require(:image).permit({:url => []})
-    end
+    # def image_params
+    #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
+    #   params.require(:image).permit({:url => []})
+    # end
    
 end

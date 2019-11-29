@@ -22,6 +22,7 @@ $(function(){
     var file = e.target.files[0];
         reader = new FileReader();
         files_array.push(file);
+        // console.log(files_array)
     reader.onload = (function(file) {
       
       return function(e) {
@@ -357,6 +358,7 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
   var index = $(".imgexhibit__akumonbuttom--delete").index(this);
   $(".imgexhibit__catfish").eq(index).remove();
   files_array.splice(index - 1, 1);
+  // console.log(files_array)
   if(files_array.length == 10){
     $(".dropzone-area2").css({
       'display':'none'
@@ -469,20 +471,19 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //   e.preventDefault();
 //   // そのほかのform情報を以下の記述でformDataに追加
 //   var formData = new FormData($(this).get(10));
+//   // console.log(this)
 //   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
 //   files_array.forEach(function(file){
-    
 //    formData.append("image[images][]" , file);
-//    console.log(file);
+//   console.log(file);
 //   });
-  
 //   $.ajax({
 //     url:         '/items',
 //     type:        "POST",
 //     data:        formData,
 //     contentType: false,
 //     processData: false,
-//     dataType:   'json',
+//     dataType:   'json'
 //   })
 //   .done(function(data){
     

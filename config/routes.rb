@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # devise_for :admins, :class_name => 'User'
   
   # get 'users/index'
-  resources :product
+  # resources :product
 
   root 'tops#index'
   get  "tops/json" => "tops#json"
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
    get 'users/sell_will' => "users#sell_will"
    get 'users/sell_now' => "users#sell_now"
    get 'users/sell_was' => "users#sell_was"
-   get 'users/sell_detail' => "users#sell_detail"
+   get 'products/:id/sell_detail' => "products#sell_detail"
 
 
    # 購入した商品-取引中ページ
@@ -35,17 +35,18 @@ Rails.application.routes.draw do
    # 購入した商品-過去の取引ページ
    get 'users/purchased' => "users#purchased"
 
-
+  get  'products/:id/edit' => 'products#edit'
+  patch "products/:id/update" => "products#update"
   get  'products/:id/details' => "products#details" 
   get  'products/get_category_children' => "products#get_category_children"
   get  'products/get_category_grandchildren' => "products#get_category_grandchildren"
   get  "products/get_size" => "products#get_size"
-  get  'products/confirm' => "products#confirm"
+  get  'products/:id/confirm' => "products#confirm"
   get  'products/exhibit' =>"products#exhibit"
   post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
   post 'items' => 'products#items'
-  delete "products/:id" => "products#destroy"
+  delete "products/:id/destroy" => "products#destroy"
   # 本人情報の登録
   get  'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
@@ -56,8 +57,11 @@ Rails.application.routes.draw do
   #     get "get_category_grandchildren"
   #     get "get_size"
   #     get "confirm"
-  #     get "exhibit"  
   #     get "imgexhibit"
+  #   end
+  #   member do
+  #     get "details"
+  #     get "exhibit"  
   #   end
   # end
 

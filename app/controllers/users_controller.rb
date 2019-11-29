@@ -43,14 +43,15 @@ class UsersController < ApplicationController
   def purchased
   end
 
+ 
+
   def create
     @user = User.new(user_params)
     @user.save
     render action: :detail_tel
   end
 
-  def sell_detail
-  end
+ 
 
   private
   def user_params
