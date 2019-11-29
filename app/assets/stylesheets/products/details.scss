@@ -87,6 +87,22 @@
       background-color: #ea352d;
       border: none;
       outline: 0;
+      position: relative;
+      a{
+        width: 100%;
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #ea352d;
+        border: none;
+        outline: 0;
+        display: block;
+        text-align: center;
+        position: absolute;
+        top: 30%;
+        text-decoration: none;
+      }
     }
     &--detail{
       height: 100%;
