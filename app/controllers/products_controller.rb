@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    10.times { @product.images.build }
+    @product.images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(11)
+    @product = Product.find(params[:id])
     if @product.user_id == current_user.id
         @product.update(create_params)
         redirect_to root_path
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def sell_detail
-    @product = Product.find(11)
+    @product = Product.find(params[:id])
   end
 
   def destroy

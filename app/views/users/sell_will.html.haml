@@ -28,25 +28,26 @@
 
                 %ul.tab-contents
                   %li.tab-content.show
-                    link_to  do 
-                      .tab-content__list
-                        .tab-content__list--icon
-                          = image_tag @image,size: "50x50"
-                        .tab-content__list--textfield
-                          .tab-content__list--textfield--text
-                            = 
-                          .tab-content__list--textfield--time
-                            .tab-content__list--ttextfield--time--icon
-                              ❤️
-                            .tab-content__list--textfield--time--text
-                              1
-                            .tab-content__list--ttextfield--time--icon
-                              💭
-                            .tab-content__list--textfield--time--text
-                              1
-                            .tab-content__list--textfield--time--text--status
-                              出品中
-                        = fa_icon "chevron-right" , class: "allow"
+                    - @product.each do |product|
+                      = link_to "/products/#{product.id}/sell_detail" do 
+                        .tab-content__list
+                          .tab-content__list--icon
+                            = image_tag product.images[0].url.url,size: "50x50"
+                          .tab-content__list--textfield
+                            .tab-content__list--textfield--text
+                              = product.name
+                            .tab-content__list--textfield--time
+                              .tab-content__list--ttextfield--time--icon
+                                ❤️
+                              .tab-content__list--textfield--time--text
+                                1
+                              .tab-content__list--ttextfield--time--icon
+                                💭
+                              .tab-content__list--textfield--time--text
+                                1
+                              .tab-content__list--textfield--time--text--status
+                                出品中
+                          = fa_icon "chevron-right" , class: "allow"
 
                 %li.bought-list__contents--content.show
                   %ul.bought-list__contents--content--purchase--contents
