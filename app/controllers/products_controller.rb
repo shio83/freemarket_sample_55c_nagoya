@@ -27,22 +27,14 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(11)
     if @product.user_id == current_user.id
-      #  # 保存済みの画像のうちプレビューで削除されたものをDBからも削除
-      # params[:product][:images_attributes].each do |image|
-      #   images[image].destroy 
-      #   end
-      #   # 追加された画像を登録
-      # if params[:product][:images_attributes].present? && params[:product][:images_attributes] != [""]
-      #   params[:product][:images_attributes].each do |image| 
-      #     @product.images.create(url: image, product_id: @product.id)
-      #   end
-      binding.pry
         @product.update(create_params)
         redirect_to root_path
       end
   end
 
-  
+  def confirm
+    @product = Product.find_by(id: params[:id])
+  end
 
   def details
     @product = Product.find_by(id: params[:id])
@@ -50,12 +42,7 @@ class ProductsController < ApplicationController
  
   def create
     @product = Product.new(create_params)
-
-    # binding.pry
-    params[:products][:images_attributes].each do |image|
-      @product.images.create(url: image, product_id: @product.id)
-      @product.save
-    end
+    @product.save
 
   end
   

@@ -7,12 +7,12 @@
         購入内容の確認
       .body__singlemain--container--confirmbox
         .body__singlemain--container--confirmbox--products
-          .body__singlemain--container--confirmbox--products--photo
+          = image_tag @product.images[0].url.url, class: "body__singlemain--container--confirmbox--products--photo"
           .body__singlemain--container--confirmbox--products--itemname
-            ＊新品＊男女兼用＊b one soul＊ダックデュード＊GORIRA
+            = @product.name
         .body__singlemain--container--confirmbox--money
           .body__singlemain--container--confirmbox--money--moneybox
-            ￥ASK
+            = @product.price
           .body__singlemain--container--confirmbox--money--postage
             送料込み
         .body__singlemain--container--confirmbox--point
@@ -21,7 +21,7 @@
           .body__singlemain--container--confirmbox--price--left
             支払い金額
           .body__singlemain--container--confirmbox--price--right
-            ￥ASK
+            = @product.price
         .body__singlemain--container--confirmbox--buybtn
           %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
       .body__singlemain--container--userinfo
@@ -29,11 +29,15 @@
           .body__singlemain--container--userinfo--inner--shipping
             配送先
           .body__singlemain--container--userinfo--inner--address
-            〒4567-4567
+            = @product.user.zipcode
             %br/
-            北斗ノ県悟理羅市元旦区河村市町12-64 ジョイマンハイツ 8.6号室
+            = @product.user.prefecture
+            = @product.user.city
+            = @product.user.address
+            = @product.user.building
+           
             %br/
-            イングリッシュとしお
+            = @product.user.nickname
           .body__singlemain--container--userinfo--inner--fix
             .body__singlemain--container--userinfo--inner--fix--text
               変更する
