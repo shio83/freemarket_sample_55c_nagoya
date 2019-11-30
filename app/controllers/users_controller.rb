@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def sell_will
-    @product = Product.where(user_id: current_user.id).order("created_at DESC")
+    @product = Product.where(seller_id: current_user.id).order("created_at DESC")
     @product.each do |product|
       @image = product.images[0].url.url
     end

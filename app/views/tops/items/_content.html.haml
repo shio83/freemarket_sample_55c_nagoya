@@ -1,6 +1,6 @@
 .content
   - @product.each do |product|
-    .content__box1
+    .content__box2
       -product.images.each do |only|
         = link_to "products/#{product.id}/details", class: "box1"  do
           = image_tag only.url.url ,size: "188x252"

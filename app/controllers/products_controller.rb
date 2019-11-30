@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.user_id == current_user.id
+    if @product.seller_id == current_user.id
         @product.update(create_params)
         redirect_to root_path
       end
@@ -42,8 +42,8 @@ class ProductsController < ApplicationController
  
   def create
     @product = Product.new(create_params)
+    binding.pry
     @product.save
-
   end
   
   def listingcompleted
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    if @product.user_id == current_user.id
+    if @product.seller_id == current_user.id
       @product.destroy
       redirect_to root_path
     end
@@ -121,7 +121,7 @@ class ProductsController < ApplicationController
         :shipping_date, 
         :price,
         :category_id,
-        images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
+        images_attributes: [:url,:_destroy,:id]).merge(seller_id: current_user.id)
     end
 
 
@@ -142,10 +142,10 @@ class ProductsController < ApplicationController
         shipping_date: params[:product][:shipping_date], 
         price: params[:product][:price],
         category_id: params[:product][:category_id],
-        user_id: current_user.id
+        seller_id: current_user.id
       )
      @product.images.build
-
+     
       render '/products/exhibit' unless @product.valid?
     end 
     # def products_params
