@@ -25,19 +25,42 @@
                     売却済み
 
               %ul.bought-list__contents
-                -# %li.bought-list__contents--content.show
-                -#   %ul.bought-list__contents--content--purchase--contents
-                -#     %li.bought-list__contents--content--purchase--information
-                -#       出品中の商品がありません
-                %li.bought-list__contents--content.show
-                  %ul.bought-list__contents--content--purchased--contents
-                    %li.bought-list__contents--content--purchased--information
-                      取引中の商品がありません
-                -# %li.bought-list__contents--content
-                -#   %ul.bought-list__contents--content--purchased--contents
-                -#     %li.bought-list__contents--content--purchased--information
-                -#       売却済みの商品がありません
-
+                - if @product.present?
+                  %ul.tab-contents
+                    %li.tab-content.show
+                      - @product.each do |product|
+                        = link_to "/products/#{product.id}/sell_detail" do 
+                          .tab-content__list
+                            .tab-content__list--icon
+                              = image_tag product.images[0].url.url,size: "50x50"
+                            .tab-content__list--textfield
+                              .tab-content__list--textfield--text
+                                = product.name
+                              .tab-content__list--textfield--time
+                                .tab-content__list--ttextfield--time--icon
+                                  ❤️
+                                .tab-content__list--textfield--time--text
+                                  1
+                                .tab-content__list--ttextfield--time--icon
+                                  💭
+                                .tab-content__list--textfield--time--text
+                                  1
+                                .tab-content__list--textfield--time--text--status
+                                  出品中
+                            = fa_icon "chevron-right" , class: "allow"
+                - else 
+                  -# %li.bought-list__contents--content.show
+                  -#   %ul.bought-list__contents--content--purchase--contents
+                  -#     %li.bought-list__contents--content--purchase--information
+                  -#       出品中の商品がありません
+                  %li.bought-list__contents--content.show
+                    %ul.bought-list__contents--content--purchased--contents
+                      %li.bought-list__contents--content--purchased--information
+                        取引中の商品がありません
+                  -# %li.bought-list__contents--content
+                  -#   %ul.bought-list__contents--content--purchased--contents
+                  -#     %li.bought-list__contents--content--purchased--information
+                  -#       売却済みの商品がありません
         .mypage__left
           = render partial: 'users/side-bar'
     .bottom
