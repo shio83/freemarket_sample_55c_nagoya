@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    10.times { @product.images.build }
+    @product.images.build 
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(11)
+    @product = Product.find(8)
     if @product.user_id == current_user.id
       #  # 保存済みの画像のうちプレビューで削除されたものをDBからも削除
       # params[:product][:images_attributes].each do |image|
@@ -36,7 +36,6 @@ class ProductsController < ApplicationController
       #   params[:product][:images_attributes].each do |image| 
       #     @product.images.create(url: image, product_id: @product.id)
       #   end
-      binding.pry
         @product.update(create_params)
         redirect_to root_path
       end
@@ -48,22 +47,22 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
   end
  
-  def create
-    @product = Product.new(create_params)
+  # def create
+  #   @product = Product.new(create_params)
 
-    # binding.pry
-    params[:products][:images_attributes].each do |image|
-      @product.images.create(url: image, product_id: @product.id)
-      @product.save
-    end
+  #   # binding.pry
+  #   params[:products][:images_attributes].each do |image|
+  #     @product.images.create(url: image, product_id: @product.id)
+  #     @product.save
+  #   end
 
-  end
+  # end
   
   def listingcompleted
   end
 
   def sell_detail
-    @product = Product.find(11)
+    @product = Product.find(8)
   end
 
   def destroy
@@ -74,23 +73,24 @@ class ProductsController < ApplicationController
     end
   end
 
-  # def items
-  #   @product = Product.new
-  #   # binding.pry
-  #   if @product.save
-  #     image_params[:images].each do |image|
-  #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
-  #       @product.images.build
-  #       product_image = @product.images.new(url: image)
-  #       # binding.pry
-  #       product_image.save
-  #     end
-  #       #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-  #     respond_to do |format|
-  #       format.json
-  #     end
-  #   end
-  # end
+  def items
+    @product = Product.new(create_params)
+    binding.pry
+    if @product.save
+      image_params[:images].each do |image|
+        #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
+        @product.images.build
+        product_image = @product.images.new(url: image, category_id: @proudct.category_id)
+        # binding.pry
+        product_image.save
+        
+      end
+        #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
 
   def new
    @category_parent_array = ["---"]
@@ -122,20 +122,20 @@ class ProductsController < ApplicationController
 
 
   private
-    def create_params
-      params.require(:product).permit(
-        :name, 
-        :description,
-        :size, 
-        :brand, 
-        :state, 
-        :shipping_fee, 
-        :shipping_region,
-        :shipping_date, 
-        :price,
-        :category_id,
-        images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
-    end
+    # def create_params
+    #   params.require(:product).permit(
+    #     :name, 
+    #     :description,
+    #     :size, 
+    #     :brand, 
+    #     :state, 
+    #     :shipping_fee, 
+    #     :shipping_region,
+    #     :shipping_date, 
+    #     :price,
+    #     :category_id,
+    #     images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
+    # end
 
 
     def validates_product
@@ -165,15 +165,15 @@ class ProductsController < ApplicationController
     #   params.require(:category).permit(:url, :name, :description)
     # end
 
-    # def create_params
-    #   # images以外の値についてのストロングパラメータの設定
-    #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
-    #   return item_params
-    # end
+    def create_params
+      # images以外の値についてのストロングパラメータの設定
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :price)
+      return item_params
+    end
 
-    # def image_params
-    #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
-    #   params.require(:image).permit({:url => []})
-    # end
+    def image_params
+      #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
+      params.require(:image).permit({:url => []})
+    end
    
 end
