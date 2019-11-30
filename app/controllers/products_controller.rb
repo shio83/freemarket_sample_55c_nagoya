@@ -32,6 +32,12 @@ class ProductsController < ApplicationController
       end
   end
 
+  def buy
+    @product = Product.find(params[:id])
+    @product.update(buyer_id: current_user.id)
+    redirect_to root_path
+  end
+
   def confirm
     @product = Product.find_by(id: params[:id])
   end

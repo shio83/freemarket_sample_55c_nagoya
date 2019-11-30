@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
   get  'products/:id/edit' => 'products#edit'
   patch "products/:id/update" => "products#update"
+  patch "products/:id/buy" => "products#buy"
   get  'products/:id/details' => "products#details" 
   get  'products/get_category_children' => "products#get_category_children"
   get  'products/get_category_grandchildren' => "products#get_category_grandchildren"

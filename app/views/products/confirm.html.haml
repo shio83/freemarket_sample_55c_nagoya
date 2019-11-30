@@ -23,21 +23,22 @@
           .body__singlemain--container--confirmbox--price--right
             = @product.price
         .body__singlemain--container--confirmbox--buybtn
-          %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
+          = link_to "購入する", "/products/#{@product.id}/buy", method: :patch
+          -# %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
       .body__singlemain--container--userinfo
         .body__singlemain--container--userinfo--inner
           .body__singlemain--container--userinfo--inner--shipping
             配送先
           .body__singlemain--container--userinfo--inner--address
-            = @product.user.zipcode
+            = current_user.zipcode
             %br/
-            = @product.user.prefecture
-            = @product.user.city
-            = @product.user.address
-            = @product.user.building
+            = current_user.prefecture
+            = current_user.city
+            = current_user.address
+            = current_user.building
            
             %br/
-            = @product.user.nickname
+            = current_user.nickname
           .body__singlemain--container--userinfo--inner--fix
             .body__singlemain--container--userinfo--inner--fix--text
               変更する
