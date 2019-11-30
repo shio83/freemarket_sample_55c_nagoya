@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(11)
+    @product = Product.find_by(id: params[:id])
     if @product.user_id == current_user.id
         @product.update(create_params)
         redirect_to root_path
