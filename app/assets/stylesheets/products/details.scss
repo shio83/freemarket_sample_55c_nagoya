@@ -50,6 +50,9 @@
           td{
             font-weight: 300;
             padding: 8px;
+            a{
+              text-decoration: none;
+            }
           }
           
         }
@@ -65,7 +68,6 @@
         align-items: flex-end;
         position: relative;
         &--price2{
-          width: 142px;
           font-size: 50px;
           font-weight: 800;
         }
