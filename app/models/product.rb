@@ -1,11 +1,12 @@
 class Product < ApplicationRecord
   
-  belongs_to :user
   belongs_to :category
   has_many   :likes
   has_many   :images, inverse_of: :product, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many   :comments
+  belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
+  belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id', optional: true
 
   enum state: {
     "-": 0, 新品未使用: 1, 未使用に近い: 2,目立った傷や汚れなし: 3, やや傷や汚れあり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6
