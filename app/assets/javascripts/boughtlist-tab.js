@@ -12,7 +12,7 @@ $(function()  {
     $(this).addClass("okey");
 
     // 何番目の要素がクリックされたかを、配列tabsから要素番号を取得
-    const index = tabs.index(this);
+    const index = tabs.index(this); 
 
     // クリックしたタブに対応するshowクラスを追加する
     $(".bought-list__contents--content").removeClass("show").eq(index).addClass("show");
