@@ -67,9 +67,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :buyer_id, class_name: 'SellerBuyer', foreign_key: 'buyer_id'
-  has_many :seller_id, class_name: 'SellerBuyer', foreign_key: 'seller_id'
   has_many :sns_credentials, dependent: :destroy
+  has_many :seller_products, class_name: 'Product', :foreign_key => 'seller_id'
+  has_many :buyer_products, class_name: 'Product', :foreign_key => 'buyer_id'
 
   # VALID_EMAIL_REGEX =                 /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

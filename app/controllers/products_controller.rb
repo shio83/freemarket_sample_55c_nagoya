@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
   before_action :validates_product, only: [:create]
   def exhibit
     @product = Product.new
-    @product.images.build 
+
+    @product.images.build
+
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
@@ -25,49 +27,48 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(8)
-    if @product.user_id == current_user.id
-      #  # 保存済みの画像のうちプレビューで削除されたものをDBからも削除
-      # params[:product][:images_attributes].each do |image|
-      #   images[image].destroy 
-      #   end
-      #   # 追加された画像を登録
-      # if params[:product][:images_attributes].present? && params[:product][:images_attributes] != [""]
-      #   params[:product][:images_attributes].each do |image| 
-      #     @product.images.create(url: image, product_id: @product.id)
-      #   end
+
+    @product = Product.find(params[:id])
+    if @product.seller_id == current_user.id
+
         @product.update(create_params)
         redirect_to root_path
       end
   end
 
-  
+  def buy
+    @product = Product.find(params[:id])
+    @product.update(buyer_id: current_user.id)
+    redirect_to root_path
+  end
+
+  def confirm
+    @product = Product.find_by(id: params[:id])
+  end
 
   def details
     @product = Product.find_by(id: params[:id])
   end
  
-  # def create
-  #   @product = Product.new(create_params)
 
-  #   # binding.pry
-  #   params[:products][:images_attributes].each do |image|
-  #     @product.images.create(url: image, product_id: @product.id)
-  #     @product.save
-  #   end
+  def create
+    @product = Product.new(create_params)
+    @product.save
+  end
 
-  # end
   
   def listingcompleted
   end
 
   def sell_detail
-    @product = Product.find(8)
+
+    @product = Product.find(params[:id])
+
   end
 
   def destroy
     @product = Product.find(params[:id])
-    if @product.user_id == current_user.id
+    if @product.seller_id == current_user.id
       @product.destroy
       redirect_to root_path
     end
@@ -122,20 +123,22 @@ class ProductsController < ApplicationController
 
 
   private
-    # def create_params
-    #   params.require(:product).permit(
-    #     :name, 
-    #     :description,
-    #     :size, 
-    #     :brand, 
-    #     :state, 
-    #     :shipping_fee, 
-    #     :shipping_region,
-    #     :shipping_date, 
-    #     :price,
-    #     :category_id,
-    #     images_attributes: [:url,:_destroy,:id]).merge(user_id: current_user.id)
-    # end
+
+    def create_params
+      params.require(:product).permit(
+        :name, 
+        :description,
+        :size, 
+        :brand, 
+        :state, 
+        :shipping_fee, 
+        :shipping_region,
+        :shipping_date, 
+        :price,
+        :category_id,
+        images_attributes: [:url,:_destroy,:id]).merge(seller_id: current_user.id)
+    end
+
 
 
     def validates_product
@@ -155,10 +158,10 @@ class ProductsController < ApplicationController
         shipping_date: params[:product][:shipping_date], 
         price: params[:product][:price],
         category_id: params[:product][:category_id],
-        user_id: current_user.id
+        seller_id: current_user.id
       )
      @product.images.build
-
+     
       render '/products/exhibit' unless @product.valid?
     end 
     # def products_params

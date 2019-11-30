@@ -10,7 +10,8 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string  :size,                 null:false
       t.string  :price,               null:false
       t.string  :brand
-      t.references :user,             index:true,foreign_key: true
+      t.references :buyer,             index:true,foreign_key: {to_table: :users}
+      t.references :seller,             index:true,foreign_key: {to_table: :users},null:false
       t.timestamps
     end
   end

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
  
   
   def index
-    
   end
 
   def profile
@@ -25,18 +24,39 @@ class UsersController < ApplicationController
   end
 
   def sell_will
+    @product = Product.where(seller_id: current_user.id).order("created_at DESC")
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
   end
 
   def sell_now
+    @product = Product.where(seller_id: current_user.id).order("created_at DESC")
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
+
   end
 
   def sell_was
+    @product = Product.where(seller_id: current_user.id).order("created_at DESC")
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
   end
 
   def purchase
+    @product = Product.where(buyer_id: current_user.id).order("created_at DESC")
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
   end
 
   def purchased
+    @product = Product.where(seller_id: current_user.id).order("created_at DESC")
+    @product.each do |product|
+      @image = product.images[0].url.url
+    end
   end
 
  
