@@ -508,7 +508,7 @@ $(".btn-red-red").click('submit', function(e){
   })
   .done(function(data){
     
-    alert('出品に成功しました！');
+    // alert('出品に成功しました！');
   })
   .fail(function(XMLHttpRequest, textStatus, errorThrown){
     alert('出品に失敗しました！');
