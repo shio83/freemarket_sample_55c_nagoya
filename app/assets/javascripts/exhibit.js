@@ -22,14 +22,12 @@ $(function(){
     var file = e.target.files[0];
         reader = new FileReader();
         files_array.push(file);
-        // console.log(files_array)
     reader.onload = (function(file) {
       
       return function(e) {
         $('.preview').append(buildImage(e.target.result))
       };  
     })(file);
-
     reader.readAsDataURL(file);
     if(files_array.length == 10){
       $(".dropzone-area2").css({
@@ -358,7 +356,6 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
   var index = $(".imgexhibit__akumonbuttom--delete").index(this);
   $(".imgexhibit__catfish").eq(index).remove();
   files_array.splice(index - 1, 1);
-  // console.log(files_array)
   if(files_array.length == 10){
     $(".dropzone-area2").css({
       'display':'none'
@@ -467,53 +464,53 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
     })
   }
 });
-$(".btn-red-red").click('submit', function(e){
-  e.preventDefault();
-  // そのほかのform情報を以下の記述でformDataに追加
-  var formData = new FormData($(this).get(10));
-      // formData = $("product[name]").val();
-  // console.log(this)
-  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
-  files_array.forEach(function(file){
-   formData.append("image[images][]" , file);
-   formData.append("product[name]" , $('input#product_name[name="product[name]"]').val());
-   formData.append("product[description]" , $('textarea[name="product[description]"]').val());
-   formData.append("product[category_id]" , $('select#grandchild_category[name="product[category_id]"]').val());
-   formData.append("product[size]" , $('select#product_size.selects[name="product[size]"]').val());
-   formData.append("product[brand]" , $('input#product_brand[name="product[brand]"]').val());
-   formData.append("product[state]" , $('select#product_state.select-box[name="product[state]"]').val());
-   formData.append("product[shipping_fee]" , $('select#product_shipping_fee[name="product[shipping_fee]"]').val());
-   formData.append("product[shipping_region]" , $('select#product_shipping_region[name="product[shipping_region]"]').val());
-   formData.append("product[shipping_date]" , $('select#product_shipping_date[name="product[shipping_date]"]').val());
-   formData.append("product[price]" , $('input#product_price[name="product[price]"]').val());
-   
-  console.log(formData.get("product[name]"));
-  console.log(formData.get("product[description]"));
-  console.log(formData.get("product[category_id]"));
-  console.log(formData.get("product[size]"));
-  console.log(formData.get("product[brand]"));
-  console.log(formData.get("product[state]"));
-  console.log(formData.get("product[shipping_fee]"));
-  console.log(formData.get("product[shipping_region]"));
-  console.log(formData.get("product[shipping_date]"));
-  console.log(formData.get("product[price]"));
+// $(".btn-red-red").click('submit', function(e){
+//   e.preventDefault();
+//   // そのほかのform情報を以下の記述でformDataに追加
+//   var formData = new FormData($(this).get(10));
   
-  });
-  $.ajax({
-    url:         '/items',
-    type:        "POST",
-    data:        formData,
-    contentType: false,
-    processData: false,
-    dataType:   'json'
-  })
-  .done(function(data){
+//   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+//   files_array.forEach(function(file){
+//    formData.append("image[images][]" , file);
+//    formData.append("product[name]" , $('input#product_name[name="product[name]"]').val());
+//    formData.append("product[description]" , $('textarea[name="product[description]"]').val());
+//    formData.append("product[category_id]" , $('select#grandchild_category[name="product[category_id]"]').val());
+//    formData.append("product[size]" , $('select#product_size.selects[name="product[size]"]').val());
+//    formData.append("product[brand]" , $('input#product_brand[name="product[brand]"]').val());
+//    formData.append("product[state]" , $('select#product_state.select-box[name="product[state]"]').val());
+//    formData.append("product[shipping_fee]" , $('select#product_shipping_fee[name="product[shipping_fee]"]').val());
+//    formData.append("product[shipping_region]" , $('select#product_shipping_region[name="product[shipping_region]"]').val());
+//    formData.append("product[shipping_date]" , $('select#product_shipping_date[name="product[shipping_date]"]').val());
+//    formData.append("product[price]" , $('input#product_price[name="product[price]"]').val());
+//    formData.append("seller_id", $("current_user.id").val());
+   
+//   console.log(formData.get("product[name]"));
+//   console.log(formData.get("product[description]"));
+//   console.log(formData.get("product[category_id]"));
+//   console.log(formData.get("product[size]"));
+//   console.log(formData.get("product[brand]"));
+//   console.log(formData.get("product[state]"));
+//   console.log(formData.get("product[shipping_fee]"));
+//   console.log(formData.get("product[shipping_region]"));
+//   console.log(formData.get("product[shipping_date]"));
+//   console.log(formData.get("product[price]"));
+//   console.log(formData.get("seller_id"));
+//   });
+//   $.ajax({
+//     url:         '/items',
+//     type:        "POST",
+//     data:        formData,
+//     contentType: false,
+//     processData: false,
+//     dataType:   'json'
+//   })
+//   .done(function(data){
     
-    alert('出品に成功しました！');
-  })
-  .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    alert('出品に失敗しました！');
-  });
-});
+//     alert('出品に成功しました！');
+//   })
+//   .fail(function(XMLHttpRequest, textStatus, errorThrown){
+//     alert('出品に失敗しました！');
+//   });
+// });
 });
 
