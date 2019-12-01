@@ -468,7 +468,9 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //   e.preventDefault();
 //   // そのほかのform情報を以下の記述でformDataに追加
 //   var formData = new FormData($(this).get(10));
-  
+
+//       // formData = $("product[name]").val();
+//   // console.log(this)
 //   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
 //   files_array.forEach(function(file){
 //    formData.append("image[images][]" , file);
@@ -482,7 +484,6 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //    formData.append("product[shipping_region]" , $('select#product_shipping_region[name="product[shipping_region]"]').val());
 //    formData.append("product[shipping_date]" , $('select#product_shipping_date[name="product[shipping_date]"]').val());
 //    formData.append("product[price]" , $('input#product_price[name="product[price]"]').val());
-//    formData.append("seller_id", $("current_user.id").val());
    
 //   console.log(formData.get("product[name]"));
 //   console.log(formData.get("product[description]"));
@@ -494,7 +495,8 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //   console.log(formData.get("product[shipping_region]"));
 //   console.log(formData.get("product[shipping_date]"));
 //   console.log(formData.get("product[price]"));
-//   console.log(formData.get("seller_id"));
+  
+
 //   });
 //   $.ajax({
 //     url:         '/items',

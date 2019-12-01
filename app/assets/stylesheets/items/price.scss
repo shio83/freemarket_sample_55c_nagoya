@@ -1,6 +1,5 @@
 .price{
   height: 28px;
-  width: 78.05px;
   background: rgba(0,0,0,0.4);
   position: absolute;
   top: 60%;
@@ -11,4 +10,5 @@
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   cursor: pointer;
+  display: flex;
 }
