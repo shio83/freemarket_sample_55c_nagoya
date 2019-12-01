@@ -69,23 +69,22 @@ class ProductsController < ApplicationController
   end
 
 
-  # def items
-  #   @product = Product.new
-  #   # binding.pry
-  #   if @product.save
-  #     image_params[:images].each do |image|
-  #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
-  #       @product.images.build
-  #       product_image = @product.images.new(url: image)
-  #       # binding.pry
-  #       product_image.save
-  #     end
-  #       #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-  #     respond_to do |format|
-  #       format.json
-  #     end
-  #   end
-  # end
+  def items
+    @product = Product.new(create_params2)
+    if @product.save
+      params[:image][:images].each do |image|
+        #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
+        @product.images.build
+        product_image = @product.images.new(url: image)
+        # binding.pry
+        product_image.save
+      end
+        #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
 
 
   def new
