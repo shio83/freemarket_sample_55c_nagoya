@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get  "products/get_size" => "products#get_size"
   get  'products/:id/confirm' => "products#confirm"
   get  'products/exhibit' =>"products#exhibit"
+  get  'products/sell_modal' =>"products/sell_modal"
   post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
   post 'items' => 'products#items'
