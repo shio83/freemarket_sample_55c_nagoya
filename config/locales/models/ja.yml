@@ -24,3 +24,7 @@ ja:
         name: 商品名
         description: 説明
         price: 金額
+        state: 商品の状態
+        shipping_fee: 配送料の負担
+        shipping_region: 発送元の地域
+        shipping_date: 発送までの日数

@@ -109,11 +109,13 @@
                     %div.products-to-box-form2
                       = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
                       %span.listing-default--require  必須
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "category_id"}
 
                   .selebobobobo
                     %div.selebobo
                       = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "state"}
                   
               %div.products-delivery
                 %h4.products-delivery-todo
@@ -129,6 +131,7 @@
                       %div.selebobo
                         = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_fee"}
 
                   %div.products-delivery-box-form4
                     %label.products-delivery-box-form4-area
@@ -139,6 +142,7 @@
                       %div.selebobo
                         = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_region"}
 
                   %div.products-delivery-box-form5
                     %label.products-delivery-box-form5-day
@@ -149,7 +153,8 @@
                       %div.selebobo
                         = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
-                        
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_date"}
+
               %div.sell-price
                 %h5.sell-exp
                   販売価格
