@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
     end
-
   end
 
    
@@ -56,6 +55,9 @@ class ProductsController < ApplicationController
 
   def sell_detail
     @product = Product.find(params[:id])
+
+    # (buyer_id: current_user.id)(buyer_id: current_user.id)
+
   end
 
   def destroy
@@ -65,6 +67,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
+
 
   # def items
   #   @product = Product.new
@@ -83,6 +86,7 @@ class ProductsController < ApplicationController
   #     end
   #   end
   # end
+
 
   def new
    @category_parent_array = ["---"]
@@ -153,15 +157,17 @@ class ProductsController < ApplicationController
      
       render '/products/exhibit' unless @product.valid?
     end 
-    # def products_params
-    #   params.require(:category).permit(:url, :name, :description)
-    # end
+    def products_params
+      params.require(:category).permit(:url, :name, :description)
+    end
 
-    # def create_params
-    #   # images以外の値についてのストロングパラメータの設定
-    #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
-    #   return item_params
-    # end
+
+    def create_params2
+      # images以外の値についてのストロングパラメータの設定
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :price).merge(seller_id: current_user.id)
+      return item_params
+    end
+
 
     # def image_params
     #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。

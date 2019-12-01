@@ -2,6 +2,7 @@
   .body__next
     .head
       = render partial: 'tops/header/head'
+      = render partial: 'products/sell_modal'
     .pankuzu
       - breadcrumb :user
       = breadcrumbs separator: " &rsaquo; "
@@ -155,7 +156,7 @@
                   商品を一旦停止する
               .body__comment--commentbtn
                 #destroy-btn
-                  = link_to "この商品を削除する", "/products/#{@product.id}/destroy", method: :delete
+                  この商品を削除する
             .body__comment
               .body__comment--text
                 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

@@ -22,14 +22,12 @@ $(function(){
     var file = e.target.files[0];
         reader = new FileReader();
         files_array.push(file);
-        // console.log(files_array)
     reader.onload = (function(file) {
       
       return function(e) {
         $('.preview').append(buildImage(e.target.result))
       };  
     })(file);
-
     reader.readAsDataURL(file);
     if(files_array.length == 10){
       $(".dropzone-area2").css({
@@ -358,7 +356,6 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
   var index = $(".imgexhibit__akumonbuttom--delete").index(this);
   $(".imgexhibit__catfish").eq(index).remove();
   files_array.splice(index - 1, 1);
-  // console.log(files_array)
   if(files_array.length == 10){
     $(".dropzone-area2").css({
       'display':'none'
@@ -471,6 +468,7 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //   e.preventDefault();
 //   // そのほかのform情報を以下の記述でformDataに追加
 //   var formData = new FormData($(this).get(10));
+
 //       // formData = $("product[name]").val();
 //   // console.log(this)
 //   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
@@ -498,6 +496,7 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
 //   console.log(formData.get("product[shipping_date]"));
 //   console.log(formData.get("product[price]"));
   
+
 //   });
 //   $.ajax({
 //     url:         '/items',
