@@ -2,7 +2,7 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    = form_for @product, url: create_path, method: :post do |f|
+    = form_for @product, url: items_path, method: :post do |f|
       %main.main
         %section.center
           %div.products-box
