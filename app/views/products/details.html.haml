@@ -106,6 +106,10 @@
         送料込み
         
     - if user_signed_in? && @product.seller.id == current_user.id
+    - elsif user_signed_in? && @product.buyer_id.present?
+      .sell-gray
+        .sell-gray__font
+          売り切れました
     - else
       .body__itembox--buybtn
         = link_to "購入画面に進む", "/products/#{@product.id}/confirm"

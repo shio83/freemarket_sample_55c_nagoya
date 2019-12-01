@@ -1,16 +1,34 @@
 .content
   - @product.each do |product|
-    .content__box2
-      -product.images.each do |only|
-        = link_to "products/#{product.id}/details", class: "box1"  do
-          = image_tag only.url.url ,size: "188x252"
-        .content__box1--price
-          .price
-            = product.price 
-        .content__box1--caption
-          .caption
-            %span
-              = product.name
+    - if product.buyer_id.nil?
+      .content__box2
+        -product.images.each do |only|
+          = link_to "products/#{product.id}/details", class: "box1"  do
+            = image_tag only.url.url ,size: "188x252"
+          .content__box1--price
+            .price
+              = product.price 
+              -# "#{product.price.to_s(:delimited, delimiter: ',')}"
+          .content__box1--caption
+            .caption
+              %span
+                = product.name
+    - else
+      .content__box2
+        .sell-icon
+        .sell-box
+          SOLD
+        - product.images.each do |only|
+          = link_to "products/#{product.id}/details", class: "box1"  do
+            = image_tag only.url.url ,size: "188x252"
+          .content__box1--price
+            .price
+              = product.price 
+          .content__box1--caption
+            .caption
+              %span
+                = product.name
+               
     -# .content__box2
     -#   = link_to products_details_path, class: "box2"  do
     -#     = image_tag "gorira.jpg",size: "188x252"
