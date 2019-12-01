@@ -100,7 +100,7 @@
     .body__itembox--price
       .body__itembox--price--price2
         ¥
-        = @product.price
+        =  number_with_delimiter(@product.price, :delimiter => ',')
       .body__itembox--price--price3
         (税込)
       .body__itembox--price--price4

@@ -12,7 +12,7 @@
             = @product.name
         .body__singlemain--container--confirmbox--money
           .body__singlemain--container--confirmbox--money--moneybox
-            = @product.price
+            = number_with_delimiter(@product.price, :delimiter => ',')
           .body__singlemain--container--confirmbox--money--postage
             送料込み
         .body__singlemain--container--confirmbox--point
@@ -21,7 +21,7 @@
           .body__singlemain--container--confirmbox--price--left
             支払い金額
           .body__singlemain--container--confirmbox--price--right
-            = @product.price
+            = number_with_delimiter(@product.price, :delimiter => ',')
         .body__singlemain--container--confirmbox--buybtn
           = link_to "購入する", "/products/#{@product.id}/buy", method: :patch
           -# %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
