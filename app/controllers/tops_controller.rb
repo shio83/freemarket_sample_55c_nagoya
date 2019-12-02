@@ -2,6 +2,9 @@ class TopsController < ApplicationController
   
   def index
     @product = Product.order("created_at desc").limit(10)
+
+    @lady_
+    @lady_product = @product.where(id: 1)
   end
 
   def json

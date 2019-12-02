@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.seller_id == current_user.id
-      @product.update(create_params)
+      @product.update(create_params2)
       redirect_to root_path
     end
   end
@@ -46,19 +46,12 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
   end
  
-  def create
-    @product = Product.new(create_params)
-    @product.save
-  end
   
   def listingcompleted
   end
 
   def sell_detail
     @product = Product.find(params[:id])
-
-    # (buyer_id: current_user.id)(buyer_id: current_user.id)
-
   end
 
   def destroy
@@ -164,7 +157,22 @@ class ProductsController < ApplicationController
 
     def create_params2
       # images以外の値についてのストロングパラメータの設定
-      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :price).merge(seller_id: current_user.id)
+      item_params = params.require(:product).permit(
+        :name, 
+        :description,
+        :size, 
+        :brand, 
+        :state, 
+        :shipping_fee, 
+        :shipping_region,
+        :shipping_date, 
+        :price,
+        :category_id,
+        :price).merge(seller_id: current_user.id)
+    end
+
+    def 
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :state, :price).merge(seller_id: current_user.id)
       return item_params
     end
 

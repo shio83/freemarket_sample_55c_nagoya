@@ -17,17 +17,17 @@
         .sell-icon
         .sell-box
           SOLD
-        -# - product.images.each do |only|
-        = link_to "products/#{product.id}/details", class: "box1"  do
-          = image_tag product.images.url.url ,size: "188x252"
-        .content__box1--price
-          .price
-            ¥
-            = number_with_delimiter(product.price, :delimiter => ',')
-        .content__box1--caption
-          .caption
-            %span
-              = product.name
+        - product.images.each do |only|
+          = link_to "products/#{product.id}/details", class: "box1"  do
+            = image_tag only.url.url ,size: "188x252"
+          .content__box1--price
+            .price
+              ¥
+              = number_with_delimiter(product.price, :delimiter => ',')
+          .content__box1--caption
+            .caption
+              %span
+                = product.name
               
     -# .content__box2
     -#   = link_to products_details_path, class: "box2"  do

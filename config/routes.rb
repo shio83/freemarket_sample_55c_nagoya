@@ -45,7 +45,6 @@ Rails.application.routes.draw do
   get  'products/:id/confirm' => "products#confirm"
   get  'products/exhibit' =>"products#exhibit"
   get  'products/sell_modal' =>"products/sell_modal"
-  post 'create' => "products#create"
   get  'products/imgexhibit' =>"products#imgexhibit"
   post 'items' => 'products#items'
   delete "products/:id/destroy" => "products#destroy"

@@ -48,14 +48,14 @@ class Product < ApplicationRecord
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
 
-  validates      :name,            presence: true, on: :create
-  validates      :description,     presence: true, on: :create
-  validates      :size,            presence: true, on: :create
-  validates      :brand,           presence: true, on: :create
-  validates      :state,           presence: true, on: :create
-  validates      :shipping_fee,    presence: true, on: :create
-  validates      :shipping_region, presence: true, on: :create
-  validates      :shipping_date,   presence: true, on: :create
-  validates      :category_id,     presence: true, on: :create
-  validates      :price,           presence: true, numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates      :name,            presence: true, on: :validates_product
+  validates      :description,     presence: true, on: :validates_product
+  validates      :size,            presence: true, on: :validates_product
+  validates      :brand,           presence: true, on: :validates_product
+  validates      :state,           presence: true, on: :validates_product
+  validates      :shipping_fee,    presence: true, on: :validates_product
+  validates      :shipping_region, presence: true, on: :validates_product
+  validates      :shipping_date,   presence: true, on: :validates_product
+  validates      :category_id,     presence: true, on: :validates_product
+  validates      :price,           presence: true, on: :validates_product, numericality: { only_integer: true , greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
 end
