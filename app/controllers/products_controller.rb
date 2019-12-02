@@ -164,7 +164,7 @@ class ProductsController < ApplicationController
 
     def create_params2
       # images以外の値についてのストロングパラメータの設定
-      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :price).merge(seller_id: current_user.id)
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :states, :price).merge(seller_id: current_user.id)
       return item_params
     end
 
