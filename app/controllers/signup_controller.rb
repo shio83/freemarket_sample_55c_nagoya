@@ -11,6 +11,10 @@ class SignupController < ApplicationController
     @user = User.new
     
   end
+
+  def sns
+    @user = User.new
+  end
   
   def detail_tel
     @user = User.new
