@@ -23,8 +23,8 @@
           .body__singlemain--container--confirmbox--price--right
             = number_with_delimiter(@product.price, :delimiter => ',')
         .body__singlemain--container--confirmbox--buybtn
-          = link_to "購入する", "/products/#{@product.id}/buy", method: :patch
-          -# %button.body__singlemain--container--confirmbox--buybtn{:type => "submit"}購入する
+          = link_to "購入する", "/products/#{@product.id}/buy", method: :patch, class: ".body__singlemain--container--confirmbox--buybtn"
+        .body__singlemain--container--confirmbox--buycard
       .body__singlemain--container--userinfo
         .body__singlemain--container--userinfo--inner
           .body__singlemain--container--userinfo--inner--shipping
