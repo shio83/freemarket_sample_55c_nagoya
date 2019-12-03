@@ -70,8 +70,12 @@
 }
 
 .content__box2 {
+  img{
+  object-fit: scale-down;
+  }
   position: relative;
   .sell-icon {
+    
     position: absolute;
     width: 0;
     height: 0;

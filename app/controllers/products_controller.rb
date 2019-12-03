@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:exhibit, :confirm]
-  before_action :validates_product, only: [:create]
+  before_action :validates_product, only: [:items]
   def exhibit
     @product = Product.new
     @product.images.build
