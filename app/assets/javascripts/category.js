@@ -37,20 +37,20 @@ $(function(){
   function appendSizeBox(insertHTML){
     var sizeSelectHtml = '';
     sizeSelectHtml = `
-                        <div class="products-to-box-form2" id = 'size_wrapper'>
+                      <div class="products-to-box-form2" id = 'size_wrapper'>
                         <label class="products-to-box-form2-condition" for= "サイズ">
-                          サイズ
-                        <span class="span">
-                          必須
-                        </span>
+                            サイズ
+                          <span class="span">
+                            必須
+                          </span>
                         </label>
-                       <div class='selebobo'>
-                       <select class="selects" name="product[size]" id="product_size">
-                        <option value="---">---</option>
-                        ${insertHTML}
-                       <select>
-                         <i aria-hidden="ture" class="fa fa-chevron-right fa-rotate-90 kitui"></i>
-                      </div>
+                        <div class='selebobo'>
+                        <select class="selects" name="product[size]" id="product_size">
+                          <option value="---">---</option>
+                          ${insertHTML}
+                        <select>
+                          <i aria-hidden="ture" class="fa fa-chevron-right fa-rotate-90 kitui"></i>
+                        </div>
                       </div>`; 
     $(".selebobobo").append(sizeSelectHtml);
   }

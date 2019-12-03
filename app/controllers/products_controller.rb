@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:exhibit, :confirm]
   before_action :validates_product, only: [:items]
+
   def exhibit
     @product = Product.new
     @product.images.build
-    @category_parent_array = ["---"]
+    @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
      @category_parent_array << parent.name
     end
@@ -26,9 +27,9 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.seller_id == current_user.id
-        @product.update(create_params)
-        redirect_to root_path
-      end
+      @product.update(create_params)
+      redirect_to root_path
+    end
   end
 
   def buy
@@ -134,7 +135,7 @@ class ProductsController < ApplicationController
 
 
     def validates_product
-      @category_parent_array = ["---"]
+      @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
@@ -163,7 +164,7 @@ class ProductsController < ApplicationController
 
     def create_params2
       # images以外の値についてのストロングパラメータの設定
-      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :price).merge(seller_id: current_user.id)
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :states, :price).merge(seller_id: current_user.id)
       return item_params
     end
 
