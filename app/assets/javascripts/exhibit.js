@@ -116,7 +116,6 @@ $(function(){
         'display':'block',
         'width':'60%'
       })
-      
     }
     if(files_array.length == 1){
       $(".dropzone-area").css({
@@ -124,7 +123,113 @@ $(function(){
         'width':'80%'
       })
     }
-    
+  });
+  $('form').on('change',".senbei", function(e) {
+    e.preventDefault();
+    var file = e.target.files[0];
+        reader = new FileReader();
+        files_array.push(file);
+    reader.onload = (function(file) {
+      
+      return function(e) {
+        $('.preview').append(buildImage(e.target.result))
+      };  
+    })(file);
+    reader.readAsDataURL(file);
+    if(files_array.length == 10){
+      $(".dropzone-area2").css({
+        'display':'none'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 9){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'20%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 8){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'40%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 7){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'60%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 6){
+      $(".dropzone-area2").css({
+        'display':'block',
+        'width':'80%'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if (files_array.length == 5){
+      $(".dropzone-area2").css({
+        'display':'block'
+      })
+      $(".dropzone-area").css({
+        'display':'none'
+      })
+      $(".sell-form-container").css({
+        'height':'490px'
+      })
+    }
+    if(files_array.length == 4){
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'20%'
+      })
+    }
+    if(files_array.length == 3){
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'40%'
+      })
+    }
+    if(files_array.length == 2){
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'60%'
+      })
+    }
+    if(files_array.length == 1){
+      $(".dropzone-area").css({
+        'display':'block',
+        'width':'80%'
+      })
+    }
   });
   $('.dropzone-area').on('dragover',function(e){
     e.preventDefault();

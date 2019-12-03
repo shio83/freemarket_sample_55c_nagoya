@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:exhibit, :confirm]
-  before_action :validates_product, only: [:create]
+  before_action :validates_product, only: [:items]
 
   def exhibit
     @product = Product.new
@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find_by(id: params[:id])
+    
     @images =  @product.images
     
     @parent =  Category.where(ancestry: nil)
@@ -35,6 +36,8 @@ class ProductsController < ApplicationController
     @grand_child = Category.where(ancestry: @product.category.ancestry)
     @grand_child.each do |grand_child|
       @grandchild_name << grand_child.name
+
+
     end
   end
 
@@ -91,13 +94,13 @@ class ProductsController < ApplicationController
         #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
         @product.images.build
         product_image = @product.images.new(url: image)
-        # binding.pry
         product_image.save
       end
         #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-      respond_to do |format|
-        format.json
-      end
+    end
+    respond_to do |format|
+      format.json
+      format.html
     end
   end
 
@@ -167,10 +170,10 @@ class ProductsController < ApplicationController
         category_id: params[:product][:category_id],
         seller_id: current_user.id
       )
-     @product.images.build
-     
-      render '/products/exhibit' unless @product.valid?
+      @product.images.build
+      render '/products/exhibit' unless @product.valid?(:validates_product)
     end 
+    
     def products_params
       params.require(:category).permit(:url, :name, :description)
     end
