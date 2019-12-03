@@ -107,6 +107,21 @@
           font-weight: 800;
           border: none;
           cursor: pointer;
+          position: relative;
+          a {
+          display: block;
+          text-decoration: none;
+          position: absolute;
+          top: 40%;
+          text-align: center;
+          width: 320px;
+          background-color: #ea352d;
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: 800;
+          border: none;
+          cursor: pointer;
+          }
         }
       }
       &--userinfo{

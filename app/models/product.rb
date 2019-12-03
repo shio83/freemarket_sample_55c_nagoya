@@ -1,11 +1,12 @@
 class Product < ApplicationRecord
   
-  belongs_to :user
   belongs_to :category
   has_many   :likes
-  has_many   :images, inverse_of: :product
-  accepts_nested_attributes_for :images
+  has_many   :images, inverse_of: :product, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   has_many   :comments
+  belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
+  belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id', optional: true
 
   enum state: {
     "-": 0, 新品未使用: 1, 未使用に近い: 2,目立った傷や汚れなし: 3, やや傷や汚れあり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6
@@ -27,13 +28,13 @@ class Product < ApplicationRecord
     福岡県: 40,佐賀県: 41,長崎県: 42,熊本県: 43,大分県: 44,宮崎県: 45,鹿児島県: 46,沖縄県: 47
   }
 
-  validates      :name,            presence: true
-  validates      :description,     presence: true
-  validates      :size,            presence: true
-  validates      :brand,           presence: true
-  validates      :state,           presence: true
-  validates      :shipping_fee,    presence: true
-  validates      :shipping_region, presence: true
-  validates      :shipping_date,   presence: true
-  validates      :price,           presence: true 
+  validates      :name,            presence: true, on: :create
+  validates      :description,     presence: true, on: :create
+  validates      :size,            presence: true, on: :create
+  validates      :brand,           presence: true, on: :create
+  validates      :state,           presence: true, on: :create
+  validates      :shipping_fee,    presence: true, on: :create
+  validates      :shipping_region, presence: true, on: :create
+  validates      :shipping_date,   presence: true, on: :create
+  validates      :price,           presence: true, on: :create
 end

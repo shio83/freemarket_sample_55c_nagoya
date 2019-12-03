@@ -15,7 +15,35 @@ class ProductsController < ApplicationController
   def json
   end
 
+  def edit
+    @product = Product.find_by(id: params[:id])
+    @image =  @product.images
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+     @category_parent_array << parent.name
+    end
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.seller_id == current_user.id
+        @product.update(create_params)
+        redirect_to root_path
+      end
+  end
+
+  def buy
+    @product = Product.find(params[:id])
+    @product.update(buyer_id: current_user.id)
+    redirect_to root_path
+  end
+
+  def confirm
+    @product = Product.find_by(id: params[:id])
+  end
+
   def details
+    @product = Product.find_by(id: params[:id])
   end
  
   def create
@@ -26,22 +54,35 @@ class ProductsController < ApplicationController
   def listingcompleted
   end
 
-  def items
-    @product = Product.new
-    if @product.save
-  
-      image_params[:images].each do |image|
-        #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
-        @product.images.build
-        product_image = @product.images.new(url: image)
-        product_image.save
-      end
-        #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-      respond_to do |format|
-        format.json
-      end
+  def sell_detail
+    @product = Product.find(params[:id])
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.seller_id == current_user.id
+      @product.destroy
+      redirect_to root_path
     end
   end
+
+  # def items
+  #   @product = Product.new
+  #   # binding.pry
+  #   if @product.save
+  #     image_params[:images].each do |image|
+  #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
+  #       @product.images.build
+  #       product_image = @product.images.new(url: image)
+  #       # binding.pry
+  #       product_image.save
+  #     end
+  #       #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
+  #     respond_to do |format|
+  #       format.json
+  #     end
+  #   end
+  # end
 
   def new
    @category_parent_array = ["---"]
@@ -74,7 +115,6 @@ class ProductsController < ApplicationController
 
   private
     def create_params
-      
       params.require(:product).permit(
         :name, 
         :description,
@@ -86,9 +126,7 @@ class ProductsController < ApplicationController
         :shipping_date, 
         :price,
         :category_id,
-        images_attributes: {url: []}).merge(user_id: current_user.id)
-       
-        
+        images_attributes: [:url,:_destroy,:id]).merge(seller_id: current_user.id)
     end
 
 
@@ -108,21 +146,22 @@ class ProductsController < ApplicationController
         shipping_region: params[:product][:shipping_region],
         shipping_date: params[:product][:shipping_date], 
         price: params[:product][:price],
-        category_id: params[:product][:category_id]
+        category_id: params[:product][:category_id],
+        seller_id: current_user.id
       )
-      @product.images.build
-      # binding.pry
+     @product.images.build
+     
       render '/products/exhibit' unless @product.valid?
     end 
     # def products_params
     #   params.require(:category).permit(:url, :name, :description)
     # end
 
-    # # def create_params
-    # #   # images以外の値についてのストロングパラメータの設定
-    # #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
-    # #   return item_params
-    # # end
+    # def create_params
+    #   # images以外の値についてのストロングパラメータの設定
+    #   item_params = params.require(:product).permit(:name, :description,:category_id, :size, :brand_id, :condition, :select_shipping_fee, :shipping_method, :area, :shipping_date, :price)
+    #   return item_params
+    # end
 
     # def image_params
     #   #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。

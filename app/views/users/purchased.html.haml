@@ -9,8 +9,53 @@
     .rock
       .mypage
         .mypage__right
-          .mypage__right--foot
-            = render partial: 'users/mypage__right--foot'
+          #purchased
+            %section.bought-list
+              %h2.bought-list__top 購入した商品
+
+              %ul.bought-list__tab-heads
+                = link_to users_purchase_path do
+                  %li.bought-list__tab-heads--head{id: 'purchase_now'}
+                    取引中
+                = link_to users_purchased_path do
+                  %li.bought-list__tab-heads--head{id: 'purchase_was'}
+                    過去の取引
+
+                  
+              %ul.bought-list__contents
+                - if @product.present?
+                  %ul.tab-contents
+                    %li.tab-content.show
+                      - @product.each do |product|
+                        = link_to "/products/#{product.id}/sell_detail" do 
+                          .tab-content__list
+                            .tab-content__list--icon
+                              = image_tag product.images[0].url.url,size: "50x50"
+                            .tab-content__list--textfield
+                              .tab-content__list--textfield--text
+                                = product.name
+                              .tab-content__list--textfield--time
+                                .tab-content__list--ttextfield--time--icon
+                                  ❤️
+                                .tab-content__list--textfield--time--text
+                                  1
+                                .tab-content__list--ttextfield--time--icon
+                                  💭
+                                .tab-content__list--textfield--time--text
+                                  1
+                                .tab-content__list--textfield--time--text--status
+                                  出品中
+                            = fa_icon "chevron-right" , class: "allow"
+                - else
+                  -# %ul.bought-list__contents
+                  -#   %li.bought-list__contents--content
+                  -#     %ul.bought-list__contents--content--purchase--contents
+                  -#       %li.bought-list__contents--content--purchase--information
+                  -#         取引中の商品がありません
+                  %li.bought-list__contents--content.show
+                    %ul.bought-list__contents--content--purchased--contents
+                      %li.bought-list__contents--content--purchased--information
+                        過去に取引した商品がありません
         .mypage__left
           = render partial: 'users/side-bar'
     .bottom

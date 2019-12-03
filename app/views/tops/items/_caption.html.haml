@@ -1,3 +1,4 @@
 .caption
   %span
-    ＊新品＊男女兼用＊b one soul＊ダックデュード＊GORIRA
+    - @product.each do |product|
+      = product.name

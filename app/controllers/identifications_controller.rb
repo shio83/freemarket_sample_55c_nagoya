@@ -10,6 +10,6 @@ class IdentificationsController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:zipcode, :prefecture, :city , :address, :building).merge(user_id: current_user.id)
+    params.require(:profile).permit(:zipcode, :prefecture, :city , :address, :building).merge(seller_id: current_user.id)
   end
 end

@@ -1,71 +1,76 @@
 .content
-  .content__box1
-    = link_to products_details_path, class: "box1"  do
-      = image_tag "andousan.jpg",size: "188x252"
-    .content__box1--price
-      =render partial:"tops/items/price"
-    .content__box1--caption
-      =render partial:"tops/items/caption"
-  .content__box2
-    = link_to products_details_path, class: "box2"  do
-      = image_tag "gorira.jpg",size: "188x252"
-    .content__box2--price
-      =render partial:"tops/items/price"
-    .content__box2--caption
-      =render partial:"tops/items/caption"
-  .content__box3
-    = link_to products_details_path, class: "box3"  do
-      = image_tag "andousan.jpg",size: "188x252"
-    .content__box3--price
-      =render partial:"tops/items/price"
-    .content__box3--caption
-      =render partial:"tops/items/caption"
-  .content__box4
-    = link_to products_details_path, class: "box4"  do
-      = image_tag "gorira.jpg",size: "188x252"
-    .content__box4--price
-      =render partial:"tops/items/price"
-    .content__box4--caption
-      =render partial:"tops/items/caption"
-  .content__box5
-    = link_to products_details_path, class: "box5"  do
-      = image_tag "andousan.jpg",size: "188x252"
-    .content__box5--price
-      =render partial:"tops/items/price"
-    .content__box5--caption
-      =render partial:"tops/items/caption"
-  .content__box6
-    = link_to products_details_path, class: "box6"  do
-      = image_tag "gorira.jpg",size: "188x252"
-    .content__box6--price
-      =render partial:"tops/items/price"
-    .content__box6--caption
-      =render partial:"tops/items/caption"
-  .content__box7
-    = link_to products_details_path, class: "box7"  do
-      = image_tag "andousan.jpg",size: "188x252"
-    .content__box7--price
-      =render partial:"tops/items/price"
-    .content__box7--caption
-      =render partial:"tops/items/caption"
-  .content__box8
-    = link_to products_details_path, class: "box8"  do
-      = image_tag "gorira.jpg",size: "188x252"
-    .content__box8--price
-      =render partial:"tops/items/price"
-    .content__box8--caption
-      =render partial:"tops/items/caption"
-  .content__box9
-    = link_to products_details_path, class: "box9"  do
-      = image_tag "andousan.jpg",size: "188x252"
-    .content__box9--price
-      =render partial:"tops/items/price"
-    .content__box9--caption
-      =render partial:"tops/items/caption"
-  .content__box10
-    = link_to products_details_path, class: "box10"  do
-      = image_tag "gorira.jpg",size: "188x252"
-    .content__box10--price
-      =render partial:"tops/items/price"
-    .content__box10--caption
-      =render partial:"tops/items/caption"
+  - @product.each do |product|
+    .content__box2
+      -product.images.each do |only|
+        = link_to "products/#{product.id}/details", class: "box1"  do
+          = image_tag only.url.url ,size: "188x252"
+        .content__box1--price
+          .price
+            = product.price 
+        .content__box1--caption
+          .caption
+            %span
+              = product.name
+    -# .content__box2
+    -#   = link_to products_details_path, class: "box2"  do
+    -#     = image_tag "gorira.jpg",size: "188x252"
+    -#   .content__box2--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box2--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box3
+    -#   = link_to products_details_path, class: "box3"  do
+    -#     = image_tag "andousan.jpg",size: "188x252"
+    -#   .content__box3--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box3--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box4
+    -#   = link_to products_details_path, class: "box4"  do
+    -#     = image_tag "gorira.jpg",size: "188x252"
+    -#   .content__box4--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box4--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box5
+    -#   = link_to products_details_path, class: "box5"  do
+    -#     = image_tag "andousan.jpg",size: "188x252"
+    -#   .content__box5--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box5--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box6
+    -#   = link_to products_details_path, class: "box6"  do
+    -#     = image_tag "gorira.jpg",size: "188x252"
+    -#   .content__box6--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box6--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box7
+    -#   = link_to products_details_path, class: "box7"  do
+    -#     = image_tag "andousan.jpg",size: "188x252"
+    -#   .content__box7--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box7--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box8
+    -#   = link_to products_details_path, class: "box8"  do
+    -#     = image_tag "gorira.jpg",size: "188x252"
+    -#   .content__box8--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box8--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box9
+    -#   = link_to products_details_path, class: "box9"  do
+    -#     = image_tag "andousan.jpg",size: "188x252"
+    -#   .content__box9--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box9--caption
+    -#     =render partial:"tops/items/caption"
+    -# .content__box10
+    -#   = link_to products_details_path, class: "box10"  do
+    -#     = image_tag "gorira.jpg",size: "188x252"
+    -#   .content__box10--price
+    -#     =render partial:"tops/items/price"
+    -#   .content__box10--caption
+    -#     =render partial:"tops/items/caption"

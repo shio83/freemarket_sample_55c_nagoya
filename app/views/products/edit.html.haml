@@ -1,0 +1,195 @@
+%body
+  %div.products-information
+    %header
+      = render partial: 'users/us-body__header'
+    = form_for @product, url: "/products/#{@product.id}/update", method: :patch do |f|
+      %main.main
+        %section.center
+          %div.products-box
+            %h2.sell-form__header
+              商品情報を入力
+            .sell-form-container2
+              .sell-form-container
+                .sell-form-container__label
+                  出品画像
+                  .sell-form-container__require
+                    必須
+                .sell-form-container__maisuu
+                  最大10枚までアップロードできます。
+                = f.fields_for :images do |i|
+                  - if @product.images.length == 1
+                    %ul.preview
+                      .dropzone-container
+                      %div
+                        %label
+                          = i.file_field :url, class:"onigiri"
+                          .dropzone-area{style: "display: block; width: 80%"}
+                            .input_area
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      .dropzone-container2
+                        %label
+                          = i.file_field :url, class:"senbei"
+                          .dropzone-area2
+                            .input_area2
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      %li.imgexhibit__catfish>
+                        %figure.greenday
+                          %img{:src => "#{@product.images[0].url.url}"}
+                        .imgexhibit__akumonbuttom
+                          %a.imgexhibit__akumonbuttom--edit
+                            編集
+                          %a.imgexhibit__akumonbuttom--delete
+                            削除
+                  - if @product.images.length == 2
+                    %ul.preview
+                      .dropzone-container
+                      %div
+                        %label
+                          = i.file_field :url, class:"onigiri"
+                          .dropzone-area{style: "display: block; width: 60%"}
+                            .input_area
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      .dropzone-container2
+                        %label
+                          = i.file_field :url, class:"senbei"
+                          .dropzone-area2
+                            .input_area2
+                            %p
+                              ドラッグアンドドロップ
+                              %br
+                                またはクリックしてファイルをアップロード
+                      %li.imgexhibit__catfish>
+                        %figure.greenday
+                          %img{:src => "#{@product.images[0].url.url}"}/
+                        .imgexhibit__akumonbuttom
+                          %a.imgexhibit__akumonbuttom--edit
+                            編集
+                          %a.imgexhibit__akumonbuttom--delete
+                            削除
+            %div.products-name
+              %div.products-name-box
+                %label.products-name-box-head
+                  商品名
+                  %span.span
+                    必須
+                    %div.input-box
+                      = f.text_field :name, {placeholder:"商品名（必須40文字まで）", class: "in" }
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "name"}
+                  %div.products-name-box-explain
+                    %label.products-name-box-explain-header
+                      商品の説明
+                      %span.span
+                        必須
+                      %div.input-box
+                        = f.text_area :description, {placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "text"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "description"}
+              %div.products-to 
+                %h3.products-to-details
+                  商品の詳細
+
+                %div.products-to-box
+                  %div.products-to-box-form1
+                    = f.label 'カテゴリー', class: 'products-to-box-form1-category'
+                    %span.listing-default--require  必須 
+                  
+                  .selebobobo                    
+                    %div.selebobo
+                      = f.select :category_id,  @category_parent_array, {}, {class: 'selects', id: 'parent_category' }
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
+                  %div.products-to-box-form2
+                    %div.products-to-box-form2
+                      = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
+                      %span.listing-default--require  必須
+
+                  .selebobobobo
+                    %div.selebobo
+                      = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
+                      %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                  
+              %div.products-delivery
+                %h4.products-delivery-todo
+                  配送について
+                %a.form-question
+                  ?
+                %div.products-delivery-box
+                  %div.products-delivery-box-form3
+                    %label.products-delivery-box-form3-fee
+                      配送料の負担
+                      %span.listing-default--require  必須
+                    .selebobobobo
+                      %div.selebobo
+                        = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+
+                  %div.products-delivery-box-form4
+                    %label.products-delivery-box-form4-area
+                      発送元の地域
+                      %span.span
+                        必須
+                    .selobobobobo
+                      %div.selebobo
+                        = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+
+                  %div.products-delivery-box-form5
+                    %label.products-delivery-box-form5-day
+                      発送までの日数
+                      %span.span
+                        必須
+                    .selobobobobo
+                      %div.selebobo
+                        = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
+                        %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        
+              %div.sell-price
+                %h5.sell-exp
+                  販売価格
+                  %small
+                    (300~9,999,999)
+                = f.text_field :price, placeholder: "例) 300", class: "inform"
+                = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "price"}
+                %a.form-question
+                  ?
+                %div.clearfix
+                  %label.left
+                    価格
+                    %span.span
+                      必須
+                  %small.right  
+                    ¥
+                %div.hako
+                %small.sale
+                  販売手数料
+                  %sample
+                    (10%)
+                  %div.rig
+                    ー
+                %div.hako
+                %div.last
+                  販売利益
+                  %div.rig_2
+                    = f.number_field :price, style: "display: none", id: "price"
+                    ー
+              %div.warning
+                %p <a href="#">禁止されている出品</a>、<a href="#">行為</a>を必ずご確認ください。<br>
+                %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+                %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
+                %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
+                = f.submit  "編集する",class: "btn-red-red"
+                = render partial: 'products/listingcompleted'
+                =link_to "もどる" ,root_path, class: "btn-back"
+    %footer.fo
+      =render partial:'users/us-body__footer'
+              
+
+
+            

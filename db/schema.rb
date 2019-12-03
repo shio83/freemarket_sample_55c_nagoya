@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 20191122124352) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "url",        null: false
+    t.string   "url",        default: "0", null: false
     t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
@@ -66,12 +66,14 @@ ActiveRecord::Schema.define(version: 20191122124352) do
     t.string   "size",                                      null: false
     t.string   "price",                                     null: false
     t.string   "brand"
-    t.integer  "user_id"
+    t.integer  "buyer_id"
+    t.integer  "seller_id",                                 null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "category_id"
+    t.index ["buyer_id"], name: "index_products_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+    t.index ["seller_id"], name: "index_products_on_seller_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,15 +86,6 @@ ActiveRecord::Schema.define(version: 20191122124352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
-  end
-
-  create_table "seller_buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "buyer_id",   null: false
-    t.integer  "seller_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_seller_buyers_on_buyer_id", using: :btree
-    t.index ["seller_id"], name: "index_seller_buyers_on_seller_id", using: :btree
   end
 
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -159,9 +152,8 @@ ActiveRecord::Schema.define(version: 20191122124352) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "users"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
-  add_foreign_key "seller_buyers", "users", column: "buyer_id"
-  add_foreign_key "seller_buyers", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
 end

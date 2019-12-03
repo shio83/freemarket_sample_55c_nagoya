@@ -15,4 +15,10 @@ $(function(){
     centerMode: true,
     focusOnSelect: true
   });
+  $('.slider-nav').on('click',function(){
+    $(".slider-nav").css({
+      
+    })
+    
+  });
 });
