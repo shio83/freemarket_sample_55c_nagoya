@@ -82,12 +82,12 @@ class User < ApplicationRecord
   validates :first_name_kana,         presence: true, on: :validates_step1
   validates :last_name_kana,          presence: true, on: :validates_step1
   validates :phone_number,            presence: true, on: :validates_step2
-  validates :zipcode,                 presence: true, on: :validates_step3
+  validates :zipcode,                 presence: true, on: :validates_step3, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   validates :prefecture,              presence: true, on: :validates_step3
   validates :city,                    presence: true, on: :validates_step3
   validates :address,                 presence: true, on: :validates_step3
-  validates :authorization_token,     presence: true, on: :validates_step4
-  validates :security_code,           presence: true, on: :validates_step4
+  validates :authorization_token,     presence: true, on: :validates_step4, format: {with: /\A\d{14,16}\z/  }
+  validates :security_code,           presence: true, on: :validates_step4, format: {with: /\A\d{3,4}\z/ }
   validates :expiration_date_month,   presence: true, on: :validates_step4
   validates :expiration_date_year,    presence: true, on: :validates_step4
 end

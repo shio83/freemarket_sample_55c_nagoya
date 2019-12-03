@@ -80,6 +80,7 @@ gem 'activerecord-session_store'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'payjp'
 
 
 group :production do

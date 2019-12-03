@@ -65,3 +65,37 @@
     @include box-bottom;
     }
 }
+
+.content__box2 {
+  img{
+  object-fit: scale-down;
+  }
+  position: relative;
+  .sell-icon {
+    
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-top: 50px solid #ea352b;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 50px solid #ea352b;
+    cursor: pointer;
+  } 
+  .sell-box {
+    position: absolute;
+    top: 20px;
+    left: 10;
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 2px;
+    z-index: 100;
+    transform: rotate(-45deg);
+    cursor: pointer;
+  }
+}
+
+  

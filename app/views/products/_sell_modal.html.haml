@@ -1,0 +1,20 @@
+.modal23
+  .modal__bg2
+  .modal22
+    .modal22__listing2
+      .modal22__listing2--completed2
+        削除してもよろしいですか？
+    .modal22__continue2
+      .modal22__continue2--text2
+        YES   or   NO
+      .modal22__continue2--yesornobox
+        .modal22__continue2--yesornobox--yesicon
+          .modal22__continue2--yesornobox--yesicon--yesyes
+            = link_to "YES", "/products/#{@product.id}/destroy", method: :delete
+        .modal22__continue2--yesornobox--noicon
+          .modal22__continue2--yesornobox--noicon--nonono
+            NO
+      = link_to "topページに戻る", root_path,class:'modal22__continue2--toptoptop'
+
+      
+      

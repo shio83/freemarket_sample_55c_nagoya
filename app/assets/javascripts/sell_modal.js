@@ -1,0 +1,11 @@
+$(function(){
+  $('#destroy-btn').on('click',function(){
+    $('.modal23').fadeIn();
+  });
+  $('.modal__bg2').on('click',function(){
+    $('.modal23').fadeOut();
+});
+  $('.modal22__continue2--yesornobox--noicon').on('click',function(){
+    $('.modal23').fadeOut();
+  });
+});

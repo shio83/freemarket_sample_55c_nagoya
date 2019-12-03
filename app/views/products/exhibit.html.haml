@@ -2,7 +2,7 @@
   %div.products-information
     %header
       = render partial: 'users/us-body__header'
-    = form_for @product, url: create_path, method: :post do |f|
+    = form_for @product, url: items_path, method: :post do |f|
       %main.main
         %section.center
           %div.products-box
@@ -65,8 +65,9 @@
                   
                   .selebobobo                    
                     %div.selebobo
-                      = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category'}
+                      = f.select :category_id, @category_parent_array, {prompt: "---"}, {class: 'selects', id: 'parent_category'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "category_id"}
                     
                   %div.products-to-box-form2
                     %div.products-to-box-form2
@@ -75,8 +76,10 @@
 
                   .selebobobobo
                     %div.selebobo
-                      = f.select :state, Product.states.keys.to_a,{}, {class: 'select-box'}
+                      = f.select :state, Product.states.keys.to_a,{prompt: "---"}, {class: 'select-box'}
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                      = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "state"}
+
                   
               %div.products-delivery
                 %h4.products-delivery-todo
@@ -90,8 +93,9 @@
                       %span.listing-default--require  必須
                     .selebobobobo
                       %div.selebobo
-                        = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{}, {class: 'select-box'}
+                        = f.select :shipping_fee, Product.shipping_fees.keys.to_a,{prompt: "---"}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_fee"}
 
                   %div.products-delivery-box-form4
                     %label.products-delivery-box-form4-area
@@ -100,8 +104,9 @@
                         必須
                     .selobobobobo
                       %div.selebobo
-                        = f.select :shipping_region, Product.shipping_regions.keys.to_a,{}, {class: 'select-box'}
+                        = f.select :shipping_region, Product.shipping_regions.keys.to_a,{prompt: "---"}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_region"}
 
                   %div.products-delivery-box-form5
                     %label.products-delivery-box-form5-day
@@ -110,9 +115,10 @@
                         必須
                     .selobobobobo
                       %div.selebobo
-                        = f.select :shipping_date, Product.shipping_dates.keys.to_a,{}, {class: 'select-box'}
+                        = f.select :shipping_date, Product.shipping_dates.keys.to_a,{prompt: "---"}, {class: 'select-box'}
                         %i.fa.fa-chevron-down.kitui{"aria-hidden":"true"}
-                        
+                        = render partial: 'devise/shared/error_messages', locals: {user: @product, column: "shipping_date"}
+
               %div.sell-price
                 %h5.sell-exp
                   販売価格
