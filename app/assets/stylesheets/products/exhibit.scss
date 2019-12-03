@@ -512,6 +512,24 @@
             outline: 0;
           }
         }
+        .edit-red {
+          display: block;
+          margin: 40px 0 0 0;
+          width: 100%;
+          background-color: #ea352b;
+          border: 1px solid #ea352b;
+          color: white;
+          font-size: 14px;
+          line-height: 48px;
+          cursor: pointer;
+          outline: 0;
+          &:focus{
+            background-color: grey;
+            transition: all 1s ease-out;
+            border: none;
+            outline: 0;
+          }
+        }
         .btn-back {
           display: block;
           border: 1px solid #aaa;

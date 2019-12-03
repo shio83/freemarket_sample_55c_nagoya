@@ -17,10 +17,27 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find_by(id: params[:id])
-    @image =  @product.images
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-     @category_parent_array << parent.name
+    
+    @images =  @product.images
+    
+    @parent =  Category.where(ancestry: nil)
+    @parent_name = []
+    @parent.each do |parent|
+      @parent_name << parent.name
+    end
+
+    @child_name = []
+    @child = Category.where(ancestry: @product.category.parent.ancestry)
+    @child.each do |child|
+      @child_name << child.name
+    end
+
+    @grandchild_name = []
+    @grand_child = Category.where(ancestry: @product.category.ancestry)
+    @grand_child.each do |grand_child|
+      @grandchild_name << grand_child.name
+
+
     end
   end
 
@@ -77,13 +94,13 @@ class ProductsController < ApplicationController
         #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
         @product.images.build
         product_image = @product.images.new(url: image)
-        # binding.pry
         product_image.save
       end
         #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-      respond_to do |format|
-        format.json
-      end
+    end
+    respond_to do |format|
+      format.json
+      format.html
     end
   end
 
@@ -153,10 +170,10 @@ class ProductsController < ApplicationController
         category_id: params[:product][:category_id],
         seller_id: current_user.id
       )
-     @product.images.build
-     
-      render '/products/exhibit' unless @product.valid?
+      @product.images.build
+      render '/products/exhibit' unless @product.valid?(:validates_product)
     end 
+    
     def products_params
       params.require(:category).permit(:url, :name, :description)
     end
@@ -164,7 +181,7 @@ class ProductsController < ApplicationController
 
     def create_params2
       # images以外の値についてのストロングパラメータの設定
-      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :states, :price).merge(seller_id: current_user.id)
+      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :state, :price).merge(seller_id: current_user.id)
       return item_params
     end
 
