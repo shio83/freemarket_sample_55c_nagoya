@@ -70,13 +70,12 @@ Rails.application.routes.draw do
     collection do
       get 'registration'
       get 'detail_tel'
-      get 'sns'
       get 'detail_zip'
       get 'detail_payment'  #入力が全て完了
       get 'detail_done'  #登録完了後
     end
   end
-
+  
 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -22,9 +22,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:nickname] = @user.nickname
       session[:email] = @user.email
       session[:password] = @user.password
-      session[:provider] = provider.to_s
-      session[:uid] = request.env["omniauth.auth"].uid
-      redirect_to sns_signup_index_path
+      # session[:provider] = @user.provider
+      # session[:uid] = @user.uid
+      redirect_to registration_signup_index_path
   
     end
   end
