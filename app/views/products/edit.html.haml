@@ -17,7 +17,7 @@
                 .sell-form-container__maisuu
                   最大10枚までアップロードできます。
                 = f.fields_for :images do |i|
-                  - if @product.images.length == 1
+                  -if @images.length == 1
                     %ul.preview
                       .dropzone-container
                       %div
@@ -46,7 +46,7 @@
                             編集
                           %a.imgexhibit__akumonbuttom--delete
                             削除
-                  - if @product.images.length == 2
+                  -if @images.length == 2
                     %ul.preview
                       .dropzone-container
                       %div
@@ -69,7 +69,15 @@
                                 またはクリックしてファイルをアップロード
                       %li.imgexhibit__catfish>
                         %figure.greenday
-                          %img{:src => "#{@product.images[0].url.url}"}/
+                          %img{:src => "#{@product.images[0].url.url}"}
+                        .imgexhibit__akumonbuttom
+                          %a.imgexhibit__akumonbuttom--edit
+                            編集
+                          %a.imgexhibit__akumonbuttom--delete
+                            削除
+                      %li.imgexhibit__catfish>
+                        %figure.greenday
+                          %img{:src => "#{@product.images[1].url.url}"}
                         .imgexhibit__akumonbuttom
                           %a.imgexhibit__akumonbuttom--edit
                             編集
@@ -103,8 +111,15 @@
                   
                   .selebobobo                    
                     %div.selebobo
-                      = f.select :category_id,  @category_parent_array, {}, {class: 'selects', id: 'parent_category' }
+                      = f.select :category_id, @parent_name, {prompt: "---"}, {class: 'selects', id: 'parent_categor' }
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
+                    #children_wrapper.selebobo
+                      = f.select :category_id, @child_name , {prompt: "---"}, {class: "selects",id: "child_categor"}
+                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden" => "ture"}
+                    #grandchildren_wrapper.selebobo
+                      = f.select :category_id, @grandchild_name, {prompt: "---"}, {class: "selects", id: "grandchild_categor"} 
+                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden" => "ture"}
+
                   %div.products-to-box-form2
                     %div.products-to-box-form2
                       = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
@@ -189,7 +204,7 @@
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。
                 %p <a href="#">偽ブランドの販売</a>は犯罪であ<br>り処罰される可能性があります。<br>
                 %p また、出品をもちまして<a href="#">加盟店規約</a>に同意したことになります。
-                = f.submit  "編集する",class: "btn-red-red"
+                = f.submit  "編集する",class: "edit-red"
                 = render partial: 'products/listingcompleted'
                 =link_to "もどる" ,root_path, class: "btn-back"
     %footer.fo
