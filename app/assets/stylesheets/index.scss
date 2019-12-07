@@ -1,0 +1,195 @@
+@mixin newnewitems{
+  
+}
+
+.body__next--top--heading--category{
+  height: 171px;
+  padding: 56px 0 30px;
+  background-color: #FFFFFF;
+  &--popularity{
+    color:#333333;
+    font-size:28px;
+    margin: 0 0 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+  &--popularitycategory{
+    height: 40px;
+    display: flex;
+    position: relative;
+    &--ladyscategorycategory{
+      position: absolute;
+      left: 25%;
+      height: 30px;
+      width: 100.89px;
+      background: #EFEFEF;
+      border-radius: 15px;
+      text-align: center;
+      padding: 7px 0 0 0;
+      margin: 10px 0 0 10px;
+      position: absolute;
+      left: 28.7%;
+      a{
+        font-weight: 800;
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+    &--menscategorycategory{
+      height: 30px;
+      width: 74px;
+      background: #EFEFEF;
+      border-radius: 15px;
+      text-align: center;
+      padding: 7px 0 0 0;
+      margin: 10px 0 0 10px;
+      position: absolute;
+      left: 36.5%;
+      a{
+        font-weight: 800;
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+    &--kadensumahocategorycategory{
+      height: 30px;
+      width: 172px;
+      background: #EFEFEF;
+      border-radius: 15px;
+      text-align: center;
+      padding: 7px 0 0 0;
+      margin: 10px 0 0 10px;
+      position: absolute;
+      left: 42.5%;
+      a{
+        font-weight: 800;
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+    &--hobbycategorycategory{
+      height: 30px;
+      width: 198.19px;
+      background: #EFEFEF;
+      border-radius: 15px;
+      text-align: center;
+      padding: 7px 0 0 0;
+      margin: 10px 0 0 10px;
+      position: absolute;
+      left: 55.3%;
+      a{
+        font-weight: 800;
+        color: #333333;
+        text-decoration: none;
+      }
+    }
+  }
+}
+      .itemsitems{
+      width: 100%;
+      display: flexbox;
+      &__itemsitemsitems{
+        width: 1020px;
+        padding: 42px 0 55px;
+        margin: 0 auto;
+        &--ladysboxbox{
+          width: 100%;
+          &--hakohako{
+            height: 33px;
+            margin: 0 0 16px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+          &--ladysnewitemsitems{
+            color:#333333;
+            font-size:24px;
+            font-weight: 600;
+            padding: 9px 0 0 0;
+            display: inline-block;
+
+          }
+          &--mottomirumottomiru{
+            height: 24px;
+            width: 91px;
+            margin: 19px 0 0 0;
+            display: flexbox;
+            justify-content: space-between;
+            &--text{
+              color:#0095ee;
+              display: inline-block;
+            }
+            .chevron-rightright{
+              color:#0095ee;
+              display: inline-block;
+            }
+          }
+        }
+          }
+        }
+    }
+.body__next--top--heading--category--popularitycategory--chanelchanel{
+  position: absolute;
+  left: 25%;
+  height: 30px;
+  width: 88px;
+  background: #EFEFEF;
+  border-radius: 15px;
+  text-align: center;
+  padding: 8px 16px;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  left: 34%;
+  a{
+    font-weight: 800;
+    color: #333333;
+    text-decoration: none;
+  }
+}
+.body__next--top--heading--category--popularitycategory--luisviutton{
+  height: 30px;
+  width: 114.89px;
+  background: #EFEFEF;
+  border-radius: 15px;
+  text-align: center;
+  padding: 8px 16px;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  left: 41%;
+  a{
+    font-weight: 800;
+    color: #333333;
+    text-decoration: none;
+  }
+}
+.body__next--top--heading--category--popularitycategory--supreme{
+  height: 30px;
+  width: 114.75px;
+  background: #EFEFEF;
+  border-radius: 15px;
+  text-align: center;
+  padding: 8px 16px ;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  left: 49.8%;
+  a{
+    font-weight: 800;
+    color: #333333;
+    text-decoration: none;
+  }
+}
+.body__next--top--heading--category--popularitycategory--nikenikenike{
+  height: 30px;
+  width: 73.45px;
+  background: #EFEFEF;
+  border-radius: 15px;
+  text-align: center;
+  padding: 8px 16px ;
+  margin: 10px 0 0 10px;
+  position: absolute;
+  left: 58.7%;
+  a{
+    font-weight: 800;
+    color: #333333;
+    text-decoration: none;
+  }
+}

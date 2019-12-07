@@ -11,6 +11,6 @@ class TopsController < ApplicationController
       format.json
     end
   end
-
+  
  
 end
