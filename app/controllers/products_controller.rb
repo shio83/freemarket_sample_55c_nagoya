@@ -16,29 +16,34 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.where("%#{params[:image]}%" ,current_user)
     @product = Product.find_by(id: params[:id])
-    
+    @product_ids = @product
     @images =  @product.images
-    
-    @parent =  Category.where(ancestry: nil)
-    @parent_name = []
-    @parent.each do |parent|
-      @parent_name << parent.name
+
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+     @category_parent_array << parent.name
     end
+    # @parent =  Category.where(ancestry: nil)
+    # @parent_name = []
+    # @parent.each do |parent|
+    #   @parent_name << parent.name
+    # end
 
-    @child_name = []
-    @child = Category.where(ancestry: @product.category.parent.ancestry)
-    @child.each do |child|
-      @child_name << child.name
-    end
+    # @child_name = []
+    # @child = Category.where(ancestry: @product.category.parent.ancestry)
+    # @child.each do |child|
+    #   @child_name << child.name
+    # end
 
-    @grandchild_name = []
-    @grand_child = Category.where(ancestry: @product.category.ancestry)
-    @grand_child.each do |grand_child|
-      @grandchild_name << grand_child.name
+    # @grandchild_name = []
+    # @grand_child = Category.where(ancestry: @product.category.ancestry)
+    # @grand_child.each do |grand_child|
+    #   @grandchild_name << grand_child.name
 
 
-    end
+    # end
   end
 
   def update
@@ -181,7 +186,17 @@ class ProductsController < ApplicationController
 
     def create_params2
       # images以外の値についてのストロングパラメータの設定
-      item_params = params.require(:product).permit(:name, :description, :category_id, :size, :brand, :condition, :shipping_fee, :shipping_region, :shipping_date, :state, :price).merge(seller_id: current_user.id)
+      item_params = params.require(:product).permit(
+        :name, 
+        :description,
+        :size, 
+        :brand, 
+        :state, 
+        :shipping_fee, 
+        :shipping_region,
+        :shipping_date, 
+        :price,
+        :category_id).merge(seller_id: current_user.id)
       return item_params
     end
 

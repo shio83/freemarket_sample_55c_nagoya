@@ -9,8 +9,112 @@
         .body__next--top--heading--ave
           = render partial: 'ave'
         .body__next--top--heading--category
-          = render partial: 'tops/items/category'
-        .body__next--top--heading--items
-          = render partial: 'tops/items/items'
+          .body__next--top--heading--category--popularity
+            人気のカテゴリー
+          .body__next--top--heading--category--popularitycategory
+            .body__next--top--heading--category--popularitycategory--ladyscategorycategory
+              = link_to "レディース" ,"#ladys"
+            .body__next--top--heading--category--popularitycategory--menscategorycategory
+              = link_to "メンズ" ,"#mens"
+            .body__next--top--heading--category--popularitycategory--kadensumahocategorycategory
+              = link_to "家電・スマホ・カメラ" ,"#smartphone"
+            .body__next--top--heading--category--popularitycategory--hobbycategorycategory
+              = link_to "おもちゃ・ホビー・グッズ","#hobby"
+        .itemsitems
+          .itemsitems__itemsitemsitems
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #ladys.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  レディース新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #mens.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  メンズ新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #smartphone.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  家電・スマホ・カメラ新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #hobby.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  おもちゃ・ホビー・グッズ新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+          .body__next--top--heading--category
+            .body__next--top--heading--category--popularity
+              人気のブランド
+            .body__next--top--heading--category--popularitycategory
+              .body__next--top--heading--category--popularitycategory--chanelchanel
+                = link_to "シャネル","#chanel"
+              .body__next--top--heading--category--popularitycategory--luisviutton
+                = link_to "ルイヴィトン","#luivitton"
+              .body__next--top--heading--category--popularitycategory--supreme
+                = link_to "シュプリーム","#supreme"
+              .body__next--top--heading--category--popularitycategory--nikenikenike
+                = link_to "ナイキ","#nike"
+        .itemsitems
+          .itemsitems__itemsitemsitems
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #chanel.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  シャネル新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #luivitton.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  ルイヴィトン新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #supreme.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  シュプリーム新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
+            .itemsitems__itemsitemsitems--ladysboxbox
+              .itemsitems__itemsitemsitems--ladysboxbox--hakohako
+                #nike.itemsitems__itemsitemsitems--ladysboxbox--hakohako--ladysnewitemsitems
+                  ナイキ新着アイテム
+                .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru
+                  .itemsitems__itemsitemsitems--ladysboxbox--hakohako--mottomirumottomiru--text
+                    もっと見る
+                  = fa_icon "chevron-right" , class: "chevron-rightright"
+              .itemsitems__itemsitemsitems--ladysboxbox--items
+                = render partial: 'tops/items/content'
         .body__next--top--header--bottom
           = render partial: 'tops/bottoms/bottom'

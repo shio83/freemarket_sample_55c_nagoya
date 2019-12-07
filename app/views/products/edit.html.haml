@@ -111,15 +111,9 @@
                   
                   .selebobobo                    
                     %div.selebobo
-                      = f.select :category_id, @parent_name, {prompt: "---"}, {class: 'selects', id: 'parent_categor' }
+                      = f.select :category_id, @category_parent_array, {}, {class: 'selects', id: 'parent_category' }
                       %i.fa.fa-chevron-down.kitui{"aria-hidden":"ture"}
-                    #children_wrapper.selebobo
-                      = f.select :category_id, @child_name , {prompt: "---"}, {class: "selects",id: "child_categor"}
-                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden" => "ture"}
-                    #grandchildren_wrapper.selebobo
-                      = f.select :category_id, @grandchild_name, {prompt: "---"}, {class: "selects", id: "grandchild_categor"} 
-                      %i.fa.fa-chevron-right.fa-rotate-90.kitui{"aria-hidden" => "ture"}
-
+                   
                   %div.products-to-box-form2
                     %div.products-to-box-form2
                       = f.label '商品の状態', {class: 'products-to-box-form2-condition'}
