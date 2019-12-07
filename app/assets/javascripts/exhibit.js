@@ -90,7 +90,8 @@ $(function(){
     }
     if (files_array.length == 5){
       $(".dropzone-area2").css({
-        'display':'block'
+        'display':'block',
+        'width':'100%'
       })
       $(".dropzone-area").css({
         'display':'none'
@@ -197,7 +198,8 @@ $(function(){
     }
     if (files_array.length == 5){
       $(".dropzone-area2").css({
-        'display':'block'
+        'display':'block',
+        'width':'100%'
       })
       $(".dropzone-area").css({
         'display':'none'
@@ -308,7 +310,8 @@ $('.dropzone-area').on('drop',function(event){
   }
   if (files_array.length == 5){
     $(".dropzone-area2").css({
-      'display':'block'
+      'display':'block',
+      'width':'100%'
     })
     $(".dropzone-area").css({
       'display':'none'
@@ -422,7 +425,8 @@ if(files_array.length == 6){
 }
 if (files_array.length == 5){
   $(".dropzone-area2").css({
-    'display':'block'
+    'display':'block',
+    'width':'100%'
   })
   $(".dropzone-area").css({
     'display':'none'
@@ -461,6 +465,7 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
   var index = $(".imgexhibit__akumonbuttom--delete").index(this);
   $(".imgexhibit__catfish").eq(index).remove();
   files_array.splice(index - 1, 1);
+  console.log(files_array)
   if(files_array.length == 10){
     $(".dropzone-area2").css({
       'display':'none'
@@ -610,6 +615,29 @@ $(".btn-red-red").click('submit', function(e){
     contentType: false,
     processData: false,
     dataType:   'json'
+  })
+  .done(function(data){
+    
+    // alert('出品に成功しました！');
+  })
+  .fail(function(XMLHttpRequest, textStatus, errorThrown){
+    alert('出品に失敗しました！');
+  });
+});
+$(window).on('load', function() {
+
+  $.ajax({
+    url:         "/update",
+    type:        "post",
+    data:        { image: product_id},
+    contentType: false,
+    processData: false,
+    dataType:   'json',
+    success : function(data, dataType) {
+    //HTMLファイル内の該当箇所にレスポンスデータを追加します。
+    $('#preview').html(data);
+    },
+      
   })
   .done(function(data){
     

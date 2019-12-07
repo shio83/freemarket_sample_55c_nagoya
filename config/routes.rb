@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   
   # get 'users/index'
   # resources :product
-
   root 'tops#index'
   get  "tops/json" => "tops#json"
   
