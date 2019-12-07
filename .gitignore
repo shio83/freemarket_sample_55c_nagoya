@@ -18,3 +18,4 @@
 config/secrets.yml
 app/views/.DS_Store
 .env
+
