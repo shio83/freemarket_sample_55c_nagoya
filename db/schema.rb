@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191122124352) do
+ActiveRecord::Schema.define(version: 20191203124448) do
+
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -88,6 +93,15 @@ ActiveRecord::Schema.define(version: 20191122124352) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "seller_buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "buyer_id",   null: false
+    t.integer  "seller_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_seller_buyers_on_buyer_id", using: :btree
+    t.index ["seller_id"], name: "index_seller_buyers_on_seller_id", using: :btree
+  end
+
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "session_id",               null: false
     t.text     "data",       limit: 65535
@@ -155,5 +169,7 @@ ActiveRecord::Schema.define(version: 20191122124352) do
   add_foreign_key "products", "users", column: "buyer_id"
   add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
+  add_foreign_key "seller_buyers", "users", column: "buyer_id"
+  add_foreign_key "seller_buyers", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
 end

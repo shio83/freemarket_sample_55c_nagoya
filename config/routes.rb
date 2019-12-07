@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   # get 'users/index'
   # resources :product
+
   root 'tops#index'
   get  "tops/json" => "tops#json"
   
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
   # 本人情報の登録
   get  'identifications/index' => "identifications#index"
   post 'identifications/create' => "identifications#create"
+  post 'products/:id/pay' => 'products#pay', as: 'pay'
   
   # resources :products do
   #   collection do
