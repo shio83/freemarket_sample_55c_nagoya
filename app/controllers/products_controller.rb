@@ -16,9 +16,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.where("%#{params[:image]}%" ,current_user)
     @product = Product.find_by(id: params[:id])
-    @product_ids = @product
+    # @product_ids = @product
     @images =  @product.images
 
     @category_parent_array = ["---"]
@@ -92,22 +91,22 @@ class ProductsController < ApplicationController
   end
 
 
-  def items
-    @product = Product.new(create_params2)
-    if @product.save
-      params[:image][:images].each do |image|
-        #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
-        @product.images.build
-        product_image = @product.images.new(url: image)
-        product_image.save
-      end
-        #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-    end
-    respond_to do |format|
-      format.json
-      format.html
-    end
-  end
+  # def items
+  #   @product = Product.new(create_params2)
+  #   if @product.save
+  #     params[:image][:images].each do |image|
+  #       #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。
+  #       @product.images.build
+  #       product_image = @product.images.new(url: image)
+  #       product_image.save
+  #     end
+  #       #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
+  #   end
+  #   respond_to do |format|
+  #     format.json
+  #     format.html
+  #   end
+  # end
 
 
   def new

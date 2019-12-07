@@ -574,78 +574,78 @@ $(document).on('click','a.imgexhibit__akumonbuttom--delete', function(){
     })
   }
 });
-$(".btn-red-red").click('submit', function(e){
-  e.preventDefault();
-  // そのほかのform情報を以下の記述でformDataに追加
-  var formData = new FormData($(this).get(10));
+// $(".btn-red-red").click('submit', function(e){
+//   e.preventDefault();
+//   // そのほかのform情報を以下の記述でformDataに追加
+//   var formData = new FormData($(this).get(10));
 
-      // formData = $("product[name]").val();
-  // console.log(this)
-  // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
-  files_array.forEach(function(file){
-   formData.append("image[images][]" , file);
-   formData.append("product[name]" , $('input#product_name[name="product[name]"]').val());
-   formData.append("product[description]" , $('textarea[name="product[description]"]').val());
-   formData.append("product[category_id]" , $('select#grandchild_category[name="product[category_id]"]').val());
-   formData.append("product[size]" , $('select#product_size.selects[name="product[size]"]').val());
-   formData.append("product[brand]" , $('input#product_brand[name="product[brand]"]').val());
-   formData.append("product[state]" , $('select#product_state.select-box[name="product[state]"]').val());
-   formData.append("product[shipping_fee]" , $('select#product_shipping_fee[name="product[shipping_fee]"]').val());
-   formData.append("product[shipping_region]" , $('select#product_shipping_region[name="product[shipping_region]"]').val());
-   formData.append("product[shipping_date]" , $('select#product_shipping_date[name="product[shipping_date]"]').val());
-   formData.append("product[price]" , $('input#product_price[name="product[price]"]').val());
+//       // formData = $("product[name]").val();
+//   // console.log(this)
+//   // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+//   files_array.forEach(function(file){
+//    formData.append("image[images][]" , file);
+//    formData.append("product[name]" , $('input#product_name[name="product[name]"]').val());
+//    formData.append("product[description]" , $('textarea[name="product[description]"]').val());
+//    formData.append("product[category_id]" , $('select#grandchild_category[name="product[category_id]"]').val());
+//    formData.append("product[size]" , $('select#product_size.selects[name="product[size]"]').val());
+//    formData.append("product[brand]" , $('input#product_brand[name="product[brand]"]').val());
+//    formData.append("product[state]" , $('select#product_state.select-box[name="product[state]"]').val());
+//    formData.append("product[shipping_fee]" , $('select#product_shipping_fee[name="product[shipping_fee]"]').val());
+//    formData.append("product[shipping_region]" , $('select#product_shipping_region[name="product[shipping_region]"]').val());
+//    formData.append("product[shipping_date]" , $('select#product_shipping_date[name="product[shipping_date]"]').val());
+//    formData.append("product[price]" , $('input#product_price[name="product[price]"]').val());
    
-  console.log(formData.get("product[name]"));
-  console.log(formData.get("product[description]"));
-  console.log(formData.get("product[category_id]"));
-  console.log(formData.get("product[size]"));
-  console.log(formData.get("product[brand]"));
-  console.log(formData.get("product[state]"));
-  console.log(formData.get("product[shipping_fee]"));
-  console.log(formData.get("product[shipping_region]"));
-  console.log(formData.get("product[shipping_date]"));
-  console.log(formData.get("product[price]"));
+//   console.log(formData.get("product[name]"));
+//   console.log(formData.get("product[description]"));
+//   console.log(formData.get("product[category_id]"));
+//   console.log(formData.get("product[size]"));
+//   console.log(formData.get("product[brand]"));
+//   console.log(formData.get("product[state]"));
+//   console.log(formData.get("product[shipping_fee]"));
+//   console.log(formData.get("product[shipping_region]"));
+//   console.log(formData.get("product[shipping_date]"));
+//   console.log(formData.get("product[price]"));
   
 
-  });
-  $.ajax({
-    url:         '/items',
-    type:        "POST",
-    data:        formData,
-    contentType: false,
-    processData: false,
-    dataType:   'json'
-  })
-  .done(function(data){
+//   });
+//   $.ajax({
+//     url:         '/items',
+//     type:        "POST",
+//     data:        formData,
+//     contentType: false,
+//     processData: false,
+//     dataType:   'json'
+//   })
+//   .done(function(data){
     
-    // alert('出品に成功しました！');
-  })
-  .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    alert('出品に失敗しました！');
-  });
-});
-$(window).on('load', function() {
+//     // alert('出品に成功しました！');
+//   })
+//   .fail(function(XMLHttpRequest, textStatus, errorThrown){
+//     alert('出品に失敗しました！');
+//   });
+// });
+// $(window).on('load', function() {
 
-  $.ajax({
-    url:         "/update",
-    type:        "post",
-    data:        { image: product_id},
-    contentType: false,
-    processData: false,
-    dataType:   'json',
-    success : function(data, dataType) {
-    //HTMLファイル内の該当箇所にレスポンスデータを追加します。
-    $('#preview').html(data);
-    },
+//   $.ajax({
+//     url:         "/update",
+//     type:        "post",
+//     data:        {product_id, image},
+//     contentType: false,
+//     processData: false,
+//     dataType:   'json',
+//     success : function(data, dataType) {
+//     //HTMLファイル内の該当箇所にレスポンスデータを追加します。
+//     $('#preview').html(data);
+//     },
       
-  })
-  .done(function(data){
+//   })
+//   .done(function(data){
     
-    // alert('出品に成功しました！');
-  })
-  .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    alert('出品に失敗しました！');
-  });
+//     // alert('出品に成功しました！');
+//   })
+//   .fail(function(XMLHttpRequest, textStatus, errorThrown){
+//     alert('出品に失敗しました！');
+//   });
+// });
+// });
 });
-});
-
