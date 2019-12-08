@@ -18,29 +18,14 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find_by(id: params[:id])
 
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+     @category_parent_array << parent.name
+    end
     # @product_ids = @product
 
     @images =  @product.images
     
-    @parent =  Category.where(ancestry: nil)
-    @parent_name = []
-    @parent.each do |parent|
-      @parent_name << parent.name
-    end
-
-    @child_name = []
-    @child = Category.where(ancestry: @product.category.parent.ancestry)
-    @child.each do |child|
-      @child_name << child.name
-    end
-
-    @grandchild_name = []
-    @grand_child = Category.where(ancestry: @product.category.ancestry)
-    @grand_child.each do |grand_child|
-      @grandchild_name << grand_child.name
-
-
-    end
   end
 
   def update
